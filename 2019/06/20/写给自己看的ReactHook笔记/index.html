@@ -7,19 +7,19 @@
 
 
 
-    <meta name="description" content="参考文档地址  使用Effect Hook使用Effect Hook的一个主要目的是解决class中同一生命周期经常包含不相关的逻辑，但又把相关的逻辑分离到了几个不同方法中的问题。 什么是Effect HookuseEffect 相当于componentDidMount，componentDidUpdate，componentWillUnmount 这三个函数的组合 12345678910111">
+    <meta name="description" content="参考文档地址  使用Effect Hook使用Effect Hook的一个主要目的是解决class中同一生命周期经常包含不相关的逻辑，但又把相关的逻辑分离到了几个不同方法中的问题。">
 <meta name="keywords" content="React">
 <meta property="og:type" content="article">
 <meta property="og:title" content="写给自己看的ReactHook笔记">
 <meta property="og:url" content="https://shishuang.ga/2019/06/20/写给自己看的ReactHook笔记/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="参考文档地址  使用Effect Hook使用Effect Hook的一个主要目的是解决class中同一生命周期经常包含不相关的逻辑，但又把相关的逻辑分离到了几个不同方法中的问题。 什么是Effect HookuseEffect 相当于componentDidMount，componentDidUpdate，componentWillUnmount 这三个函数的组合 12345678910111">
+<meta property="og:description" content="参考文档地址  使用Effect Hook使用Effect Hook的一个主要目的是解决class中同一生命周期经常包含不相关的逻辑，但又把相关的逻辑分离到了几个不同方法中的问题。">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://shishuang.ga/images/og_image.png">
-<meta property="og:updated_time" content="2019-06-20T02:21:42.748Z">
+<meta property="og:updated_time" content="2019-06-21T08:43:26.105Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="写给自己看的ReactHook笔记">
-<meta name="twitter:description" content="参考文档地址  使用Effect Hook使用Effect Hook的一个主要目的是解决class中同一生命周期经常包含不相关的逻辑，但又把相关的逻辑分离到了几个不同方法中的问题。 什么是Effect HookuseEffect 相当于componentDidMount，componentDidUpdate，componentWillUnmount 这三个函数的组合 12345678910111">
+<meta name="twitter:description" content="参考文档地址  使用Effect Hook使用Effect Hook的一个主要目的是解决class中同一生命周期经常包含不相关的逻辑，但又把相关的逻辑分离到了几个不同方法中的问题。">
 <meta name="twitter:image" content="https://shishuang.ga/images/og_image.png">
 
 
@@ -151,7 +151,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    7 minutes read (About 1000 words)
+                    7 minutes read (About 1001 words)
                 </span>
                 
                 
@@ -168,6 +168,7 @@
 <p><a href="https://react.docschina.org/docs/hooks-effect.html" target="_blank" rel="noopener">参考文档地址</a></p>
 </blockquote>
 <h2 id="使用Effect-Hook"><a href="#使用Effect-Hook" class="headerlink" title="使用Effect Hook"></a>使用Effect Hook</h2><p>使用Effect Hook的一个主要目的是解决class中同一生命周期经常包含不相关的逻辑，但又把相关的逻辑分离到了几个不同方法中的问题。</p>
+<a id="more"></a>
 <h3 id="什么是Effect-Hook"><a href="#什么是Effect-Hook" class="headerlink" title="什么是Effect Hook"></a>什么是Effect Hook</h3><p>useEffect 相当于componentDidMount，componentDidUpdate，componentWillUnmount 这三个函数的组合</p>
 <figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">import React, &#123; useState, useEffect &#125; from &apos;react&apos;;</span><br><span class="line"></span><br><span class="line">function Example() &#123;</span><br><span class="line">  const [count, setCount] = useState(0);</span><br><span class="line"></span><br><span class="line">  useEffect(() =&gt; &#123;</span><br><span class="line">  	// 订阅</span><br><span class="line">    document.title = `You clicked $&#123;count&#125; times`;</span><br><span class="line">    </span><br><span class="line">    // 清除（可选）</span><br><span class="line">    return () =&gt; &#123;</span><br><span class="line">    	// do something cleanup</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;);</span><br><span class="line"></span><br><span class="line">  return (</span><br><span class="line">    &lt;div&gt;</span><br><span class="line">      &lt;p&gt;You clicked &#123;count&#125; times&lt;/p&gt;</span><br><span class="line">      &lt;button onClick=&#123;() =&gt; setCount(count + 1)&#125;&gt;</span><br><span class="line">        Click me</span><br><span class="line">      &lt;/button&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">  );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>在以前class写法中，如果我们需要在组件加载和更新时都调用同样的方法，就需要在componentDidMount和componentDidUpdate写重复的代码。</p>

@@ -7,19 +7,19 @@
 
 
 
-    <meta name="description" content="本文是根据react-native-pushy文档，使用后的一些笔记整理。 手机系统：Android  环境配置环境配置  环境：React Native 版本0.58，react-native-update 版本5.1.8  安装123npm i -g react-native-update-clinpm i react-native-updatereact-native link react">
+    <meta name="description" content="本文是根据react-native-pushy文档，使用后的一些笔记整理。 手机系统：Android  环境配置环境配置  环境：React Native 版本0.58，react-native-update 版本5.1.8">
 <meta name="keywords" content="ReactNative">
 <meta property="og:type" content="article">
 <meta property="og:title" content="写给自己看的react-native-pushy使用笔记">
 <meta property="og:url" content="https://shishuang.ga/2019/06/21/写给自己看的react-native-pushy使用笔记/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="本文是根据react-native-pushy文档，使用后的一些笔记整理。 手机系统：Android  环境配置环境配置  环境：React Native 版本0.58，react-native-update 版本5.1.8  安装123npm i -g react-native-update-clinpm i react-native-updatereact-native link react">
+<meta property="og:description" content="本文是根据react-native-pushy文档，使用后的一些笔记整理。 手机系统：Android  环境配置环境配置  环境：React Native 版本0.58，react-native-update 版本5.1.8">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://shishuang.ga/images/og_image.png">
-<meta property="og:updated_time" content="2019-06-21T08:38:32.350Z">
+<meta property="og:updated_time" content="2019-06-21T08:44:01.693Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="写给自己看的react-native-pushy使用笔记">
-<meta name="twitter:description" content="本文是根据react-native-pushy文档，使用后的一些笔记整理。 手机系统：Android  环境配置环境配置  环境：React Native 版本0.58，react-native-update 版本5.1.8  安装123npm i -g react-native-update-clinpm i react-native-updatereact-native link react">
+<meta name="twitter:description" content="本文是根据react-native-pushy文档，使用后的一些笔记整理。 手机系统：Android  环境配置环境配置  环境：React Native 版本0.58，react-native-update 版本5.1.8">
 <meta name="twitter:image" content="https://shishuang.ga/images/og_image.png">
 
 
@@ -151,7 +151,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    8 minutes read (About 1197 words)
+                    8 minutes read (About 1198 words)
                 </span>
                 
                 
@@ -172,6 +172,7 @@
 <blockquote>
 <p>环境：React Native 版本0.58，react-native-update 版本5.1.8</p>
 </blockquote>
+<a id="more"></a>
 <h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">npm i -g react-native-update-cli</span><br><span class="line">npm i react-native-update</span><br><span class="line">react-native link react-native-update</span><br></pre></td></tr></table></figure>
 <p>然后在目录<code>android\app\src\main\java\app\ytd\dg\MainApplication.java</code>中，添加代码：<br><figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">// ... 其它代码</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">// 添加这个import</span></span><br><span class="line"><span class="hljs-keyword">import</span> cn.reactnative.modules.update.UpdateContext;</span><br><span class="line"></span><br><span class="line">public <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MainApplication</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Application</span> <span class="hljs-title">implements</span> <span class="hljs-title">ReactApplication</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">  private final ReactNativeHost mReactNativeHost = <span class="hljs-keyword">new</span> ReactNativeHost(<span class="hljs-keyword">this</span>) &#123;</span><br><span class="line">  	<span class="hljs-comment">// 添加下面这段</span></span><br><span class="line">    @Override</span><br><span class="line">    protected <span class="hljs-built_in">String</span> getJSBundleFile() &#123;</span><br><span class="line">        <span class="hljs-keyword">return</span> UpdateContext.getBundleUrl(MainApplication.this);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="hljs-comment">// ... 其它代码</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><p>在<a href="https://update.reactnative.cn/home" target="_blank" rel="noopener">reactnative</a>创建一个账号。<br>然后在项目根目录，执行：<br><figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">pushy login</span><br><span class="line">email: &lt;输入你的注册邮箱&gt;</span><br><span class="line">password: &lt;输入你的密码&gt;</span><br></pre></td></tr></table></figure></p>
