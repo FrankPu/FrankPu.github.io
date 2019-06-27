@@ -16,7 +16,7 @@
 <meta property="og:description" content="参考文档地址  使用Effect Hook使用Effect Hook的一个主要目的是解决class中同一生命周期经常包含不相关的逻辑，但又把相关的逻辑分离到了几个不同方法中的问题。">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://shishuang.ga/images/og_image.png">
-<meta property="og:updated_time" content="2019-06-21T08:43:26.105Z">
+<meta property="og:updated_time" content="2019-06-27T09:10:05.163Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="写给自己看的ReactHook笔记">
 <meta name="twitter:description" content="参考文档地址  使用Effect Hook使用Effect Hook的一个主要目的是解决class中同一生命周期经常包含不相关的逻辑，但又把相关的逻辑分离到了几个不同方法中的问题。">
@@ -151,7 +151,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    7 minutes read (About 1001 words)
+                    9 minutes read (About 1412 words)
                 </span>
                 
                 
@@ -191,6 +191,28 @@
 <figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">useEffect(() =&gt; &#123;</span><br><span class="line">  document.title = `You clicked $&#123;count&#125; times`;</span><br><span class="line">&#125;, [count]); // 仅在 count 更改时更新</span><br></pre></td></tr></table></figure>
 <p>对于清除effect同样适用：</p>
 <figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">useEffect(() =&gt; &#123;</span><br><span class="line">  function handleStatusChange(status) &#123;</span><br><span class="line">    setIsOnline(status.isOnline);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  ChatAPI.subscribeToFriendStatus(props.friend.id, handleStatusChange);</span><br><span class="line">  return () =&gt; &#123;</span><br><span class="line">    ChatAPI.unsubscribeFromFriendStatus(props.friend.id, handleStatusChange);</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;, [props.friend.id]); // 仅在 props.friend.id 发生变化时，重新订阅</span><br></pre></td></tr></table></figure>
+<h2 id="Hook规则"><a href="#Hook规则" class="headerlink" title="Hook规则"></a>Hook规则</h2><h3 id="只在最顶层使用Hook"><a href="#只在最顶层使用Hook" class="headerlink" title="只在最顶层使用Hook"></a>只在最顶层使用Hook</h3><ol>
+<li><p><strong>不要</strong>在<strong>循环</strong>，<strong>条件</strong>，<strong>嵌套函数</strong>中调用Hook</p>
+<ol>
+<li><p>如果想要有条件的执行一个effect，可以在Hook内部判断</p>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">useEffect(function persistForm() &#123;</span><br><span class="line">  // 👍 将条件判断放置在 effect 中</span><br><span class="line">  if (name !== &apos;&apos;) &#123;</span><br><span class="line">    localStorage.setItem(&apos;formData&apos;, name);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+</li>
+<li><p>确保总在React函数<strong>最顶层</strong>调用Hook</p>
+</li>
+<li><p>确保Hook<strong>按照顺序</strong>执行</p>
+</li>
+<li><p><strong>不要</strong>在<strong>普通JavaScript函数</strong>中调用Hook</p>
+</li>
+</ol>
+<h3 id="ESLint插件"><a href="#ESLint插件" class="headerlink" title="ESLint插件"></a>ESLint插件</h3><p><code>eslint-plugin-react-hooks</code>插件可以强制Hook只在React函数中而非Js函数中调用（之后可能并入create react app）</p>
+<p><code>npm install eslint-plugin-react-hooks --save-dev</code></p>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">// 你的 ESLint 配置</span><br><span class="line">&#123;</span><br><span class="line">  &quot;plugins&quot;: [</span><br><span class="line">    // ...</span><br><span class="line">    &quot;react-hooks&quot;</span><br><span class="line">  ],</span><br><span class="line">  &quot;rules&quot;: &#123;</span><br><span class="line">    // ...</span><br><span class="line">    &quot;react-hooks/rules-of-hooks&quot;: &quot;error&quot;, // 检查 Hook 的规则</span><br><span class="line">    &quot;react-hooks/exhaustive-deps&quot;: &quot;warn&quot; // 检查 effect 的依赖</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="按顺序执行的Hook"><a href="#按顺序执行的Hook" class="headerlink" title="按顺序执行的Hook"></a>按顺序执行的Hook</h3><p>在单个组件中可以使用多个 State Hook 或 Effect Hook，因为Hook<strong>必须按顺序执行</strong>，所以React才能知道<code>state</code>与哪一个<code>useState</code>对应。</p>
+<figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Form</span>(<span class="hljs-params"></span>) </span>&#123;</span><br><span class="line">  <span class="hljs-comment">// 1. Use the name state variable</span></span><br><span class="line">  <span class="hljs-keyword">const</span> [name, setName] = useState(<span class="hljs-string">'Mary'</span>);</span><br><span class="line"></span><br><span class="line">  <span class="hljs-comment">// 2. Use an effect for persisting the form</span></span><br><span class="line">  useEffect(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">persistForm</span>(<span class="hljs-params"></span>) </span>&#123;</span><br><span class="line">    localStorage.setItem(<span class="hljs-string">'formData'</span>, name);</span><br><span class="line">  &#125;);</span><br><span class="line"></span><br><span class="line">  <span class="hljs-comment">// 3. Use the surname state variable</span></span><br><span class="line">  <span class="hljs-keyword">const</span> [surname, setSurname] = useState(<span class="hljs-string">'Poppins'</span>);</span><br><span class="line"></span><br><span class="line">  <span class="hljs-comment">// 4. Use an effect for updating the title</span></span><br><span class="line">  useEffect(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">updateTitle</span>(<span class="hljs-params"></span>) </span>&#123;</span><br><span class="line">    <span class="hljs-built_in">document</span>.title = name + <span class="hljs-string">' '</span> + surname;</span><br><span class="line">  &#125;);</span><br><span class="line"></span><br><span class="line">  <span class="hljs-comment">// ...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>上述代码的工作如下：</p>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">// ------------</span><br><span class="line">// 首次渲染</span><br><span class="line">// ------------</span><br><span class="line">useState(&apos;Mary&apos;)           // 1. 使用 &apos;Mary&apos; 初始化变量名为 name 的 state</span><br><span class="line">useEffect(persistForm)     // 2. 添加 effect 以保存 form 操作</span><br><span class="line">useState(&apos;Poppins&apos;)        // 3. 使用 &apos;Poppins&apos; 初始化变量名为 surname 的 state</span><br><span class="line">useEffect(updateTitle)     // 4. 添加 effect 以更新标题</span><br><span class="line"></span><br><span class="line">// -------------</span><br><span class="line">// 二次渲染</span><br><span class="line">// -------------</span><br><span class="line">useState(&apos;Mary&apos;)           // 1. 读取变量名为 name 的 state（参数被忽略）</span><br><span class="line">useEffect(persistForm)     // 2. 替换保存 form 的 effect</span><br><span class="line">useState(&apos;Poppins&apos;)        // 3. 读取变量名为 surname 的 state（参数被忽略）</span><br><span class="line">useEffect(updateTitle)     // 4. 替换更新标题的 effect</span><br><span class="line"></span><br><span class="line">// ...</span><br></pre></td></tr></table></figure>
 
         </div>
         
@@ -212,7 +234,7 @@
 
 <div class="card">
     <div class="card-content">
-        <h3 class="menu-label has-text-centered">Suka dengan artikel ini? Bantu penulis dengan donasi melalui</h3>
+        <h3 class="menu-label has-text-centered">Like this article? Support the author with</h3>
         <div class="buttons is-centered">
             
                 
@@ -866,7 +888,7 @@ document.addEventListener('DOMContentLoaded', function () {
     
     
 
-<a id="back-to-top" title="Kembali ke atas" href="javascript:;">
+<a id="back-to-top" title="Back to Top" href="javascript:;">
     <i class="fas fa-chevron-up"></i>
 </a>
 <script src="/js/back-to-top.js" defer></script>
