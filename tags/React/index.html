@@ -205,7 +205,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    9 minutes read (About 1412 words)
+                    15 minutes read (About 2217 words)
                 </span>
                 
                 
@@ -219,9 +219,13 @@
         </h1>
         <div class="content">
             <blockquote>
+<p><em>Hook</em> 是 React 16.8 的新增特性。它可以让你在不编写 class 的情况下使用 state 以及其他的 React 特性。</p>
 <p><a href="https://react.docschina.org/docs/hooks-effect.html" target="_blank" rel="noopener">参考文档地址</a></p>
 </blockquote>
-<h2 id="使用Effect-Hook"><a href="#使用Effect-Hook" class="headerlink" title="使用Effect Hook"></a>使用Effect Hook</h2><p>使用Effect Hook的一个主要目的是解决class中同一生命周期经常包含不相关的逻辑，但又把相关的逻辑分离到了几个不同方法中的问题。</p>
+<h2 id="Hook简介"><a href="#Hook简介" class="headerlink" title="Hook简介"></a>Hook简介</h2><h3 id="什么是Hook"><a href="#什么是Hook" class="headerlink" title="什么是Hook"></a>什么是Hook</h3><p>Hook 是一个特殊的函数，它可以让你“钩入” React 的特性。</p>
+<h3 id="什么时候我会用Hook"><a href="#什么时候我会用Hook" class="headerlink" title="什么时候我会用Hook"></a>什么时候我会用Hook</h3><p>如果你在编写函数组件并意识到需要向其添加一些 state，以前的做法是必须将其它转化为 class。现在你可以在现有的函数组件中使用 Hook。</p>
+<h3 id="为什么以use开头"><a href="#为什么以use开头" class="headerlink" title="为什么以use开头"></a>为什么以use开头</h3><p>你可能想知道：为什么叫 <code>useState</code> 而不叫 <code>createState</code>?</p>
+<p>“Create” 可能不是很准确，因为 state 只在组件首次渲染的时候被创建。<strong>在下一次重新渲染时，<code>useState</code> 返回给我们当前的 state。</strong>否则它就不是 “state”了！这也是 Hook 的名字<em>总是</em>以 <code>use</code> 开头的一个原因。</p>
         </div>
         
         

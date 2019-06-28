@@ -7,19 +7,19 @@
 
 
 
-    <meta name="description" content="参考文档地址  使用Effect Hook使用Effect Hook的一个主要目的是解决class中同一生命周期经常包含不相关的逻辑，但又把相关的逻辑分离到了几个不同方法中的问题。">
+    <meta name="description" content="Hook 是 React 16.8 的新增特性。它可以让你在不编写 class 的情况下使用 state 以及其他的 React 特性。 参考文档地址  Hook简介什么是HookHook 是一个特殊的函数，它可以让你“钩入” React 的特性。 什么时候我会用Hook如果你在编写函数组件并意识到需要向其添加一些 state，以前的做法是必须将其它转化为 class。现在你可以在现有的函数组件">
 <meta name="keywords" content="React">
 <meta property="og:type" content="article">
 <meta property="og:title" content="写给自己看的ReactHook笔记">
 <meta property="og:url" content="https://shishuang.ga/2019/06/20/写给自己看的ReactHook笔记/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="参考文档地址  使用Effect Hook使用Effect Hook的一个主要目的是解决class中同一生命周期经常包含不相关的逻辑，但又把相关的逻辑分离到了几个不同方法中的问题。">
+<meta property="og:description" content="Hook 是 React 16.8 的新增特性。它可以让你在不编写 class 的情况下使用 state 以及其他的 React 特性。 参考文档地址  Hook简介什么是HookHook 是一个特殊的函数，它可以让你“钩入” React 的特性。 什么时候我会用Hook如果你在编写函数组件并意识到需要向其添加一些 state，以前的做法是必须将其它转化为 class。现在你可以在现有的函数组件">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://shishuang.ga/images/og_image.png">
-<meta property="og:updated_time" content="2019-06-27T09:10:05.163Z">
+<meta property="og:updated_time" content="2019-06-28T08:01:06.146Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="写给自己看的ReactHook笔记">
-<meta name="twitter:description" content="参考文档地址  使用Effect Hook使用Effect Hook的一个主要目的是解决class中同一生命周期经常包含不相关的逻辑，但又把相关的逻辑分离到了几个不同方法中的问题。">
+<meta name="twitter:description" content="Hook 是 React 16.8 的新增特性。它可以让你在不编写 class 的情况下使用 state 以及其他的 React 特性。 参考文档地址  Hook简介什么是HookHook 是一个特殊的函数，它可以让你“钩入” React 的特性。 什么时候我会用Hook如果你在编写函数组件并意识到需要向其添加一些 state，以前的做法是必须将其它转化为 class。现在你可以在现有的函数组件">
 <meta name="twitter:image" content="https://shishuang.ga/images/og_image.png">
 
 
@@ -151,7 +151,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    9 minutes read (About 1412 words)
+                    15 minutes read (About 2217 words)
                 </span>
                 
                 
@@ -165,10 +165,43 @@
         </h1>
         <div class="content">
             <blockquote>
+<p><em>Hook</em> 是 React 16.8 的新增特性。它可以让你在不编写 class 的情况下使用 state 以及其他的 React 特性。</p>
 <p><a href="https://react.docschina.org/docs/hooks-effect.html" target="_blank" rel="noopener">参考文档地址</a></p>
 </blockquote>
-<h2 id="使用Effect-Hook"><a href="#使用Effect-Hook" class="headerlink" title="使用Effect Hook"></a>使用Effect Hook</h2><p>使用Effect Hook的一个主要目的是解决class中同一生命周期经常包含不相关的逻辑，但又把相关的逻辑分离到了几个不同方法中的问题。</p>
+<h2 id="Hook简介"><a href="#Hook简介" class="headerlink" title="Hook简介"></a>Hook简介</h2><h3 id="什么是Hook"><a href="#什么是Hook" class="headerlink" title="什么是Hook"></a>什么是Hook</h3><p>Hook 是一个特殊的函数，它可以让你“钩入” React 的特性。</p>
+<h3 id="什么时候我会用Hook"><a href="#什么时候我会用Hook" class="headerlink" title="什么时候我会用Hook"></a>什么时候我会用Hook</h3><p>如果你在编写函数组件并意识到需要向其添加一些 state，以前的做法是必须将其它转化为 class。现在你可以在现有的函数组件中使用 Hook。</p>
+<h3 id="为什么以use开头"><a href="#为什么以use开头" class="headerlink" title="为什么以use开头"></a>为什么以use开头</h3><p>你可能想知道：为什么叫 <code>useState</code> 而不叫 <code>createState</code>?</p>
+<p>“Create” 可能不是很准确，因为 state 只在组件首次渲染的时候被创建。<strong>在下一次重新渲染时，<code>useState</code> 返回给我们当前的 state。</strong>否则它就不是 “state”了！这也是 Hook 的名字<em>总是</em>以 <code>use</code> 开头的一个原因。</p>
 <a id="more"></a>
+<h2 id="使用State-Hook"><a href="#使用State-Hook" class="headerlink" title="使用State Hook"></a>使用State Hook</h2><p>在State Hook中我们会用到<code>useState</code>，它是允许你在 React 函数组件中添加 state 的 Hook</p>
+<h3 id="等价代码"><a href="#等价代码" class="headerlink" title="等价代码"></a>等价代码</h3><p>在这里我们举一个简单的计数器例子，以前class的写法：</p>
+<figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Example</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">React</span>.<span class="hljs-title">Component</span> </span>&#123;</span><br><span class="line">  <span class="hljs-keyword">constructor</span>(props) &#123;</span><br><span class="line">    <span class="hljs-keyword">super</span>(props);</span><br><span class="line">    <span class="hljs-keyword">this</span>.state = &#123;</span><br><span class="line">      count: <span class="hljs-number">0</span></span><br><span class="line">    &#125;;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  render() &#123;</span><br><span class="line">    <span class="hljs-keyword">return</span> (</span><br><span class="line">      &lt;div&gt;</span><br><span class="line">        &lt;p&gt;You clicked &#123;<span class="hljs-keyword">this</span>.state.count&#125; times&lt;<span class="hljs-regexp">/p&gt;</span></span><br><span class="line"><span class="hljs-regexp">        &lt;button onClick=&#123;() =&gt; this.setState(&#123; count: this.state.count + 1 &#125;)&#125;&gt;</span></span><br><span class="line"><span class="hljs-regexp">          Click me</span></span><br><span class="line"><span class="hljs-regexp">        &lt;/</span>button&gt;</span><br><span class="line">      &lt;<span class="hljs-regexp">/div&gt;</span></span><br><span class="line"><span class="hljs-regexp">    );</span></span><br><span class="line"><span class="hljs-regexp">  &#125;</span></span><br><span class="line"><span class="hljs-regexp">&#125;</span></span><br></pre></td></tr></table></figure>
+<p>现在Hook的写法：</p>
+<figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">// 1.引入useState Hook</span></span><br><span class="line"><span class="hljs-keyword">import</span> React, &#123; useState &#125; <span class="hljs-keyword">from</span> <span class="hljs-string">'react'</span>;</span><br><span class="line"></span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Example</span>(<span class="hljs-params"></span>) </span>&#123;</span><br><span class="line">  <span class="hljs-comment">// 2.声明一个叫"count"的state变量，和可以更新它的函数"setCount"</span></span><br><span class="line">  <span class="hljs-keyword">const</span> [count, setCount] = useState(<span class="hljs-number">0</span>);</span><br><span class="line"></span><br><span class="line">  <span class="hljs-keyword">return</span> (</span><br><span class="line">    &lt;div&gt;</span><br><span class="line">      &lt;p&gt;You clicked &#123;count&#125; times&lt;<span class="hljs-regexp">/p&gt;</span></span><br><span class="line"><span class="hljs-regexp">	  /</span><span class="hljs-regexp">/ 3.点击后，更新"count"的值，重新渲染"Example"组件，并传入更新后的"count"</span></span><br><span class="line"><span class="hljs-regexp">      &lt;button onClick=&#123;() =&gt; setCount(count + 1)&#125;&gt;</span></span><br><span class="line"><span class="hljs-regexp">        Click me</span></span><br><span class="line"><span class="hljs-regexp">      &lt;/</span>button&gt;</span><br><span class="line">    &lt;<span class="hljs-regexp">/div&gt;</span></span><br><span class="line"><span class="hljs-regexp">  );</span></span><br><span class="line"><span class="hljs-regexp">&#125;</span></span><br></pre></td></tr></table></figure>
+<p>在函数组件中，我们<strong>没有</strong><code>this</code>，所以不再通过<code>this.state</code>来读取属性，而是通过<code>useState</code>调用。</p>
+<h3 id="useState在调用时做了什么"><a href="#useState在调用时做了什么" class="headerlink" title="useState在调用时做了什么"></a>useState在调用时做了什么</h3><ol>
+<li>它定义一个 “state 变量”。<ol>
+<li>这个例子中我们的变量叫 <code>count</code>， 但是我们可以叫他任何名字，比如 <code>banana</code>。</li>
+<li>这是一种在函数调用时保存变量的方式 —— <code>useState</code>是一种新方法，它与 class 里面的 <code>this.state</code> 提供的功能完全相同。</li>
+<li>一般来说，在函数退出后变量就就会”消失”，而 state 中的变量会被 React 保留。</li>
+</ol>
+</li>
+</ol>
+<h3 id="useState的返回值是什么"><a href="#useState的返回值是什么" class="headerlink" title="useState的返回值是什么"></a>useState的返回值是什么</h3><p>返回值为：①当前 state，②更新 state 所调用的函数。</p>
+<p><code>const [count, setCount] = useState(0);</code></p>
+<ol>
+<li>我们声明了一个叫 <code>count</code> 的 state 变量，然后把它设为 <code>0</code>。React 会在重复渲染时记住它当前的值，并且提供最新的值给我们的函数。</li>
+<li>我们可以通过调用 <code>setCount</code> 来更新当前的 <code>count</code>。</li>
+</ol>
+<h3 id="读取State"><a href="#读取State" class="headerlink" title="读取State"></a>读取State</h3><p>在函数写法中，我们直接用<code>count</code>：</p>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;p&gt;You clicked &#123;count&#125; times&lt;/p&gt;</span><br></pre></td></tr></table></figure>
+<p>以前的class写法中，是<code>this.state.count</code></p>
+<h3 id="更新State"><a href="#更新State" class="headerlink" title="更新State"></a>更新State</h3><p>在函数写法中，我们调用在<code>useState</code>时返回的第二个参数，来更新数据。</p>
+<p>在本例子中，即<code>setCount</code>：</p>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;button onClick=&#123;() =&gt; setCount(count + 1)&#125;&gt;</span><br><span class="line">  Click me</span><br><span class="line">&lt;/button&gt;</span><br></pre></td></tr></table></figure>
+<p>以前的class写法中，是<code>this.setState({count: this.state.count + 1})</code></p>
+<h3 id="使用多个state变量"><a href="#使用多个state变量" class="headerlink" title="使用多个state变量"></a>使用多个state变量</h3><figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">function ExampleWithManyStates() &#123;</span><br><span class="line">  // 声明多个 state 变量</span><br><span class="line">  const [age, setAge] = useState(42);</span><br><span class="line">  const [fruit, setFruit] = useState(&apos;banana&apos;);</span><br><span class="line">  const [todos, setTodos] = useState([&#123; text: &apos;学习 Hook&apos; &#125;]);</span><br></pre></td></tr></table></figure>
+<h2 id="使用Effect-Hook"><a href="#使用Effect-Hook" class="headerlink" title="使用Effect Hook"></a>使用Effect Hook</h2><p>使用Effect Hook的一个主要目的是解决class中同一生命周期经常包含不相关的逻辑，但又把相关的逻辑分离到了几个不同方法中的问题。</p>
 <h3 id="什么是Effect-Hook"><a href="#什么是Effect-Hook" class="headerlink" title="什么是Effect Hook"></a>什么是Effect Hook</h3><p>useEffect 相当于componentDidMount，componentDidUpdate，componentWillUnmount 这三个函数的组合</p>
 <figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">import React, &#123; useState, useEffect &#125; from &apos;react&apos;;</span><br><span class="line"></span><br><span class="line">function Example() &#123;</span><br><span class="line">  const [count, setCount] = useState(0);</span><br><span class="line"></span><br><span class="line">  useEffect(() =&gt; &#123;</span><br><span class="line">  	// 订阅</span><br><span class="line">    document.title = `You clicked $&#123;count&#125; times`;</span><br><span class="line">    </span><br><span class="line">    // 清除（可选）</span><br><span class="line">    return () =&gt; &#123;</span><br><span class="line">    	// do something cleanup</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;);</span><br><span class="line"></span><br><span class="line">  return (</span><br><span class="line">    &lt;div&gt;</span><br><span class="line">      &lt;p&gt;You clicked &#123;count&#125; times&lt;/p&gt;</span><br><span class="line">      &lt;button onClick=&#123;() =&gt; setCount(count + 1)&#125;&gt;</span><br><span class="line">        Click me</span><br><span class="line">      &lt;/button&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">  );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>在以前class写法中，如果我们需要在组件加载和更新时都调用同样的方法，就需要在componentDidMount和componentDidUpdate写重复的代码。</p>
@@ -204,6 +237,8 @@
 <li><p>确保Hook<strong>按照顺序</strong>执行</p>
 </li>
 <li><p><strong>不要</strong>在<strong>普通JavaScript函数</strong>中调用Hook</p>
+</li>
+<li><p>Hook在class内部是<strong>不</strong>起作用的</p>
 </li>
 </ol>
 <h3 id="ESLint插件"><a href="#ESLint插件" class="headerlink" title="ESLint插件"></a>ESLint插件</h3><p><code>eslint-plugin-react-hooks</code>插件可以强制Hook只在React函数中而非Js函数中调用（之后可能并入create react app）</p>
