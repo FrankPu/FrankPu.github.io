@@ -2,19 +2,24 @@
 <html>
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
-<title>Tag: ReactNative - Hexo</title>
+<title>如何在循环中使用await - Hexo</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
 
 
-    <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="https://shishuang.ga/tags/ReactNative/index.html">
+    <meta name="description" content="有时候我们需要在循环中等待上一次结束再进行下一次的操作，如果直接在forEach使用await是没有作用的，因为forEach 只是简单的执行了下回调函数而已，并不会去处理异步的情况。 我们可以使用for循环来实现想要的效果。">
+<meta name="keywords" content="async&#x2F;await">
+<meta property="og:type" content="article">
+<meta property="og:title" content="如何在循环中使用await">
+<meta property="og:url" content="https://shishuang.ga/2019/07/01/如何在循环中使用await/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="有时候我们需要在循环中等待上一次结束再进行下一次的操作，如果直接在forEach使用await是没有作用的，因为forEach 只是简单的执行了下回调函数而已，并不会去处理异步的情况。 我们可以使用for循环来实现想要的效果。">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://shishuang.ga/images/og_image.png">
+<meta property="og:updated_time" content="2019-07-01T09:04:11.351Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo">
+<meta name="twitter:title" content="如何在循环中使用await">
+<meta name="twitter:description" content="有时候我们需要在循环中等待上一次结束再进行下一次的操作，如果直接在forEach使用await是没有作用的，因为forEach 只是简单的执行了下回调函数而已，并不会去处理异步的情况。 我们可以使用for循环来实现想要的效果。">
 <meta name="twitter:image" content="https://shishuang.ga/images/og_image.png">
 
 
@@ -89,7 +94,7 @@
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
             
-                <img src="/images/logo.svg" alt="Hexo" height="28">
+                <img src="/images/logo.svg" alt="如何在循环中使用await" height="28">
             
             </a>
         </div>
@@ -135,170 +140,97 @@
         <div class="container">
             <div class="columns">
                 <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main"><div class="card">
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2019-07-01T08:55:01.000Z">2019-07-01</time>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/ES6/">ES6</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    2 minutes membaca (Sekitar 268 kata)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                如何在循环中使用await
+            
+        </h1>
+        <div class="content">
+            <p>有时候我们需要在循环中等待上一次结束再进行下一次的操作，如果直接在<code>forEach</code>使用<code>await</code>是没有作用的，因为forEach 只是简单的执行了下回调函数而已，并不会去处理异步的情况。</p>
+<p>我们可以使用<code>for</code>循环来实现想要的效果。</p>
+<a id="more"></a>
+<h3 id="for"><a href="#for" class="headerlink" title="for"></a>for</h3><figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">async</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">fn</span>(<span class="hljs-params"></span>) </span>&#123;</span><br><span class="line">  <span class="hljs-keyword">let</span> arr = [<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>];</span><br><span class="line">  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'start'</span>)</span><br><span class="line">  <span class="hljs-keyword">for</span> (<span class="hljs-keyword">const</span> item <span class="hljs-keyword">of</span> arr) &#123;</span><br><span class="line">    <span class="hljs-keyword">const</span> res = <span class="hljs-keyword">await</span> fetch(item)</span><br><span class="line">    <span class="hljs-built_in">console</span>.log(res)</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'end'</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">fetch</span>(<span class="hljs-params">i</span>) </span>&#123;</span><br><span class="line">  <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">Promise</span> (<span class="hljs-function">(<span class="hljs-params">resolve, reject</span>) =&gt;</span> &#123;</span><br><span class="line">    setTimeout(<span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> &#123;</span><br><span class="line">      resolve(i)</span><br><span class="line">    &#125;, <span class="hljs-number">500</span> * i);</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">fn();</span><br></pre></td></tr></table></figure>
+<h3 id="for-of"><a href="#for-of" class="headerlink" title="for of"></a>for of</h3><figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">async</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">fn</span>(<span class="hljs-params"></span>) </span>&#123;</span><br><span class="line">  <span class="hljs-keyword">let</span> arr = [<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>]</span><br><span class="line">  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'start'</span>)</span><br><span class="line">  <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> item <span class="hljs-keyword">of</span> arr) &#123;</span><br><span class="line">    <span class="hljs-keyword">const</span> res = <span class="hljs-keyword">await</span> fetch(item)</span><br><span class="line">    <span class="hljs-built_in">console</span>.log(res)</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'end'</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">fetch</span>(<span class="hljs-params">i</span>) </span>&#123;</span><br><span class="line">  <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">Promise</span>(<span class="hljs-function">(<span class="hljs-params">resolve, reject</span>) =&gt;</span> &#123;</span><br><span class="line">    setTimeout(<span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> &#123;</span><br><span class="line">      resolve(i)</span><br><span class="line">    &#125;, <span class="hljs-number">500</span> * i);</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">fn();</span><br></pre></td></tr></table></figure>
+<h3 id="怎么让forEach支持await"><a href="#怎么让forEach支持await" class="headerlink" title="怎么让forEach支持await"></a>怎么让forEach支持await</h3><p>forEach简单的原理就是：</p>
+<figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">while</span> (index &lt; arr.length) &#123;</span><br><span class="line">  callback(item, index)   <span class="hljs-comment">//也就是我们传入的回调函数</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>构造一个支持await的forEach：</p>
+<figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-built_in">Array</span>.prototype.myforeach = <span class="hljs-keyword">async</span> <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">fn, context = null</span>) </span>&#123;</span><br><span class="line">    <span class="hljs-keyword">let</span> index = <span class="hljs-number">0</span>;</span><br><span class="line">    <span class="hljs-keyword">let</span> arr = <span class="hljs-keyword">this</span>;</span><br><span class="line">    <span class="hljs-keyword">if</span> (<span class="hljs-keyword">typeof</span> fn !== <span class="hljs-string">'function'</span>) &#123;</span><br><span class="line">        <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">TypeError</span>(fn + <span class="hljs-string">' is not a function'</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="hljs-keyword">while</span> (index &lt; arr.length) &#123;</span><br><span class="line">        <span class="hljs-keyword">if</span> (index <span class="hljs-keyword">in</span> arr) &#123;</span><br><span class="line">            <span class="hljs-keyword">try</span> &#123;</span><br><span class="line">                <span class="hljs-keyword">await</span> fn.call(context, arr[index], index, arr);</span><br><span class="line">            &#125; <span class="hljs-keyword">catch</span> (e) &#123;</span><br><span class="line">                <span class="hljs-built_in">console</span>.log(e);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        index ++;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+        </div>
+        
+        <div class="level is-size-7 is-uppercase">
+            <div class="level-start">
+                <div class="level-item">
+                    <span class="is-size-6 has-text-grey has-mr-7">#</span>
+                    <a class="has-link-grey -link" href="/tags/async-await/">async/await</a>
+                </div>
+            </div>
+        </div>
+        
+        
+        
+    </div>
+</div>
+
+
+
+<div class="card">
     <div class="card-content">
-        <nav class="breadcrumb" aria-label="breadcrumbs">
-        <ul>
-            <li><a href="/tags">Tag</a></li>
-            <li class="is-active"><a href="#" aria-current="page">ReactNative</a></li>
-        </ul>
-        </nav>
-    </div>
+        <h3 class="menu-label has-text-centered">Suka dengan artikel ini? Bantu penulis dengan donasi melalui</h3>
+        <div class="buttons is-centered">
+            
+                
+<div class="notification is-danger">
+    You forgot to set the <code>qrcode</code> for Alipay. Please set it in <code>_config.yml</code>.
 </div>
 
-    <div class="card">
-    
-    <div class="card-content article ">
-        
-        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
-            <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2019-06-26T09:21:51.000Z">2019-06-26</time>
                 
                 
-                <span class="level-item has-text-grey">
-                    
-                    
-                    a minute membaca (Sekitar 161 kata)
-                </span>
+<div class="notification is-danger">
+    You forgot to set the <code>qrcode</code> for Wechat. Please set it in <code>_config.yml</code>.
+</div>
+
                 
-                
-            </div>
         </div>
-        
-        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
-            
-                <a class="has-link-black-ter" href="/2019/06/26/ReactNative集成TypeScript/">ReactNative集成TypeScript</a>
-            
-        </h1>
-        <div class="content">
-            <blockquote>
-<p>初始化项目的时候没有使用TypeScript，之后集成TS的笔记</p>
-</blockquote>
-        </div>
-        
-        
-        <div class="level is-mobile">
-            <div class="level-start">
-                <div class="level-item">
-                <a class="button is-size-7 is-light" href="/2019/06/26/ReactNative集成TypeScript/#more">Selengkapnya</a>
-                </div>
-            </div>
-        </div>
-        
-        
     </div>
 </div>
 
 
 
-
-
-
-
-
-    <div class="card">
-    
-    <div class="card-content article ">
+<div class="card card-transparent">
+    <div class="level post-navigation is-flex-wrap is-mobile">
         
-        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
-            <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2019-06-24T09:36:24.000Z">2019-06-24</time>
-                
-                
-                <span class="level-item has-text-grey">
-                    
-                    
-                    2 minutes membaca (Sekitar 251 kata)
-                </span>
-                
-                
-            </div>
+        
+        <div class="level-end">
+            <a class="level level-item has-link-grey  article-nav-next" href="/2019/06/27/Axios在项目中的封装/">
+                <span class="level-item">Axios在项目中的封装</span>
+                <i class="level-item fas fa-chevron-right"></i>
+            </a>
         </div>
-        
-        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
-            
-                <a class="has-link-black-ter" href="/2019/06/24/react-native-file-selector安装遇到的问题/">react-native-file-selector安装遇到的问题</a>
-            
-        </h1>
-        <div class="content">
-            <blockquote>
-<p>在安装react-native-file-selector时遇到的一些问题，特此记录</p>
-</blockquote>
-<p>安装<code>npm install react-native-file-selector --save</code>之后，千万不要link，不然会出错！</p>
-        </div>
-        
-        
-        <div class="level is-mobile">
-            <div class="level-start">
-                <div class="level-item">
-                <a class="button is-size-7 is-light" href="/2019/06/24/react-native-file-selector安装遇到的问题/#more">Selengkapnya</a>
-                </div>
-            </div>
-        </div>
-        
         
     </div>
 </div>
-
-
-
-
-
-
-
-
-    <div class="card">
-    
-    <div class="card-content article ">
-        
-        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
-            <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2019-06-21T08:35:43.000Z">2019-06-21</time>
-                
-                
-                <span class="level-item has-text-grey">
-                    
-                    
-                    8 minutes membaca (Sekitar 1198 kata)
-                </span>
-                
-                
-            </div>
-        </div>
-        
-        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
-            
-                <a class="has-link-black-ter" href="/2019/06/21/写给自己看的react-native-pushy使用笔记/">写给自己看的react-native-pushy使用笔记</a>
-            
-        </h1>
-        <div class="content">
-            <blockquote>
-<p>本文是根据<a href="https://github.com/reactnativecn/react-native-pushy" target="_blank" rel="noopener">react-native-pushy</a>文档，使用后的一些笔记整理。</p>
-<p>手机系统：Android</p>
-</blockquote>
-<h2 id="环境配置"><a href="#环境配置" class="headerlink" title="环境配置"></a>环境配置</h2><p><a href="https://reactnative.cn/docs/getting-started/" target="_blank" rel="noopener">环境配置</a></p>
-<blockquote>
-<p>环境：React Native 版本0.58，react-native-update 版本5.1.8</p>
-</blockquote>
-        </div>
-        
-        
-        <div class="level is-mobile">
-            <div class="level-start">
-                <div class="level-item">
-                <a class="button is-size-7 is-light" href="/2019/06/21/写给自己看的react-native-pushy使用笔记/#more">Selengkapnya</a>
-                </div>
-            </div>
-        </div>
-        
-        
-    </div>
-</div>
-
-
-
-
-
-
 
 
 </div>
@@ -859,7 +791,7 @@
             <div class="level-start has-text-centered-mobile">
                 <a class="footer-logo is-block has-mb-6" href="/">
                 
-                    <img src="/images/logo.svg" alt="Hexo" height="28">
+                    <img src="/images/logo.svg" alt="如何在循环中使用await" height="28">
                 
                 </a>
                 <p class="is-size-7">
