@@ -2,24 +2,19 @@
 <html>
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
-<title>写给自己看的react-native-pushy使用笔记 - Hexo</title>
+<title>Category: React - Hexo</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
 
 
-    <meta name="description" content="本文是根据react-native-pushy文档，使用后的一些笔记整理。 手机系统：Android  环境配置环境配置  环境：React Native 版本0.58，react-native-update 版本5.1.8">
-<meta name="keywords" content="ReactNative">
-<meta property="og:type" content="article">
-<meta property="og:title" content="写给自己看的react-native-pushy使用笔记">
-<meta property="og:url" content="https://shishuang.ga/2019/06/21/写给自己看的react-native-pushy使用笔记/index.html">
+    <meta property="og:type" content="website">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="https://shishuang.ga/categories/React/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="本文是根据react-native-pushy文档，使用后的一些笔记整理。 手机系统：Android  环境配置环境配置  环境：React Native 版本0.58，react-native-update 版本5.1.8">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://shishuang.ga/images/og_image.png">
-<meta property="og:updated_time" content="2019-07-02T09:57:23.779Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="写给自己看的react-native-pushy使用笔记">
-<meta name="twitter:description" content="本文是根据react-native-pushy文档，使用后的一些笔记整理。 手机系统：Android  环境配置环境配置  环境：React Native 版本0.58，react-native-update 版本5.1.8">
+<meta name="twitter:title" content="Hexo">
 <meta name="twitter:image" content="https://shishuang.ga/images/og_image.png">
 
 
@@ -94,7 +89,7 @@
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
             
-                <img src="/images/logo.svg" alt="写给自己看的react-native-pushy使用笔记" height="28">
+                <img src="/images/logo.svg" alt="Hexo" height="28">
             
             </a>
         </div>
@@ -140,22 +135,34 @@
         <div class="container">
             <div class="columns">
                 <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main"><div class="card">
+    <div class="card-content">
+        <nav class="breadcrumb" aria-label="breadcrumbs">
+        <ul>
+            <li><a href="/categories">Categories</a></li>
+            
+            <li class="is-active"><a href="#" aria-current="page">React</a></li>
+        </ul>
+        </nav>
+    </div>
+</div>
+
+    <div class="card">
     
     <div class="card-content article ">
         
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
             <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2019-06-21T08:35:43.000Z">2019-06-21</time>
+                <time class="level-item has-text-grey" datetime="2019-06-20T02:19:44.000Z">2019-06-20</time>
                 
                 <div class="level-item">
-                <a class="has-link-grey -link" href="/categories/ReactNative/">ReactNative</a>
+                <a class="has-link-grey -link" href="/categories/React/">React</a>
                 </div>
                 
                 
                 <span class="level-item has-text-grey">
                     
                     
-                    8 minutes read (About 1198 words)
+                    15 minutes read (About 2217 words)
                 </span>
                 
                 
@@ -164,115 +171,38 @@
         
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                写给自己看的react-native-pushy使用笔记
+                <a class="has-link-black-ter" href="/2019/06/20/写给自己看的ReactHook笔记/">写给自己看的ReactHook笔记</a>
             
         </h1>
         <div class="content">
             <blockquote>
-<p>本文是根据<a href="https://github.com/reactnativecn/react-native-pushy" target="_blank" rel="noopener">react-native-pushy</a>文档，使用后的一些笔记整理。</p>
-<p>手机系统：Android</p>
+<p><em>Hook</em> 是 React 16.8 的新增特性。它可以让你在不编写 class 的情况下使用 state 以及其他的 React 特性。</p>
+<p><a href="https://react.docschina.org/docs/hooks-effect.html" target="_blank" rel="noopener">参考文档地址</a></p>
 </blockquote>
-<h2 id="环境配置"><a href="#环境配置" class="headerlink" title="环境配置"></a>环境配置</h2><p><a href="https://reactnative.cn/docs/getting-started/" target="_blank" rel="noopener">环境配置</a></p>
-<blockquote>
-<p>环境：React Native 版本0.58，react-native-update 版本5.1.8</p>
-</blockquote>
-<a id="more"></a>
-<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">npm i -g react-native-update-cli</span><br><span class="line">npm i react-native-update</span><br><span class="line">react-native link react-native-update</span><br></pre></td></tr></table></figure>
-<p>然后在目录<code>android\app\src\main\java\app\ytd\dg\MainApplication.java</code>中，添加代码：<br><figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">// ... 其它代码</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">// 添加这个import</span></span><br><span class="line"><span class="hljs-keyword">import</span> cn.reactnative.modules.update.UpdateContext;</span><br><span class="line"></span><br><span class="line">public <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MainApplication</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Application</span> <span class="hljs-title">implements</span> <span class="hljs-title">ReactApplication</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">  private final ReactNativeHost mReactNativeHost = <span class="hljs-keyword">new</span> ReactNativeHost(<span class="hljs-keyword">this</span>) &#123;</span><br><span class="line">  	<span class="hljs-comment">// 添加下面这段</span></span><br><span class="line">    @Override</span><br><span class="line">    protected <span class="hljs-built_in">String</span> getJSBundleFile() &#123;</span><br><span class="line">        <span class="hljs-keyword">return</span> UpdateContext.getBundleUrl(MainApplication.this);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="hljs-comment">// ... 其它代码</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><p>在<a href="https://update.reactnative.cn/home" target="_blank" rel="noopener">reactnative</a>创建一个账号。<br>然后在项目根目录，执行：<br><figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">pushy login</span><br><span class="line">email: &lt;输入你的注册邮箱&gt;</span><br><span class="line">password: &lt;输入你的密码&gt;</span><br></pre></td></tr></table></figure></p>
-<p>这会在项目文件夹下创建一个<code>.update</code>文件，注意不要把这个文件上传到Git等CVS系统上。<br>你可以在<code>.gitignore</code>末尾增加一行<code>.update</code>来忽略这个文件。</p>
-<p>然后创建一个我们的应用（也可以在网页上创建）：<br><figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">pushy createApp --platform android</span><br><span class="line">App Name: &lt;输入应用名字&gt;</span><br></pre></td></tr></table></figure></p>
-<p>如果是在网页上创建的，就执行选择APP的命令：<br><figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">pushy selectApp --platform android</span><br><span class="line">15121) App Name 1</span><br><span class="line">35567) App Name 2</span><br><span class="line"></span><br><span class="line">Total 2 android apps</span><br><span class="line">Enter appId: &lt;输入)前面的编号&gt;</span><br></pre></td></tr></table></figure></p>
-<p>执行完上面的创建或者选择APP的操作以后，你可以在根目录看到一个新文件<code>update.json</code>，它不包含任何敏感信息。</p>
-<h2 id="添加热更新功能"><a href="#添加热更新功能" class="headerlink" title="添加热更新功能"></a>添加热更新功能</h2><p><a href="https://github.com/reactnativecn/react-native-pushy/blob/master/docs/guide2.md" target="_blank" rel="noopener">添加热更新功能</a><br>完整代码示例：<br><figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">import</span> React, &#123;</span><br><span class="line">  Component,</span><br><span class="line">&#125; <span class="hljs-keyword">from</span> <span class="hljs-string">'react'</span>;</span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">import</span> &#123;</span><br><span class="line">  StyleSheet,</span><br><span class="line">  Platform,</span><br><span class="line">  Text,</span><br><span class="line">  View,</span><br><span class="line">  Alert,</span><br><span class="line">  TouchableOpacity,</span><br><span class="line">  Linking,</span><br><span class="line">&#125; <span class="hljs-keyword">from</span> <span class="hljs-string">'react-native'</span>;</span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">import</span> &#123;</span><br><span class="line">  isFirstTime,</span><br><span class="line">  isRolledBack,</span><br><span class="line">  packageVersion,</span><br><span class="line">  currentVersion,</span><br><span class="line">  checkUpdate,</span><br><span class="line">  downloadUpdate,</span><br><span class="line">  switchVersion,</span><br><span class="line">  switchVersionLater,</span><br><span class="line">  markSuccess,</span><br><span class="line">&#125; <span class="hljs-keyword">from</span> <span class="hljs-string">'react-native-update'</span>;</span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">import</span> _updateConfig <span class="hljs-keyword">from</span> <span class="hljs-string">'./update.json'</span>;</span><br><span class="line"><span class="hljs-keyword">const</span> &#123;appKey&#125; = _updateConfig[Platform.OS];</span><br><span class="line"></span><br><span class="line"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MyProject</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Component</span> </span>&#123;</span><br><span class="line">  componentWillMount()&#123;</span><br><span class="line">    <span class="hljs-keyword">if</span> (isFirstTime) &#123;</span><br><span class="line">      Alert.alert(<span class="hljs-string">'提示'</span>, <span class="hljs-string">'这是当前版本第一次启动,是否要模拟启动失败?失败将回滚到上一版本'</span>, [</span><br><span class="line">        &#123;<span class="hljs-attr">text</span>: <span class="hljs-string">'是'</span>, <span class="hljs-attr">onPress</span>: <span class="hljs-function"><span class="hljs-params">()</span>=&gt;</span>&#123;<span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">Error</span>(<span class="hljs-string">'模拟启动失败,请重启应用'</span>)&#125;&#125;,</span><br><span class="line">        &#123;<span class="hljs-attr">text</span>: <span class="hljs-string">'否'</span>, <span class="hljs-attr">onPress</span>: <span class="hljs-function"><span class="hljs-params">()</span>=&gt;</span>&#123;markSuccess()&#125;&#125;,</span><br><span class="line">      ]);</span><br><span class="line">    &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (isRolledBack) &#123;</span><br><span class="line">      Alert.alert(<span class="hljs-string">'提示'</span>, <span class="hljs-string">'刚刚更新失败了,版本被回滚.'</span>);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  doUpdate = <span class="hljs-function"><span class="hljs-params">info</span> =&gt;</span> &#123;</span><br><span class="line">    downloadUpdate(info).then(<span class="hljs-function"><span class="hljs-params">hash</span> =&gt;</span> &#123;</span><br><span class="line">      Alert.alert(<span class="hljs-string">'提示'</span>, <span class="hljs-string">'下载完毕,是否重启应用?'</span>, [</span><br><span class="line">        &#123;<span class="hljs-attr">text</span>: <span class="hljs-string">'是'</span>, <span class="hljs-attr">onPress</span>: <span class="hljs-function"><span class="hljs-params">()</span>=&gt;</span>&#123;switchVersion(hash);&#125;&#125;,</span><br><span class="line">        &#123;<span class="hljs-attr">text</span>: <span class="hljs-string">'否'</span>,&#125;,</span><br><span class="line">        &#123;<span class="hljs-attr">text</span>: <span class="hljs-string">'下次启动时'</span>, <span class="hljs-attr">onPress</span>: <span class="hljs-function"><span class="hljs-params">()</span>=&gt;</span>&#123;switchVersionLater(hash);&#125;&#125;,</span><br><span class="line">      ]);</span><br><span class="line">    &#125;).catch(<span class="hljs-function"><span class="hljs-params">err</span> =&gt;</span> &#123; </span><br><span class="line">      Alert.alert(<span class="hljs-string">'提示'</span>, <span class="hljs-string">'更新失败.'</span>);</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;;</span><br><span class="line">  checkUpdate = <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> &#123;</span><br><span class="line">    checkUpdate(appKey).then(<span class="hljs-function"><span class="hljs-params">info</span> =&gt;</span> &#123;</span><br><span class="line">      <span class="hljs-keyword">if</span> (info.expired) &#123;</span><br><span class="line">        Alert.alert(<span class="hljs-string">'提示'</span>, <span class="hljs-string">'您的应用版本已更新,请前往应用商店下载新的版本'</span>, [</span><br><span class="line">          &#123;<span class="hljs-attr">text</span>: <span class="hljs-string">'确定'</span>, <span class="hljs-attr">onPress</span>: <span class="hljs-function"><span class="hljs-params">()</span>=&gt;</span>&#123;info.downloadUrl &amp;&amp; Linking.openURL(info.downloadUrl)&#125;&#125;,</span><br><span class="line">        ]);</span><br><span class="line">      &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (info.upToDate) &#123;</span><br><span class="line">        Alert.alert(<span class="hljs-string">'提示'</span>, <span class="hljs-string">'您的应用版本已是最新.'</span>);</span><br><span class="line">      &#125; <span class="hljs-keyword">else</span> &#123;</span><br><span class="line">        Alert.alert(<span class="hljs-string">'提示'</span>, <span class="hljs-string">'检查到新的版本'</span>+info.name+<span class="hljs-string">',是否下载?\n'</span>+ info.description, [</span><br><span class="line">          &#123;<span class="hljs-attr">text</span>: <span class="hljs-string">'是'</span>, <span class="hljs-attr">onPress</span>: <span class="hljs-function"><span class="hljs-params">()</span>=&gt;</span>&#123;<span class="hljs-keyword">this</span>.doUpdate(info)&#125;&#125;,</span><br><span class="line">          &#123;<span class="hljs-attr">text</span>: <span class="hljs-string">'否'</span>,&#125;,</span><br><span class="line">        ]);</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;).catch(<span class="hljs-function"><span class="hljs-params">err</span> =&gt;</span> &#123; </span><br><span class="line">      Alert.alert(<span class="hljs-string">'提示'</span>, <span class="hljs-string">'更新失败.'</span>);</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;;</span><br><span class="line">  render() &#123;</span><br><span class="line">    <span class="hljs-keyword">return</span> (</span><br><span class="line">      &lt;View style=&#123;styles.container&#125;&gt;</span><br><span class="line">        &lt;Text style=&#123;styles.welcome&#125;&gt;</span><br><span class="line">          欢迎使用热更新服务</span><br><span class="line">        &lt;<span class="hljs-regexp">/Text&gt;</span></span><br><span class="line"><span class="hljs-regexp">        &lt;Text style=&#123;styles.instructions&#125;&gt;</span></span><br><span class="line"><span class="hljs-regexp">          这是版本一 &#123;'\n'&#125;</span></span><br><span class="line"><span class="hljs-regexp">          当前包版本号: &#123;packageVersion&#125;&#123;'\n'&#125;</span></span><br><span class="line"><span class="hljs-regexp">          当前版本Hash: &#123;currentVersion||'(空)'&#125;&#123;'\n'&#125;</span></span><br><span class="line"><span class="hljs-regexp">        &lt;/</span>Text&gt;</span><br><span class="line">        &lt;TouchableOpacity onPress=&#123;<span class="hljs-keyword">this</span>.checkUpdate&#125;&gt;</span><br><span class="line">          &lt;Text style=&#123;styles.instructions&#125;&gt;</span><br><span class="line">            点击这里检查更新</span><br><span class="line">          &lt;<span class="hljs-regexp">/Text&gt;</span></span><br><span class="line"><span class="hljs-regexp">        &lt;/</span>TouchableOpacity&gt;</span><br><span class="line">      &lt;<span class="hljs-regexp">/View&gt;</span></span><br><span class="line"><span class="hljs-regexp">    );</span></span><br><span class="line"><span class="hljs-regexp">  &#125;</span></span><br><span class="line"><span class="hljs-regexp">&#125;</span></span><br><span class="line"><span class="hljs-regexp"></span></span><br><span class="line"><span class="hljs-regexp">const styles = StyleSheet.create(&#123;</span></span><br><span class="line"><span class="hljs-regexp">  container: &#123;</span></span><br><span class="line"><span class="hljs-regexp">    flex: 1,</span></span><br><span class="line"><span class="hljs-regexp">    justifyContent: 'center',</span></span><br><span class="line"><span class="hljs-regexp">    alignItems: 'center',</span></span><br><span class="line"><span class="hljs-regexp">    backgroundColor: '#F5FCFF',</span></span><br><span class="line"><span class="hljs-regexp">  &#125;,</span></span><br><span class="line"><span class="hljs-regexp">  welcome: &#123;</span></span><br><span class="line"><span class="hljs-regexp">    fontSize: 20,</span></span><br><span class="line"><span class="hljs-regexp">    textAlign: 'center',</span></span><br><span class="line"><span class="hljs-regexp">    margin: 10,</span></span><br><span class="line"><span class="hljs-regexp">  &#125;,</span></span><br><span class="line"><span class="hljs-regexp">  instructions: &#123;</span></span><br><span class="line"><span class="hljs-regexp">    textAlign: 'center',</span></span><br><span class="line"><span class="hljs-regexp">    color: '#333333',</span></span><br><span class="line"><span class="hljs-regexp">    marginBottom: 5,</span></span><br><span class="line"><span class="hljs-regexp">  &#125;,</span></span><br><span class="line"><span class="hljs-regexp">&#125;);</span></span><br></pre></td></tr></table></figure></p>
-<h2 id="发布安卓应用"><a href="#发布安卓应用" class="headerlink" title="发布安卓应用"></a>发布安卓应用</h2><p><a href="https://github.com/reactnativecn/react-native-pushy/blob/master/docs/guide3.md#%E5%8F%91%E5%B8%83%E5%AE%89%E5%8D%93%E5%BA%94%E7%94%A8" target="_blank" rel="noopener">发布安卓应用</a></p>
-<blockquote>
-<p>这里发布的包文件，是上传到应用商店的基础版本，无法通过热更新来获得</p>
-</blockquote>
-<figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="hljs-comment">// 1. 进入android目录</span></span><br><span class="line"><span class="hljs-string">`cd android`</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">// 2. 生成APK</span></span><br><span class="line"><span class="hljs-string">`./gradlew assembleRelease`</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">// 3. 返回根目录</span></span><br><span class="line"><span class="hljs-string">`cd ..`</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">// 4. 将生成的APK发布到Pushy服务器上</span></span><br><span class="line"><span class="hljs-string">`pushy uploadApk android/app/build/outputs/apk/release/app-release.apk`</span></span><br></pre></td></tr></table></figure>
-<h2 id="发布新的热更新版本"><a href="#发布新的热更新版本" class="headerlink" title="发布新的热更新版本"></a>发布新的热更新版本</h2><p><a href="https://github.com/reactnativecn/react-native-pushy/blob/master/docs/guide3.md#%E5%8F%91%E5%B8%83%E6%96%B0%E7%9A%84%E7%83%AD%E6%9B%B4%E6%96%B0%E7%89%88%E6%9C%AC" target="_blank" rel="noopener">发布新的热更新版本</a></p>
-<p><a href="https://semver.org/lang/zh-CN/" target="_blank" rel="noopener">语义化版本规范</a></p>
-<ol>
-<li><p>修改你的业务代码</p>
-</li>
-<li><p><code>pushy bundle --platform android</code>, 之后输入<code>Y</code>立即发布（此过程是生成新的热更新版本）</p>
-</li>
-<li><figure class="highlight bash hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">version name 热更新版本号, 请遵循版本规范</span><br><span class="line">description, 描述更新内容，会展示给用户，不支持`\n`换行</span><br><span class="line">meta info, 传输的元信息，例如`&#123;<span class="hljs-string">'ok'</span>: 1&#125;`（JSON的key必须带引号）</span><br></pre></td></tr></table></figure>
-<p>此时版本已经提交到update服务，但用户暂时看不到此更新，你还需要将此此<strong>热更新版本</strong>绑定到指定的<strong>包版本</strong>上。<br>有3种方法：</p>
-<ul>
-<li>输入<code>Y</code>立即绑定</li>
-<li>或者以后<code>pushy update --platform android</code>来让对应包版本用户得以更新<ul>
-<li>输入<code>Y</code>或者上述命令以后，会让你再输入<em>热更新版本号</em><code>versionId</code>，就是<code>)</code>前面的数字</li>
-<li>（可以使用<code>U</code>上一页，<code>D</code>下一页，<code>B</code>回到开始）</li>
-<li>输入完<code>versionId</code>以后，会让你输入<em>包版本号</em><code>packageId</code>，就是U/D/B提示下面的列表前的数字</li>
-</ul>
-</li>
-<li>还可以直接在网页端拖拽操作</li>
-</ul>
-</li>
-</ol>
-
+<h2 id="Hook简介"><a href="#Hook简介" class="headerlink" title="Hook简介"></a>Hook简介</h2><h3 id="什么是Hook"><a href="#什么是Hook" class="headerlink" title="什么是Hook"></a>什么是Hook</h3><p>Hook 是一个特殊的函数，它可以让你“钩入” React 的特性。</p>
+<h3 id="什么时候我会用Hook"><a href="#什么时候我会用Hook" class="headerlink" title="什么时候我会用Hook"></a>什么时候我会用Hook</h3><p>如果你在编写函数组件并意识到需要向其添加一些 state，以前的做法是必须将其它转化为 class。现在你可以在现有的函数组件中使用 Hook。</p>
+<h3 id="为什么以use开头"><a href="#为什么以use开头" class="headerlink" title="为什么以use开头"></a>为什么以use开头</h3><p>你可能想知道：为什么叫 <code>useState</code> 而不叫 <code>createState</code>?</p>
+<p>“Create” 可能不是很准确，因为 state 只在组件首次渲染的时候被创建。<strong>在下一次重新渲染时，<code>useState</code> 返回给我们当前的 state。</strong>否则它就不是 “state”了！这也是 Hook 的名字<em>总是</em>以 <code>use</code> 开头的一个原因。</p>
         </div>
         
-        <div class="level is-size-7 is-uppercase">
+        
+        <div class="level is-mobile">
             <div class="level-start">
                 <div class="level-item">
-                    <span class="is-size-6 has-text-grey has-mr-7">#</span>
-                    <a class="has-link-grey -link" href="/tags/ReactNative/">ReactNative</a>
+                <a class="button is-size-7 is-light" href="/2019/06/20/写给自己看的ReactHook笔记/#more">Read More</a>
                 </div>
             </div>
         </div>
         
         
-        
     </div>
 </div>
 
 
 
-<div class="card">
-    <div class="card-content">
-        <h3 class="menu-label has-text-centered">Like this article? Support the author with</h3>
-        <div class="buttons is-centered">
-            
-                
-<div class="notification is-danger">
-    You forgot to set the <code>qrcode</code> for Alipay. Please set it in <code>_config.yml</code>.
-</div>
-
-                
-                
-<div class="notification is-danger">
-    You forgot to set the <code>qrcode</code> for Wechat. Please set it in <code>_config.yml</code>.
-</div>
-
-                
-        </div>
-    </div>
-</div>
 
 
 
-<div class="card card-transparent">
-    <div class="level post-navigation is-flex-wrap is-mobile">
-        
-        <div class="level-start">
-            <a class="level level-item has-link-grey  article-nav-prev" href="/2019/06/24/react-native-file-selector安装遇到的问题/">
-                <i class="level-item fas fa-chevron-left"></i>
-                <span class="level-item">react-native-file-selector安装遇到的问题</span>
-            </a>
-        </div>
-        
-        
-        <div class="level-end">
-            <a class="level level-item has-link-grey  article-nav-next" href="/2019/06/20/写给自己看的ReactHook笔记/">
-                <span class="level-item">写给自己看的ReactHook笔记</span>
-                <i class="level-item fas fa-chevron-right"></i>
-            </a>
-        </div>
-        
-    </div>
-</div>
 
 
 </div>
@@ -857,7 +787,7 @@
             <div class="level-start has-text-centered-mobile">
                 <a class="footer-logo is-block has-mb-6" href="/">
                 
-                    <img src="/images/logo.svg" alt="写给自己看的react-native-pushy使用笔记" height="28">
+                    <img src="/images/logo.svg" alt="Hexo" height="28">
                 
                 </a>
                 <p class="is-size-7">
