@@ -2,14 +2,14 @@
 <html>
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
-<title>Tag: async/await - Hexo</title>
+<title>Tag: 排序 - Hexo</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
 
 
     <meta property="og:type" content="website">
 <meta property="og:title" content="Hexo">
-<meta property="og:url" content="https://shishuang.ga/tags/async-await/index.html">
+<meta property="og:url" content="https://shishuang.ga/tags/排序/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://shishuang.ga/images/og_image.png">
@@ -139,7 +139,7 @@
         <nav class="breadcrumb" aria-label="breadcrumbs">
         <ul>
             <li><a href="/tags">Tags</a></li>
-            <li class="is-active"><a href="#" aria-current="page">async/await</a></li>
+            <li class="is-active"><a href="#" aria-current="page">排序</a></li>
         </ul>
         </nav>
     </div>
@@ -151,17 +151,17 @@
         
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
             <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2019-07-08T03:18:13.000Z">2019-07-08</time>
+                <time class="level-item has-text-grey" datetime="2019-07-10T09:41:11.000Z">2019-07-10</time>
                 
                 <div class="level-item">
-                <a class="has-link-grey -link" href="/categories/ES6/">ES6</a>
+                <a class="has-link-grey -link" href="/categories/数据结构/">数据结构</a>
                 </div>
                 
                 
                 <span class="level-item has-text-grey">
                     
                     
-                    22 minutes read (About 3356 words)
+                    6 minutes read (About 923 words)
                 </span>
                 
                 
@@ -170,77 +170,171 @@
         
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                <a class="has-link-black-ter" href="/2019/07/08/用图表和实例解释Async和Await/">用图表和实例解释Async和Await</a>
+                <a class="has-link-black-ter" href="/2019/07/10/数据结构：八大排序/">数据结构：八大排序</a>
             
         </h1>
         <div class="content">
-            <h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>JavaScript ES7 中的 <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function" target="_blank" rel="noopener">async / await</a> 让多个异步 promise 协同工作起来更容易。如果要按一定顺序从多个数据库或者 API 异步获取数据，你可能会以一堆乱七八糟的 promise 和回调函数而告终。而 async / await 结构让我们能用可读性强、易维护的代码更加简洁地实现这些逻辑。本教程用图表和简单示例讲解了 JavaScript 中 async / await 的语法和语义。在深入之前，我们先简单回顾一下 promise. 如果你已经对 JS 的 promise 有所了解，可放心大胆地跳过这一部分。</p>
-<blockquote>
-<p><a href="https://nikgrozev.com/2017/10/01/async-await/" target="_blank" rel="noopener">原文地址</a></p>
-</blockquote>
+            <h1 id="各种排序算法时间复杂度"><a href="#各种排序算法时间复杂度" class="headerlink" title="各种排序算法时间复杂度"></a>各种排序算法时间复杂度</h1><table>
+<thead>
+<tr>
+<th>各种常用排序算法</th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>类别</td>
+<td>排序方法</td>
+<td>时间复杂度</td>
+<td>空间复杂度</td>
+<td>稳定性</td>
+<td>复杂性</td>
+<td>特点</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>最好</td>
+<td>平均</td>
+<td>最坏</td>
+<td>辅助存储</td>
+<td></td>
+<td>简单</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>插入排序</td>
+<td>直接插入</td>
+<td>O(N)</td>
+<td>O(N2)</td>
+<td>O(N2)</td>
+<td>O(1)</td>
+<td>稳定</td>
+<td>简单</td>
+<td></td>
+</tr>
+<tr>
+<td>希尔排序</td>
+<td>O(N)</td>
+<td>O(N1.3)</td>
+<td>O(N2)</td>
+<td>O(1)</td>
+<td>不稳定</td>
+<td>复杂</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>选择排序</td>
+<td>直接选择</td>
+<td>O(N)</td>
+<td>O(N2)</td>
+<td>O(N2)</td>
+<td>O(1)</td>
+<td>不稳定</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>堆排序</td>
+<td>O(N*log2N)</td>
+<td>O(N*log2N)</td>
+<td>O(N*log2N)</td>
+<td>O(1)</td>
+<td>不稳定</td>
+<td>复杂</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>交换排序</td>
+<td>冒泡排序</td>
+<td>O(N)</td>
+<td>O(N2)</td>
+<td>O(N2)</td>
+<td>O(1)</td>
+<td>稳定</td>
+<td>简单</td>
+<td>1、冒泡排序是一种用时间换空间的排序方法，n小时好 2、最坏情况是把顺序的排列变成逆序，或者把逆序的数列变成顺序，最差时间复杂度O(N^2)只是表示其操作次数的数量级 3、最好的情况是数据本来就有序，复杂度为O(n)</td>
+</tr>
+<tr>
+<td>快速排序</td>
+<td>O(N*log2N)</td>
+<td>O(N*log2N)</td>
+<td>O(N2)</td>
+<td>O(log2n)~O(n)</td>
+<td>不稳定</td>
+<td>复杂</td>
+<td>1、n大时好，快速排序比较占用内存，内存随n的增大而增大，但却是效率高不稳定的排序算法。 2、划分之后一边是一个，一边是n-1个， 这种极端情况的时间复杂度就是O(N^2) 3、最好的情况是每次都能均匀的划分序列，O(N*log2N)</td>
+<td></td>
+</tr>
+<tr>
+<td>归并排序</td>
+<td>O(N*log2N)</td>
+<td>O(N*log2N)</td>
+<td>O(N*log2N)</td>
+<td>O(n)</td>
+<td>稳定</td>
+<td>复杂</td>
+<td>1、n大时好，归并比较占用内存，内存随n的增大而增大，但却是效率高且稳定的排序算法。</td>
+<td></td>
+</tr>
+<tr>
+<td>基数排序</td>
+<td>O(d(r+n))</td>
+<td>O(d(r+n))</td>
+<td>O(d(r+n))</td>
+<td>O(rd+n)</td>
+<td>稳定</td>
+<td>复杂</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>注：r代表关键字基数，d代表长度，n代表关键字个数</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>注：</p>
+<ol>
+<li><strong>归并排序</strong>每次递归都要用到一个辅助表，长度与待排序的表长度相同，虽然递归次数是<code>O(log2n)</code>，但每次递归都会释放掉所占的辅助空间。</li>
+<li><strong>快速排序</strong>空间复杂度只是在通常情况下才为<code>O(log2n)</code>，如果是最坏情况的话，很显然就要<code>O(n)</code>的空间了。当然，可以通过随机化选择pivot来将空间复杂度降低到<code>O(log2n)</code>。</li>
+</ol>
+<p>相关概念：</p>
+<ol>
+<li><strong>时间复杂度</strong></li>
+</ol>
+<p>​    时间复杂度可以认为是对排序数据的总的操作次数。反映当n变化时，操作次数呈现什么规律。</p>
+<p>​    常见的时间复杂度有：</p>
+<p>​    常数阶<code>O(1)</code>，对数阶<code>O(log2n)</code>，线性阶<code>O(n)</code>，线性对数阶<code>O(nlog2n)</code>，平方阶<code>O(n2)</code></p>
+<p>​    时间复杂度O(1)：算法中语句执行次数为一个常数，则时间复杂度为<code>O(1)</code>。</p>
+<ol start="2">
+<li><strong>空间复杂度</strong></li>
+</ol>
+<p>​    空间复杂度是指算法在计算机内执行时所需存储空间的度量，它也是问题规模n的函数。</p>
+<p>​    空间复杂度O(1)：当一个算法的空间复杂度为一个常量，即不随被处理数据量n的大小而改变时，可表示为O(1)。</p>
+<p>​    空间复杂度O(log2N)：当一个算法的空间复杂度与以2为底的n的对数成正比时，可表示为O(log2n)</p>
+<p>​                                 ax=N，则x=logaN。</p>
+<p>​    空间复杂度O(n)：当一个算法的空间复杂度与n成线性比例关系时，可表示为<code>0(n)</code>。</p>
+
         </div>
         
-        
-        <div class="level is-mobile">
-            <div class="level-start">
-                <div class="level-item">
-                <a class="button is-size-7 is-light" href="/2019/07/08/用图表和实例解释Async和Await/#more">Read More</a>
-                </div>
-            </div>
-        </div>
-        
-        
-    </div>
-</div>
-
-
-
-
-
-
-
-
-    <div class="card">
-    
-    <div class="card-content article ">
-        
-        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
-            <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2019-07-01T08:55:01.000Z">2019-07-01</time>
-                
-                <div class="level-item">
-                <a class="has-link-grey -link" href="/categories/ES6/">ES6</a>
-                </div>
-                
-                
-                <span class="level-item has-text-grey">
-                    
-                    
-                    2 minutes read (About 268 words)
-                </span>
-                
-                
-            </div>
-        </div>
-        
-        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
-            
-                <a class="has-link-black-ter" href="/2019/07/01/如何在循环中使用await/">如何在循环中使用await</a>
-            
-        </h1>
-        <div class="content">
-            <p>有时候我们需要在循环中等待上一次结束再进行下一次的操作，如果直接在<code>forEach</code>使用<code>await</code>是没有作用的，因为forEach 只是简单的执行了下回调函数而已，并不会去处理异步的情况。</p>
-<p>我们可以使用<code>for</code>循环来实现想要的效果。</p>
-        </div>
-        
-        
-        <div class="level is-mobile">
-            <div class="level-start">
-                <div class="level-item">
-                <a class="button is-size-7 is-light" href="/2019/07/01/如何在循环中使用await/#more">Read More</a>
-                </div>
-            </div>
-        </div>
         
         
     </div>
