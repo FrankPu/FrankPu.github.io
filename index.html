@@ -122,7 +122,7 @@
                 
                 
                 
-                <a class="navbar-item search" title="Search" href="javascript:;">
+                <a class="navbar-item search" title="Pencarian" href="javascript:;">
                     <i class="fas fa-search"></i>
                 </a>
                 
@@ -141,6 +141,72 @@
         
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
             <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2019-07-12T09:00:39.000Z">2019-07-12</time>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/CSS/">CSS</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    3 minutes membaca (Sekitar 439 kata)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="has-link-black-ter" href="/2019/07/12/布局：水平居中、垂直居中、水平垂直居中/">布局：水平居中、垂直居中、水平垂直居中</a>
+            
+        </h1>
+        <div class="content">
+            <h2 id="水平居中"><a href="#水平居中" class="headerlink" title="水平居中"></a>水平居中</h2><h3 id="absolute-transform（推荐）"><a href="#absolute-transform（推荐）" class="headerlink" title="absolute + transform（推荐）"></a>absolute + transform（推荐）</h3><p><strong>transform为css3属性</strong>，兼容到IE10，IE9添加<code>-ms-transform</code> 属性</p>
+<figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&lt;div <span class="hljs-class"><span class="hljs-keyword">class</span></span>=<span class="hljs-string">"parent"</span> style=<span class="hljs-string">"background:red"</span>&gt;</span><br><span class="line">    &lt;div <span class="hljs-class"><span class="hljs-keyword">class</span></span>=<span class="hljs-string">"child"</span> style=<span class="hljs-string">"background:yellow"</span>&gt;DEMO&lt;<span class="hljs-regexp">/div&gt;</span></span><br><span class="line"><span class="hljs-regexp">&lt;/</span>div&gt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">.parent &#123;</span><br><span class="line">    position:relative;</span><br><span class="line">&#125;</span><br><span class="line">.child &#123;</span><br><span class="line">    position:absolute;</span><br><span class="line">    left:<span class="hljs-number">50</span>%;</span><br><span class="line">    transform:translateX(<span class="hljs-number">-50</span>%);	<span class="hljs-comment">//再向左偏移自身宽度的一半</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="flex-margin（推荐）"><a href="#flex-margin（推荐）" class="headerlink" title="flex + margin（推荐）"></a>flex + margin（推荐）</h3><p><strong>flex为css3属性</strong>，兼容到IE9</p>
+<figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;div <span class="hljs-class"><span class="hljs-keyword">class</span></span>=<span class="hljs-string">"parent"</span> style=<span class="hljs-string">"background:red"</span>&gt;</span><br><span class="line">    &lt;div <span class="hljs-class"><span class="hljs-keyword">class</span></span>=<span class="hljs-string">"child"</span> style=<span class="hljs-string">"background:yellow"</span>&gt;DEMO&lt;<span class="hljs-regexp">/div&gt;</span></span><br><span class="line"><span class="hljs-regexp">&lt;/</span>div&gt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">.parent &#123;</span><br><span class="line">    display:flex;</span><br><span class="line">&#125;</span><br><span class="line">.child &#123;</span><br><span class="line">    margin:<span class="hljs-number">0</span> auto;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="flex-justify-content（推荐）"><a href="#flex-justify-content（推荐）" class="headerlink" title="flex + justify-content（推荐）"></a>flex + justify-content（推荐）</h3><p><strong>flex为css3属性</strong>，兼容到IE9</p>
+<figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;div <span class="hljs-class"><span class="hljs-keyword">class</span></span>=<span class="hljs-string">"parent"</span> style=<span class="hljs-string">"background:red"</span>&gt;</span><br><span class="line">    &lt;div <span class="hljs-class"><span class="hljs-keyword">class</span></span>=<span class="hljs-string">"child"</span> style=<span class="hljs-string">"background:yellow"</span>&gt;DEMO&lt;<span class="hljs-regexp">/div&gt;</span></span><br><span class="line"><span class="hljs-regexp">&lt;/</span>div&gt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">.parent &#123;</span><br><span class="line">    display:flex;</span><br><span class="line">    justify-content:center;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="inline-block-text-align"><a href="#inline-block-text-align" class="headerlink" title="inline-block + text-align"></a>inline-block + text-align</h3><p>把子元素设为<code>inline-block</code> 元素，然后对父元素设置<code>text-align:center</code> 让子元素居中，兼容到IE6</p>
+<figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&lt;div <span class="hljs-class"><span class="hljs-keyword">class</span></span>=<span class="hljs-string">"parent"</span> style=<span class="hljs-string">"background:red"</span>&gt;</span><br><span class="line">    &lt;div <span class="hljs-class"><span class="hljs-keyword">class</span></span>=<span class="hljs-string">"child"</span> style=<span class="hljs-string">"background:yellow"</span>&gt;DEMO&lt;<span class="hljs-regexp">/div&gt;</span></span><br><span class="line"><span class="hljs-regexp">&lt;/</span>div&gt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">.child&#123;</span><br><span class="line">    display:inline-block;</span><br><span class="line">    text-align:center;	<span class="hljs-comment">//避免child里面的文字也水平居中</span></span><br><span class="line">&#125;</span><br><span class="line">.parent&#123;</span><br><span class="line">    text-align:center;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="table-margin"><a href="#table-margin" class="headerlink" title="table + margin"></a>table + margin</h3><p>兼容到IE8</p>
+<figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;div <span class="hljs-class"><span class="hljs-keyword">class</span></span>=<span class="hljs-string">"parent"</span> style=<span class="hljs-string">"background:red"</span>&gt;</span><br><span class="line">    &lt;div <span class="hljs-class"><span class="hljs-keyword">class</span></span>=<span class="hljs-string">"child"</span> style=<span class="hljs-string">"background:yellow"</span>&gt;DEMO&lt;<span class="hljs-regexp">/div&gt;</span></span><br><span class="line"><span class="hljs-regexp">&lt;/</span>div&gt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">.child&#123;</span><br><span class="line">    display:table;	<span class="hljs-comment">//div被换成了table</span></span><br><span class="line">    margin:<span class="hljs-number">0</span> auto;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="垂直居中"><a href="#垂直居中" class="headerlink" title="垂直居中"></a>垂直居中</h2><h3 id="absolute-transform（推荐）-1"><a href="#absolute-transform（推荐）-1" class="headerlink" title="absolute + transform（推荐）"></a>absolute + transform（推荐）</h3><p>类似于水平居中的那个方法</p>
+<p><strong>transform为css3属性</strong>，兼容到IE10，IE9添加<code>-ms-transform</code> 属性</p>
+<figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&lt;div <span class="hljs-class"><span class="hljs-keyword">class</span></span>=<span class="hljs-string">"parent"</span> style=<span class="hljs-string">"background:red"</span>&gt;</span><br><span class="line">    &lt;div <span class="hljs-class"><span class="hljs-keyword">class</span></span>=<span class="hljs-string">"child"</span> style=<span class="hljs-string">"background:yellow"</span>&gt;DEMO&lt;<span class="hljs-regexp">/div&gt;</span></span><br><span class="line"><span class="hljs-regexp">&lt;/</span>div&gt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">.parent &#123;</span><br><span class="line">    position:relative;</span><br><span class="line">&#125;</span><br><span class="line">.child &#123;</span><br><span class="line">    position:absolute;</span><br><span class="line">    top:<span class="hljs-number">50</span>%;</span><br><span class="line">    transform:translateY(<span class="hljs-number">-50</span>%);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="flex-align-items（推荐）"><a href="#flex-align-items（推荐）" class="headerlink" title="flex + align-items（推荐）"></a>flex + align-items（推荐）</h3><p>类似于水平居中的那个方法</p>
+<p><strong>flex为css3属性</strong>，兼容到IE9</p>
+<figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;div <span class="hljs-class"><span class="hljs-keyword">class</span></span>=<span class="hljs-string">"parent"</span> style=<span class="hljs-string">"background:red"</span>&gt;</span><br><span class="line">    &lt;div <span class="hljs-class"><span class="hljs-keyword">class</span></span>=<span class="hljs-string">"child"</span> style=<span class="hljs-string">"background:yellow"</span>&gt;DEMO&lt;<span class="hljs-regexp">/div&gt;</span></span><br><span class="line"><span class="hljs-regexp">&lt;/</span>div&gt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">.parent &#123;</span><br><span class="line">    position:flex;</span><br><span class="line">    align-items:center;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="table-cell-vertical-align"><a href="#table-cell-vertical-align" class="headerlink" title="table-cell + vertical-align"></a>table-cell + vertical-align</h3><p>兼容到IE8</p>
+<figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;div <span class="hljs-class"><span class="hljs-keyword">class</span></span>=<span class="hljs-string">"parent"</span> style=<span class="hljs-string">"background:red"</span>&gt;</span><br><span class="line">    &lt;div <span class="hljs-class"><span class="hljs-keyword">class</span></span>=<span class="hljs-string">"child"</span> style=<span class="hljs-string">"background:yellow"</span>&gt;DEMO&lt;<span class="hljs-regexp">/div&gt;</span></span><br><span class="line"><span class="hljs-regexp">&lt;/</span>div&gt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">.parent &#123;</span><br><span class="line">    display:table-cell;	<span class="hljs-comment">//1.将父框转化为一个表格单元格</span></span><br><span class="line">    vertical-align:middle;	<span class="hljs-comment">//2.使表格单元格内容垂直居中</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="水平垂直居中"><a href="#水平垂直居中" class="headerlink" title="水平垂直居中"></a>水平垂直居中</h2><h3 id="flex-margin（非常推荐）"><a href="#flex-margin（非常推荐）" class="headerlink" title="flex + margin（非常推荐）"></a>flex + margin（非常推荐）</h3><figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&lt;div <span class="hljs-class"><span class="hljs-keyword">class</span></span>=<span class="hljs-string">"parent"</span>&gt;</span><br><span class="line">  &lt;div <span class="hljs-class"><span class="hljs-keyword">class</span></span>=<span class="hljs-string">"child "</span>&gt;&lt;/div&gt;</span><br><span class="line">&lt;<span class="hljs-regexp">/div&gt;</span></span><br><span class="line"><span class="hljs-regexp"></span></span><br><span class="line"><span class="hljs-regexp">.parent &#123;</span></span><br><span class="line"><span class="hljs-regexp">  background-color: lightblue;</span></span><br><span class="line"><span class="hljs-regexp">  height: 500px;</span></span><br><span class="line"><span class="hljs-regexp">  display: flex;   /</span>* 关键代码 *<span class="hljs-regexp">/</span></span><br><span class="line"><span class="hljs-regexp">&#125;</span></span><br><span class="line"><span class="hljs-regexp"></span></span><br><span class="line"><span class="hljs-regexp">.child &#123;</span></span><br><span class="line"><span class="hljs-regexp">    width: 100px; height: 100px;</span></span><br><span class="line"><span class="hljs-regexp">    background-color: lightseagreen;</span></span><br><span class="line"><span class="hljs-regexp">    margin: auto;   /</span>* 关键代码 *<span class="hljs-regexp">/</span></span><br><span class="line"><span class="hljs-regexp">&#125;</span></span><br></pre></td></tr></table></figure>
+<h3 id="flex-justify-content-align-items（推荐）"><a href="#flex-justify-content-align-items（推荐）" class="headerlink" title="flex + justify-content + align-items（推荐）"></a>flex + justify-content + align-items（推荐）</h3><figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;div <span class="hljs-class"><span class="hljs-keyword">class</span></span>=<span class="hljs-string">"parent"</span> style=<span class="hljs-string">"background:red"</span>&gt;</span><br><span class="line">    &lt;div <span class="hljs-class"><span class="hljs-keyword">class</span></span>=<span class="hljs-string">"child"</span> style=<span class="hljs-string">"background:yellow"</span>&gt;DEMO&lt;<span class="hljs-regexp">/div&gt;</span></span><br><span class="line"><span class="hljs-regexp">&lt;/</span>div&gt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">.parent&#123;</span><br><span class="line">    display:flex;</span><br><span class="line">    justify-content:center;	<span class="hljs-comment">//水平居中</span></span><br><span class="line">    align-items:center;	<span class="hljs-comment">//垂直居中</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="absolute-transform（推荐）-2"><a href="#absolute-transform（推荐）-2" class="headerlink" title="absolute + transform（推荐）"></a>absolute + transform（推荐）</h3><figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&lt;div <span class="hljs-class"><span class="hljs-keyword">class</span></span>=<span class="hljs-string">"parent"</span> style=<span class="hljs-string">"background:red"</span>&gt;</span><br><span class="line">    &lt;div <span class="hljs-class"><span class="hljs-keyword">class</span></span>=<span class="hljs-string">"child"</span> style=<span class="hljs-string">"background:yellow"</span>&gt;DEMO&lt;<span class="hljs-regexp">/div&gt;</span></span><br><span class="line"><span class="hljs-regexp">&lt;/</span>div&gt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">.parent &#123;</span><br><span class="line">    position:relative;</span><br><span class="line">&#125;</span><br><span class="line">.child &#123;</span><br><span class="line">    position:absolute;</span><br><span class="line">    left:<span class="hljs-number">50</span>%;</span><br><span class="line">    top:<span class="hljs-number">50</span>%;</span><br><span class="line">    transform:translate(<span class="hljs-number">-50</span>%,<span class="hljs-number">-50</span>%);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="inline-block-text-align-table-cell-vertical-align"><a href="#inline-block-text-align-table-cell-vertical-align" class="headerlink" title="inline-block + text-align + table-cell + vertical-align"></a>inline-block + text-align + table-cell + vertical-align</h3><figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&lt;div <span class="hljs-class"><span class="hljs-keyword">class</span></span>=<span class="hljs-string">"parent"</span> style=<span class="hljs-string">"background:red"</span>&gt;</span><br><span class="line">    &lt;div <span class="hljs-class"><span class="hljs-keyword">class</span></span>=<span class="hljs-string">"child"</span> style=<span class="hljs-string">"background:yellow"</span>&gt;DEMO&lt;<span class="hljs-regexp">/div&gt;</span></span><br><span class="line"><span class="hljs-regexp">&lt;/</span>div&gt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">.child &#123;</span><br><span class="line">    display:inline-block;	<span class="hljs-comment">//1.水平居中</span></span><br><span class="line">&#125;</span><br><span class="line">.parent &#123;</span><br><span class="line">    text-align:center;	<span class="hljs-comment">//2.水平居中</span></span><br><span class="line">    display:table-cell;	<span class="hljs-comment">//3.垂直居中</span></span><br><span class="line">    vertical-align:middle;	<span class="hljs-comment">//4.垂直居中</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+        </div>
+        
+        
+        
+    </div>
+</div>
+
+
+
+
+
+
+
+
+    <div class="card">
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
                 <time class="level-item has-text-grey" datetime="2019-07-11T08:20:07.000Z">2019-07-11</time>
                 
                 <div class="level-item">
@@ -151,7 +217,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    2 minutes read (About 264 words)
+                    2 minutes membaca (Sekitar 264 kata)
                 </span>
                 
                 
@@ -173,7 +239,7 @@
         <div class="level is-mobile">
             <div class="level-start">
                 <div class="level-item">
-                <a class="button is-size-7 is-light" href="/2019/07/11/普通人的网页配色方案/#more">Read More</a>
+                <a class="button is-size-7 is-light" href="/2019/07/11/普通人的网页配色方案/#more">Selengkapnya</a>
                 </div>
             </div>
         </div>
@@ -205,7 +271,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    6 minutes read (About 923 words)
+                    6 minutes membaca (Sekitar 923 kata)
                 </span>
                 
                 
@@ -407,7 +473,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    43 minutes read (About 6391 words)
+                    43 minutes membaca (Sekitar 6391 kata)
                 </span>
                 
                 
@@ -439,7 +505,7 @@
         <div class="level is-mobile">
             <div class="level-start">
                 <div class="level-item">
-                <a class="button is-size-7 is-light" href="/2019/07/09/Ajax和XMLHttpRequest/#more">Read More</a>
+                <a class="button is-size-7 is-light" href="/2019/07/09/Ajax和XMLHttpRequest/#more">Selengkapnya</a>
                 </div>
             </div>
         </div>
@@ -471,7 +537,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    22 minutes read (About 3356 words)
+                    22 minutes membaca (Sekitar 3356 kata)
                 </span>
                 
                 
@@ -494,7 +560,7 @@
         <div class="level is-mobile">
             <div class="level-start">
                 <div class="level-item">
-                <a class="button is-size-7 is-light" href="/2019/07/08/用图表和实例解释Async和Await/#more">Read More</a>
+                <a class="button is-size-7 is-light" href="/2019/07/08/用图表和实例解释Async和Await/#more">Selengkapnya</a>
                 </div>
             </div>
         </div>
@@ -526,7 +592,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    2 minutes read (About 366 words)
+                    2 minutes membaca (Sekitar 366 kata)
                 </span>
                 
                 
@@ -548,7 +614,7 @@
         <div class="level is-mobile">
             <div class="level-start">
                 <div class="level-item">
-                <a class="button is-size-7 is-light" href="/2019/07/05/ReactNative应用包名修改/#more">Read More</a>
+                <a class="button is-size-7 is-light" href="/2019/07/05/ReactNative应用包名修改/#more">Selengkapnya</a>
                 </div>
             </div>
         </div>
@@ -580,7 +646,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    a minute read (About 202 words)
+                    a minute membaca (Sekitar 202 kata)
                 </span>
                 
                 
@@ -600,7 +666,7 @@
         <div class="level is-mobile">
             <div class="level-start">
                 <div class="level-item">
-                <a class="button is-size-7 is-light" href="/2019/07/04/ReactNative应用名称及图标修改/#more">Read More</a>
+                <a class="button is-size-7 is-light" href="/2019/07/04/ReactNative应用名称及图标修改/#more">Selengkapnya</a>
                 </div>
             </div>
         </div>
@@ -632,7 +698,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    5 minutes read (About 733 words)
+                    5 minutes membaca (Sekitar 733 kata)
                 </span>
                 
                 
@@ -653,7 +719,7 @@
         <div class="level is-mobile">
             <div class="level-start">
                 <div class="level-item">
-                <a class="button is-size-7 is-light" href="/2019/07/03/ReactNative原生组件FlatList实现上拉加载/#more">Read More</a>
+                <a class="button is-size-7 is-light" href="/2019/07/03/ReactNative原生组件FlatList实现上拉加载/#more">Selengkapnya</a>
                 </div>
             </div>
         </div>
@@ -685,7 +751,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    14 minutes read (About 2128 words)
+                    14 minutes membaca (Sekitar 2128 kata)
                 </span>
                 
                 
@@ -716,7 +782,7 @@
         <div class="level is-mobile">
             <div class="level-start">
                 <div class="level-item">
-                <a class="button is-size-7 is-light" href="/2019/07/02/ReactNative样式总结/#more">Read More</a>
+                <a class="button is-size-7 is-light" href="/2019/07/02/ReactNative样式总结/#more">Selengkapnya</a>
                 </div>
             </div>
         </div>
@@ -748,7 +814,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    2 minutes read (About 268 words)
+                    2 minutes membaca (Sekitar 268 kata)
                 </span>
                 
                 
@@ -769,61 +835,7 @@
         <div class="level is-mobile">
             <div class="level-start">
                 <div class="level-item">
-                <a class="button is-size-7 is-light" href="/2019/07/01/如何在循环中使用await/#more">Read More</a>
-                </div>
-            </div>
-        </div>
-        
-        
-    </div>
-</div>
-
-
-
-
-
-
-
-
-    <div class="card">
-    
-    <div class="card-content article ">
-        
-        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
-            <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2019-06-27T07:51:11.000Z">2019-06-27</time>
-                
-                <div class="level-item">
-                <a class="has-link-grey -link" href="/categories/HTTP/">HTTP</a>
-                </div>
-                
-                
-                <span class="level-item has-text-grey">
-                    
-                    
-                    4 minutes read (About 607 words)
-                </span>
-                
-                
-            </div>
-        </div>
-        
-        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
-            
-                <a class="has-link-black-ter" href="/2019/06/27/Axios在项目中的封装/">Axios在项目中的封装</a>
-            
-        </h1>
-        <div class="content">
-            <blockquote>
-<p>实际项目开发中用到的Axios封装</p>
-</blockquote>
-        </div>
-        
-        
-        <div class="level is-mobile">
-            <div class="level-start">
-                <div class="level-item">
-                <a class="button is-size-7 is-light" href="/2019/06/27/Axios在项目中的封装/#more">Read More</a>
+                <a class="button is-size-7 is-light" href="/2019/07/01/如何在循环中使用await/#more">Selengkapnya</a>
                 </div>
             </div>
         </div>
@@ -844,10 +856,10 @@
 <div class="card card-transparent">
     <nav class="pagination is-centered" role="navigation" aria-label="pagination">
         <div class="pagination-previous is-invisible is-hidden-mobile">
-            <a class="is-flex-grow has-text-black-ter" href="/page/0/">Previous</a>
+            <a class="is-flex-grow has-text-black-ter" href="/page/0/">Sebelumnya</a>
         </div>
         <div class="pagination-next">
-            <a class="is-flex-grow has-text-black-ter" href="/page/2/">Next</a>
+            <a class="is-flex-grow has-text-black-ter" href="/page/2/">Berikutnya</a>
         </div>
         <ul class="pagination-list is-hidden-mobile">
             
@@ -898,17 +910,17 @@
             <div class="level-item has-text-centered is-marginless">
                 <div>
                     <p class="heading">
-                        Posts
+                        Artikel
                     </p>
                     <p class="title has-text-weight-normal">
-                        15
+                        16
                     </p>
                 </div>
             </div>
             <div class="level-item has-text-centered is-marginless">
                 <div>
                     <p class="heading">
-                        Categories
+                        Kategori
                     </p>
                     <p class="title has-text-weight-normal">
                         6
@@ -918,17 +930,17 @@
             <div class="level-item has-text-centered is-marginless">
                 <div>
                     <p class="heading">
-                        Tags
+                        Tag
                     </p>
                     <p class="title has-text-weight-normal">
-                        16
+                        20
                     </p>
                 </div>
             </div>
         </nav>
         <div class="level">
             <a class="level-item button is-link is-rounded" href="https://github.com/dick3741" target="_blank">
-                Follow</a>
+                IKUTI</a>
         </div>
         
         
@@ -971,7 +983,7 @@
     <div class="card-content">
         <div class="menu">
         <h3 class="menu-label">
-            Links
+            Tautan
         </h3>
         <ul class="menu-list">
         
@@ -998,7 +1010,7 @@
     <div class="card-content">
         <div class="menu">
             <h3 class="menu-label">
-                Categories
+                Kategori
             </h3>
             <ul class="menu-list">
             <li>
@@ -1007,7 +1019,7 @@
                 <span class="level-item">CSS</span>
             </span>
             <span class="level-end">
-                <span class="level-item tag">1</span>
+                <span class="level-item tag">2</span>
             </span>
         </a></li><li>
         <a class="level is-marginless" href="/categories/ES6/">
@@ -1059,9 +1071,9 @@
 <div class="card widget">
     <div class="card-content">
         <h3 class="menu-label">
-            Tag Cloud
+            Awan tag
         </h3>
-        <a href="/tags/Ajax/" style="font-size: 10px;">Ajax</a> <a href="/tags/Axios/" style="font-size: 10px;">Axios</a> <a href="/tags/CSS/" style="font-size: 10px;">CSS</a> <a href="/tags/HTTP/" style="font-size: 13.33px;">HTTP</a> <a href="/tags/Hook/" style="font-size: 10px;">Hook</a> <a href="/tags/Promise/" style="font-size: 10px;">Promise</a> <a href="/tags/React/" style="font-size: 13.33px;">React</a> <a href="/tags/ReactNative/" style="font-size: 20px;">ReactNative</a> <a href="/tags/TypeScript/" style="font-size: 10px;">TypeScript</a> <a href="/tags/XMLHttpRequest/" style="font-size: 10px;">XMLHttpRequest</a> <a href="/tags/async-await/" style="font-size: 13.33px;">async/await</a> <a href="/tags/上拉加载/" style="font-size: 10px;">上拉加载</a> <a href="/tags/排序/" style="font-size: 10px;">排序</a> <a href="/tags/数据结构/" style="font-size: 10px;">数据结构</a> <a href="/tags/环境配置/" style="font-size: 16.67px;">环境配置</a> <a href="/tags/网页配色/" style="font-size: 10px;">网页配色</a>
+        <a href="/tags/Ajax/" style="font-size: 10px;">Ajax</a> <a href="/tags/Axios/" style="font-size: 10px;">Axios</a> <a href="/tags/CSS/" style="font-size: 10px;">CSS</a> <a href="/tags/HTTP/" style="font-size: 13.33px;">HTTP</a> <a href="/tags/Hook/" style="font-size: 10px;">Hook</a> <a href="/tags/Promise/" style="font-size: 10px;">Promise</a> <a href="/tags/React/" style="font-size: 13.33px;">React</a> <a href="/tags/ReactNative/" style="font-size: 20px;">ReactNative</a> <a href="/tags/TypeScript/" style="font-size: 10px;">TypeScript</a> <a href="/tags/XMLHttpRequest/" style="font-size: 10px;">XMLHttpRequest</a> <a href="/tags/absolute/" style="font-size: 10px;">absolute</a> <a href="/tags/async-await/" style="font-size: 13.33px;">async/await</a> <a href="/tags/flex/" style="font-size: 10px;">flex</a> <a href="/tags/table/" style="font-size: 10px;">table</a> <a href="/tags/上拉加载/" style="font-size: 10px;">上拉加载</a> <a href="/tags/布局/" style="font-size: 10px;">布局</a> <a href="/tags/排序/" style="font-size: 10px;">排序</a> <a href="/tags/数据结构/" style="font-size: 10px;">数据结构</a> <a href="/tags/环境配置/" style="font-size: 16.67px;">环境配置</a> <a href="/tags/网页配色/" style="font-size: 10px;">网页配色</a>
     </div>
 </div>
 
@@ -1073,8 +1085,27 @@
 <div class="card widget">
     <div class="card-content">
         <h3 class="menu-label">
-            Recent
+            Terbaru
         </h3>
+        
+        <article class="media">
+            
+            <a href="/2019/07/12/布局：水平居中、垂直居中、水平垂直居中/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="布局：水平居中、垂直居中、水平垂直居中">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-07-12T09:00:39.000Z">2019-07-12</time></div>
+                    <a href="/2019/07/12/布局：水平居中、垂直居中、水平垂直居中/" class="has-link-black-ter is-size-6">布局：水平居中、垂直居中、水平垂直居中</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/CSS/">CSS</a>
+                    </p>
+                </div>
+            </div>
+        </article>
         
         <article class="media">
             
@@ -1152,25 +1183,6 @@
             </div>
         </article>
         
-        <article class="media">
-            
-            <a href="/2019/07/05/ReactNative应用包名修改/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="ReactNative应用包名修改">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-07-05T06:45:16.000Z">2019-07-05</time></div>
-                    <a href="/2019/07/05/ReactNative应用包名修改/" class="has-link-black-ter is-size-6">ReactNative应用包名修改</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/ReactNative/">ReactNative</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
 
@@ -1179,7 +1191,7 @@
     <div class="card-content">
         <div class="menu">
         <h3 class="menu-label">
-            Archives
+            Arsip
         </h3>
         <ul class="menu-list">
         
@@ -1189,7 +1201,7 @@
                     <span class="level-item">July 2019</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">9</span>
+                    <span class="level-item tag">10</span>
                 </span>
             </a>
         </li>
@@ -1214,7 +1226,7 @@
     <div class="card-content">
         <div class="menu">
             <h3 class="menu-label">
-                Tags
+                Tag
             </h3>
             <div class="field is-grouped is-grouped-multiline">
                 
@@ -1289,6 +1301,13 @@
                 </div>
                 
                 <div class="control">
+                    <a class="tags has-addons" href="/tags/absolute/">
+                        <span class="tag">absolute</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
                     <a class="tags has-addons" href="/tags/async-await/">
                         <span class="tag">async/await</span>
                         <span class="tag is-grey">2</span>
@@ -1296,8 +1315,29 @@
                 </div>
                 
                 <div class="control">
+                    <a class="tags has-addons" href="/tags/flex/">
+                        <span class="tag">flex</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/table/">
+                        <span class="tag">table</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
                     <a class="tags has-addons" href="/tags/上拉加载/">
                         <span class="tag">上拉加载</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/布局/">
+                        <span class="tag">布局</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
@@ -1350,8 +1390,27 @@
 <div class="card widget">
     <div class="card-content">
         <h3 class="menu-label">
-            Recent
+            Terbaru
         </h3>
+        
+        <article class="media">
+            
+            <a href="/2019/07/12/布局：水平居中、垂直居中、水平垂直居中/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="布局：水平居中、垂直居中、水平垂直居中">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-07-12T09:00:39.000Z">2019-07-12</time></div>
+                    <a href="/2019/07/12/布局：水平居中、垂直居中、水平垂直居中/" class="has-link-black-ter is-size-6">布局：水平居中、垂直居中、水平垂直居中</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/CSS/">CSS</a>
+                    </p>
+                </div>
+            </div>
+        </article>
         
         <article class="media">
             
@@ -1429,25 +1488,6 @@
             </div>
         </article>
         
-        <article class="media">
-            
-            <a href="/2019/07/05/ReactNative应用包名修改/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="ReactNative应用包名修改">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-07-05T06:45:16.000Z">2019-07-05</time></div>
-                    <a href="/2019/07/05/ReactNative应用包名修改/" class="has-link-black-ter is-size-6">ReactNative应用包名修改</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/ReactNative/">ReactNative</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
 
@@ -1456,7 +1496,7 @@
     <div class="card-content">
         <div class="menu">
         <h3 class="menu-label">
-            Archives
+            Arsip
         </h3>
         <ul class="menu-list">
         
@@ -1466,7 +1506,7 @@
                     <span class="level-item">July 2019</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">9</span>
+                    <span class="level-item tag">10</span>
                 </span>
             </a>
         </li>
@@ -1491,7 +1531,7 @@
     <div class="card-content">
         <div class="menu">
             <h3 class="menu-label">
-                Tags
+                Tag
             </h3>
             <div class="field is-grouped is-grouped-multiline">
                 
@@ -1566,6 +1606,13 @@
                 </div>
                 
                 <div class="control">
+                    <a class="tags has-addons" href="/tags/absolute/">
+                        <span class="tag">absolute</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
                     <a class="tags has-addons" href="/tags/async-await/">
                         <span class="tag">async/await</span>
                         <span class="tag is-grey">2</span>
@@ -1573,8 +1620,29 @@
                 </div>
                 
                 <div class="control">
+                    <a class="tags has-addons" href="/tags/flex/">
+                        <span class="tag">flex</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/table/">
+                        <span class="tag">table</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
                     <a class="tags has-addons" href="/tags/上拉加载/">
                         <span class="tag">上拉加载</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/布局/">
+                        <span class="tag">布局</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
@@ -1728,7 +1796,7 @@ document.addEventListener('DOMContentLoaded', function () {
     
     
 
-<a id="back-to-top" title="Back to Top" href="javascript:;">
+<a id="back-to-top" title="Kembali ke atas" href="javascript:;">
     <i class="fas fa-chevron-up"></i>
 </a>
 <script src="/js/back-to-top.js" defer></script>
@@ -1762,7 +1830,7 @@ document.addEventListener('DOMContentLoaded', function () {
     <div class="searchbox ins-search">
     <div class="searchbox-container ins-search-container">
         <div class="searchbox-input-wrapper">
-            <input type="text" class="searchbox-input ins-search-input" placeholder="Type something...">
+            <input type="text" class="searchbox-input ins-search-input" placeholder="Tulis Sesuatu..">
             <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
         </div>
         <div class="searchbox-result-wrapper ins-section-wrapper">
@@ -1774,11 +1842,11 @@ document.addEventListener('DOMContentLoaded', function () {
     (function (window) {
         var INSIGHT_CONFIG = {
             TRANSLATION: {
-                POSTS: 'Posts',
-                PAGES: 'Pages',
-                CATEGORIES: 'Categories',
-                TAGS: 'Tags',
-                UNTITLED: '(Untitled)',
+                POSTS: 'Artikel',
+                PAGES: 'Halaman',
+                CATEGORIES: 'Kategori',
+                TAGS: 'Tag',
+                UNTITLED: 'Tanpa Judul',
             },
             CONTENT_URL: '/content.json',
         };
