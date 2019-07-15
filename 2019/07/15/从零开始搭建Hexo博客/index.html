@@ -7,19 +7,19 @@
 
 
 
-    <meta name="description" content="从零开始的个人博客配置。">
+    <meta name="description" content="从零开始的Hexo个人博客配置。">
 <meta name="keywords" content="环境配置">
 <meta property="og:type" content="article">
 <meta property="og:title" content="从零开始搭建Hexo博客">
 <meta property="og:url" content="https://shishuang.ga/2019/07/15/从零开始搭建Hexo博客/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="从零开始的个人博客配置。">
+<meta property="og:description" content="从零开始的Hexo个人博客配置。">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://shishuang.ga/images/og_image.png">
-<meta property="og:updated_time" content="2019-07-15T09:13:17.444Z">
+<meta property="og:updated_time" content="2019-07-15T09:39:31.766Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="从零开始搭建Hexo博客">
-<meta name="twitter:description" content="从零开始的个人博客配置。">
+<meta name="twitter:description" content="从零开始的Hexo个人博客配置。">
 <meta name="twitter:image" content="https://shishuang.ga/images/og_image.png">
 
 
@@ -155,7 +155,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    10 minutes read (About 1505 words)
+                    10 minutes read (About 1523 words)
                 </span>
                 
                 
@@ -168,12 +168,12 @@
             
         </h1>
         <div class="content">
-            <p>从零开始的个人博客配置。</p>
+            <p>从零开始的<a href="https://hexo.io/zh-cn/" target="_blank" rel="noopener">Hexo</a>个人博客配置。</p>
 <a id="more"></a>
 <h2 id="基础配置"><a href="#基础配置" class="headerlink" title="基础配置"></a>基础配置</h2><h3 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h3><ol>
 <li><p>安装<a href="https://git-scm.com/" target="_blank" rel="noopener">Git</a></p>
 </li>
-<li><p>安装<a href="http://nodejs.cn/download/%20%E4%B8%8B%E8%BD%BD%E5%9C%B0%E5%9D%80" target="_blank" rel="noopener">Node</a>（Hexo是基于Node.js的静态博客，LTS为长期支持版，Current为当前最新版）<br>安装步骤：反正下载好msi文件后，双击打开安装，也是一路next，不过在Custom Setup这一步记得选 Add to PATH ,这样你就不用自己去配置电脑上环境变量了，装完在按 win + r 快捷键调出运行，然后输入cmd确定，在cmd中输入path可以看到你的node是否配置在里面（环境变量）。</p>
+<li><p>安装<a href="http://nodejs.cn/download/%20%E4%B8%8B%E8%BD%BD%E5%9C%B0%E5%9D%80" target="_blank" rel="noopener">Node</a>（Hexo是基于Node.js的静态博客，LTS为长期支持版，Current为当前最新版）<br>安装步骤：反正下载好msi文件后，双击打开安装，也是一路next，不过在Custom Setup这一步记得选 Add to PATH ，这样你就不用自己去配置电脑上环境变量了，装完在按 win + r 快捷键调出运行，然后输入cmd确定，在cmd中输入path可以看到你的node是否配置在里面（环境变量）。</p>
 </li>
 <li><p>安装Hexo</p>
 <ol>
@@ -196,12 +196,19 @@
 </li>
 </ol>
 <blockquote>
-<p>node_modules：是依赖包<br>public：存放的是生成的页面<br>scaffolds：命令生成文章等的模板<br>source：用命令创建的各种文章<br>themes：主题<br>_config.yml：整个博客的配置（关键）<br>db.json：source解析所得到的</p>
-<p>package.json：项目所需模块项目的配置信息</p>
+<p>.deploy_git 上传到github上的内容</p>
+<p>node_modules：依赖包</p>
+<p>public：存放的是生成的页面</p>
+<p>scaffolds：命令生成文章等的模板</p>
+<p>source：用命令创建的各种文章</p>
+<p>themes：主题</p>
+<p>_config.yml：整个博客的配置（关键）</p>
+<p>db.json：source解析所得到的</p>
+<p>package.json：依赖包的配置信息</p>
 </blockquote>
 </li>
 </ol>
-<h3 id="新建仓库"><a href="#新建仓库" class="headerlink" title="新建仓库"></a>新建仓库</h3><p>github创建一个新的仓库，名称为<code>username.github.io</code>, 其中username是你的<strong>github用户名</strong>，按照这个规则创建才有用哦，如下：</p>
+<h3 id="新建仓库"><a href="#新建仓库" class="headerlink" title="新建仓库"></a>新建仓库</h3><p>github创建一个新的仓库，名称为<code>username.github.io</code>， 其中username是你的<strong>github用户名</strong>，按照这个规则创建才有用哦，如下：</p>
 <p><img src="https://i.loli.net/2019/07/15/5d2c4053065b697239.png" alt></p>
 <h3 id="创建SSH-KEY"><a href="#创建SSH-KEY" class="headerlink" title="创建SSH KEY"></a>创建SSH KEY</h3><p>在gitbash中输入：<code>ssh-keygen -t rsa -C &quot;YourEmail&quot;</code>。<br>然后系统会要你输入密码，这个密码会在你提交项目时使用，如果为空的话提交项目时则不用输入。这个设置是防止别人往你的项目里提交内容。</p>
 <figure class="highlight bash hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Enter passphrase (empty <span class="hljs-keyword">for</span> no passphrase):&lt;输入加密串&gt;</span><br><span class="line">Enter same passphrase again:&lt;再次输入加密串&gt;</span><br></pre></td></tr></table></figure>
@@ -212,9 +219,9 @@
 <h3 id="添加SSH-KEY到GitHub"><a href="#添加SSH-KEY到GitHub" class="headerlink" title="添加SSH KEY到GitHub"></a>添加SSH KEY到GitHub</h3><p>title随便取，key就是上面获取的SSH Key（注意是全部复制，包括前面的<code>ssh-rsa</code>）。</p>
 <p><img src="https://i.loli.net/2019/07/15/5d2c4114b1ee724619.png" alt></p>
 <p>完成后在gitbash中测试是否添加成功：<code>ssh -T git@github.com</code><br>如果是下面的反馈：</p>
-<figure class="highlight bash hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">The authenticity of host <span class="hljs-string">'github.com (207.97.227.239)'</span> can<span class="hljs-string">'t be established.</span></span><br><span class="line"><span class="hljs-string">RSA key fingerprint is 16:27:ac:a5:76:28:2d:36:63:1b:56:4d:eb:df:a6:48.</span></span><br><span class="line"><span class="hljs-string">Are you sure you want to continue connecting (yes/no)?</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">The authenticity of host &apos;github.com (207.97.227.239)&apos; can&apos;t be established.</span><br><span class="line">RSA key fingerprint is 16:27:ac:a5:76:28:2d:36:63:1b:56:4d:eb:df:a6:48.</span><br><span class="line">Are you sure you want to continue connecting (yes/no)?</span><br></pre></td></tr></table></figure>
 <p>不用紧张，直接输入<code>yes</code>可以看到成功提示：</p>
-<figure class="highlight bash hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Hi xxx! You<span class="hljs-string">'ve successfully authenticated, but GitHub does not provide shell access.</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Hi xxx! You&apos;ve successfully authenticated, but GitHub does not provide shell access.</span><br></pre></td></tr></table></figure>
 <h3 id="设置用户信息"><a href="#设置用户信息" class="headerlink" title="设置用户信息"></a>设置用户信息</h3><p>Git会根据用户的名字和邮箱来记录提交。GitHub也是用这些信息来做权限的处理，输入下面的代码进行个人信息的设置，打开命令行，配置全局git信息：</p>
 <figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git config --global user.name &quot;YourName&quot;//填写你自己的用户名</span><br><span class="line">$ git config --global user.email  &quot;YourEmail&quot;//填写你自己的邮箱</span><br></pre></td></tr></table></figure>
 <h2 id="部署"><a href="#部署" class="headerlink" title="部署"></a>部署</h2><h3 id="配置Hexo"><a href="#配置Hexo" class="headerlink" title="配置Hexo"></a>配置Hexo</h3><p>用编辑器打开你的blog项目，修改_config.yml文件的一些配置(冒号之后都是有一个半角空格的)：</p>
@@ -237,7 +244,7 @@
 </li>
 </ul>
 <h2 id="域名"><a href="#域名" class="headerlink" title="域名"></a>域名</h2><h3 id="绑定个人域名"><a href="#绑定个人域名" class="headerlink" title="绑定个人域名"></a>绑定个人域名</h3><blockquote>
-<p>免费的域名可以在freenom上面购买，有一年的使用期</p>
+<p>免费的域名可以在<a href="https://www.freenom.com/zh/index.html?lang=zh" target="_blank" rel="noopener">freenom</a>上面购买，有一年的使用期</p>
 </blockquote>
 <ul>
 <li>在博客目录的<code>source</code>文件夹下新建一个名为<code>CNAME</code>的文件（全大写，没有后缀）</li>
@@ -261,7 +268,7 @@
 <p><img src="https://i.loli.net/2019/07/15/5d2c42a2d6f3958151.png" alt></p>
 </li>
 </ol>
-<h3 id="使用SSL加密"><a href="#使用SSL加密" class="headerlink" title="使用SSL加密"></a>使用SSL加密</h3><p><img src="C:\Users\Pu\AppData\Roaming\Typora\typora-user-images\1563181769177.png" alt="1563181769177"></p>
+<h3 id="使用SSL加密"><a href="#使用SSL加密" class="headerlink" title="使用SSL加密"></a>使用SSL加密</h3><p><img src="https://i.loli.net/2019/07/15/5d2c498f7cec112487.png" alt></p>
 
         </div>
         
