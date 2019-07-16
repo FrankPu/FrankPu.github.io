@@ -2,24 +2,19 @@
 <html>
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
-<title>ReactNative应用包名修改 - Hexo</title>
+<title>Categoria: Javascript - Hexo</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
 
 
-    <meta name="description" content="包名是Android唯一的应用ID。 修改包名后，之前上传到应用商店的APP也就不是同一款了。 假设新的包名为com.oc.objective，下面几处地方是需要同步修改的：">
-<meta name="keywords" content="ReactNative,环境配置">
-<meta property="og:type" content="article">
-<meta property="og:title" content="ReactNative应用包名修改">
-<meta property="og:url" content="https://shishuang.ga/2019/07/05/ReactNative应用包名修改/index.html">
+    <meta property="og:type" content="website">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="https://shishuang.ga/categories/Javascript/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="包名是Android唯一的应用ID。 修改包名后，之前上传到应用商店的APP也就不是同一款了。 假设新的包名为com.oc.objective，下面几处地方是需要同步修改的：">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://shishuang.ga/images/og_image.png">
-<meta property="og:updated_time" content="2019-07-05T06:45:47.848Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="ReactNative应用包名修改">
-<meta name="twitter:description" content="包名是Android唯一的应用ID。 修改包名后，之前上传到应用商店的APP也就不是同一款了。 假设新的包名为com.oc.objective，下面几处地方是需要同步修改的：">
+<meta name="twitter:title" content="Hexo">
 <meta name="twitter:image" content="https://shishuang.ga/images/og_image.png">
 
 
@@ -94,7 +89,7 @@
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
             
-                <img src="/images/logo.svg" alt="ReactNative应用包名修改" height="28">
+                <img src="/images/logo.svg" alt="Hexo" height="28">
             
             </a>
         </div>
@@ -140,22 +135,34 @@
         <div class="container">
             <div class="columns">
                 <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main"><div class="card">
+    <div class="card-content">
+        <nav class="breadcrumb" aria-label="breadcrumbs">
+        <ul>
+            <li><a href="/categories">Categorias</a></li>
+            
+            <li class="is-active"><a href="#" aria-current="page">Javascript</a></li>
+        </ul>
+        </nav>
+    </div>
+</div>
+
+    <div class="card">
     
     <div class="card-content article ">
         
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
             <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2019-07-05T06:45:16.000Z">2019-07-05</time>
+                <time class="level-item has-text-grey" datetime="2019-07-16T09:34:23.000Z">2019-07-16</time>
                 
                 <div class="level-item">
-                <a class="has-link-grey -link" href="/categories/ReactNative/">ReactNative</a>
+                <a class="has-link-grey -link" href="/categories/Javascript/">Javascript</a>
                 </div>
                 
                 
                 <span class="level-item has-text-grey">
                     
                     
-                    2 minutes read (About 366 words)
+                    a few seconds read (About 83 words)
                 </span>
                 
                 
@@ -164,101 +171,31 @@
         
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                ReactNative应用包名修改
+                <a class="has-link-black-ter" href="/2019/07/16/如何添加数组中的每一项到已知对象当中/">如何添加数组中的每一项到已知对象当中</a>
             
         </h1>
         <div class="content">
-            <p>包名是Android唯一的应用ID。</p>
-<p>修改包名后，之前上传到应用商店的APP也就不是同一款了。</p>
-<p>假设新的包名为<code>com.oc.objective</code>，下面几处地方是需要同步修改的：</p>
-<a id="more"></a>
-<h2 id="两个Java文件"><a href="#两个Java文件" class="headerlink" title="两个Java文件"></a>两个Java文件</h2><p><code>android/app/src/main/java/com/PROJECT_NAME/MainActivity.java</code></p>
-<p><code>android/app/src/main/java/com/PROJECT_NAME/MainApplication.java</code></p>
-<p>修改第一行的<code>package</code>为：</p>
-<p><code>package com.oc.objective;</code></p>
-<h2 id="安卓描述文件"><a href="#安卓描述文件" class="headerlink" title="安卓描述文件"></a>安卓描述文件</h2><p><code>android/app/src/main/AndroidManifest.xml</code></p>
-<p>修改第二行<code>package</code>为：</p>
-<p><code>package=&quot;com.oc.objective&quot;</code></p>
-<h3 id="两个打包脚本"><a href="#两个打包脚本" class="headerlink" title="两个打包脚本"></a>两个打包脚本</h3><ol>
-<li><p><code>**android/app/BUCK**</code></p>
-<p>里面有两处<code>package</code>，都修改为新的包名</p>
-<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">android_build_config(</span><br><span class="line">    ...</span><br><span class="line">    package = &quot;com.oc.objective&quot;,</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line">android_resource(</span><br><span class="line">    ...</span><br><span class="line">    package = &quot;com.oc.objective&quot;,</span><br><span class="line">...</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<ol start="2">
-<li><p><code>**android/app/build.gradle**</code></p>
-<p>修改<code>applicationId</code></p>
-<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">defaultConfig &#123;</span><br><span class="line">    applicationId &quot;com.oc.objective&quot;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<p>修改完成后，命令行进入android目录，执行./gradlew clean清除缓存即可（windows上是 gradlew.bat）</p>
-<h2 id="更新Java文件目录"><a href="#更新Java文件目录" class="headerlink" title="更新Java文件目录"></a>更新Java文件目录</h2><p>至此能够打包出正确包名的apk，不过在开发过程中我们都需要自动link原生模块，现在Java文件目录不正确会导致无法link成功，所以还需要按照Java的规范把Java文件目录放入包名匹配的目录中。</p>
-<p>把<code>MainActivity.java</code>和<code>MainApplication.java</code>两个文件移到新创建的目录下：<code>android/app/src/main/java/com/oc/objective/</code>。</p>
-<p>修改完成的目录结构为：</p>
-<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">android/app/src/main/java/com/PROJECT_NAME/MainActivity.java</span><br><span class="line">android/app/src/main/java/com/PROJECT_NAME/MainApplication.java</span><br></pre></td></tr></table></figure>
-<p>现在就可以自动link了。</p>
-
+            <h2 id="利用对象快速插入"><a href="#利用对象快速插入" class="headerlink" title="利用对象快速插入"></a>利用对象快速插入</h2><figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">let</span> routes = [</span><br><span class="line">  &#123;<span class="hljs-attr">path</span>: <span class="hljs-string">'/'</span>, <span class="hljs-attr">component</span>: <span class="hljs-string">'Home'</span>&#125;,</span><br><span class="line">  &#123;<span class="hljs-attr">path</span>: <span class="hljs-string">'/book'</span>, <span class="hljs-attr">component</span>: <span class="hljs-string">'Book'</span>&#125;,</span><br><span class="line">  &#123;<span class="hljs-attr">path</span>: <span class="hljs-string">'/movie'</span>, <span class="hljs-attr">component</span>: <span class="hljs-string">'Movie'</span>&#125;</span><br><span class="line">]</span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">let</span> routeMap = &#123;&#125;</span><br><span class="line"></span><br><span class="line">routes.forEach(<span class="hljs-function"><span class="hljs-params">item</span> =&gt;</span> &#123;</span><br><span class="line">  routeMap[item.path] = item.component</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
         </div>
         
-        <div class="level is-size-7 is-uppercase">
+        
+        <div class="level is-mobile">
             <div class="level-start">
                 <div class="level-item">
-                    <span class="is-size-6 has-text-grey has-mr-7">#</span>
-                    <a class="has-link-grey -link" href="/tags/ReactNative/">ReactNative</a>, <a class="has-link-grey -link" href="/tags/环境配置/">环境配置</a>
+                <a class="button is-size-7 is-light" href="/2019/07/16/如何添加数组中的每一项到已知对象当中/#more">Read More</a>
                 </div>
             </div>
         </div>
         
         
-        
     </div>
 </div>
 
 
 
-<div class="card">
-    <div class="card-content">
-        <h3 class="menu-label has-text-centered">Like this article? Support the author with</h3>
-        <div class="buttons is-centered">
-            
-                
-<div class="notification is-danger">
-    You forgot to set the <code>qrcode</code> for Alipay. Please set it in <code>_config.yml</code>.
-</div>
-
-                
-                
-<div class="notification is-danger">
-    You forgot to set the <code>qrcode</code> for Wechat. Please set it in <code>_config.yml</code>.
-</div>
-
-                
-        </div>
-    </div>
-</div>
 
 
 
-<div class="card card-transparent">
-    <div class="level post-navigation is-flex-wrap is-mobile">
-        
-        <div class="level-start">
-            <a class="level level-item has-link-grey  article-nav-prev" href="/2019/07/08/用图表和实例解释Async和Await/">
-                <i class="level-item fas fa-chevron-left"></i>
-                <span class="level-item">用图表和实例解释Async和Await</span>
-            </a>
-        </div>
-        
-        
-        <div class="level-end">
-            <a class="level level-item has-link-grey  article-nav-next" href="/2019/07/04/ReactNative应用名称及图标修改/">
-                <span class="level-item">ReactNative应用名称及图标修改</span>
-                <i class="level-item fas fa-chevron-right"></i>
-            </a>
-        </div>
-        
-    </div>
-</div>
 
 
 </div>
@@ -1099,7 +1036,7 @@
             <div class="level-start has-text-centered-mobile">
                 <a class="footer-logo is-block has-mb-6" href="/">
                 
-                    <img src="/images/logo.svg" alt="ReactNative应用包名修改" height="28">
+                    <img src="/images/logo.svg" alt="Hexo" height="28">
                 
                 </a>
                 <p class="is-size-7">
