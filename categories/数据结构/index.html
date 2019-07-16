@@ -162,7 +162,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    6 minutes read (About 923 words)
+                    6 minutes read (About 931 words)
                 </span>
                 
                 
@@ -175,167 +175,17 @@
             
         </h1>
         <div class="content">
-            <h1 id="各种排序算法时间复杂度"><a href="#各种排序算法时间复杂度" class="headerlink" title="各种排序算法时间复杂度"></a>各种排序算法时间复杂度</h1><table>
-<thead>
-<tr>
-<th>各种常用排序算法</th>
-<th></th>
-<th></th>
-<th></th>
-<th></th>
-<th></th>
-<th></th>
-<th></th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>类别</td>
-<td>排序方法</td>
-<td>时间复杂度</td>
-<td>空间复杂度</td>
-<td>稳定性</td>
-<td>复杂性</td>
-<td>特点</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>最好</td>
-<td>平均</td>
-<td>最坏</td>
-<td>辅助存储</td>
-<td></td>
-<td>简单</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>插入排序</td>
-<td>直接插入</td>
-<td>O(N)</td>
-<td>O(N2)</td>
-<td>O(N2)</td>
-<td>O(1)</td>
-<td>稳定</td>
-<td>简单</td>
-<td></td>
-</tr>
-<tr>
-<td>希尔排序</td>
-<td>O(N)</td>
-<td>O(N1.3)</td>
-<td>O(N2)</td>
-<td>O(1)</td>
-<td>不稳定</td>
-<td>复杂</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>选择排序</td>
-<td>直接选择</td>
-<td>O(N)</td>
-<td>O(N2)</td>
-<td>O(N2)</td>
-<td>O(1)</td>
-<td>不稳定</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>堆排序</td>
-<td>O(N*log2N)</td>
-<td>O(N*log2N)</td>
-<td>O(N*log2N)</td>
-<td>O(1)</td>
-<td>不稳定</td>
-<td>复杂</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>交换排序</td>
-<td>冒泡排序</td>
-<td>O(N)</td>
-<td>O(N2)</td>
-<td>O(N2)</td>
-<td>O(1)</td>
-<td>稳定</td>
-<td>简单</td>
-<td>1、冒泡排序是一种用时间换空间的排序方法，n小时好 2、最坏情况是把顺序的排列变成逆序，或者把逆序的数列变成顺序，最差时间复杂度O(N^2)只是表示其操作次数的数量级 3、最好的情况是数据本来就有序，复杂度为O(n)</td>
-</tr>
-<tr>
-<td>快速排序</td>
-<td>O(N*log2N)</td>
-<td>O(N*log2N)</td>
-<td>O(N2)</td>
-<td>O(log2n)~O(n)</td>
-<td>不稳定</td>
-<td>复杂</td>
-<td>1、n大时好，快速排序比较占用内存，内存随n的增大而增大，但却是效率高不稳定的排序算法。 2、划分之后一边是一个，一边是n-1个， 这种极端情况的时间复杂度就是O(N^2) 3、最好的情况是每次都能均匀的划分序列，O(N*log2N)</td>
-<td></td>
-</tr>
-<tr>
-<td>归并排序</td>
-<td>O(N*log2N)</td>
-<td>O(N*log2N)</td>
-<td>O(N*log2N)</td>
-<td>O(n)</td>
-<td>稳定</td>
-<td>复杂</td>
-<td>1、n大时好，归并比较占用内存，内存随n的增大而增大，但却是效率高且稳定的排序算法。</td>
-<td></td>
-</tr>
-<tr>
-<td>基数排序</td>
-<td>O(d(r+n))</td>
-<td>O(d(r+n))</td>
-<td>O(d(r+n))</td>
-<td>O(rd+n)</td>
-<td>稳定</td>
-<td>复杂</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>注：r代表关键字基数，d代表长度，n代表关键字个数</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
-<p>注：</p>
-<ol>
-<li><strong>归并排序</strong>每次递归都要用到一个辅助表，长度与待排序的表长度相同，虽然递归次数是<code>O(log2n)</code>，但每次递归都会释放掉所占的辅助空间。</li>
-<li><strong>快速排序</strong>空间复杂度只是在通常情况下才为<code>O(log2n)</code>，如果是最坏情况的话，很显然就要<code>O(n)</code>的空间了。当然，可以通过随机化选择pivot来将空间复杂度降低到<code>O(log2n)</code>。</li>
-</ol>
-<p>相关概念：</p>
-<ol>
-<li><strong>时间复杂度</strong></li>
-</ol>
-<p>​    时间复杂度可以认为是对排序数据的总的操作次数。反映当n变化时，操作次数呈现什么规律。</p>
-<p>​    常见的时间复杂度有：</p>
-<p>​    常数阶<code>O(1)</code>，对数阶<code>O(log2n)</code>，线性阶<code>O(n)</code>，线性对数阶<code>O(nlog2n)</code>，平方阶<code>O(n2)</code></p>
-<p>​    时间复杂度O(1)：算法中语句执行次数为一个常数，则时间复杂度为<code>O(1)</code>。</p>
-<ol start="2">
-<li><strong>空间复杂度</strong></li>
-</ol>
-<p>​    空间复杂度是指算法在计算机内执行时所需存储空间的度量，它也是问题规模n的函数。</p>
-<p>​    空间复杂度O(1)：当一个算法的空间复杂度为一个常量，即不随被处理数据量n的大小而改变时，可表示为O(1)。</p>
-<p>​    空间复杂度O(log2N)：当一个算法的空间复杂度与以2为底的n的对数成正比时，可表示为O(log2n)</p>
-<p>​                                 ax=N，则x=logaN。</p>
-<p>​    空间复杂度O(n)：当一个算法的空间复杂度与n成线性比例关系时，可表示为<code>0(n)</code>。</p>
-
+            <h1 id="各种排序的性能比较"><a href="#各种排序的性能比较" class="headerlink" title="各种排序的性能比较"></a>各种排序的性能比较</h1><p> 各种排序的性能比较</p>
         </div>
         
+        
+        <div class="level is-mobile">
+            <div class="level-start">
+                <div class="level-item">
+                <a class="button is-size-7 is-light" href="/2019/07/10/数据结构：八大排序/#more">Read More</a>
+                </div>
+            </div>
+        </div>
         
         
     </div>
