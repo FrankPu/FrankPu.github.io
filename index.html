@@ -141,6 +141,75 @@
         
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
             <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2019-07-17T09:59:12.000Z">2019-07-17</time>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/其他前端/">其他前端</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    14 minutes read (About 2098 words)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="has-link-black-ter" href="/2019/07/17/Git常用命令总结/">Git常用命令总结</a>
+            
+        </h1>
+        <div class="content">
+            <h2 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h2><ul>
+<li>本地创建公钥：<code>ssh-keygen -t rsa -C &quot;邮箱&quot;</code></li>
+<li><p>克隆最新主分支代码到本地：<code>git clone 地址</code></p>
+</li>
+<li><p>下载指定分支：<code>git clone -b 分支名仓库地址</code></p>
+</li>
+<li><p>创建本地分支：<code>git branch 分支名</code></p>
+</li>
+<li><p>查看本地分支：<code>git branch</code></p>
+</li>
+<li><p>查看远程分支：<code>git branch -a</code></p>
+</li>
+<li><p>切换分支：<code>git checkout 分支名</code></p>
+<p>一般修改未提交则无法切换，大小写问题经常会有，可使用命令<code>git checkout 分支名 -f</code>强制切换（慎用）</p>
+</li>
+<li><p>将本地分支推送到远程：<code>git push &lt;远程仓库&gt; &lt;本地分支&gt;:&lt;远程分支&gt;</code></p>
+</li>
+</ul>
+        </div>
+        
+        
+        <div class="level is-mobile">
+            <div class="level-start">
+                <div class="level-item">
+                <a class="button is-size-7 is-light" href="/2019/07/17/Git常用命令总结/#more">Read More</a>
+                </div>
+            </div>
+        </div>
+        
+        
+    </div>
+</div>
+
+
+
+
+
+
+
+
+    <div class="card">
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
                 <time class="level-item has-text-grey" datetime="2019-07-16T09:34:23.000Z">2019-07-16</time>
                 
                 <div class="level-item">
@@ -203,7 +272,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    10 minutes read (About 1523 words)
+                    10 minutes read (About 1522 words)
                 </span>
                 
                 
@@ -216,7 +285,9 @@
             
         </h1>
         <div class="content">
-            <p>从零开始的<a href="https://hexo.io/zh-cn/" target="_blank" rel="noopener">Hexo</a>个人博客配置。</p>
+            <blockquote>
+<p>从零开始的<a href="https://hexo.io/zh-cn/" target="_blank" rel="noopener">Hexo</a>个人博客配置</p>
+</blockquote>
         </div>
         
         
@@ -268,7 +339,7 @@
             
         </h1>
         <div class="content">
-            <h2 id="水平垂直居中"><a href="#水平垂直居中" class="headerlink" title="水平垂直居中"></a>水平垂直居中</h2><h3 id="flex-margin（非常推荐）"><a href="#flex-margin（非常推荐）" class="headerlink" title="flex + margin（非常推荐）"></a>flex + margin（非常推荐）</h3><figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&lt;div <span class="hljs-class"><span class="hljs-keyword">class</span></span>=<span class="hljs-string">"parent"</span>&gt;</span><br><span class="line">  &lt;div <span class="hljs-class"><span class="hljs-keyword">class</span></span>=<span class="hljs-string">"child "</span>&gt;&lt;/div&gt;</span><br><span class="line">&lt;<span class="hljs-regexp">/div&gt;</span></span><br><span class="line"><span class="hljs-regexp"></span></span><br><span class="line"><span class="hljs-regexp">.parent &#123;</span></span><br><span class="line"><span class="hljs-regexp">  background-color: lightblue;</span></span><br><span class="line"><span class="hljs-regexp">  height: 500px;</span></span><br><span class="line"><span class="hljs-regexp">  display: flex;   /</span>* 关键代码 *<span class="hljs-regexp">/</span></span><br><span class="line"><span class="hljs-regexp">&#125;</span></span><br><span class="line"><span class="hljs-regexp"></span></span><br><span class="line"><span class="hljs-regexp">.child &#123;</span></span><br><span class="line"><span class="hljs-regexp">    width: 100px; height: 100px;</span></span><br><span class="line"><span class="hljs-regexp">    background-color: lightseagreen;</span></span><br><span class="line"><span class="hljs-regexp">    margin: auto;   /</span>* 关键代码 *<span class="hljs-regexp">/</span></span><br><span class="line"><span class="hljs-regexp">&#125;</span></span><br></pre></td></tr></table></figure>
+            <h2 id="水平垂直居中"><a href="#水平垂直居中" class="headerlink" title="水平垂直居中"></a>水平垂直居中</h2><h3 id="flex-margin（非常推荐）"><a href="#flex-margin（非常推荐）" class="headerlink" title="flex + margin（非常推荐）"></a>flex + margin（非常推荐）</h3><figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&lt;div <span class="hljs-class"><span class="hljs-keyword">class</span></span>=<span class="hljs-string">"parent"</span>&gt;</span><br><span class="line">    &lt;div <span class="hljs-class"><span class="hljs-keyword">class</span></span>=<span class="hljs-string">"child "</span>&gt;&lt;/div&gt;</span><br><span class="line">&lt;<span class="hljs-regexp">/div&gt;</span></span><br><span class="line"><span class="hljs-regexp"></span></span><br><span class="line"><span class="hljs-regexp">.parent &#123;</span></span><br><span class="line"><span class="hljs-regexp">    background-color: lightblue;</span></span><br><span class="line"><span class="hljs-regexp">    height: 500px;</span></span><br><span class="line"><span class="hljs-regexp">    display: flex;   /</span>* 关键代码 *<span class="hljs-regexp">/</span></span><br><span class="line"><span class="hljs-regexp">&#125;</span></span><br><span class="line"><span class="hljs-regexp"></span></span><br><span class="line"><span class="hljs-regexp">.child &#123;</span></span><br><span class="line"><span class="hljs-regexp">    width: 100px; height: 100px;</span></span><br><span class="line"><span class="hljs-regexp">    background-color: lightseagreen;</span></span><br><span class="line"><span class="hljs-regexp">    margin: auto;   /</span>* 关键代码 *<span class="hljs-regexp">/</span></span><br><span class="line"><span class="hljs-regexp">&#125;</span></span><br></pre></td></tr></table></figure>
         </div>
         
         
@@ -361,7 +432,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    6 minutes read (About 931 words)
+                    6 minutes read (About 922 words)
                 </span>
                 
                 
@@ -374,7 +445,9 @@
             
         </h1>
         <div class="content">
-            <h1 id="各种排序的性能比较"><a href="#各种排序的性能比较" class="headerlink" title="各种排序的性能比较"></a>各种排序的性能比较</h1><p> 各种排序的性能比较</p>
+            <blockquote>
+<p>各种排序的性能比较</p>
+</blockquote>
         </div>
         
         
@@ -427,18 +500,6 @@
         </h1>
         <div class="content">
             <h2 id="Ajax和XMLHttpRequest"><a href="#Ajax和XMLHttpRequest" class="headerlink" title="Ajax和XMLHttpRequest"></a><code>Ajax</code>和<code>XMLHttpRequest</code></h2><p>我们通常将<code>Ajax</code>等同于<code>XMLHttpRequest</code>，但细究起来它们两个是属于不同维度的2个概念。</p>
-<blockquote>
-<p>以下是我认为对<code>Ajax</code>较为准确的解释：（摘自<a href="http://www.tutorialspoint.com/ajax/what_is_ajax.htm" target="_blank" rel="noopener">what is Ajax</a>）<br>AJAX stands for Asynchronous JavaScript and XML. AJAX is a new technique for creating better, faster, and more interactive web applications with the help of XML, HTML, CSS, and Java Script.</p>
-<p>AJAX is based on the following open standards:</p>
-<ul>
-<li>Browser-based presentation using HTML and Cascading Style Sheets (CSS).</li>
-<li>Data is stored in XML format and fetched from the server.</li>
-<li>Behind-the-scenes data fetches using XMLHttpRequest objects in the browser.</li>
-<li>JavaScript to make everything happen.</li>
-</ul>
-</blockquote>
-<p>从上面的解释中可以知道：<code>ajax</code>是一种技术方案，但并不是一种<strong>新技术</strong>。它依赖的是现有的<code>CSS</code>/<code>HTML</code>/<code>Javascript</code>，而其中最核心的依赖是浏览器提供的<code>XMLHttpRequest</code>对象，是这个对象使得浏览器可以发出<code>HTTP</code>请求与接收<code>HTTP</code>响应。</p>
-<p>所以我用一句话来总结两者的关系：我们使用<code>XMLHttpRequest</code>对象来发送一个<code>Ajax</code>请求。</p>
         </div>
         
         
@@ -477,7 +538,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    22 minutes read (About 3356 words)
+                    22 minutes read (About 3367 words)
                 </span>
                 
                 
@@ -490,9 +551,8 @@
             
         </h1>
         <div class="content">
-            <h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>JavaScript ES7 中的 <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function" target="_blank" rel="noopener">async / await</a> 让多个异步 promise 协同工作起来更容易。如果要按一定顺序从多个数据库或者 API 异步获取数据，你可能会以一堆乱七八糟的 promise 和回调函数而告终。而 async / await 结构让我们能用可读性强、易维护的代码更加简洁地实现这些逻辑。本教程用图表和简单示例讲解了 JavaScript 中 async / await 的语法和语义。在深入之前，我们先简单回顾一下 promise. 如果你已经对 JS 的 promise 有所了解，可放心大胆地跳过这一部分。</p>
-<blockquote>
-<p><a href="https://nikgrozev.com/2017/10/01/async-await/" target="_blank" rel="noopener">原文地址</a></p>
+            <blockquote>
+<p>Promise和Async/Await，一篇写的很深刻的<a href="https://nikgrozev.com/2017/10/01/async-await/" target="_blank" rel="noopener">文章</a></p>
 </blockquote>
         </div>
         
@@ -586,7 +646,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    a minute read (About 202 words)
+                    a minute read (About 201 words)
                 </span>
                 
                 
@@ -599,7 +659,9 @@
             
         </h1>
         <div class="content">
-            <p>APP名称和图标的修改方法。</p>
+            <blockquote>
+<p>APP名称和图标的修改方法</p>
+</blockquote>
         </div>
         
         
@@ -622,68 +684,15 @@
 
 
 
-    <div class="card">
-    
-    <div class="card-content article ">
-        
-        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
-            <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2019-07-03T03:42:35.000Z">2019-07-03</time>
-                
-                <div class="level-item">
-                <a class="has-link-grey -link" href="/categories/ReactNative/">ReactNative</a>
-                </div>
-                
-                
-                <span class="level-item has-text-grey">
-                    
-                    
-                    5 minutes read (About 733 words)
-                </span>
-                
-                
-            </div>
-        </div>
-        
-        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
-            
-                <a class="has-link-black-ter" href="/2019/07/03/ReactNative原生组件FlatList实现上拉加载/">ReactNative原生组件FlatList实现上拉加载</a>
-            
-        </h1>
-        <div class="content">
-            <p>我们可以利用官方组件<code>RefreshControl</code>实现下拉刷新功能，但官方并没有提供相应的上拉加载组件，所以我们需要通过自己手动实现。</p>
-<p>这里用到了<code>FlatList</code>组建的<code>onEndReached</code>与<code>onEndReachedThreshold</code>属性来实现相应效果。</p>
-        </div>
-        
-        
-        <div class="level is-mobile">
-            <div class="level-start">
-                <div class="level-item">
-                <a class="button is-size-7 is-light" href="/2019/07/03/ReactNative原生组件FlatList实现上拉加载/#more">Read More</a>
-                </div>
-            </div>
-        </div>
-        
-        
-    </div>
-</div>
-
-
-
-
-
-
-
-
 
     
 <div class="card card-transparent">
     <nav class="pagination is-centered" role="navigation" aria-label="pagination">
         <div class="pagination-previous is-invisible is-hidden-mobile">
-            <a class="is-flex-grow has-text-black-ter" href="/page/0/">Anterior</a>
+            <a class="is-flex-grow has-text-black-ter" href="/page/0/">Previous</a>
         </div>
         <div class="pagination-next">
-            <a class="is-flex-grow has-text-black-ter" href="/page/2/">Siguiente</a>
+            <a class="is-flex-grow has-text-black-ter" href="/page/2/">Next</a>
         </div>
         <ul class="pagination-list is-hidden-mobile">
             
@@ -734,17 +743,17 @@
             <div class="level-item has-text-centered is-marginless">
                 <div>
                     <p class="heading">
-                        Entradas
+                        Posts
                     </p>
                     <p class="title has-text-weight-normal">
-                        18
+                        19
                     </p>
                 </div>
             </div>
             <div class="level-item has-text-centered is-marginless">
                 <div>
                     <p class="heading">
-                        Categorias
+                        Categories
                     </p>
                     <p class="title has-text-weight-normal">
                         8
@@ -754,17 +763,17 @@
             <div class="level-item has-text-centered is-marginless">
                 <div>
                     <p class="heading">
-                        Etiquetas
+                        Tags
                     </p>
                     <p class="title has-text-weight-normal">
-                        20
+                        21
                     </p>
                 </div>
             </div>
         </nav>
         <div class="level">
             <a class="level-item button is-link is-rounded" href="https://github.com/dick3741" target="_blank">
-                SEGUIR</a>
+                Follow</a>
         </div>
         
         
@@ -834,7 +843,7 @@
     <div class="card-content">
         <div class="menu">
             <h3 class="menu-label">
-                Categorias
+                Categories
             </h3>
             <ul class="menu-list">
             <li>
@@ -891,7 +900,7 @@
                 <span class="level-item">其他前端</span>
             </span>
             <span class="level-end">
-                <span class="level-item tag">1</span>
+                <span class="level-item tag">2</span>
             </span>
         </a></li><li>
         <a class="level is-marginless" href="/categories/数据结构/">
@@ -911,9 +920,9 @@
 <div class="card widget">
     <div class="card-content">
         <h3 class="menu-label">
-            Nube de etiquetas
+            Tag Cloud
         </h3>
-        <a href="/tags/Ajax/" style="font-size: 10px;">Ajax</a> <a href="/tags/Axios/" style="font-size: 10px;">Axios</a> <a href="/tags/CSS/" style="font-size: 10px;">CSS</a> <a href="/tags/HTTP/" style="font-size: 13.33px;">HTTP</a> <a href="/tags/Hook/" style="font-size: 10px;">Hook</a> <a href="/tags/Promise/" style="font-size: 10px;">Promise</a> <a href="/tags/React/" style="font-size: 13.33px;">React</a> <a href="/tags/ReactNative/" style="font-size: 20px;">ReactNative</a> <a href="/tags/TypeScript/" style="font-size: 10px;">TypeScript</a> <a href="/tags/XMLHttpRequest/" style="font-size: 10px;">XMLHttpRequest</a> <a href="/tags/absolute/" style="font-size: 10px;">absolute</a> <a href="/tags/async-await/" style="font-size: 13.33px;">async/await</a> <a href="/tags/flex/" style="font-size: 10px;">flex</a> <a href="/tags/table/" style="font-size: 10px;">table</a> <a href="/tags/上拉加载/" style="font-size: 10px;">上拉加载</a> <a href="/tags/布局/" style="font-size: 10px;">布局</a> <a href="/tags/排序/" style="font-size: 10px;">排序</a> <a href="/tags/数据结构/" style="font-size: 10px;">数据结构</a> <a href="/tags/环境配置/" style="font-size: 16.67px;">环境配置</a> <a href="/tags/网页配色/" style="font-size: 10px;">网页配色</a>
+        <a href="/tags/Ajax/" style="font-size: 10px;">Ajax</a> <a href="/tags/Axios/" style="font-size: 10px;">Axios</a> <a href="/tags/CSS/" style="font-size: 10px;">CSS</a> <a href="/tags/HTTP/" style="font-size: 13.33px;">HTTP</a> <a href="/tags/Hook/" style="font-size: 10px;">Hook</a> <a href="/tags/Promise/" style="font-size: 10px;">Promise</a> <a href="/tags/React/" style="font-size: 13.33px;">React</a> <a href="/tags/ReactNative/" style="font-size: 20px;">ReactNative</a> <a href="/tags/TypeScript/" style="font-size: 10px;">TypeScript</a> <a href="/tags/XMLHttpRequest/" style="font-size: 10px;">XMLHttpRequest</a> <a href="/tags/absolute/" style="font-size: 10px;">absolute</a> <a href="/tags/async-await/" style="font-size: 13.33px;">async/await</a> <a href="/tags/flex/" style="font-size: 10px;">flex</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/table/" style="font-size: 10px;">table</a> <a href="/tags/上拉加载/" style="font-size: 10px;">上拉加载</a> <a href="/tags/布局/" style="font-size: 10px;">布局</a> <a href="/tags/排序/" style="font-size: 10px;">排序</a> <a href="/tags/数据结构/" style="font-size: 10px;">数据结构</a> <a href="/tags/环境配置/" style="font-size: 16.67px;">环境配置</a> <a href="/tags/网页配色/" style="font-size: 10px;">网页配色</a>
     </div>
 </div>
 
@@ -925,8 +934,27 @@
 <div class="card widget">
     <div class="card-content">
         <h3 class="menu-label">
-            Recientes
+            Recent
         </h3>
+        
+        <article class="media">
+            
+            <a href="/2019/07/17/Git常用命令总结/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Git常用命令总结">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-07-17T09:59:12.000Z">2019-07-17</time></div>
+                    <a href="/2019/07/17/Git常用命令总结/" class="has-link-black-ter is-size-6">Git常用命令总结</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/其他前端/">其他前端</a>
+                    </p>
+                </div>
+            </div>
+        </article>
         
         <article class="media">
             
@@ -1004,25 +1032,6 @@
             </div>
         </article>
         
-        <article class="media">
-            
-            <a href="/2019/07/10/数据结构：八大排序/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="数据结构：八大排序">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-07-10T09:41:11.000Z">2019-07-10</time></div>
-                    <a href="/2019/07/10/数据结构：八大排序/" class="has-link-black-ter is-size-6">数据结构：八大排序</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/数据结构/">数据结构</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
 
@@ -1031,7 +1040,7 @@
     <div class="card-content">
         <div class="menu">
         <h3 class="menu-label">
-            Archivos
+            Archives
         </h3>
         <ul class="menu-list">
         
@@ -1041,7 +1050,7 @@
                     <span class="level-item">July 2019</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">12</span>
+                    <span class="level-item tag">13</span>
                 </span>
             </a>
         </li>
@@ -1066,7 +1075,7 @@
     <div class="card-content">
         <div class="menu">
             <h3 class="menu-label">
-                Etiquetas
+                Tags
             </h3>
             <div class="field is-grouped is-grouped-multiline">
                 
@@ -1157,6 +1166,13 @@
                 <div class="control">
                     <a class="tags has-addons" href="/tags/flex/">
                         <span class="tag">flex</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/git/">
+                        <span class="tag">git</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
@@ -1230,8 +1246,27 @@
 <div class="card widget">
     <div class="card-content">
         <h3 class="menu-label">
-            Recientes
+            Recent
         </h3>
+        
+        <article class="media">
+            
+            <a href="/2019/07/17/Git常用命令总结/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Git常用命令总结">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-07-17T09:59:12.000Z">2019-07-17</time></div>
+                    <a href="/2019/07/17/Git常用命令总结/" class="has-link-black-ter is-size-6">Git常用命令总结</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/其他前端/">其他前端</a>
+                    </p>
+                </div>
+            </div>
+        </article>
         
         <article class="media">
             
@@ -1309,25 +1344,6 @@
             </div>
         </article>
         
-        <article class="media">
-            
-            <a href="/2019/07/10/数据结构：八大排序/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="数据结构：八大排序">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-07-10T09:41:11.000Z">2019-07-10</time></div>
-                    <a href="/2019/07/10/数据结构：八大排序/" class="has-link-black-ter is-size-6">数据结构：八大排序</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/数据结构/">数据结构</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
 
@@ -1336,7 +1352,7 @@
     <div class="card-content">
         <div class="menu">
         <h3 class="menu-label">
-            Archivos
+            Archives
         </h3>
         <ul class="menu-list">
         
@@ -1346,7 +1362,7 @@
                     <span class="level-item">July 2019</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">12</span>
+                    <span class="level-item tag">13</span>
                 </span>
             </a>
         </li>
@@ -1371,7 +1387,7 @@
     <div class="card-content">
         <div class="menu">
             <h3 class="menu-label">
-                Etiquetas
+                Tags
             </h3>
             <div class="field is-grouped is-grouped-multiline">
                 
@@ -1462,6 +1478,13 @@
                 <div class="control">
                     <a class="tags has-addons" href="/tags/flex/">
                         <span class="tag">flex</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/git/">
+                        <span class="tag">git</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
@@ -1682,10 +1705,10 @@ document.addEventListener('DOMContentLoaded', function () {
     (function (window) {
         var INSIGHT_CONFIG = {
             TRANSLATION: {
-                POSTS: 'Entradas',
+                POSTS: 'Posts',
                 PAGES: 'Pages',
-                CATEGORIES: 'Categorias',
-                TAGS: 'Etiquetas',
+                CATEGORIES: 'Categories',
+                TAGS: 'Tags',
                 UNTITLED: '(Untitled)',
             },
             CONTENT_URL: '/content.json',

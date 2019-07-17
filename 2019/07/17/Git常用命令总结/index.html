@@ -2,24 +2,24 @@
 <html>
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
-<title>如何在循环中使用await - Hexo</title>
+<title>Git常用命令总结 - Hexo</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
 
 
-    <meta name="description" content="有时候我们需要在循环中等待上一次结束再进行下一次的操作，如果直接在forEach使用await是没有作用的，因为forEach 只是简单的执行了下回调函数而已，并不会去处理异步的情况。 我们可以使用for循环来实现想要的效果。">
-<meta name="keywords" content="async&#x2F;await">
+    <meta name="description" content="常用命令 本地创建公钥：ssh-keygen -t rsa -C &amp;quot;邮箱&amp;quot; 克隆最新主分支代码到本地：git clone 地址  下载指定分支：git clone -b 分支名仓库地址  创建本地分支：git branch 分支名  查看本地分支：git branch  查看远程分支：git branch -a  切换分支：git checkout 分支名 一般修改未提交则无法">
+<meta name="keywords" content="git">
 <meta property="og:type" content="article">
-<meta property="og:title" content="如何在循环中使用await">
-<meta property="og:url" content="https://shishuang.ga/2019/07/01/如何在循环中使用await/index.html">
+<meta property="og:title" content="Git常用命令总结">
+<meta property="og:url" content="https://shishuang.ga/2019/07/17/Git常用命令总结/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="有时候我们需要在循环中等待上一次结束再进行下一次的操作，如果直接在forEach使用await是没有作用的，因为forEach 只是简单的执行了下回调函数而已，并不会去处理异步的情况。 我们可以使用for循环来实现想要的效果。">
+<meta property="og:description" content="常用命令 本地创建公钥：ssh-keygen -t rsa -C &amp;quot;邮箱&amp;quot; 克隆最新主分支代码到本地：git clone 地址  下载指定分支：git clone -b 分支名仓库地址  创建本地分支：git branch 分支名  查看本地分支：git branch  查看远程分支：git branch -a  切换分支：git checkout 分支名 一般修改未提交则无法">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://shishuang.ga/images/og_image.png">
-<meta property="og:updated_time" content="2019-07-01T09:42:32.628Z">
+<meta property="og:updated_time" content="2019-07-17T10:01:01.934Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="如何在循环中使用await">
-<meta name="twitter:description" content="有时候我们需要在循环中等待上一次结束再进行下一次的操作，如果直接在forEach使用await是没有作用的，因为forEach 只是简单的执行了下回调函数而已，并不会去处理异步的情况。 我们可以使用for循环来实现想要的效果。">
+<meta name="twitter:title" content="Git常用命令总结">
+<meta name="twitter:description" content="常用命令 本地创建公钥：ssh-keygen -t rsa -C &amp;quot;邮箱&amp;quot; 克隆最新主分支代码到本地：git clone 地址  下载指定分支：git clone -b 分支名仓库地址  创建本地分支：git branch 分支名  查看本地分支：git branch  查看远程分支：git branch -a  切换分支：git checkout 分支名 一般修改未提交则无法">
 <meta name="twitter:image" content="https://shishuang.ga/images/og_image.png">
 
 
@@ -94,7 +94,7 @@
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
             
-                <img src="/images/logo.svg" alt="如何在循环中使用await" height="28">
+                <img src="/images/logo.svg" alt="Git常用命令总结" height="28">
             
             </a>
         </div>
@@ -145,17 +145,17 @@
         
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
             <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2019-07-01T08:55:01.000Z">2019-07-01</time>
+                <time class="level-item has-text-grey" datetime="2019-07-17T09:59:12.000Z">2019-07-17</time>
                 
                 <div class="level-item">
-                <a class="has-link-grey -link" href="/categories/ES6/">ES6</a>
+                <a class="has-link-grey -link" href="/categories/其他前端/">其他前端</a>
                 </div>
                 
                 
                 <span class="level-item has-text-grey">
                     
                     
-                    2 minutes read (About 268 words)
+                    14 minutes read (About 2098 words)
                 </span>
                 
                 
@@ -164,26 +164,165 @@
         
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                如何在循环中使用await
+                Git常用命令总结
             
         </h1>
         <div class="content">
-            <p>有时候我们需要在循环中等待上一次结束再进行下一次的操作，如果直接在<code>forEach</code>使用<code>await</code>是没有作用的，因为forEach 只是简单的执行了下回调函数而已，并不会去处理异步的情况。</p>
-<p>我们可以使用<code>for</code>循环来实现想要的效果。</p>
+            <h2 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h2><ul>
+<li>本地创建公钥：<code>ssh-keygen -t rsa -C &quot;邮箱&quot;</code></li>
+<li><p>克隆最新主分支代码到本地：<code>git clone 地址</code></p>
+</li>
+<li><p>下载指定分支：<code>git clone -b 分支名仓库地址</code></p>
+</li>
+<li><p>创建本地分支：<code>git branch 分支名</code></p>
+</li>
+<li><p>查看本地分支：<code>git branch</code></p>
+</li>
+<li><p>查看远程分支：<code>git branch -a</code></p>
+</li>
+<li><p>切换分支：<code>git checkout 分支名</code></p>
+<p>一般修改未提交则无法切换，大小写问题经常会有，可使用命令<code>git checkout 分支名 -f</code>强制切换（慎用）</p>
+</li>
+<li><p>将本地分支推送到远程：<code>git push &lt;远程仓库&gt; &lt;本地分支&gt;:&lt;远程分支&gt;</code></p>
+</li>
+</ul>
 <a id="more"></a>
-<h3 id="for"><a href="#for" class="headerlink" title="for"></a>for</h3><figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">async</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">fn</span>(<span class="hljs-params"></span>) </span>&#123;</span><br><span class="line">  <span class="hljs-keyword">let</span> arr = [<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>];</span><br><span class="line">  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'start'</span>)</span><br><span class="line">  <span class="hljs-keyword">for</span> (<span class="hljs-keyword">const</span> item <span class="hljs-keyword">of</span> arr) &#123;</span><br><span class="line">    <span class="hljs-keyword">const</span> res = <span class="hljs-keyword">await</span> fetch(item)</span><br><span class="line">    <span class="hljs-built_in">console</span>.log(res)</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'end'</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">fetch</span>(<span class="hljs-params">i</span>) </span>&#123;</span><br><span class="line">  <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">Promise</span> (<span class="hljs-function">(<span class="hljs-params">resolve, reject</span>) =&gt;</span> &#123;</span><br><span class="line">    setTimeout(<span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> &#123;</span><br><span class="line">      resolve(i)</span><br><span class="line">    &#125;, <span class="hljs-number">500</span> * i);</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">fn();</span><br></pre></td></tr></table></figure>
-<h3 id="for-of"><a href="#for-of" class="headerlink" title="for of"></a>for of</h3><figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">async</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">fn</span>(<span class="hljs-params"></span>) </span>&#123;</span><br><span class="line">  <span class="hljs-keyword">let</span> arr = [<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>]</span><br><span class="line">  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'start'</span>)</span><br><span class="line">  <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> item <span class="hljs-keyword">of</span> arr) &#123;</span><br><span class="line">    <span class="hljs-keyword">const</span> res = <span class="hljs-keyword">await</span> fetch(item)</span><br><span class="line">    <span class="hljs-built_in">console</span>.log(res)</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'end'</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">fetch</span>(<span class="hljs-params">i</span>) </span>&#123;</span><br><span class="line">  <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">Promise</span>(<span class="hljs-function">(<span class="hljs-params">resolve, reject</span>) =&gt;</span> &#123;</span><br><span class="line">    setTimeout(<span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> &#123;</span><br><span class="line">      resolve(i)</span><br><span class="line">    &#125;, <span class="hljs-number">500</span> * i);</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">fn();</span><br></pre></td></tr></table></figure>
-<h3 id="怎么让forEach支持await"><a href="#怎么让forEach支持await" class="headerlink" title="怎么让forEach支持await"></a>怎么让forEach支持await</h3><p>forEach简单的原理就是：</p>
-<figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">while</span> (index &lt; arr.length) &#123;</span><br><span class="line">  callback(item, index)   <span class="hljs-comment">//也就是我们传入的回调函数</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>构造一个支持await的forEach：</p>
-<figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-built_in">Array</span>.prototype.myforeach = <span class="hljs-keyword">async</span> <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">fn, context = null</span>) </span>&#123;</span><br><span class="line">    <span class="hljs-keyword">let</span> index = <span class="hljs-number">0</span>;</span><br><span class="line">    <span class="hljs-keyword">let</span> arr = <span class="hljs-keyword">this</span>;</span><br><span class="line">    <span class="hljs-keyword">if</span> (<span class="hljs-keyword">typeof</span> fn !== <span class="hljs-string">'function'</span>) &#123;</span><br><span class="line">        <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">TypeError</span>(fn + <span class="hljs-string">' is not a function'</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="hljs-keyword">while</span> (index &lt; arr.length) &#123;</span><br><span class="line">        <span class="hljs-keyword">if</span> (index <span class="hljs-keyword">in</span> arr) &#123;</span><br><span class="line">            <span class="hljs-keyword">try</span> &#123;</span><br><span class="line">                <span class="hljs-keyword">await</span> fn.call(context, arr[index], index, arr);</span><br><span class="line">            &#125; <span class="hljs-keyword">catch</span> (e) &#123;</span><br><span class="line">                <span class="hljs-built_in">console</span>.log(e);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        index ++;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h2 id="git原理图"><a href="#git原理图" class="headerlink" title="git原理图"></a>git原理图</h2><p><img src="https://i.loli.net/2019/07/17/5d2ee126bc88876506.png" alt></p>
+<ol>
+<li><strong>Remote：</strong>远程主仓库；</li>
+<li><strong>Repository：</strong>本地仓库；</li>
+<li><strong>Index：</strong>git追踪树，暂存区；</li>
+<li><strong>workspace：</strong>本地工作区（即你编辑器的代码）</li>
+</ol>
+<p><strong>一般工作时的提交代码流程：</strong>《工作区》-&gt; <code>git status</code>查看状态 -&gt; <code>git add .</code>将所有修改加入暂存区-&gt; <code>git commit -m &quot;提交描述&quot;</code>将代码提交到本地仓库-&gt;<code>git push</code>将本地仓库代码更新到远程仓库</p>
+<h2 id="git命令"><a href="#git命令" class="headerlink" title="git命令"></a>git命令</h2><h3 id="git-remote"><a href="#git-remote" class="headerlink" title="git remote"></a>git remote</h3><blockquote>
+<p>为远程仓库指定别名，以便于管理远程主机，默认只有一个时为origin</p>
+</blockquote>
+<ol>
+<li>查看主机名：<code>git remote</code></li>
+<li>查看主机名即网址：<code>git remote -v</code><ul>
+<li>默认克隆远程仓库到本地时，远程主机为origin，如需指定别名可使用<code>git clone -o &lt;别名&gt; &lt;远程git地址&gt;</code></li>
+</ul>
+</li>
+<li>查看主机的详细信息<code>git remote show &lt;主机名&gt;</code></li>
+<li>添加远程主机<code>git remote add &lt;主机名&gt; &lt;网址&gt;</code></li>
+<li>删除远程主机<code>git remote rm &lt;主机名&gt;</code></li>
+<li>修改远程主机的别名：<code>git remote rename &lt;原主机名&gt; &lt;新主机名&gt;</code></li>
+</ol>
+<h3 id="git-fetch"><a href="#git-fetch" class="headerlink" title="git fetch"></a>git fetch</h3><blockquote>
+<p>将远程Remote的更新，全部/特定分支取回本地Repository，它取回的代码对你本地的开发代码没有影响</p>
+<p>如需彻底更新并合并，使用<code>git pull</code></p>
+</blockquote>
+<ol>
+<li>远程主机的更新，全部取回本地<code>git fetch &lt;远程主机名&gt;</code>；</li>
+<li>将远程仓库特定分支更新到本地<code>git fetch &lt;远程主机名&gt; &lt;分支名&gt;</code></li>
+</ol>
+<p>如果需要将拉取的更新合并到本地某一分支：<code>git merge &lt;被合并的分支&gt;</code></p>
+<p>如果需要在此基础上创建出新分支并切换：<code>git checkout -b &lt;分支名&gt; &lt;在此分支上创建&gt;</code></p>
+<h3 id="git-pull"><a href="#git-pull" class="headerlink" title="git pull"></a>git pull</h3><blockquote>
+<p>拉取远程Remote某分支的更新，再与本地的指定分支合并</p>
+<p>相当于<code>git fetch</code>加上了<code>git merge</code>的操作</p>
+</blockquote>
+<ol>
+<li>拉取远程某分支并与本地某一分支合并（没有则默认会创建）：<code>git pull &lt;远程主机名&gt; &lt;远程分支名&gt;:&lt;本地分支名&gt;</code></li>
+<li>如果远程分支是与当前所在分支合并，则冒号后面的部分可以省略：<code>git pull &lt;远程主机名&gt; &lt;远程分支名&gt;</code></li>
+<li>如果当前分支与远程分支存在追踪关系,则可以省略远程分支名：<code>git pull &lt;远程主机名&gt;</code></li>
+<li>如果当前分支只有一个追踪分支，则远程主机名都可以省略：<code>git pull</code></li>
+</ol>
+<h3 id="git-push"><a href="#git-push" class="headerlink" title="git push"></a>git push</h3><blockquote>
+<p>将本地分支的更新，推送到远程主机，其命令格式与<code>git pull</code>相似</p>
+</blockquote>
+<ol>
+<li>将本地分支推送到远程分支：<code>git push &lt;远程主机名&gt; &lt;本地分支名&gt;:&lt;远程分支名&gt;</code></li>
+<li>如果省略远程分支名，则默认为将本地分支推送到与之关联的远程分支：(一般设置本地分支和与之关联的远程分支同名，防止混淆)<code>git push &lt;远程主机名&gt; &lt;本地分支名&gt;</code><ul>
+<li>如果对应的远程分支不存在，则会被创建（m默认与本地分支同名）</li>
+</ul>
+</li>
+<li>如果省略本地分支名，则表示删除指定的远程分支，这等同于推送一个空的本地分支到对应远程分支：<code>git push origin :&lt;远程分支&gt;</code> 等同于 <code>git push origin --delete &lt;远程分支&gt;</code></li>
+<li>如果当前分支与远程分支之间存在追踪关系，则本地分支和远程分支都可以省略<code>git push origin</code></li>
+<li>如果当前分支只有一个追踪分支，那么主机名也可以省略：<code>git push</code></li>
+<li>如果当前分支与多个主机存在追踪关系(使用场景相对来说较少)，可以使用-u指定默认推送主机<code>git push -u origin &lt;主机名&gt;</code>设置时候需推送便可以直接使用<code>git push</code></li>
+<li>将本地的所有分支都推送到远程主机:<code>git push --all origin</code></li>
+<li>如果远程主机的版本比本地版本更新，推送时Git会报错，要求先在本地做<code>git pull</code>合并差异，然后再推送到远程主机。如果一定要推送，可以使用<code>--force</code>选项(谨慎使用，除非你非常确认):<code>git push --force origin</code></li>
+</ol>
+<ul>
+<li><strong>注意</strong>:分支推送顺序的格式为<strong>&lt;来源地&gt;:&lt;目的地&gt;</strong>，所以<code>git pull</code>格式：<strong>&lt;远程分支&gt;:&lt;本地分支&gt;</strong>，<code>git push</code>格式为：<strong>&lt;本地分支&gt;:&lt;远程分支&gt;</strong>。</li>
+</ul>
+<h2 id="分支操作"><a href="#分支操作" class="headerlink" title="分支操作"></a>分支操作</h2><h3 id="常用分支命令"><a href="#常用分支命令" class="headerlink" title="常用分支命令"></a>常用分支命令</h3><ol>
+<li>创建本地分支：<code>git branch test</code>（创建名为test的本地分支）</li>
+<li>切换分支：<code>git checkout test</code>（切换到test分支）</li>
+<li>创建并切换分支<code>git checkout -b test</code>（相当于执行了上面两条命令）</li>
+<li>查看本地分支：<code>git branch</code></li>
+<li>查看远程仓库所有分支：<code>git branch -a</code></li>
+<li>删除本地分支：<code>git branch -d test</code>（删除本地test分支）</li>
+<li>分支合并：<code>git merge master</code>（将master分支合并到当前分支）</li>
+</ol>
+<h3 id="拉取远程分支代码"><a href="#拉取远程分支代码" class="headerlink" title="拉取远程分支代码"></a>拉取远程分支代码</h3><ul>
+<li><code>git checkout -b 本地分支名 origin/远程分支名</code>：在本地新建分支，并自动切换到该本地分支；</li>
+<li><code>git fetch origin 远程分支名:本地分支名</code>：在本地新建分支，但是不会自动切换到该本地分支，需要手动checkout。</li>
+</ul>
+<h3 id="重命名远程分支"><a href="#重命名远程分支" class="headerlink" title="重命名远程分支"></a>重命名远程分支</h3><ol>
+<li>重命名本地分支：<code>git branch -m oldName newName</code>;</li>
+<li>删除远程分支：<code>git push --delete origin oldName</code>;</li>
+<li>上传新命名的本地分支：<code>git push origin newName</code>;</li>
+<li>把本地分支与远程分支关联：<code>git branch --set-upstream-to origin/newName</code></li>
+</ol>
+<p>举个栗子：</p>
+<ol>
+<li><p>查看本地分支与远程分支的关联关系：<code>git branch -vv</code></p>
+<p><img src="https://i.loli.net/2019/07/17/5d2eea6af1eac19109.png" alt></p>
+</li>
+<li><p>把本地分支与远程origin的某分支进行关联处理</p>
+<p>通过 –set-upstream-to 命令：<code>git branch --set-upstream-to=origin/feature/clear-server-eslint-error_180713</code></p>
+<p><img src="https://i.loli.net/2019/07/17/5d2eea9e9e4ba78952.png" alt></p>
+</li>
+</ol>
+<h3 id="查看分支差异"><a href="#查看分支差异" class="headerlink" title="查看分支差异"></a>查看分支差异</h3><ol>
+<li><p>查看本地当前分支与远程某一分支的差异：</p>
+<p><code>git diff origin/feature/reserve-3.4</code></p>
+</li>
+<li><p>查看本地特定分支与远程分支的差异：</p>
+<p><code>git diff master origin/feature/reserve-3.4</code></p>
+<p>查看本地master分支与远程feature/reserve-3.4分支的差异，如图：</p>
+<p><img src="https://i.loli.net/2019/07/17/5d2eeeff2f89b71245.png" alt></p>
+</li>
+</ol>
+<h2 id="暂存修改"><a href="#暂存修改" class="headerlink" title="暂存修改"></a>暂存修改</h2><p>当你准备暂存当前正在进行的工作，比如想要pull最新代码又不想commit，或者另为了修改一个紧急的bug，可以使用<code>git stash</code> 。</p>
+<ol>
+<li><p>添加缓存栈：<code>git stash</code></p>
+</li>
+<li><p><code>git stash list</code>：</p>
+<p>由于可能会stash多次，我们可以使用<code>git stash list</code>查看所有的stash查看缓存栈</p>
+</li>
+<li><p><code>git stash pop</code>：</p>
+<p>从git栈中获取到最近一次stash进去的内容，恢复工作区的内容。</p>
+<p>获取之后，会删除栈中对应的stash。</p>
+</li>
+<li><p>取出特定缓存内容：<code>git stash apply stash@{1}</code></p>
+</li>
+</ol>
+<p><img src="https://i.loli.net/2019/07/17/5d2ef0e78871c20267.png" alt></p>
+<h2 id="撤销修改"><a href="#撤销修改" class="headerlink" title="撤销修改"></a>撤销修改</h2><ol>
+<li><code>git checkout -- &lt;文件名&gt;</code>：丢弃工作区的修改，就是让这个文件回到最近一次<code>git commit</code>或<code>git add</code>时的状态。</li>
+<li><code>git reset HEAD &lt;文件名&gt;</code>：把暂存区的修改撤销掉（unstage），重新放回工作区。</li>
+<li><code>git reset --hard commit_id</code>：git版本回退，回退到特定的commit_id版本</li>
+</ol>
+<h3 id="版本回退"><a href="#版本回退" class="headerlink" title="版本回退"></a>版本回退</h3><ol>
+<li><code>git log</code>查看提交历史，以便确定要回退到哪个版本(commit之后的一长串字符就是commit_id，记录下来);</li>
+<li><code>git reset --hard commit_id</code>：回退到commit_id版本；</li>
+</ol>
+<h2 id="git配置"><a href="#git配置" class="headerlink" title="git配置"></a>git配置</h2><ul>
+<li><code>git config -l</code>：列出所有的git配置项</li>
+<li><code>git config core.ignorecase false</code>：配置git不忽略大小写（默认忽略）</li>
+</ul>
+
         </div>
         
         <div class="level is-size-7 is-uppercase">
             <div class="level-start">
                 <div class="level-item">
                     <span class="is-size-6 has-text-grey has-mr-7">#</span>
-                    <a class="has-link-grey -link" href="/tags/async-await/">async/await</a>
+                    <a class="has-link-grey -link" href="/tags/git/">git</a>
                 </div>
             </div>
         </div>
@@ -221,17 +360,10 @@
 <div class="card card-transparent">
     <div class="level post-navigation is-flex-wrap is-mobile">
         
-        <div class="level-start">
-            <a class="level level-item has-link-grey  article-nav-prev" href="/2019/07/02/ReactNative样式总结/">
-                <i class="level-item fas fa-chevron-left"></i>
-                <span class="level-item">ReactNative样式总结</span>
-            </a>
-        </div>
-        
         
         <div class="level-end">
-            <a class="level level-item has-link-grey  article-nav-next" href="/2019/06/27/Axios在项目中的封装/">
-                <span class="level-item">Axios在项目中的封装</span>
+            <a class="level level-item has-link-grey  article-nav-next" href="/2019/07/16/如何添加数组中的每一项到已知对象当中/">
+                <span class="level-item">如何添加数组中的每一项到已知对象当中</span>
                 <i class="level-item fas fa-chevron-right"></i>
             </a>
         </div>
@@ -1092,7 +1224,7 @@
             <div class="level-start has-text-centered-mobile">
                 <a class="footer-logo is-block has-mb-6" href="/">
                 
-                    <img src="/images/logo.svg" alt="如何在循环中使用await" height="28">
+                    <img src="/images/logo.svg" alt="Git常用命令总结" height="28">
                 
                 </a>
                 <p class="is-size-7">

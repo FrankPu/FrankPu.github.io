@@ -7,19 +7,19 @@
 
 
 
-    <meta name="description" content="本文是根据react-native-pushy文档，使用后的一些笔记整理。 手机系统：Android  环境配置环境配置  环境：React Native 版本0.58，react-native-update 版本5.1.8">
+    <meta name="description" content="本文是根据react-native-pushy文档，使用后的一些笔记整理。">
 <meta name="keywords" content="ReactNative,环境配置">
 <meta property="og:type" content="article">
 <meta property="og:title" content="写给自己看的react-native-pushy使用笔记">
 <meta property="og:url" content="https://shishuang.ga/2019/06/21/写给自己看的react-native-pushy使用笔记/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="本文是根据react-native-pushy文档，使用后的一些笔记整理。 手机系统：Android  环境配置环境配置  环境：React Native 版本0.58，react-native-update 版本5.1.8">
+<meta property="og:description" content="本文是根据react-native-pushy文档，使用后的一些笔记整理。">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://shishuang.ga/images/og_image.png">
-<meta property="og:updated_time" content="2019-07-04T07:12:09.721Z">
+<meta property="og:updated_time" content="2019-07-17T01:19:35.847Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="写给自己看的react-native-pushy使用笔记">
-<meta name="twitter:description" content="本文是根据react-native-pushy文档，使用后的一些笔记整理。 手机系统：Android  环境配置环境配置  环境：React Native 版本0.58，react-native-update 版本5.1.8">
+<meta name="twitter:description" content="本文是根据react-native-pushy文档，使用后的一些笔记整理。">
 <meta name="twitter:image" content="https://shishuang.ga/images/og_image.png">
 
 
@@ -170,13 +170,13 @@
         <div class="content">
             <blockquote>
 <p>本文是根据<a href="https://github.com/reactnativecn/react-native-pushy" target="_blank" rel="noopener">react-native-pushy</a>文档，使用后的一些笔记整理。</p>
-<p>手机系统：Android</p>
 </blockquote>
+<a id="more"></a>
 <h2 id="环境配置"><a href="#环境配置" class="headerlink" title="环境配置"></a>环境配置</h2><p><a href="https://reactnative.cn/docs/getting-started/" target="_blank" rel="noopener">环境配置</a></p>
 <blockquote>
 <p>环境：React Native 版本0.58，react-native-update 版本5.1.8</p>
+<p>手机系统：Android</p>
 </blockquote>
-<a id="more"></a>
 <h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">npm i -g react-native-update-cli</span><br><span class="line">npm i react-native-update</span><br><span class="line">react-native link react-native-update</span><br></pre></td></tr></table></figure>
 <p>然后在目录<code>android\app\src\main\java\app\ytd\dg\MainApplication.java</code>中，添加代码：<br><figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">// ... 其它代码</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">// 添加这个import</span></span><br><span class="line"><span class="hljs-keyword">import</span> cn.reactnative.modules.update.UpdateContext;</span><br><span class="line"></span><br><span class="line">public <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MainApplication</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Application</span> <span class="hljs-title">implements</span> <span class="hljs-title">ReactApplication</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">  private final ReactNativeHost mReactNativeHost = <span class="hljs-keyword">new</span> ReactNativeHost(<span class="hljs-keyword">this</span>) &#123;</span><br><span class="line">  	<span class="hljs-comment">// 添加下面这段</span></span><br><span class="line">    @Override</span><br><span class="line">    protected <span class="hljs-built_in">String</span> getJSBundleFile() &#123;</span><br><span class="line">        <span class="hljs-keyword">return</span> UpdateContext.getBundleUrl(MainApplication.this);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="hljs-comment">// ... 其它代码</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><p>在<a href="https://update.reactnative.cn/home" target="_blank" rel="noopener">reactnative</a>创建一个账号。<br>然后在项目根目录，执行：<br><figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">pushy login</span><br><span class="line">email: &lt;输入你的注册邮箱&gt;</span><br><span class="line">password: &lt;输入你的密码&gt;</span><br></pre></td></tr></table></figure></p>
@@ -315,17 +315,17 @@
             <div class="level-item has-text-centered is-marginless">
                 <div>
                     <p class="heading">
-                        Entradas
+                        Posts
                     </p>
                     <p class="title has-text-weight-normal">
-                        18
+                        19
                     </p>
                 </div>
             </div>
             <div class="level-item has-text-centered is-marginless">
                 <div>
                     <p class="heading">
-                        Categorias
+                        Categories
                     </p>
                     <p class="title has-text-weight-normal">
                         8
@@ -335,17 +335,17 @@
             <div class="level-item has-text-centered is-marginless">
                 <div>
                     <p class="heading">
-                        Etiquetas
+                        Tags
                     </p>
                     <p class="title has-text-weight-normal">
-                        20
+                        21
                     </p>
                 </div>
             </div>
         </nav>
         <div class="level">
             <a class="level-item button is-link is-rounded" href="https://github.com/dick3741" target="_blank">
-                SEGUIR</a>
+                Follow</a>
         </div>
         
         
@@ -415,7 +415,7 @@
     <div class="card-content">
         <div class="menu">
             <h3 class="menu-label">
-                Categorias
+                Categories
             </h3>
             <ul class="menu-list">
             <li>
@@ -472,7 +472,7 @@
                 <span class="level-item">其他前端</span>
             </span>
             <span class="level-end">
-                <span class="level-item tag">1</span>
+                <span class="level-item tag">2</span>
             </span>
         </a></li><li>
         <a class="level is-marginless" href="/categories/数据结构/">
@@ -492,9 +492,9 @@
 <div class="card widget">
     <div class="card-content">
         <h3 class="menu-label">
-            Nube de etiquetas
+            Tag Cloud
         </h3>
-        <a href="/tags/Ajax/" style="font-size: 10px;">Ajax</a> <a href="/tags/Axios/" style="font-size: 10px;">Axios</a> <a href="/tags/CSS/" style="font-size: 10px;">CSS</a> <a href="/tags/HTTP/" style="font-size: 13.33px;">HTTP</a> <a href="/tags/Hook/" style="font-size: 10px;">Hook</a> <a href="/tags/Promise/" style="font-size: 10px;">Promise</a> <a href="/tags/React/" style="font-size: 13.33px;">React</a> <a href="/tags/ReactNative/" style="font-size: 20px;">ReactNative</a> <a href="/tags/TypeScript/" style="font-size: 10px;">TypeScript</a> <a href="/tags/XMLHttpRequest/" style="font-size: 10px;">XMLHttpRequest</a> <a href="/tags/absolute/" style="font-size: 10px;">absolute</a> <a href="/tags/async-await/" style="font-size: 13.33px;">async/await</a> <a href="/tags/flex/" style="font-size: 10px;">flex</a> <a href="/tags/table/" style="font-size: 10px;">table</a> <a href="/tags/上拉加载/" style="font-size: 10px;">上拉加载</a> <a href="/tags/布局/" style="font-size: 10px;">布局</a> <a href="/tags/排序/" style="font-size: 10px;">排序</a> <a href="/tags/数据结构/" style="font-size: 10px;">数据结构</a> <a href="/tags/环境配置/" style="font-size: 16.67px;">环境配置</a> <a href="/tags/网页配色/" style="font-size: 10px;">网页配色</a>
+        <a href="/tags/Ajax/" style="font-size: 10px;">Ajax</a> <a href="/tags/Axios/" style="font-size: 10px;">Axios</a> <a href="/tags/CSS/" style="font-size: 10px;">CSS</a> <a href="/tags/HTTP/" style="font-size: 13.33px;">HTTP</a> <a href="/tags/Hook/" style="font-size: 10px;">Hook</a> <a href="/tags/Promise/" style="font-size: 10px;">Promise</a> <a href="/tags/React/" style="font-size: 13.33px;">React</a> <a href="/tags/ReactNative/" style="font-size: 20px;">ReactNative</a> <a href="/tags/TypeScript/" style="font-size: 10px;">TypeScript</a> <a href="/tags/XMLHttpRequest/" style="font-size: 10px;">XMLHttpRequest</a> <a href="/tags/absolute/" style="font-size: 10px;">absolute</a> <a href="/tags/async-await/" style="font-size: 13.33px;">async/await</a> <a href="/tags/flex/" style="font-size: 10px;">flex</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/table/" style="font-size: 10px;">table</a> <a href="/tags/上拉加载/" style="font-size: 10px;">上拉加载</a> <a href="/tags/布局/" style="font-size: 10px;">布局</a> <a href="/tags/排序/" style="font-size: 10px;">排序</a> <a href="/tags/数据结构/" style="font-size: 10px;">数据结构</a> <a href="/tags/环境配置/" style="font-size: 16.67px;">环境配置</a> <a href="/tags/网页配色/" style="font-size: 10px;">网页配色</a>
     </div>
 </div>
 
@@ -506,8 +506,27 @@
 <div class="card widget">
     <div class="card-content">
         <h3 class="menu-label">
-            Recientes
+            Recent
         </h3>
+        
+        <article class="media">
+            
+            <a href="/2019/07/17/Git常用命令总结/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Git常用命令总结">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-07-17T09:59:12.000Z">2019-07-17</time></div>
+                    <a href="/2019/07/17/Git常用命令总结/" class="has-link-black-ter is-size-6">Git常用命令总结</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/其他前端/">其他前端</a>
+                    </p>
+                </div>
+            </div>
+        </article>
         
         <article class="media">
             
@@ -585,25 +604,6 @@
             </div>
         </article>
         
-        <article class="media">
-            
-            <a href="/2019/07/10/数据结构：八大排序/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="数据结构：八大排序">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-07-10T09:41:11.000Z">2019-07-10</time></div>
-                    <a href="/2019/07/10/数据结构：八大排序/" class="has-link-black-ter is-size-6">数据结构：八大排序</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/数据结构/">数据结构</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
 
@@ -612,7 +612,7 @@
     <div class="card-content">
         <div class="menu">
         <h3 class="menu-label">
-            Archivos
+            Archives
         </h3>
         <ul class="menu-list">
         
@@ -622,7 +622,7 @@
                     <span class="level-item">July 2019</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">12</span>
+                    <span class="level-item tag">13</span>
                 </span>
             </a>
         </li>
@@ -647,7 +647,7 @@
     <div class="card-content">
         <div class="menu">
             <h3 class="menu-label">
-                Etiquetas
+                Tags
             </h3>
             <div class="field is-grouped is-grouped-multiline">
                 
@@ -738,6 +738,13 @@
                 <div class="control">
                     <a class="tags has-addons" href="/tags/flex/">
                         <span class="tag">flex</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/git/">
+                        <span class="tag">git</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
@@ -811,8 +818,27 @@
 <div class="card widget">
     <div class="card-content">
         <h3 class="menu-label">
-            Recientes
+            Recent
         </h3>
+        
+        <article class="media">
+            
+            <a href="/2019/07/17/Git常用命令总结/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Git常用命令总结">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-07-17T09:59:12.000Z">2019-07-17</time></div>
+                    <a href="/2019/07/17/Git常用命令总结/" class="has-link-black-ter is-size-6">Git常用命令总结</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/其他前端/">其他前端</a>
+                    </p>
+                </div>
+            </div>
+        </article>
         
         <article class="media">
             
@@ -890,25 +916,6 @@
             </div>
         </article>
         
-        <article class="media">
-            
-            <a href="/2019/07/10/数据结构：八大排序/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="数据结构：八大排序">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-07-10T09:41:11.000Z">2019-07-10</time></div>
-                    <a href="/2019/07/10/数据结构：八大排序/" class="has-link-black-ter is-size-6">数据结构：八大排序</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/数据结构/">数据结构</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
 
@@ -917,7 +924,7 @@
     <div class="card-content">
         <div class="menu">
         <h3 class="menu-label">
-            Archivos
+            Archives
         </h3>
         <ul class="menu-list">
         
@@ -927,7 +934,7 @@
                     <span class="level-item">July 2019</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">12</span>
+                    <span class="level-item tag">13</span>
                 </span>
             </a>
         </li>
@@ -952,7 +959,7 @@
     <div class="card-content">
         <div class="menu">
             <h3 class="menu-label">
-                Etiquetas
+                Tags
             </h3>
             <div class="field is-grouped is-grouped-multiline">
                 
@@ -1043,6 +1050,13 @@
                 <div class="control">
                     <a class="tags has-addons" href="/tags/flex/">
                         <span class="tag">flex</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/git/">
+                        <span class="tag">git</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
@@ -1263,10 +1277,10 @@ document.addEventListener('DOMContentLoaded', function () {
     (function (window) {
         var INSIGHT_CONFIG = {
             TRANSLATION: {
-                POSTS: 'Entradas',
+                POSTS: 'Posts',
                 PAGES: 'Pages',
-                CATEGORIES: 'Categorias',
-                TAGS: 'Etiquetas',
+                CATEGORIES: 'Categories',
+                TAGS: 'Tags',
                 UNTITLED: '(Untitled)',
             },
             CONTENT_URL: '/content.json',
