@@ -7,19 +7,19 @@
 
 
 
-    <meta name="description" content="常用命令 本地创建公钥：ssh-keygen -t rsa -C &amp;quot;邮箱&amp;quot; 克隆最新主分支代码到本地：git clone 地址  下载指定分支：git clone -b 分支名仓库地址  创建本地分支：git branch 分支名  查看本地分支：git branch  查看远程分支：git branch -a  切换分支：git checkout 分支名 一般修改未提交则无法">
+    <meta name="description" content="常用命令 本地创建公钥：ssh-keygen -t rsa -C &amp;quot;邮箱&amp;quot; 克隆最新主分支代码到本地：git clone 地址  下载指定分支：git clone -b 分支名仓库地址  创建本地分支：git branch 分支名  查看本地分支：git branch  查看远程分支：git branch -a  切换分支：git checkout 分支名  将本地分支推送到远">
 <meta name="keywords" content="git">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Git常用命令总结">
 <meta property="og:url" content="https://shishuang.ga/2019/07/17/Git常用命令总结/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="常用命令 本地创建公钥：ssh-keygen -t rsa -C &amp;quot;邮箱&amp;quot; 克隆最新主分支代码到本地：git clone 地址  下载指定分支：git clone -b 分支名仓库地址  创建本地分支：git branch 分支名  查看本地分支：git branch  查看远程分支：git branch -a  切换分支：git checkout 分支名 一般修改未提交则无法">
+<meta property="og:description" content="常用命令 本地创建公钥：ssh-keygen -t rsa -C &amp;quot;邮箱&amp;quot; 克隆最新主分支代码到本地：git clone 地址  下载指定分支：git clone -b 分支名仓库地址  创建本地分支：git branch 分支名  查看本地分支：git branch  查看远程分支：git branch -a  切换分支：git checkout 分支名  将本地分支推送到远">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://shishuang.ga/images/og_image.png">
-<meta property="og:updated_time" content="2019-07-17T10:01:01.934Z">
+<meta property="og:updated_time" content="2019-07-18T04:00:25.620Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Git常用命令总结">
-<meta name="twitter:description" content="常用命令 本地创建公钥：ssh-keygen -t rsa -C &amp;quot;邮箱&amp;quot; 克隆最新主分支代码到本地：git clone 地址  下载指定分支：git clone -b 分支名仓库地址  创建本地分支：git branch 分支名  查看本地分支：git branch  查看远程分支：git branch -a  切换分支：git checkout 分支名 一般修改未提交则无法">
+<meta name="twitter:description" content="常用命令 本地创建公钥：ssh-keygen -t rsa -C &amp;quot;邮箱&amp;quot; 克隆最新主分支代码到本地：git clone 地址  下载指定分支：git clone -b 分支名仓库地址  创建本地分支：git branch 分支名  查看本地分支：git branch  查看远程分支：git branch -a  切换分支：git checkout 分支名  将本地分支推送到远">
 <meta name="twitter:image" content="https://shishuang.ga/images/og_image.png">
 
 
@@ -181,7 +181,6 @@
 <li><p>查看远程分支：<code>git branch -a</code></p>
 </li>
 <li><p>切换分支：<code>git checkout 分支名</code></p>
-<p>一般修改未提交则无法切换，大小写问题经常会有，可使用命令<code>git checkout 分支名 -f</code>强制切换（慎用）</p>
 </li>
 <li><p>将本地分支推送到远程：<code>git push &lt;远程仓库&gt; &lt;本地分支&gt;:&lt;远程分支&gt;</code></p>
 </li>
@@ -249,13 +248,21 @@
 <li><strong>注意</strong>:分支推送顺序的格式为<strong>&lt;来源地&gt;:&lt;目的地&gt;</strong>，所以<code>git pull</code>格式：<strong>&lt;远程分支&gt;:&lt;本地分支&gt;</strong>，<code>git push</code>格式为：<strong>&lt;本地分支&gt;:&lt;远程分支&gt;</strong>。</li>
 </ul>
 <h2 id="分支操作"><a href="#分支操作" class="headerlink" title="分支操作"></a>分支操作</h2><h3 id="常用分支命令"><a href="#常用分支命令" class="headerlink" title="常用分支命令"></a>常用分支命令</h3><ol>
-<li>创建本地分支：<code>git branch test</code>（创建名为test的本地分支）</li>
-<li>切换分支：<code>git checkout test</code>（切换到test分支）</li>
-<li>创建并切换分支<code>git checkout -b test</code>（相当于执行了上面两条命令）</li>
-<li>查看本地分支：<code>git branch</code></li>
-<li>查看远程仓库所有分支：<code>git branch -a</code></li>
-<li>删除本地分支：<code>git branch -d test</code>（删除本地test分支）</li>
-<li>分支合并：<code>git merge master</code>（将master分支合并到当前分支）</li>
+<li><p>创建本地分支：<code>git branch test</code>（创建名为test的本地分支）</p>
+</li>
+<li><p>切换分支：<code>git checkout test</code>（切换到test分支）</p>
+<p>一般修改未提交则无法切换，大小写问题经常会有，可使用命令<code>git checkout 分支名 -f</code>强制切换（慎用）</p>
+</li>
+<li><p>创建并切换分支<code>git checkout -b test</code>（相当于执行了上面两条命令）</p>
+</li>
+<li><p>查看本地分支：<code>git branch</code></p>
+</li>
+<li><p>查看远程仓库所有分支：<code>git branch -a</code></p>
+</li>
+<li><p>删除本地分支：<code>git branch -d test</code>（删除本地test分支）</p>
+</li>
+<li><p>分支合并：<code>git merge master</code>（将master分支合并到当前分支）</p>
+</li>
 </ol>
 <h3 id="拉取远程分支代码"><a href="#拉取远程分支代码" class="headerlink" title="拉取远程分支代码"></a>拉取远程分支代码</h3><ul>
 <li><code>git checkout -b 本地分支名 origin/远程分支名</code>：在本地新建分支，并自动切换到该本地分支；</li>
@@ -360,6 +367,13 @@
 <div class="card card-transparent">
     <div class="level post-navigation is-flex-wrap is-mobile">
         
+        <div class="level-start">
+            <a class="level level-item has-link-grey  article-nav-prev" href="/2019/07/18/Android开发环境配置/">
+                <i class="level-item fas fa-chevron-left"></i>
+                <span class="level-item">Android开发环境配置</span>
+            </a>
+        </div>
+        
         
         <div class="level-end">
             <a class="level level-item has-link-grey  article-nav-next" href="/2019/07/16/如何添加数组中的每一项到已知对象当中/">
@@ -415,7 +429,7 @@
                         Posts
                     </p>
                     <p class="title has-text-weight-normal">
-                        19
+                        20
                     </p>
                 </div>
             </div>
@@ -435,7 +449,7 @@
                         Tags
                     </p>
                     <p class="title has-text-weight-normal">
-                        21
+                        22
                     </p>
                 </div>
             </div>
@@ -569,7 +583,7 @@
                 <span class="level-item">其他前端</span>
             </span>
             <span class="level-end">
-                <span class="level-item tag">2</span>
+                <span class="level-item tag">3</span>
             </span>
         </a></li><li>
         <a class="level is-marginless" href="/categories/数据结构/">
@@ -591,7 +605,7 @@
         <h3 class="menu-label">
             Tag Cloud
         </h3>
-        <a href="/tags/Ajax/" style="font-size: 10px;">Ajax</a> <a href="/tags/Axios/" style="font-size: 10px;">Axios</a> <a href="/tags/CSS/" style="font-size: 10px;">CSS</a> <a href="/tags/HTTP/" style="font-size: 13.33px;">HTTP</a> <a href="/tags/Hook/" style="font-size: 10px;">Hook</a> <a href="/tags/Promise/" style="font-size: 10px;">Promise</a> <a href="/tags/React/" style="font-size: 13.33px;">React</a> <a href="/tags/ReactNative/" style="font-size: 20px;">ReactNative</a> <a href="/tags/TypeScript/" style="font-size: 10px;">TypeScript</a> <a href="/tags/XMLHttpRequest/" style="font-size: 10px;">XMLHttpRequest</a> <a href="/tags/absolute/" style="font-size: 10px;">absolute</a> <a href="/tags/async-await/" style="font-size: 13.33px;">async/await</a> <a href="/tags/flex/" style="font-size: 10px;">flex</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/table/" style="font-size: 10px;">table</a> <a href="/tags/上拉加载/" style="font-size: 10px;">上拉加载</a> <a href="/tags/布局/" style="font-size: 10px;">布局</a> <a href="/tags/排序/" style="font-size: 10px;">排序</a> <a href="/tags/数据结构/" style="font-size: 10px;">数据结构</a> <a href="/tags/环境配置/" style="font-size: 16.67px;">环境配置</a> <a href="/tags/网页配色/" style="font-size: 10px;">网页配色</a>
+        <a href="/tags/Ajax/" style="font-size: 10px;">Ajax</a> <a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/Axios/" style="font-size: 10px;">Axios</a> <a href="/tags/CSS/" style="font-size: 10px;">CSS</a> <a href="/tags/HTTP/" style="font-size: 13.33px;">HTTP</a> <a href="/tags/Hook/" style="font-size: 10px;">Hook</a> <a href="/tags/Promise/" style="font-size: 10px;">Promise</a> <a href="/tags/React/" style="font-size: 13.33px;">React</a> <a href="/tags/ReactNative/" style="font-size: 20px;">ReactNative</a> <a href="/tags/TypeScript/" style="font-size: 10px;">TypeScript</a> <a href="/tags/XMLHttpRequest/" style="font-size: 10px;">XMLHttpRequest</a> <a href="/tags/absolute/" style="font-size: 10px;">absolute</a> <a href="/tags/async-await/" style="font-size: 13.33px;">async/await</a> <a href="/tags/flex/" style="font-size: 10px;">flex</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/table/" style="font-size: 10px;">table</a> <a href="/tags/上拉加载/" style="font-size: 10px;">上拉加载</a> <a href="/tags/布局/" style="font-size: 10px;">布局</a> <a href="/tags/排序/" style="font-size: 10px;">排序</a> <a href="/tags/数据结构/" style="font-size: 10px;">数据结构</a> <a href="/tags/环境配置/" style="font-size: 16.67px;">环境配置</a> <a href="/tags/网页配色/" style="font-size: 10px;">网页配色</a>
     </div>
 </div>
 
@@ -605,6 +619,25 @@
         <h3 class="menu-label">
             Recent
         </h3>
+        
+        <article class="media">
+            
+            <a href="/2019/07/18/Android开发环境配置/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Android开发环境配置">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-07-18T07:35:11.000Z">2019-07-18</time></div>
+                    <a href="/2019/07/18/Android开发环境配置/" class="has-link-black-ter is-size-6">Android开发环境配置</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/其他前端/">其他前端</a>
+                    </p>
+                </div>
+            </div>
+        </article>
         
         <article class="media">
             
@@ -682,25 +715,6 @@
             </div>
         </article>
         
-        <article class="media">
-            
-            <a href="/2019/07/11/普通人的网页配色方案/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="普通人的网页配色方案">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-07-11T08:20:07.000Z">2019-07-11</time></div>
-                    <a href="/2019/07/11/普通人的网页配色方案/" class="has-link-black-ter is-size-6">普通人的网页配色方案</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/CSS/">CSS</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
 
@@ -719,7 +733,7 @@
                     <span class="level-item">July 2019</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">13</span>
+                    <span class="level-item tag">14</span>
                 </span>
             </a>
         </li>
@@ -751,6 +765,13 @@
                 <div class="control">
                     <a class="tags has-addons" href="/tags/Ajax/">
                         <span class="tag">Ajax</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Android/">
+                        <span class="tag">Android</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
@@ -884,7 +905,7 @@
                 <div class="control">
                     <a class="tags has-addons" href="/tags/环境配置/">
                         <span class="tag">环境配置</span>
-                        <span class="tag is-grey">5</span>
+                        <span class="tag is-grey">6</span>
                     </a>
                 </div>
                 
@@ -920,6 +941,25 @@
         
         <article class="media">
             
+            <a href="/2019/07/18/Android开发环境配置/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Android开发环境配置">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-07-18T07:35:11.000Z">2019-07-18</time></div>
+                    <a href="/2019/07/18/Android开发环境配置/" class="has-link-black-ter is-size-6">Android开发环境配置</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/其他前端/">其他前端</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
             <a href="/2019/07/17/Git常用命令总结/" class="media-left">
                 <p class="image is-64x64">
                     <img class="thumbnail" src="/images/thumbnail.svg" alt="Git常用命令总结">
@@ -994,25 +1034,6 @@
             </div>
         </article>
         
-        <article class="media">
-            
-            <a href="/2019/07/11/普通人的网页配色方案/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="普通人的网页配色方案">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-07-11T08:20:07.000Z">2019-07-11</time></div>
-                    <a href="/2019/07/11/普通人的网页配色方案/" class="has-link-black-ter is-size-6">普通人的网页配色方案</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/CSS/">CSS</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
 
@@ -1031,7 +1052,7 @@
                     <span class="level-item">July 2019</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">13</span>
+                    <span class="level-item tag">14</span>
                 </span>
             </a>
         </li>
@@ -1063,6 +1084,13 @@
                 <div class="control">
                     <a class="tags has-addons" href="/tags/Ajax/">
                         <span class="tag">Ajax</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Android/">
+                        <span class="tag">Android</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
@@ -1196,7 +1224,7 @@
                 <div class="control">
                     <a class="tags has-addons" href="/tags/环境配置/">
                         <span class="tag">环境配置</span>
-                        <span class="tag is-grey">5</span>
+                        <span class="tag is-grey">6</span>
                     </a>
                 </div>
                 
