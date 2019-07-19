@@ -2,19 +2,24 @@
 <html>
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
-<title>Tag: 上拉加载 - Hexo</title>
+<title>写给自己看的Chameleon笔记 - Hexo</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
 
 
-    <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="https://shishuang.ga/tags/上拉加载/index.html">
+    <meta name="description" content="Chameleon框架是由滴滴开源的多端统一开发解决方案">
+<meta name="keywords" content="多端开发">
+<meta property="og:type" content="article">
+<meta property="og:title" content="写给自己看的Chameleon笔记">
+<meta property="og:url" content="https://shishuang.ga/2019/07/19/写给自己看的Chameleon笔记/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="Chameleon框架是由滴滴开源的多端统一开发解决方案">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://shishuang.ga/images/og_image.png">
+<meta property="og:updated_time" content="2019-07-19T02:00:04.292Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo">
+<meta name="twitter:title" content="写给自己看的Chameleon笔记">
+<meta name="twitter:description" content="Chameleon框架是由滴滴开源的多端统一开发解决方案">
 <meta name="twitter:image" content="https://shishuang.ga/images/og_image.png">
 
 
@@ -89,7 +94,7 @@
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
             
-                <img src="/images/logo.svg" alt="Hexo" height="28">
+                <img src="/images/logo.svg" alt="写给自己看的Chameleon笔记" height="28">
             
             </a>
         </div>
@@ -135,33 +140,22 @@
         <div class="container">
             <div class="columns">
                 <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main"><div class="card">
-    <div class="card-content">
-        <nav class="breadcrumb" aria-label="breadcrumbs">
-        <ul>
-            <li><a href="/tags">Tags</a></li>
-            <li class="is-active"><a href="#" aria-current="page">上拉加载</a></li>
-        </ul>
-        </nav>
-    </div>
-</div>
-
-    <div class="card">
     
     <div class="card-content article ">
         
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
             <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2019-07-03T03:42:35.000Z">2019-07-03</time>
+                <time class="level-item has-text-grey" datetime="2019-07-19T01:53:06.000Z">2019-07-19</time>
                 
                 <div class="level-item">
-                <a class="has-link-grey -link" href="/categories/ReactNative/">ReactNative</a>
+                <a class="has-link-grey -link" href="/categories/其他前端/">其他前端</a>
                 </div>
                 
                 
                 <span class="level-item has-text-grey">
                     
                     
-                    5 minutes read (About 733 words)
+                    4 minutes read (About 665 words)
                 </span>
                 
                 
@@ -170,22 +164,83 @@
         
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                <a class="has-link-black-ter" href="/2019/07/03/ReactNative原生组件FlatList实现上拉加载/">ReactNative原生组件FlatList实现上拉加载</a>
+                写给自己看的Chameleon笔记
             
         </h1>
         <div class="content">
-            <p>我们可以利用官方组件<code>RefreshControl</code>实现下拉刷新功能，但官方并没有提供相应的上拉加载组件，所以我们需要通过自己手动实现。</p>
-<p>这里用到了<code>FlatList</code>组建的<code>onEndReached</code>与<code>onEndReachedThreshold</code>属性来实现相应效果。</p>
+            <blockquote>
+<p><a href="https://cmljs.org/#/" target="_blank" rel="noopener">Chameleon</a>框架是由滴滴开源的多端统一开发解决方案</p>
+</blockquote>
+<a id="more"></a>
+<h2 id="视图层"><a href="#视图层" class="headerlink" title="视图层"></a>视图层</h2><blockquote>
+<p>数据展示层，是“身体”</p>
+</blockquote>
+<h3 id="CMSS"><a href="#CMSS" class="headerlink" title="CMSS"></a>CMSS</h3><h4 id="单位"><a href="#单位" class="headerlink" title="单位"></a>单位</h4><p>使用cpx，规格以屏幕 750px视觉稿为标准，不支持%</p>
+<h4 id="布局"><a href="#布局" class="headerlink" title="布局"></a>布局</h4><p>默认flex布局，不需要手动为元素添加<code>display: flex;</code>属性，勿使用<code>float</code></p>
+<h4 id="盒模型"><a href="#盒模型" class="headerlink" title="盒模型"></a>盒模型</h4><p><code>box-sizing</code>默认为<code>border-box</code>，即宽度包含内容、内边距盒边框</p>
+<h4 id="样式"><a href="#样式" class="headerlink" title="样式"></a>样式</h4><p><strong>class：</strong>静态、动态（勿传对象）<br><strong>内联样式：</strong></p>
+<ul>
+<li><p>静态：</p>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;view style=&quot;border: 1px solid red&quot;&gt;&lt;/view&gt;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<ul>
+<li><p>动态：</p>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;view style=&quot;&#123;&#123;inlineStyle&#125;&#125;&quot;&gt;</span><br><span class="line">  &lt;/view&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">class Index &#123;</span><br><span class="line">  data = &#123;</span><br><span class="line">    inlineStyle: &apos;border: 1px solid red;&apos;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">export default new Index();</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<ul>
+<li><p>样式多态：</p>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&lt;style lang=&quot;less&quot;&gt;</span><br><span class="line">@media cml-type (web) &#123;</span><br><span class="line">  @import &quot;./style1.less&quot;;</span><br><span class="line">&#125;</span><br><span class="line">@media cml-type (weex) &#123;</span><br><span class="line">  @import &quot;./style2.less&quot;;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">@media cml-type (wx,alipay,baidu) &#123;</span><br><span class="line">  @import &quot;./style3.less&quot;;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="CML"><a href="#CML" class="headerlink" title="CML"></a>CML</h3><h4 id="组件属性："><a href="#组件属性：" class="headerlink" title="组件属性："></a>组件属性：</h4><figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;view id=&quot;item-&#123;&#123;id&#125;&#125;&quot;&gt; &lt;/view&gt;</span><br></pre></td></tr></table></figure>
+<h4 id="运算："><a href="#运算：" class="headerlink" title="运算："></a>运算：</h4><figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&lt;view hidden=&quot;&#123;&#123;flag ? true : false&#125;&#125;&quot;&gt; &lt;text&gt;Hidden &lt;/text&gt; &lt;/view&gt;</span><br><span class="line"></span><br><span class="line">&lt;view&gt; &lt;text&gt;&#123;&#123;a + b&#125;&#125; + &#123;&#123;c&#125;&#125; + d &lt;/text&gt;&lt;/view&gt;</span><br><span class="line"></span><br><span class="line">&lt;view c-if=&quot;&#123;&#123;length &gt; 5&#125;&#125;&quot;&gt; &lt;/view&gt;</span><br><span class="line"></span><br><span class="line">class Index &#123;</span><br><span class="line">  data = &#123;</span><br><span class="line">    a: 1,</span><br><span class="line">    b: 2,</span><br><span class="line">    c: 3,</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">export default new Index();</span><br><span class="line"></span><br><span class="line">//view中的内容为 3 + 3 + d</span><br></pre></td></tr></table></figure>
+<p>为了提高微信端的渲染效率，在组件上加上<code>shrinkComponents</code>：</p>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;component is=&quot;&#123;&#123;currentComp&#125;&#125;&quot; shrinkComponents=&quot;comp,comp1&quot;&gt;&lt;/component&gt;</span><br></pre></td></tr></table></figure>
+<h4 id="指令"><a href="#指令" class="headerlink" title="指令"></a>指令</h4><ol>
+<li><p>c-if<br>如果c-if需要判断多个组件，则用block包起来</p>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;block c-if=&quot;&#123;&#123;true&#125;&#125;&quot;&gt;</span><br><span class="line"> &lt;view&gt; &lt;text&gt;view1 &lt;/text&gt;&lt;/view&gt;</span><br><span class="line"> &lt;view&gt; &lt;text&gt;view2 &lt;/text&gt;&lt;/view&gt;</span><br><span class="line">&lt;/block&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>c-for</p>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;view c-for=&quot;&#123;&#123;array&#125;&#125;&quot; c-for-item=&quot;item&quot; c-for-index=&quot;index&quot; c-key=&quot;index&quot;&gt;&lt;/view&gt;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h4 id="事件"><a href="#事件" class="headerlink" title="事件"></a>事件</h4><p>默认点击事件<code>c-bind:tap</code></p>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;view id=&quot;tapTest&quot; data-hi=&quot;WeChat&quot; c-bind:tap=&quot;tapName&quot;&gt;</span><br><span class="line"></span><br><span class="line">tapName() &#123;</span><br><span class="line">    typeof event.currentTarget.dataset.hi == &quot;WeChat&quot; // true</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="组件通信"><a href="#组件通信" class="headerlink" title="组件通信"></a>组件通信</h4><p>自定义事件名称不能存在大写字母<br>父组件：<code>c-bind:事件名=“methods”</code><br>子组件：<code>this.$cmlEmit(&quot;事件名”, [参数])</code> ，与vue的emit类似</p>
+<h4 id="类vue语法"><a href="#类vue语法" class="headerlink" title="类vue语法"></a>类vue语法</h4><p>为了降低学习成本，独立支持了vue的指令子集，你可以在模板添加一个lang属性<code>&lt;template lang=&quot;vue&quot;&gt;</code>即可使用。 注意必须在组件根元素上 template上加<code>lang=&#39;vue&#39;</code></p>
+<h2 id="逻辑层"><a href="#逻辑层" class="headerlink" title="逻辑层"></a>逻辑层</h2><blockquote>
+<p>用户操作层，是“灵魂”</p>
+</blockquote>
+<h3 id="生命周期"><a href="#生命周期" class="headerlink" title="生命周期"></a>生命周期</h3><p><code>beforeCreate</code> 实例初始化完成<br><code>created</code> 数据和方法挂载完成<br><code>beforeMount</code> 开始挂载已经编译完成的cml到对应节点<br><code>mounted</code> cml模板编译完成，且渲已完成DOM染到<br><code>beforeDestroy</code> 实例销毁之前<br><code>destroyed</code> 实例销毁厚</p>
+<h3 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h3><ol>
+<li><p>组件配置</p>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">&lt;script cml-type=&quot;json&quot;&gt;</span><br><span class="line">&#123;</span><br><span class="line">  &quot;base&quot;:&#123;</span><br><span class="line">    &quot;usingComponents&quot;: &#123;</span><br><span class="line">    //不要包含后缀名</span><br><span class="line">      &quot;navi&quot;: &quot;/components/navi/navi&quot;,</span><br><span class="line">      &quot;c-cell&quot;: &quot;/components/c-cell/c-cell&quot;,</span><br><span class="line">      &quot;c-list&quot;: &quot;/components/c-list/c-list&quot;,</span><br><span class="line">      &quot;navi-npm&quot;: &quot;cml-test-ui/navi/navi&quot;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  &quot;wx&quot;: &#123;</span><br><span class="line">    &quot;navigationBarTitleText&quot;: &quot;index&quot;,</span><br><span class="line">     &quot;backgroundTextStyle&quot;: &quot;dark&quot;,</span><br><span class="line">     &quot;backgroundColor&quot;: &quot;#E2E2E2&quot;,</span><br><span class="line">     &quot;component&quot;: true</span><br><span class="line">  &#125;</span><br><span class="line">  &quot;web&quot;: &#123;</span><br><span class="line">  &#125;,</span><br><span class="line">  &quot;weex&quot;: &#123;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>路由配置</p>
+</li>
+</ol>
+<h2 id="组件"><a href="#组件" class="headerlink" title="组件"></a>组件</h2><h4 id="基础内容"><a href="#基础内容" class="headerlink" title="基础内容"></a>基础内容</h4><p>view（类div）, text（类p）, page（含titleBar的页面容器，只在页面使用），block（外层包装）, list/cell（类list下的li）</p>
+<h4 id="布局容器"><a href="#布局容器" class="headerlink" title="布局容器"></a>布局容器</h4><p>scroller（滑动器），container（类element的container），row/col（类element的row），carousel（走马灯）</p>
+<h4 id="表单元素"><a href="#表单元素" class="headerlink" title="表单元素"></a>表单元素</h4><ul>
+<li>button:<br>open-type: getUserInfo, getPhoneNumber, openSetting</li>
+<li>input:<br>type输入框类型: text, password, number<br>return-key-type: 右下角回车键文字</li>
+<li>textarea: 和input差不多</li>
+<li>switch开关，radio单选，checkbox（和radio方法一致）</li>
+</ul>
+
         </div>
         
-        
-        <div class="level is-mobile">
+        <div class="level is-size-7 is-uppercase">
             <div class="level-start">
                 <div class="level-item">
-                <a class="button is-size-7 is-light" href="/2019/07/03/ReactNative原生组件FlatList实现上拉加载/#more">Read More</a>
+                    <span class="is-size-6 has-text-grey has-mr-7">#</span>
+                    <a class="has-link-grey -link" href="/tags/多端开发/">多端开发</a>
                 </div>
             </div>
         </div>
+        
         
         
     </div>
@@ -193,9 +248,42 @@
 
 
 
+<div class="card">
+    <div class="card-content">
+        <h3 class="menu-label has-text-centered">Like this article? Support the author with</h3>
+        <div class="buttons is-centered">
+            
+                
+<div class="notification is-danger">
+    You forgot to set the <code>qrcode</code> for Alipay. Please set it in <code>_config.yml</code>.
+</div>
+
+                
+                
+<div class="notification is-danger">
+    You forgot to set the <code>qrcode</code> for Wechat. Please set it in <code>_config.yml</code>.
+</div>
+
+                
+        </div>
+    </div>
+</div>
 
 
 
+<div class="card card-transparent">
+    <div class="level post-navigation is-flex-wrap is-mobile">
+        
+        
+        <div class="level-end">
+            <a class="level level-item has-link-grey  article-nav-next" href="/2019/07/18/Android开发环境配置/">
+                <span class="level-item">Android开发环境配置</span>
+                <i class="level-item fas fa-chevron-right"></i>
+            </a>
+        </div>
+        
+    </div>
+</div>
 
 
 </div>
@@ -1078,7 +1166,7 @@
             <div class="level-start has-text-centered-mobile">
                 <a class="footer-logo is-block has-mb-6" href="/">
                 
-                    <img src="/images/logo.svg" alt="Hexo" height="28">
+                    <img src="/images/logo.svg" alt="写给自己看的Chameleon笔记" height="28">
                 
                 </a>
                 <p class="is-size-7">
