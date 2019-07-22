@@ -2,20 +2,24 @@
 <html>
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
-<title>Kategori - Hexo</title>
+<title>如何在PicGo中配置阿里云OSS作为博客图床 - Hexo</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
 
 
-    <meta name="keywords" content="React,ReactNative,环境配置,HTTP,Axios,Hook,TypeScript,async&#x2F;await,上拉加载,网页配色,布局,flex,absolute,table,Android,多端开发,Promise,数据结构,排序,git,CSS,Ajax,XMLHttpRequest">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="https://shishuang.ga/categories/index.html">
+    <meta name="description" content="之前我们从零开始搭建Hexo博客)，现在需要拥有自己的图床。 图床：阿里云OSS 上传工具：PicGo">
+<meta name="keywords" content="环境配置">
+<meta property="og:type" content="article">
+<meta property="og:title" content="如何在PicGo中配置阿里云OSS作为博客图床">
+<meta property="og:url" content="https://shishuang.ga/2019/07/22/如何在PicGo中配置阿里云OSS作为博客图床/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="之前我们从零开始搭建Hexo博客)，现在需要拥有自己的图床。 图床：阿里云OSS 上传工具：PicGo">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://shishuang.ga/images/og_image.png">
+<meta property="og:updated_time" content="2019-07-22T01:36:43.488Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo">
+<meta name="twitter:title" content="如何在PicGo中配置阿里云OSS作为博客图床">
+<meta name="twitter:description" content="之前我们从零开始搭建Hexo博客)，现在需要拥有自己的图床。 图床：阿里云OSS 上传工具：PicGo">
 <meta name="twitter:image" content="https://shishuang.ga/images/og_image.png">
 
 
@@ -90,7 +94,7 @@
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
             
-                <img src="/images/logo.svg" alt="Hexo" height="28">
+                <img src="/images/logo.svg" alt="如何在PicGo中配置阿里云OSS作为博客图床" height="28">
             
             </a>
         </div>
@@ -102,7 +106,7 @@
                 
                 <a class="navbar-item" href="/archives">Archives</a>
                 
-                <a class="navbar-item is-active" href="/categories">Categories</a>
+                <a class="navbar-item" href="/categories">Categories</a>
                 
                 <a class="navbar-item" href="/tags">Tags</a>
                 
@@ -135,83 +139,122 @@
     <section class="section">
         <div class="container">
             <div class="columns">
-                <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main">
-<div class="card widget">
+                <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main"><div class="card">
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2019-07-22T01:26:53.000Z">2019-07-22</time>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/其他前端/">其他前端</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    2 minutes membaca (Sekitar 373 kata)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                如何在PicGo中配置阿里云OSS作为博客图床
+            
+        </h1>
+        <div class="content">
+            <blockquote>
+<p>之前我们<a href="[https://shishuang.ga/2019/07/15/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E6%90%AD%E5%BB%BAHexo%E5%8D%9A%E5%AE%A2/](https://shishuang.ga/2019/07/15/从零开始搭建Hexo博客/">从零开始搭建Hexo博客</a>)，现在需要拥有自己的图床。</p>
+<p>图床：阿里云OSS</p>
+<p>上传工具：PicGo</p>
+</blockquote>
+<a id="more"></a>
+<ol>
+<li><p>先来看一下<a href="https://github.com/Molunerfinn/PicGo" target="_blank" rel="noopener">PicGo</a>配置阿里云OSS所需的参数，一共4项：</p>
+<p><img src="https://frank-database.oss-cn-hangzhou.aliyuncs.com/img/20190719115150.png" alt></p>
+</li>
+<li><p>登录阿里云后，在<a href="https://usercenter.console.aliyun.com/#/manage/ak" target="_blank" rel="noopener">页面</a>获取<code>KeyId</code>和<code>KeySecret</code>，建议使用子账户：</p>
+<p><img src="https://frank-database.oss-cn-hangzhou.aliyuncs.com/img/20190719114103.jpg" alt></p>
+<p>勾选<strong>编程访问</strong>，</p>
+<p><img src="https://frank-database.oss-cn-hangzhou.aliyuncs.com/img/20190719114308.jpg" alt></p>
+<p>记录下<code>AccessKey ID</code>和<code>AccessKeySecret</code>，<strong>关闭页面后无法再次获取！</strong></p>
+<p><img src="https://frank-database.oss-cn-hangzhou.aliyuncs.com/img/20190719114338.jpg" alt></p>
+<p>勾选新添加的用户，<strong>添加权限</strong>，加入<strong>OSS权限</strong>。</p>
+<p><img src="https://frank-database.oss-cn-hangzhou.aliyuncs.com/img/20190719114408.jpg" alt></p>
+</li>
+<li><p>打开<a href="[https://oss.console.aliyun.com](https://oss.console.aliyun.com/">控制台</a>)，创建Bucket，填写的Bucket名称就是<strong>存储空间名</strong>，记录下来。</p>
+<p><img src="https://frank-database.oss-cn-hangzhou.aliyuncs.com/img/20190719114438.jpg" alt></p>
+</li>
+<li><p>创建完成以后，在概览页面——访问域名，图中框红的就是<strong>存储区域</strong>，记录下来。</p>
+<p><img src="https://frank-database.oss-cn-hangzhou.aliyuncs.com/img/20190719114548.png" alt></p>
+</li>
+<li><p>最后在Bucket的基础设置中，修改<strong>读写权限</strong>为公共读，这样blog才能读取到Bucket中的数据。</p>
+<p><img src="https://frank-database.oss-cn-hangzhou.aliyuncs.com/img/20190719114955.png" alt></p>
+</li>
+</ol>
+
+        </div>
+        
+        <div class="level is-size-7 is-uppercase">
+            <div class="level-start">
+                <div class="level-item">
+                    <span class="is-size-6 has-text-grey has-mr-7">#</span>
+                    <a class="has-link-grey -link" href="/tags/环境配置/">环境配置</a>
+                </div>
+            </div>
+        </div>
+        
+        
+        
+    </div>
+</div>
+
+
+
+<div class="card">
     <div class="card-content">
-        <div class="menu">
-            <h3 class="menu-label">
-                Kategori
-            </h3>
-            <ul class="menu-list">
-            <li>
-        <a class="level is-marginless" href="/categories/CSS/">
-            <span class="level-start">
-                <span class="level-item">CSS</span>
-            </span>
-            <span class="level-end">
-                <span class="level-item tag">2</span>
-            </span>
-        </a></li><li>
-        <a class="level is-marginless" href="/categories/ES6/">
-            <span class="level-start">
-                <span class="level-item">ES6</span>
-            </span>
-            <span class="level-end">
-                <span class="level-item tag">2</span>
-            </span>
-        </a></li><li>
-        <a class="level is-marginless" href="/categories/HTTP/">
-            <span class="level-start">
-                <span class="level-item">HTTP</span>
-            </span>
-            <span class="level-end">
-                <span class="level-item tag">2</span>
-            </span>
-        </a></li><li>
-        <a class="level is-marginless" href="/categories/Javascript/">
-            <span class="level-start">
-                <span class="level-item">Javascript</span>
-            </span>
-            <span class="level-end">
-                <span class="level-item tag">1</span>
-            </span>
-        </a></li><li>
-        <a class="level is-marginless" href="/categories/React/">
-            <span class="level-start">
-                <span class="level-item">React</span>
-            </span>
-            <span class="level-end">
-                <span class="level-item tag">2</span>
-            </span>
-        </a></li><li>
-        <a class="level is-marginless" href="/categories/ReactNative/">
-            <span class="level-start">
-                <span class="level-item">ReactNative</span>
-            </span>
-            <span class="level-end">
-                <span class="level-item tag">7</span>
-            </span>
-        </a></li><li>
-        <a class="level is-marginless" href="/categories/其他前端/">
-            <span class="level-start">
-                <span class="level-item">其他前端</span>
-            </span>
-            <span class="level-end">
-                <span class="level-item tag">5</span>
-            </span>
-        </a></li><li>
-        <a class="level is-marginless" href="/categories/数据结构/">
-            <span class="level-start">
-                <span class="level-item">数据结构</span>
-            </span>
-            <span class="level-end">
-                <span class="level-item tag">1</span>
-            </span>
-        </a></li>
-            </ul>
+        <h3 class="menu-label has-text-centered">Suka dengan artikel ini? Bantu penulis dengan donasi melalui</h3>
+        <div class="buttons is-centered">
+            
+                
+<div class="notification is-danger">
+    You forgot to set the <code>qrcode</code> for Alipay. Please set it in <code>_config.yml</code>.
+</div>
+
+                
+                
+<div class="notification is-danger">
+    You forgot to set the <code>qrcode</code> for Wechat. Please set it in <code>_config.yml</code>.
+</div>
+
+                
         </div>
     </div>
-</div></div>
+</div>
+
+
+
+<div class="card card-transparent">
+    <div class="level post-navigation is-flex-wrap is-mobile">
+        
+        
+        <div class="level-end">
+            <a class="level level-item has-link-grey  article-nav-next" href="/2019/07/19/写给自己看的Chameleon笔记/">
+                <span class="level-item">写给自己看的Chameleon笔记</span>
+                <i class="level-item fas fa-chevron-right"></i>
+            </a>
+        </div>
+        
+    </div>
+</div>
+
+
+</div>
                 
 
 
@@ -1091,7 +1134,7 @@
             <div class="level-start has-text-centered-mobile">
                 <a class="footer-logo is-block has-mb-6" href="/">
                 
-                    <img src="/images/logo.svg" alt="Hexo" height="28">
+                    <img src="/images/logo.svg" alt="如何在PicGo中配置阿里云OSS作为博客图床" height="28">
                 
                 </a>
                 <p class="is-size-7">
