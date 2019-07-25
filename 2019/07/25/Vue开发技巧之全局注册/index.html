@@ -7,19 +7,19 @@
 
 
 
-    <meta name="description" content="全局注册过滤器官方的方式： 1234567// 注册Vue.filter(&apos;my-filter&apos;, function(value) &amp;#123;	// 返回处理后的值&amp;#125;);//getter 返回已注册的过滤器var maFilter = Vue.filter(&apos;my-filter&apos;); 优化现在是分散写到了每个组件中，我们需要抽出到独立文件中单独处理，然后通过Object.keys在入">
+    <meta name="description" content="Vue日常开发中使用到的小技巧">
 <meta name="keywords" content="Vue">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Vue开发技巧之全局注册">
 <meta property="og:url" content="https://shishuang.ga/2019/07/25/Vue开发技巧之全局注册/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="全局注册过滤器官方的方式： 1234567// 注册Vue.filter(&apos;my-filter&apos;, function(value) &amp;#123;	// 返回处理后的值&amp;#125;);//getter 返回已注册的过滤器var maFilter = Vue.filter(&apos;my-filter&apos;); 优化现在是分散写到了每个组件中，我们需要抽出到独立文件中单独处理，然后通过Object.keys在入">
+<meta property="og:description" content="Vue日常开发中使用到的小技巧">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://shishuang.ga/images/og_image.png">
-<meta property="og:updated_time" content="2019-07-25T02:53:34.463Z">
+<meta property="og:updated_time" content="2019-07-25T03:02:11.349Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Vue开发技巧之全局注册">
-<meta name="twitter:description" content="全局注册过滤器官方的方式： 1234567// 注册Vue.filter(&apos;my-filter&apos;, function(value) &amp;#123;	// 返回处理后的值&amp;#125;);//getter 返回已注册的过滤器var maFilter = Vue.filter(&apos;my-filter&apos;); 优化现在是分散写到了每个组件中，我们需要抽出到独立文件中单独处理，然后通过Object.keys在入">
+<meta name="twitter:description" content="Vue日常开发中使用到的小技巧">
 <meta name="twitter:image" content="https://shishuang.ga/images/og_image.png">
 
 
@@ -155,7 +155,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    4 minutes read (About 565 words)
+                    4 minutes read (About 578 words)
                 </span>
                 
                 
@@ -168,7 +168,10 @@
             
         </h1>
         <div class="content">
-            <a id="more"></a>
+            <blockquote>
+<p>Vue日常开发中使用到的小技巧</p>
+</blockquote>
+<a id="more"></a>
 <h2 id="全局注册过滤器"><a href="#全局注册过滤器" class="headerlink" title="全局注册过滤器"></a>全局注册过滤器</h2><p>官方的方式：</p>
 <figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">// 注册</span></span><br><span class="line">Vue.filter(<span class="hljs-string">'my-filter'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">value</span>) </span>&#123;</span><br><span class="line">	<span class="hljs-comment">// 返回处理后的值</span></span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">//getter 返回已注册的过滤器</span></span><br><span class="line"><span class="hljs-keyword">var</span> maFilter = Vue.filter(<span class="hljs-string">'my-filter'</span>);</span><br></pre></td></tr></table></figure>
 <h3 id="优化"><a href="#优化" class="headerlink" title="优化"></a>优化</h3><p>现在是分散写到了每个组件中，我们需要抽出到独立文件中单独处理，然后通过<code>Object.keys</code>在入口文件<code>mian.js</code>统一注册。</p>
@@ -286,7 +289,7 @@
             <div class="level-item has-text-centered is-marginless">
                 <div>
                     <p class="heading">
-                        Posts
+                        Articles
                     </p>
                     <p class="title has-text-weight-normal">
                         25
@@ -296,7 +299,7 @@
             <div class="level-item has-text-centered is-marginless">
                 <div>
                     <p class="heading">
-                        Categories
+                        Catégories
                     </p>
                     <p class="title has-text-weight-normal">
                         10
@@ -316,7 +319,7 @@
         </nav>
         <div class="level">
             <a class="level-item button is-link is-rounded" href="https://github.com/dick3741" target="_blank">
-                Follow</a>
+                SUIVRE</a>
         </div>
         
         
@@ -359,7 +362,7 @@
     <div class="card-content">
         <div class="menu">
         <h3 class="menu-label">
-            Links
+            Liens
         </h3>
         <ul class="menu-list">
         
@@ -386,7 +389,7 @@
     <div class="card-content">
         <div class="menu">
             <h3 class="menu-label">
-                Categories
+                Catégories
             </h3>
             <ul class="menu-list">
             <li>
@@ -479,7 +482,7 @@
 <div class="card widget">
     <div class="card-content">
         <h3 class="menu-label">
-            Tag Cloud
+            Nuage de tags
         </h3>
         <a href="/tags/Ajax/" style="font-size: 10px;">Ajax</a> <a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/Axios/" style="font-size: 10px;">Axios</a> <a href="/tags/CSS/" style="font-size: 10px;">CSS</a> <a href="/tags/HTTP/" style="font-size: 13.33px;">HTTP</a> <a href="/tags/Hook/" style="font-size: 10px;">Hook</a> <a href="/tags/Promise/" style="font-size: 10px;">Promise</a> <a href="/tags/React/" style="font-size: 13.33px;">React</a> <a href="/tags/ReactNative/" style="font-size: 20px;">ReactNative</a> <a href="/tags/TypeScript/" style="font-size: 10px;">TypeScript</a> <a href="/tags/VSCode/" style="font-size: 10px;">VSCode</a> <a href="/tags/Vue/" style="font-size: 10px;">Vue</a> <a href="/tags/XMLHttpRequest/" style="font-size: 10px;">XMLHttpRequest</a> <a href="/tags/absolute/" style="font-size: 10px;">absolute</a> <a href="/tags/async-await/" style="font-size: 13.33px;">async/await</a> <a href="/tags/flex/" style="font-size: 10px;">flex</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/node/" style="font-size: 10px;">node</a> <a href="/tags/pm2/" style="font-size: 10px;">pm2</a> <a href="/tags/table/" style="font-size: 10px;">table</a> <a href="/tags/上拉加载/" style="font-size: 10px;">上拉加载</a> <a href="/tags/多端开发/" style="font-size: 10px;">多端开发</a> <a href="/tags/布局/" style="font-size: 10px;">布局</a> <a href="/tags/排序/" style="font-size: 10px;">排序</a> <a href="/tags/数据结构/" style="font-size: 10px;">数据结构</a> <a href="/tags/环境配置/" style="font-size: 16.67px;">环境配置</a> <a href="/tags/网页配色/" style="font-size: 10px;">网页配色</a>
     </div>
@@ -493,7 +496,7 @@
 <div class="card widget">
     <div class="card-content">
         <h3 class="menu-label">
-            Recent
+            Récents
         </h3>
         
         <article class="media">
@@ -823,7 +826,7 @@
                 <div class="control">
                     <a class="tags has-addons" href="/tags/环境配置/">
                         <span class="tag">环境配置</span>
-                        <span class="tag is-grey">7</span>
+                        <span class="tag is-grey">8</span>
                     </a>
                 </div>
                 
@@ -854,7 +857,7 @@
 <div class="card widget">
     <div class="card-content">
         <h3 class="menu-label">
-            Recent
+            Récents
         </h3>
         
         <article class="media">
@@ -1184,7 +1187,7 @@
                 <div class="control">
                     <a class="tags has-addons" href="/tags/环境配置/">
                         <span class="tag">环境配置</span>
-                        <span class="tag is-grey">7</span>
+                        <span class="tag is-grey">8</span>
                     </a>
                 </div>
                 
@@ -1362,9 +1365,9 @@ document.addEventListener('DOMContentLoaded', function () {
     (function (window) {
         var INSIGHT_CONFIG = {
             TRANSLATION: {
-                POSTS: 'Posts',
+                POSTS: 'Articles',
                 PAGES: 'Pages',
-                CATEGORIES: 'Categories',
+                CATEGORIES: 'Catégories',
                 TAGS: 'Tags',
                 UNTITLED: '(Untitled)',
             },

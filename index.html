@@ -151,7 +151,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    4 minutes read (About 565 words)
+                    4 minutes read (About 578 words)
                 </span>
                 
                 
@@ -164,30 +164,19 @@
             
         </h1>
         <div class="content">
-            <a id="more"></a>
-<h2 id="全局注册过滤器"><a href="#全局注册过滤器" class="headerlink" title="全局注册过滤器"></a>全局注册过滤器</h2><p>官方的方式：</p>
-<figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">// 注册</span></span><br><span class="line">Vue.filter(<span class="hljs-string">'my-filter'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">value</span>) </span>&#123;</span><br><span class="line">	<span class="hljs-comment">// 返回处理后的值</span></span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">//getter 返回已注册的过滤器</span></span><br><span class="line"><span class="hljs-keyword">var</span> maFilter = Vue.filter(<span class="hljs-string">'my-filter'</span>);</span><br></pre></td></tr></table></figure>
-<h3 id="优化"><a href="#优化" class="headerlink" title="优化"></a>优化</h3><p>现在是分散写到了每个组件中，我们需要抽出到独立文件中单独处理，然后通过<code>Object.keys</code>在入口文件<code>mian.js</code>统一注册。</p>
-<figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">// src/common/filters.js</span></span><br><span class="line"><span class="hljs-comment">// 过滤器方法</span></span><br><span class="line"><span class="hljs-keyword">let</span> dateServer = <span class="hljs-function"><span class="hljs-params">value</span> =&gt;</span> value.replace(<span class="hljs-regexp">/(\d&#123;4&#125;)(\d&#123;2&#125;)(\d&#123;2&#125;)/g</span>, <span class="hljs-string">'$1-$2-$3'</span>) </span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> &#123; dateServer &#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">// src/main.js</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">import</span> filters <span class="hljs-keyword">from</span> <span class="hljs-string">'./common/filters.js'</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-built_in">Object</span>.keys(filters).forEach(<span class="hljs-function"><span class="hljs-params">key</span> =&gt;</span> Vue.filter(key, filters[key]))</span><br></pre></td></tr></table></figure>
-<p>然后就可以在全局的<code>.vue</code>文件中使用注册号的过滤器了：</p>
-<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;section&gt;</span><br><span class="line">    &lt;!-- 2016-01-01 --&gt;</span><br><span class="line">    &lt;p&gt;&#123;&#123; time | dateServer &#125;&#125;&lt;/p&gt;</span><br><span class="line">  &lt;/section&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">  export default &#123;</span><br><span class="line">    data () &#123;</span><br><span class="line">      return &#123;</span><br><span class="line">        time: 20160101</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
-<h2 id="全局注册组件"><a href="#全局注册组件" class="headerlink" title="全局注册组件"></a>全局注册组件</h2><p>我们写好了一些常用的基础组件，每次使用的使用都需要进行一些引用：</p>
-<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">	&lt;!-- 3.使用 --&gt;</span><br><span class="line">    &lt;BaseComp&gt;&lt;/BaseComp&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">    // 1.引入</span><br><span class="line">    import BaseComp from &apos;./base-comp&apos;</span><br><span class="line">    </span><br><span class="line">    export default &#123;</span><br><span class="line">        // 2.申明</span><br><span class="line">      components: &#123; BaseComp &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
-<h3 id="优化-1"><a href="#优化-1" class="headerlink" title="优化"></a>优化</h3><p>在components文件夹添加一个文件<code>componentRegister.js</code>。借助了webpack动态打包能力，将需要的基础组件统统打包进来。</p>
-<figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">// src/components/ componentRegister.js</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">import</span> Vue <span class="hljs-keyword">from</span> <span class="hljs-string">'vue'</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">/**</span></span><br><span class="line"><span class="hljs-comment"> * 首字母大写</span></span><br><span class="line"><span class="hljs-comment"> * @param str 字符串</span></span><br><span class="line"><span class="hljs-comment"> * @example heheHaha</span></span><br><span class="line"><span class="hljs-comment"> * @return &#123;string&#125; HeheHaha</span></span><br><span class="line"><span class="hljs-comment"> */</span></span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">capitalizeFirstLetter</span>(<span class="hljs-params">str</span>) </span>&#123;</span><br><span class="line">  <span class="hljs-keyword">return</span> str.charAt(<span class="hljs-number">0</span>).toUpperCase() + str.slice(<span class="hljs-number">1</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">/**</span></span><br><span class="line"><span class="hljs-comment"> * 对符合'xx/xx.vue'格式的组件，取其组件名</span></span><br><span class="line"><span class="hljs-comment"> * @param str fileName</span></span><br><span class="line"><span class="hljs-comment"> * @example abc/bcd/def/basicTable.vue</span></span><br><span class="line"><span class="hljs-comment"> * @return &#123;string&#125; BasicTable</span></span><br><span class="line"><span class="hljs-comment"> */</span></span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">validateFileName</span>(<span class="hljs-params">str</span>) </span>&#123;</span><br><span class="line">  <span class="hljs-keyword">return</span> <span class="hljs-regexp">/^\S+\.vue$/</span>.test(str) &amp;&amp;</span><br><span class="line">    str.replace(<span class="hljs-regexp">/^\S+\/(\w+)\.vue$/</span>, (rs, $<span class="hljs-number">1</span>) =&gt; capitalizeFirstLetter($<span class="hljs-number">1</span>))</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">const</span> requireComponent = <span class="hljs-built_in">require</span>.context(<span class="hljs-string">'./'</span>, <span class="hljs-literal">true</span>, /\.vue$/)</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">// 找到组件文件夹下以.vue命名的文件，如果文件名为index，那么取组件中的name作为注册的组件名</span></span><br><span class="line">requireComponent.keys().forEach(<span class="hljs-function"><span class="hljs-params">filePath</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="hljs-keyword">const</span> componentConfig = requireComponent(filePath)</span><br><span class="line">  <span class="hljs-keyword">const</span> fileName = validateFileName(filePath)</span><br><span class="line">  <span class="hljs-keyword">const</span> componentName = fileName.toLowerCase() === <span class="hljs-string">'index'</span></span><br><span class="line">    ? capitalizeFirstLetter(componentConfig.default.name)</span><br><span class="line">    : fileName</span><br><span class="line">  Vue.component(componentName, componentConfig.default || componentConfig)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-<p>文件结构：</p>
-<ul>
-<li><code>BasicTable</code>文件夹里有<code>BasicTable.vue</code></li>
-<li><code>MultiCondition</code>文件夹里有<code>index.vue</code></li>
-<li>单独的注册文件<code>componentRegister.js</code></li>
-</ul>
-<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">components</span><br><span class="line">│ componentRegister.js</span><br><span class="line">├─BasicTable</span><br><span class="line">│ BasicTable.vue</span><br><span class="line">├─MultiCondition</span><br><span class="line">│ index.vue</span><br></pre></td></tr></table></figure>
-<p>这里对组件名做了判断，如果是 index 的话就取组件中的 name 属性的处理结果作为注册组件名，所以最后注册的组件为：<code>multi-condition</code>、 <code>basic-table</code>。</p>
-<p>最后我们在入口文件  <code>main.js</code> 中 <code>import &#39;components/ componentRegister.js&#39;</code> ，然后我们就可以随时随地使用这些基础组件，无需手动引入了。</p>
-
+            <blockquote>
+<p>Vue日常开发中使用到的小技巧</p>
+</blockquote>
         </div>
         
+        
+        <div class="level is-mobile">
+            <div class="level-start">
+                <div class="level-item">
+                <a class="button is-size-7 is-light" href="/2019/07/25/Vue开发技巧之全局注册/#more">Read More</a>
+                </div>
+            </div>
+        </div>
         
         
     </div>
@@ -216,7 +205,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    2 minutes read (About 231 words)
+                    2 minutes read (About 243 words)
                 </span>
                 
                 
@@ -229,54 +218,19 @@
             
         </h1>
         <div class="content">
-            <a id="more"></a>
-<h2 id="Node"><a href="#Node" class="headerlink" title="Node"></a>Node</h2><ol>
-<li><p>转到根目录<code>cd /</code></p>
-</li>
-<li><p>下载node包到服务器</p>
-<p><code>wget https://npm.taobao.org/mirrors/node/v6.10.3/node-v6.10.3-linux-x64.tar.xz</code></p>
-</li>
-<li><p>把xz格式解压成tar格式</p>
-<p><code>xz -d node-v6.10.3-linux-x64.tar.xz</code></p>
-<p>或者</p>
-<p><code>tar -xzvf node-v6.10.3-linux-x64.tar.xz</code></p>
-</li>
-<li><p>把tar格式包解压成node文件夹</p>
-<p><code>tar -xvf node-v6.10.3-linux-x64.tar</code></p>
-</li>
-<li><p>建立软连接<code>link</code></p>
-<p>建立了软连接才能全局使用</p>
-<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ln -s /node-v6.10.3-linux-x64/bin/npm /usr/local/bin/npm</span><br><span class="line">ln -s /node-v6.10.3-linux-x64/bin/node /usr/local/bin/node</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>使用定制的<a href="https://github.com/cnpm/cnpm" target="_blank" rel="noopener">cnpm</a> (gzip 压缩支持) 命令行工具代替默认的npm</p>
-<p><code>$ npm install -g cnpm --registry=[https://registry.npm.taobao.org](https://registry.npm.taobao.org/)</code></p>
-</li>
-<li><p>建立npm的软连接</p>
-<p><code>ln -s /node-v6.10.3-linux-x64/bin/cnpm /usr/local/bin/cnpm</code></p>
-</li>
-</ol>
-<h2 id="PM2"><a href="#PM2" class="headerlink" title="PM2"></a>PM2</h2><ol>
-<li><p>安装<code>cnpm install pm2 -g</code></p>
-</li>
-<li><p>建立软连接</p>
-<ol>
-<li><code>cd /</code></li>
-<li><code>ln -s /node-v6.10.3-linux-x64/bin/pm2 /usr/local/bin/pm2</code></li>
-</ol>
-</li>
-<li><p>pm2启动node文件</p>
-<p><code>pm2 start app.js</code></p>
-</li>
-<li><p>显示服务列表</p>
-<p><code>pm2 list</code></p>
-</li>
-<li><p>重启服务</p>
-<p><code>pm2 show &lt;id|nam</code></p>
-</li>
-</ol>
-
+            <blockquote>
+<p>Linux配置Node和pm2的笔记</p>
+</blockquote>
         </div>
         
+        
+        <div class="level is-mobile">
+            <div class="level-start">
+                <div class="level-item">
+                <a class="button is-size-7 is-light" href="/2019/07/24/linux服务器下配置node和pm2/#more">Read More</a>
+                </div>
+            </div>
+        </div>
         
         
     </div>
@@ -742,10 +696,10 @@
 <div class="card card-transparent">
     <nav class="pagination is-centered" role="navigation" aria-label="pagination">
         <div class="pagination-previous is-invisible is-hidden-mobile">
-            <a class="is-flex-grow has-text-black-ter" href="/page/0/">Previous</a>
+            <a class="is-flex-grow has-text-black-ter" href="/page/0/">Préc</a>
         </div>
         <div class="pagination-next">
-            <a class="is-flex-grow has-text-black-ter" href="/page/2/">Next</a>
+            <a class="is-flex-grow has-text-black-ter" href="/page/2/">Suiv</a>
         </div>
         <ul class="pagination-list is-hidden-mobile">
             
@@ -798,7 +752,7 @@
             <div class="level-item has-text-centered is-marginless">
                 <div>
                     <p class="heading">
-                        Posts
+                        Articles
                     </p>
                     <p class="title has-text-weight-normal">
                         25
@@ -808,7 +762,7 @@
             <div class="level-item has-text-centered is-marginless">
                 <div>
                     <p class="heading">
-                        Categories
+                        Catégories
                     </p>
                     <p class="title has-text-weight-normal">
                         10
@@ -828,7 +782,7 @@
         </nav>
         <div class="level">
             <a class="level-item button is-link is-rounded" href="https://github.com/dick3741" target="_blank">
-                Follow</a>
+                SUIVRE</a>
         </div>
         
         
@@ -871,7 +825,7 @@
     <div class="card-content">
         <div class="menu">
         <h3 class="menu-label">
-            Links
+            Liens
         </h3>
         <ul class="menu-list">
         
@@ -898,7 +852,7 @@
     <div class="card-content">
         <div class="menu">
             <h3 class="menu-label">
-                Categories
+                Catégories
             </h3>
             <ul class="menu-list">
             <li>
@@ -991,7 +945,7 @@
 <div class="card widget">
     <div class="card-content">
         <h3 class="menu-label">
-            Tag Cloud
+            Nuage de tags
         </h3>
         <a href="/tags/Ajax/" style="font-size: 10px;">Ajax</a> <a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/Axios/" style="font-size: 10px;">Axios</a> <a href="/tags/CSS/" style="font-size: 10px;">CSS</a> <a href="/tags/HTTP/" style="font-size: 13.33px;">HTTP</a> <a href="/tags/Hook/" style="font-size: 10px;">Hook</a> <a href="/tags/Promise/" style="font-size: 10px;">Promise</a> <a href="/tags/React/" style="font-size: 13.33px;">React</a> <a href="/tags/ReactNative/" style="font-size: 20px;">ReactNative</a> <a href="/tags/TypeScript/" style="font-size: 10px;">TypeScript</a> <a href="/tags/VSCode/" style="font-size: 10px;">VSCode</a> <a href="/tags/Vue/" style="font-size: 10px;">Vue</a> <a href="/tags/XMLHttpRequest/" style="font-size: 10px;">XMLHttpRequest</a> <a href="/tags/absolute/" style="font-size: 10px;">absolute</a> <a href="/tags/async-await/" style="font-size: 13.33px;">async/await</a> <a href="/tags/flex/" style="font-size: 10px;">flex</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/node/" style="font-size: 10px;">node</a> <a href="/tags/pm2/" style="font-size: 10px;">pm2</a> <a href="/tags/table/" style="font-size: 10px;">table</a> <a href="/tags/上拉加载/" style="font-size: 10px;">上拉加载</a> <a href="/tags/多端开发/" style="font-size: 10px;">多端开发</a> <a href="/tags/布局/" style="font-size: 10px;">布局</a> <a href="/tags/排序/" style="font-size: 10px;">排序</a> <a href="/tags/数据结构/" style="font-size: 10px;">数据结构</a> <a href="/tags/环境配置/" style="font-size: 16.67px;">环境配置</a> <a href="/tags/网页配色/" style="font-size: 10px;">网页配色</a>
     </div>
@@ -1005,7 +959,7 @@
 <div class="card widget">
     <div class="card-content">
         <h3 class="menu-label">
-            Recent
+            Récents
         </h3>
         
         <article class="media">
@@ -1335,7 +1289,7 @@
                 <div class="control">
                     <a class="tags has-addons" href="/tags/环境配置/">
                         <span class="tag">环境配置</span>
-                        <span class="tag is-grey">7</span>
+                        <span class="tag is-grey">8</span>
                     </a>
                 </div>
                 
@@ -1366,7 +1320,7 @@
 <div class="card widget">
     <div class="card-content">
         <h3 class="menu-label">
-            Recent
+            Récents
         </h3>
         
         <article class="media">
@@ -1696,7 +1650,7 @@
                 <div class="control">
                     <a class="tags has-addons" href="/tags/环境配置/">
                         <span class="tag">环境配置</span>
-                        <span class="tag is-grey">7</span>
+                        <span class="tag is-grey">8</span>
                     </a>
                 </div>
                 
@@ -1874,9 +1828,9 @@ document.addEventListener('DOMContentLoaded', function () {
     (function (window) {
         var INSIGHT_CONFIG = {
             TRANSLATION: {
-                POSTS: 'Posts',
+                POSTS: 'Articles',
                 PAGES: 'Pages',
-                CATEGORIES: 'Categories',
+                CATEGORIES: 'Catégories',
                 TAGS: 'Tags',
                 UNTITLED: '(Untitled)',
             },
