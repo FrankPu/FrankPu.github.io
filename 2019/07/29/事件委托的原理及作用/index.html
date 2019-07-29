@@ -2,19 +2,24 @@
 <html>
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
-<title>Tag: 多端开发 - Hexo</title>
+<title>事件委托的原理及作用 - Hexo</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
 
 
-    <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="https://shishuang.ga/tags/多端开发/index.html">
+    <meta name="description" content="事件委托的作用 支持为同一个DOM元素注册多个同类型事件 可将事件分成事件捕获和事件冒泡机制">
+<meta name="keywords" content="事件委托">
+<meta property="og:type" content="article">
+<meta property="og:title" content="事件委托的原理及作用">
+<meta property="og:url" content="https://shishuang.ga/2019/07/29/事件委托的原理及作用/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="事件委托的作用 支持为同一个DOM元素注册多个同类型事件 可将事件分成事件捕获和事件冒泡机制">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://shishuang.ga/images/og_image.png">
+<meta property="og:updated_time" content="2019-07-29T10:01:14.807Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo">
+<meta name="twitter:title" content="事件委托的原理及作用">
+<meta name="twitter:description" content="事件委托的作用 支持为同一个DOM元素注册多个同类型事件 可将事件分成事件捕获和事件冒泡机制">
 <meta name="twitter:image" content="https://shishuang.ga/images/og_image.png">
 
 
@@ -89,7 +94,7 @@
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
             
-                <img src="/images/logo.svg" alt="Hexo" height="28">
+                <img src="/images/logo.svg" alt="事件委托的原理及作用" height="28">
             
             </a>
         </div>
@@ -135,33 +140,22 @@
         <div class="container">
             <div class="columns">
                 <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main"><div class="card">
-    <div class="card-content">
-        <nav class="breadcrumb" aria-label="breadcrumbs">
-        <ul>
-            <li><a href="/tags">Tags</a></li>
-            <li class="is-active"><a href="#" aria-current="page">多端开发</a></li>
-        </ul>
-        </nav>
-    </div>
-</div>
-
-    <div class="card">
     
     <div class="card-content article ">
         
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
             <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2019-07-19T01:53:06.000Z">2019-07-19</time>
+                <time class="level-item has-text-grey" datetime="2019-07-29T09:58:29.000Z">2019-07-29</time>
                 
                 <div class="level-item">
-                <a class="has-link-grey -link" href="/categories/其他前端/">其他前端</a>
+                <a class="has-link-grey -link" href="/categories/JS-ES6/">JS/ES6</a>
                 </div>
                 
                 
                 <span class="level-item has-text-grey">
                     
                     
-                    4 minutes read (About 665 words)
+                    6 minutes read (About 948 words)
                 </span>
                 
                 
@@ -170,23 +164,72 @@
         
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                <a class="has-link-black-ter" href="/2019/07/19/写给自己看的Chameleon笔记/">写给自己看的Chameleon笔记</a>
+                事件委托的原理及作用
             
         </h1>
         <div class="content">
-            <blockquote>
-<p><a href="https://cmljs.org/#/" target="_blank" rel="noopener">Chameleon</a>框架是由滴滴开源的多端统一开发解决方案</p>
-</blockquote>
+            <h2 id="事件委托的作用"><a href="#事件委托的作用" class="headerlink" title="事件委托的作用"></a>事件委托的作用</h2><ol>
+<li>支持为同一个DOM元素注册多个同类型事件</li>
+<li>可将事件分成事件捕获和事件冒泡机制</li>
+</ol>
+<a id="more"></a>
+<h2 id="注册多个事件"><a href="#注册多个事件" class="headerlink" title="注册多个事件"></a>注册多个事件</h2><h3 id="onclick实现"><a href="#onclick实现" class="headerlink" title="onclick实现"></a>onclick实现</h3><p>以往注册多个事件（<code>onclick</code>），后注册的事件会覆盖先注册的事件：</p>
+<figure class="highlight html hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">//index.html</span><br><span class="line"></span><br><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"div1"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="hljs-undefined"></span></span><br><span class="line"><span class="hljs-javascript"><span class="hljs-built_in">window</span>.onload = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>&#123;</span></span><br><span class="line"><span class="hljs-javascript">    <span class="hljs-keyword">let</span> div1 = <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">'div1'</span>);</span></span><br><span class="line"><span class="hljs-javascript">    div1.onclick = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>&#123;</span></span><br><span class="line"><span class="hljs-javascript">        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'打印第一次'</span>)</span></span><br><span class="line"><span class="hljs-undefined">    &#125;</span></span><br><span class="line"><span class="hljs-javascript">    div1.onclick = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>&#123;</span></span><br><span class="line"><span class="hljs-javascript">        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'打印第二次'</span>)</span></span><br><span class="line"><span class="hljs-undefined">    &#125;</span></span><br><span class="line"><span class="hljs-undefined">&#125;</span></span><br><span class="line"><span class="hljs-undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p><img src="https://images2018.cnblogs.com/blog/1414709/201808/1414709-20180818111239686-1865488448.png" alt="onclick"></p>
+<p>如上图，可以看到第二个点击注册事件覆盖了第一个注册事件，只执行了第二次注册事件。</p>
+<h3 id="addEventListener实现"><a href="#addEventListener实现" class="headerlink" title="addEventListener实现"></a>addEventListener实现</h3><p><code>addEventListener(type,listener,useCapture)</code></p>
+<ul>
+<li><p>type：【必须】string类型，事件类型</p>
+</li>
+<li><p>listener：【必须】添加的监听函数</p>
+</li>
+<li><p>useCapture：【可选】boolean类型，指定事件是否发生在捕获阶段。</p>
+<p><strong>默认为false，事件发生在冒泡阶段</strong></p>
+</li>
+</ul>
+<figure class="highlight html hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">//index.html</span><br><span class="line"></span><br><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"div1"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="hljs-undefined"></span></span><br><span class="line"><span class="hljs-javascript"><span class="hljs-built_in">window</span>.onload = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>&#123;</span></span><br><span class="line"><span class="hljs-javascript">    <span class="hljs-keyword">let</span> div1 = <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">'div1'</span>);</span></span><br><span class="line"><span class="hljs-javascript">    div1.addEventListener(<span class="hljs-string">'click'</span>,<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>&#123;</span></span><br><span class="line"><span class="hljs-javascript">        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'打印第一次'</span>)</span></span><br><span class="line"><span class="hljs-undefined">    &#125;)</span></span><br><span class="line"><span class="hljs-javascript">    div1.addEventListener(<span class="hljs-string">'click'</span>,<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>&#123;</span></span><br><span class="line"><span class="hljs-javascript">        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'打印第二次'</span>)</span></span><br><span class="line"><span class="hljs-undefined">    &#125;)</span></span><br><span class="line"><span class="hljs-undefined">&#125;</span></span><br><span class="line"><span class="hljs-undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p><img src="https://images2018.cnblogs.com/blog/1414709/201808/1414709-20180818111811025-1077949187.png" alt="addEventListener"></p>
+<p>可以看到两个注册事件都成功触发了。</p>
+<p><code>useCapture</code>是事件委托的关键,我们后面详解。</p>
+<h3 id="捕获和冒泡"><a href="#捕获和冒泡" class="headerlink" title="捕获和冒泡"></a>捕获和冒泡</h3><ol>
+<li>事件捕获<br>当一个事件触发后，从Window对象触发，不断经过下级节点，直到目标节点。在事件到达目标节点之前的过程就是捕获阶段。所有经过的节点都会触发对应的事件。</li>
+<li>事件冒泡<br>当事件到达目标节点后，会沿着捕获阶段的路线原路返回。同样，所有经过的节点，都会触发对应的事件。</li>
+</ol>
+<p><img src="https://images2018.cnblogs.com/blog/1414709/201808/1414709-20180818123542724-735687837.png" alt="事件机制"></p>
+<p>假设有body和body节点下的div1均有绑定了一个注册事件：</p>
+<ul>
+<li><p>当为事件<strong>捕获</strong><code>(useCapture:true)</code>时，先执行body的事件，再执行div的事件</p>
+<figure class="highlight html hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span></span><br><span class="line">    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"div1"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span><br><span class="line"><span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="hljs-undefined"></span></span><br><span class="line"><span class="hljs-javascript"><span class="hljs-built_in">window</span>.onload = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>&#123;</span></span><br><span class="line"><span class="hljs-javascript">    <span class="hljs-keyword">let</span> body = <span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">'body'</span>);</span></span><br><span class="line"><span class="hljs-javascript">    <span class="hljs-keyword">let</span> div1 = <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">'div1'</span>);</span></span><br><span class="line"><span class="hljs-javascript">    body.addEventListener(<span class="hljs-string">'click'</span>,<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>&#123;</span></span><br><span class="line"><span class="hljs-javascript">        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'打印body'</span>)</span></span><br><span class="line"><span class="hljs-undefined">    &#125;)</span></span><br><span class="line"><span class="hljs-javascript">    div1.addEventListener(<span class="hljs-string">'click'</span>,<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>&#123;</span></span><br><span class="line"><span class="hljs-javascript">        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'打印div1'</span>)</span></span><br><span class="line"><span class="hljs-undefined">    &#125;)</span></span><br><span class="line"><span class="hljs-undefined">&#125;</span></span><br><span class="line"><span class="hljs-undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></span><br><span class="line"></span><br><span class="line">//结果：打印div1，打印body</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><img src="https://images2018.cnblogs.com/blog/1414709/201808/1414709-20180818125402271-1569816971.png" alt="事件冒泡"></p>
+<ul>
+<li>当为事件<strong>冒泡</strong><code>(useCapture:false)</code>时，先执行div的事件，再执行body的事件</li>
+</ul>
+<figure class="highlight html hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span></span><br><span class="line">    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"div1"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span><br><span class="line"><span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="hljs-undefined"></span></span><br><span class="line"><span class="hljs-javascript"><span class="hljs-built_in">window</span>.onload = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>&#123;</span></span><br><span class="line"><span class="hljs-javascript">    <span class="hljs-keyword">let</span> body = <span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">'body'</span>);</span></span><br><span class="line"><span class="hljs-javascript">    <span class="hljs-keyword">let</span> div1 = <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">'div1'</span>);</span></span><br><span class="line"><span class="hljs-javascript">    body.addEventListener(<span class="hljs-string">'click'</span>,<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>&#123;</span></span><br><span class="line"><span class="hljs-javascript">        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'打印body'</span>)</span></span><br><span class="line"><span class="hljs-javascript">    &#125;,<span class="hljs-literal">true</span>)</span></span><br><span class="line"><span class="hljs-javascript">    div1.addEventListener(<span class="hljs-string">'click'</span>,<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>&#123;</span></span><br><span class="line"><span class="hljs-javascript">        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'打印div1'</span>)</span></span><br><span class="line"><span class="hljs-undefined">    &#125;)</span></span><br><span class="line"><span class="hljs-undefined">&#125;</span></span><br><span class="line"><span class="hljs-undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></span><br><span class="line"></span><br><span class="line">//结果：打印body，打印div1</span><br></pre></td></tr></table></figure>
+<p><img src="https://images2018.cnblogs.com/blog/1414709/201808/1414709-20180818125622131-318728159.png" alt="事件捕获"></p>
+<h2 id="新增节点绑定事件"><a href="#新增节点绑定事件" class="headerlink" title="新增节点绑定事件"></a>新增节点绑定事件</h2><p>事件委托的优点:</p>
+<ol>
+<li>提高性能：<strong>减少了事件绑定元素</strong>，只需要给父元素或祖先元素设立监听函数。</li>
+<li>提高性能：<strong>减少了监听函数</strong>，只需一个事件监听函数，所占用的内存空间更少。</li>
+<li>动态监听：使用事件委托<strong>可以自动绑定动态添加的元素</strong>，即新增的节点不需要主动添加也可以一样具有和其他元素一样的事件。<br>例子解析：</li>
+</ol>
+<figure class="highlight html hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="hljs-undefined"></span></span><br><span class="line"><span class="hljs-javascript">    <span class="hljs-built_in">window</span>.onload = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>&#123;</span></span><br><span class="line"><span class="hljs-javascript">        <span class="hljs-keyword">let</span> div = <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">'div'</span>);</span></span><br><span class="line"><span class="hljs-undefined">        </span></span><br><span class="line"><span class="hljs-javascript">        div.addEventListener(<span class="hljs-string">'click'</span>,<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">e</span>)</span>&#123;</span></span><br><span class="line"><span class="hljs-javascript">            <span class="hljs-built_in">console</span>.log(e.target)</span></span><br><span class="line"><span class="hljs-undefined">        &#125;)</span></span><br><span class="line"><span class="hljs-undefined">        </span></span><br><span class="line"><span class="hljs-javascript">        <span class="hljs-keyword">let</span> div3 = <span class="hljs-built_in">document</span>.createElement(<span class="hljs-string">'div'</span>);</span></span><br><span class="line"><span class="hljs-javascript">        div3.setAttribute(<span class="hljs-string">'class'</span>,<span class="hljs-string">'div3'</span>)</span></span><br><span class="line"><span class="hljs-javascript">        div3.innerHTML = <span class="hljs-string">'div3'</span>;</span></span><br><span class="line"><span class="hljs-undefined">        div.appendChild(div3)</span></span><br><span class="line"><span class="hljs-undefined">    &#125;</span></span><br><span class="line"><span class="hljs-undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span></span><br><span class="line">    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"div"</span>&gt;</span></span><br><span class="line">        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"div1"</span>&gt;</span>div1<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span><br><span class="line">        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"div2"</span>&gt;</span>div2<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span><br><span class="line">    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span><br><span class="line"><span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>虽然没有在事件发生地（div1和div2）设立监听函数，但是无论是点击div1还是div2，都会打印当前节点。因为其<strong>父级绑定了点击事件</strong>，点击div1后<strong>冒泡</strong>上去的时候，执行父级的事件。</p>
+<p>分别点击div1、div2、div3：</p>
+<p><img src="https://images2018.cnblogs.com/blog/1414709/201808/1414709-20180818192807997-344061140.png" alt="事件委托"><br>这样无论后代新增了多少个节点，一样具有这个点击事件的功能。这就是利用了事件冒泡的特性来实现了事件委托。</p>
+
         </div>
         
-        
-        <div class="level is-mobile">
+        <div class="level is-size-7 is-uppercase">
             <div class="level-start">
                 <div class="level-item">
-                <a class="button is-size-7 is-light" href="/2019/07/19/写给自己看的Chameleon笔记/#more">Read More</a>
+                    <span class="is-size-6 has-text-grey has-mr-7">#</span>
+                    <a class="has-link-grey -link" href="/tags/事件委托/">事件委托</a>
                 </div>
             </div>
         </div>
+        
         
         
     </div>
@@ -194,9 +237,50 @@
 
 
 
+<div class="card">
+    <div class="card-content">
+        <h3 class="menu-label has-text-centered">Like this article? Support the author with</h3>
+        <div class="buttons is-centered">
+            
+                
+<a class="button is-info donate">
+    <span class="icon is-small">
+        <i class="fab fa-alipay"></i>
+    </span>
+    <span>Alipay</span>
+    <div class="qrcode"><img src="/" alt="Alipay"></div>
+</a>
+
+                
+                
+<a class="button is-success donate">
+    <span class="icon is-small">
+        <i class="fab fa-weixin"></i>
+    </span>
+    <span>Wechat</span>
+    <div class="qrcode"><img src="/" alt="Wechat"></div>
+</a>
+
+                
+        </div>
+    </div>
+</div>
 
 
 
+<div class="card card-transparent">
+    <div class="level post-navigation is-flex-wrap is-mobile">
+        
+        
+        <div class="level-end">
+            <a class="level level-item has-link-grey  article-nav-next" href="/2019/07/26/Vue开发技巧之路由/">
+                <span class="level-item">Vue开发技巧之路由</span>
+                <i class="level-item fas fa-chevron-right"></i>
+            </a>
+        </div>
+        
+    </div>
+</div>
 
 
 </div>
@@ -1167,7 +1251,7 @@
             <div class="level-start has-text-centered-mobile">
                 <a class="footer-logo is-block has-mb-6" href="/">
                 
-                    <img src="/images/logo.svg" alt="Hexo" height="28">
+                    <img src="/images/logo.svg" alt="事件委托的原理及作用" height="28">
                 
                 </a>
                 <p class="is-size-7">
