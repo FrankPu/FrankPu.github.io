@@ -2,19 +2,24 @@
 <html>
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
-<title>Tag: Ajax - Hexo</title>
+<title>在Linux下安装MongoDB - Hexo</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
 
 
-    <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="https://shishuang.ga/tags/Ajax/index.html">
+    <meta name="description" content="参考地址：linuxidc">
+<meta name="keywords" content="环境配置,Linux,MongoDB">
+<meta property="og:type" content="article">
+<meta property="og:title" content="在Linux下安装MongoDB">
+<meta property="og:url" content="https://shishuang.ga/2019/07/30/在Linux下安装MongoDB/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="参考地址：linuxidc">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://shishuang.ga/images/og_image.png">
+<meta property="og:updated_time" content="2019-07-30T09:14:41.331Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo">
+<meta name="twitter:title" content="在Linux下安装MongoDB">
+<meta name="twitter:description" content="参考地址：linuxidc">
 <meta name="twitter:image" content="https://shishuang.ga/images/og_image.png">
 
 
@@ -89,7 +94,7 @@
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
             
-                <img src="/images/logo.svg" alt="Hexo" height="28">
+                <img src="/images/logo.svg" alt="在Linux下安装MongoDB" height="28">
             
             </a>
         </div>
@@ -135,33 +140,22 @@
         <div class="container">
             <div class="columns">
                 <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main"><div class="card">
-    <div class="card-content">
-        <nav class="breadcrumb" aria-label="breadcrumbs">
-        <ul>
-            <li><a href="/tags">Tag</a></li>
-            <li class="is-active"><a href="#" aria-current="page">Ajax</a></li>
-        </ul>
-        </nav>
-    </div>
-</div>
-
-    <div class="card">
     
     <div class="card-content article ">
         
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
             <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2019-07-09T09:36:20.000Z">2019-07-09</time>
+                <time class="level-item has-text-grey" datetime="2019-07-30T09:12:38.000Z">2019-07-30</time>
                 
                 <div class="level-item">
-                <a class="has-link-grey -link" href="/categories/HTTP/">HTTP</a>
+                <a class="has-link-grey -link" href="/categories/服务器/">服务器</a>
                 </div>
                 
                 
                 <span class="level-item has-text-grey">
                     
                     
-                    43 minutes membaca (Sekitar 6383 kata)
+                    5 minutes membaca (Sekitar 676 kata)
                 </span>
                 
                 
@@ -170,23 +164,81 @@
         
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                <a class="has-link-black-ter" href="/2019/07/09/Ajax和XMLHttpRequest/">Ajax和XMLHttpRequest</a>
+                在Linux下安装MongoDB
             
         </h1>
         <div class="content">
-            <h2 id="Ajax和XMLHttpRequest"><a href="#Ajax和XMLHttpRequest" class="headerlink" title="Ajax和XMLHttpRequest"></a><code>Ajax</code>和<code>XMLHttpRequest</code></h2><blockquote>
-<p>我们通常将<code>Ajax</code>等同于<code>XMLHttpRequest</code>，但细究起来它们两个是属于不同维度的2个概念</p>
+            <blockquote>
+<p>参考地址：<a href="https://www.linuxidc.com/Linux/2016-06/132675.htm" target="_blank" rel="noopener">linuxidc</a></p>
 </blockquote>
+<a id="more"></a>
+<h2 id="安装步骤"><a href="#安装步骤" class="headerlink" title="安装步骤"></a>安装步骤</h2><ol>
+<li><p>下载你的服务器系统版本的mongodb，这里是<code>mongodb-linux-x86_64-3.4.9.tgz</code></p>
+</li>
+<li><p>传输到服务器，我这里使用<strong>putty的pscp传输</strong>（mac用户直接在shell使用scp传输）</p>
+<p>格式为：</p>
+<p><code>pscp.exe 文件路径 服务器登录名@服务器ip:传输到的服务器路径</code></p>
+<p>具体命令如下：</p>
+<p><code>C:\Program Files\PuTTY&gt;pscp.exe d:/mongodb-linux-x86_64-3.4.9.tgz root@120.78.82.59:/</code></p>
+<p>我这里是传到了<strong>根目录</strong>，所以直接是<code>/</code></p>
+</li>
+<li><p><code>wget https://fastdl.mongodb.org/linux/mongodb-linux-x86_64-3.4.9.tgz</code></p>
+<p><code>wget  https://fastdl.mongodb.org/linux/mongodb-linux-x86_64-rhel70-3.4.9.tgz</code></p>
+<p>解压mongodb：</p>
+<p><code>tar -zxvf mongodb-linux-x86_64-rhel70-3.4.9.tgz</code></p>
+</li>
+<li><p>新建mongodb文件夹：</p>
+<p><code>mkdir mongodb</code></p>
+<p>移动刚才解压缩完的文件夹到<strong>新建的mongodb目录</strong>下：</p>
+<p><code>mv mongodb-linux-x86_64-rhel70-3.4.9 mongodb</code></p>
+</li>
+<li><p>进入新建的mongodb目录下，新建3个文件夹：</p>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">cd mongodb</span><br><span class="line">mkdir data</span><br><span class="line">mkdir logs</span><br><span class="line">mkdir etc</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>进入logs创建</p>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd logs</span><br><span class="line">touch mongo.log</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>进入etc创建</p>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">cd ..</span><br><span class="line">cd etc</span><br><span class="line">// 进入vim编辑模式</span><br><span class="line">vi mongo.conf</span><br><span class="line"></span><br><span class="line">// 键入 I 进入编辑模式</span><br><span class="line">// 输入：</span><br><span class="line">dbpath=/mongodb/data</span><br><span class="line">logpath=/mongodb/logs/mongo.log</span><br><span class="line">logappend=true</span><br><span class="line">journal=true</span><br><span class="line">quiet=true</span><br><span class="line">port=27017</span><br><span class="line"></span><br><span class="line">// 完成后按esc退出编辑模式</span><br><span class="line">// 再输入 :wq 保存退出（有一个冒号哦！）</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>建mongodb软连接</p>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cd /</span><br><span class="line">ln -s /mongodb/mongodb-linux-x86_64-rhel70-3.4.9/bin/mongo /usr/local/bin/mongo</span><br><span class="line">ln -s /mongodb/mongodb-linux-x86_64-rhel70-3.4.9/bin/mongod /usr/local/bin/mongod</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>打开第一个putty窗口，启动服务器（在服务器ssh上执行）</p>
+<p><code>mongod -f /mongodb/etc/mongo.conf</code></p>
+</li>
+<li><p>双开第二个putty窗口，连接数据库，输入：<code>mongo</code></p>
+</li>
+<li><p>此时，我们已经可以进入数据库，我们插入一条数据（mongodb的语法）：</p>
+<p><code>db.goods.insert({ id:1000, name:test })</code></p>
+<p>再执行<code>db.goods.find()</code>就可以看到我们刚才插入的数据了，但是这种做法我们不常用，一般使用可视化软件<strong>robot 3t</strong></p>
+</li>
+<li><p>打开第三个putty窗口，执行：<code>node imooc/server/bin/www</code>，可以看到<code>mongodb connected success</code></p>
+</li>
+<li><p>将mongodb加入系统自启动</p>
+<p>编辑文件<code>vi /etc/rc.loacl</code>，在最底部输入：</p>
+<p><code>/mongodb/mongodb-linux-x86_64-rhel70-3.4.9/bin/mongod --dbpath=/mongodb/data --fork --port 27017 --logpath=/mongodb/logs/mongo.log --logappend --auth</code></p>
+</li>
+<li><p><strong>注意：</strong>此处有一个超级大坑！阿里云默认是没有开27017和3000端口的，我之前服务器虽然配置成功了，但是在浏览器中却一直无法访问。</p>
+<p>操作方法：</p>
+<p><code>阿里云控制台--云计算基础服务--云服务器CES--网络安全（安全组）--选到你的服务器所在安全组列表--管理实例</code></p>
+<p><img src="https://frank-database.oss-cn-hangzhou.aliyuncs.com/img/20190730170634.png" alt></p>
+<p>然后添加27017和3000端口即可：</p>
+<p><img src="https://frank-database.oss-cn-hangzhou.aliyuncs.com/img/20190730170703.png" alt></p>
+</li>
+</ol>
+
         </div>
         
-        
-        <div class="level is-mobile">
+        <div class="level is-size-7 is-uppercase">
             <div class="level-start">
                 <div class="level-item">
-                <a class="button is-size-7 is-light" href="/2019/07/09/Ajax和XMLHttpRequest/#more">Selengkapnya</a>
+                    <span class="is-size-6 has-text-grey has-mr-7">#</span>
+                    <a class="has-link-grey -link" href="/tags/Linux/">Linux</a>, <a class="has-link-grey -link" href="/tags/MongoDB/">MongoDB</a>, <a class="has-link-grey -link" href="/tags/环境配置/">环境配置</a>
                 </div>
             </div>
         </div>
+        
         
         
     </div>
@@ -194,9 +246,50 @@
 
 
 
+<div class="card">
+    <div class="card-content">
+        <h3 class="menu-label has-text-centered">Suka dengan artikel ini? Bantu penulis dengan donasi melalui</h3>
+        <div class="buttons is-centered">
+            
+                
+<a class="button is-info donate">
+    <span class="icon is-small">
+        <i class="fab fa-alipay"></i>
+    </span>
+    <span>Alipay</span>
+    <div class="qrcode"><img src="/" alt="Alipay"></div>
+</a>
+
+                
+                
+<a class="button is-success donate">
+    <span class="icon is-small">
+        <i class="fab fa-weixin"></i>
+    </span>
+    <span>Wechat</span>
+    <div class="qrcode"><img src="/" alt="Wechat"></div>
+</a>
+
+                
+        </div>
+    </div>
+</div>
 
 
 
+<div class="card card-transparent">
+    <div class="level post-navigation is-flex-wrap is-mobile">
+        
+        
+        <div class="level-end">
+            <a class="level level-item has-link-grey  article-nav-next" href="/2019/07/29/事件委托的原理及作用/">
+                <span class="level-item">事件委托的原理及作用</span>
+                <i class="level-item fas fa-chevron-right"></i>
+            </a>
+        </div>
+        
+    </div>
+</div>
 
 
 </div>
@@ -1181,7 +1274,7 @@
             <div class="level-start has-text-centered-mobile">
                 <a class="footer-logo is-block has-mb-6" href="/">
                 
-                    <img src="/images/logo.svg" alt="Hexo" height="28">
+                    <img src="/images/logo.svg" alt="在Linux下安装MongoDB" height="28">
                 
                 </a>
                 <p class="is-size-7">
