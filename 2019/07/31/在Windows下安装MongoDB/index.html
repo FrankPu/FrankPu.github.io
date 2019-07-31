@@ -2,19 +2,24 @@
 <html>
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
-<title>Archivos: 2019 - Hexo</title>
+<title>在Windows下安装MongoDB - Hexo</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
 
 
-    <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="https://shishuang.ga/archives/2019/page/2/index.html">
+    <meta name="description" content="参考地址：河畔一角">
+<meta name="keywords" content="环境配置,MongoDB">
+<meta property="og:type" content="article">
+<meta property="og:title" content="在Windows下安装MongoDB">
+<meta property="og:url" content="https://shishuang.ga/2019/07/31/在Windows下安装MongoDB/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="参考地址：河畔一角">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://shishuang.ga/images/og_image.png">
+<meta property="og:updated_time" content="2019-07-31T09:32:29.298Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo">
+<meta name="twitter:title" content="在Windows下安装MongoDB">
+<meta name="twitter:description" content="参考地址：河畔一角">
 <meta name="twitter:image" content="https://shishuang.ga/images/og_image.png">
 
 
@@ -89,7 +94,7 @@
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
             
-                <img src="/images/logo.svg" alt="Hexo" height="28">
+                <img src="/images/logo.svg" alt="在Windows下安装MongoDB" height="28">
             
             </a>
         </div>
@@ -134,231 +139,160 @@
     <section class="section">
         <div class="container">
             <div class="columns">
-                <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main">
+                <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main"><div class="card">
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2019-07-31T09:29:45.000Z">2019-07-31</time>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/服务器/">服务器</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    7 minutes read (About 1090 words)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                在Windows下安装MongoDB
+            
+        </h1>
+        <div class="content">
+            <blockquote>
+<p>参考地址：<a href="https://www.cnblogs.com/jacksoft/p/6910709.html" target="_blank" rel="noopener">河畔一角</a></p>
+</blockquote>
+<a id="more"></a>
+<h2 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h2><p><a href="https://www.mongodb.com/download-center/community" target="_blank" rel="noopener">下载地址</a>，下载后双击安装即可，所在目录在<code>C:\Program Files\MongoDB\</code>。</p>
+<p><img src="https://frank-database.oss-cn-hangzhou.aliyuncs.com/img/20190731105751.png" alt></p>
+<h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><ol>
+<li><p>在<code>c:\MongoDB</code>（可随意起）下面建一个data文件夹<code>c:\MongoDB\data</code></p>
+</li>
+<li><p>在<code>c:\MongoDB</code>下面建一个logs文件夹<code>c:\MongoDB\logs</code>，在里面建一个文件<code>mongo.log</code></p>
+</li>
+<li><p>在<code>c:\MongoDB</code>下面建一个etc文件夹（随意起，放配置文件）<code>c:\MongoDB\etc</code> ，在里面建一个文件<code>mongo.conf</code></p>
+</li>
+<li><p>打开<code>mongo.conf</code>文件，修改如下：</p>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">#数据库路径</span><br><span class="line">dbpath=c:\MongoDB\data\</span><br><span class="line">#日志输出文件路径</span><br><span class="line">logpath=c:\MongoDB\logs\mongodb.log</span><br><span class="line">#错误日志采用追加模式，配置这个选项后mongodb的日志会追加到现有的日志文件，而不是从新创建一个新文件</span><br><span class="line">logappend=true</span><br><span class="line">#启用日志文件，默认启用</span><br><span class="line">journal=true</span><br><span class="line">#这个选项可以过滤掉一些无用的日志信息，若需要调试使用请设置为false</span><br><span class="line">quiet=false</span><br><span class="line">#端口号 默认为27017</span><br><span class="line">port=27017</span><br><span class="line">#指定存储引擎（默认先不加此引擎，如果报错了，大家在加进去）</span><br><span class="line">storageEngine=mmapv1</span><br></pre></td></tr></table></figure>
+<p><strong>注意：</strong>在上面，我指定了一个存储引擎，这个通常是不需要的，但是，我的电脑报错<code>storage engine &#39;wiredTiger&#39;</code>，查找博客后，需要添加指定引擎为：<code>storageEngine=mmapv1</code>。如果大家是win 64位，则可能不需要指定，如果是其它平台，比如linux平台或者osx平台，可能也不需要指定。</p>
+</li>
+</ol>
+<p>完成以上操作后，我们就可以启动我们的mongo数据库了。</p>
+<p>备注：</p>
+<p>以上是通过配置的形式，来启动我们的MongoDB，也可以把参数直接在启动的时候，传递进去如下：</p>
+<p><code>mongod --dbpath c:\MongoDB\data --logpath c:\MongoDB\log\mongo.log  --journal</code></p>
+<h2 id="在命令行中启动mongo"><a href="#在命令行中启动mongo" class="headerlink" title="在命令行中启动mongo"></a>在命令行中启动mongo</h2><ol>
+<li><p>管理员身份运行<code>cmd</code>。</p>
+</li>
+<li><p>进入到安装的mongo文件夹中，一直进入到bin目录（存放命令的目录，里面有mongod.exe）。</p>
+<p><img src="https://frank-database.oss-cn-hangzhou.aliyuncs.com/img/20190731110836.png" alt></p>
+</li>
+<li><p>先简单启动一下mongo（这种方式是通过命令的形式，同时把参数传进去，实际上，我们只需要启动我们上面那个配置文件就可以了），执行：</p>
+<p><code>mongod --dbpath c:\MongoDB\data</code></p>
+<p><img src="https://frank-database.oss-cn-hangzhou.aliyuncs.com/img/20190731110927.png" alt></p>
+<p>看到<code>waiting for connections on port 27017</code>等，说明启动成功，我们可以测试一下。</p>
+<p><img src="https://frank-database.oss-cn-hangzhou.aliyuncs.com/img/20190731171517.png" alt></p>
+<p>看到此图，说明启动成功。</p>
+</li>
+<li><p>再次打开命令行，然后进入到mongo的<code>bin</code>目录（因为还没有配置环境变量，所以需要进到bin下面执行），输入<code>mongo</code>后回车。</p>
+<p><img src="https://frank-database.oss-cn-hangzhou.aliyuncs.com/img/20190731171638.png" alt></p>
+<p>如上图所示，已经进入到了mongo的命令中，现在就可以通过mongo的命令进行一系列关于数据库的操作了。</p>
+</li>
+</ol>
+<h2 id="配置mongo到Windows服务中"><a href="#配置mongo到Windows服务中" class="headerlink" title="配置mongo到Windows服务中"></a>配置mongo到Windows服务中</h2><ol>
+<li><p>进入到mongodb的安装目录下面的<code>bin</code>目录中：</p>
+<p><code>cd c:\Program Files\MongoDB\Server\3.2\bin&gt;</code></p>
+</li>
+<li><p>输入命令，启动mongo：</p>
+<p><code>mongod --config c:\MongoDB\etc\mongo.conf --install --serviceName &quot;MongoDB&quot;</code></p>
+<p><img src="https://frank-database.oss-cn-hangzhou.aliyuncs.com/img/20190731172336.png" alt></p>
+</li>
+<li><p>安装成功后，打开window服务，我们可以看到里面已经安装了MongoDB：</p>
+<p><img src="https://frank-database.oss-cn-hangzhou.aliyuncs.com/img/20190731172413.png" alt></p>
+<p>下次我们用的时候，只需要启动服务即可，如果大家不安装此服务也可以，每次启动的时候，手动进入到安装目录里面，输入命令启动，两种方式都可以。</p>
+<p>删除服务命令：<code>mongod --config c:\MongoDB\etc\mongo.conf --remove</code>，然后在服务里面刷新一下，就会发现已经删掉了。</p>
+</li>
+<li><p>另外如果不想进入到安装目录，可以配置一下Mongo的环境变量，这样就不需要每次进入到安装目录启动了，打开<code>path</code>，在里面输入：</p>
+<p><code>;C:\Program Files\MongoDB\Server\3.2\bin</code></p>
+<p>（注意，前面有个分号）</p>
+<p><img src="C:\Users\Pu\AppData\Roaming\Typora\typora-user-images\1564565156561.png" alt="1564565156561"></p>
+</li>
+</ol>
+<p>到此，我们已经成功安装MongoDB。</p>
 
-<div class="card widget">
+        </div>
+        
+        <div class="level is-size-7 is-uppercase">
+            <div class="level-start">
+                <div class="level-item">
+                    <span class="is-size-6 has-text-grey has-mr-7">#</span>
+                    <a class="has-link-grey -link" href="/tags/MongoDB/">MongoDB</a>, <a class="has-link-grey -link" href="/tags/环境配置/">环境配置</a>
+                </div>
+            </div>
+        </div>
+        
+        
+        
+    </div>
+</div>
+
+
+
+<div class="card">
     <div class="card-content">
-        <h3 class="tag is-link">
-        2019
-        </h3>
-        <div class="timeline">
-        
-            <article class="media">
+        <h3 class="menu-label has-text-centered">Like this article? Support the author with</h3>
+        <div class="buttons is-centered">
+            
                 
-                <div class="media-content">
-                    <div class="content">
-                        <time class="has-text-grey is-size-7 is-block is-uppercase" datetime="2019-07-17T09:59:12.000Z">2019-07-17</time>
-                        <a href="/2019/07/17/Git常用命令总结/" class="has-link-black-ter is-size-6">Git常用命令总结</a>
-                        <div class="level article-meta is-mobile">
-                            <div class="level-left">
-                                
-                                <div class="level-item is-size-7 is-uppercase">
-                                <a class="has-link-grey -link" href="/categories/其他前端/">其他前端</a>
-                                </div>
-                                
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </article>
-        
-            <article class="media">
+<a class="button is-info donate">
+    <span class="icon is-small">
+        <i class="fab fa-alipay"></i>
+    </span>
+    <span>Alipay</span>
+    <div class="qrcode"><img src="/" alt="Alipay"></div>
+</a>
+
                 
-                <div class="media-content">
-                    <div class="content">
-                        <time class="has-text-grey is-size-7 is-block is-uppercase" datetime="2019-07-16T09:34:23.000Z">2019-07-16</time>
-                        <a href="/2019/07/16/如何添加数组中的每一项到已知对象当中/" class="has-link-black-ter is-size-6">如何添加数组中的每一项到已知对象当中</a>
-                        <div class="level article-meta is-mobile">
-                            <div class="level-left">
-                                
-                                <div class="level-item is-size-7 is-uppercase">
-                                <a class="has-link-grey -link" href="/categories/JS-ES6/">JS/ES6</a>
-                                </div>
-                                
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </article>
-        
-            <article class="media">
                 
-                <div class="media-content">
-                    <div class="content">
-                        <time class="has-text-grey is-size-7 is-block is-uppercase" datetime="2019-07-15T09:10:31.000Z">2019-07-15</time>
-                        <a href="/2019/07/15/从零开始搭建Hexo博客/" class="has-link-black-ter is-size-6">从零开始搭建Hexo博客</a>
-                        <div class="level article-meta is-mobile">
-                            <div class="level-left">
-                                
-                                <div class="level-item is-size-7 is-uppercase">
-                                <a class="has-link-grey -link" href="/categories/其他前端/">其他前端</a>
-                                </div>
-                                
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </article>
-        
-            <article class="media">
+<a class="button is-success donate">
+    <span class="icon is-small">
+        <i class="fab fa-weixin"></i>
+    </span>
+    <span>Wechat</span>
+    <div class="qrcode"><img src="/" alt="Wechat"></div>
+</a>
+
                 
-                <div class="media-content">
-                    <div class="content">
-                        <time class="has-text-grey is-size-7 is-block is-uppercase" datetime="2019-07-12T09:00:39.000Z">2019-07-12</time>
-                        <a href="/2019/07/12/布局：水平居中、垂直居中、水平垂直居中/" class="has-link-black-ter is-size-6">布局：水平居中、垂直居中、水平垂直居中</a>
-                        <div class="level article-meta is-mobile">
-                            <div class="level-left">
-                                
-                                <div class="level-item is-size-7 is-uppercase">
-                                <a class="has-link-grey -link" href="/categories/CSS/">CSS</a>
-                                </div>
-                                
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </article>
-        
-            <article class="media">
-                
-                <div class="media-content">
-                    <div class="content">
-                        <time class="has-text-grey is-size-7 is-block is-uppercase" datetime="2019-07-11T08:20:07.000Z">2019-07-11</time>
-                        <a href="/2019/07/11/普通人的网页配色方案/" class="has-link-black-ter is-size-6">普通人的网页配色方案</a>
-                        <div class="level article-meta is-mobile">
-                            <div class="level-left">
-                                
-                                <div class="level-item is-size-7 is-uppercase">
-                                <a class="has-link-grey -link" href="/categories/CSS/">CSS</a>
-                                </div>
-                                
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </article>
-        
-            <article class="media">
-                
-                <div class="media-content">
-                    <div class="content">
-                        <time class="has-text-grey is-size-7 is-block is-uppercase" datetime="2019-07-10T09:41:11.000Z">2019-07-10</time>
-                        <a href="/2019/07/10/数据结构：八大排序/" class="has-link-black-ter is-size-6">数据结构：八大排序</a>
-                        <div class="level article-meta is-mobile">
-                            <div class="level-left">
-                                
-                                <div class="level-item is-size-7 is-uppercase">
-                                <a class="has-link-grey -link" href="/categories/数据结构/">数据结构</a>
-                                </div>
-                                
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </article>
-        
-            <article class="media">
-                
-                <div class="media-content">
-                    <div class="content">
-                        <time class="has-text-grey is-size-7 is-block is-uppercase" datetime="2019-07-09T09:36:20.000Z">2019-07-09</time>
-                        <a href="/2019/07/09/Ajax和XMLHttpRequest/" class="has-link-black-ter is-size-6">Ajax和XMLHttpRequest</a>
-                        <div class="level article-meta is-mobile">
-                            <div class="level-left">
-                                
-                                <div class="level-item is-size-7 is-uppercase">
-                                <a class="has-link-grey -link" href="/categories/HTTP/">HTTP</a>
-                                </div>
-                                
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </article>
-        
-            <article class="media">
-                
-                <div class="media-content">
-                    <div class="content">
-                        <time class="has-text-grey is-size-7 is-block is-uppercase" datetime="2019-07-08T03:18:13.000Z">2019-07-08</time>
-                        <a href="/2019/07/08/用图表和实例解释Async和Await/" class="has-link-black-ter is-size-6">用图表和实例解释Async和Await</a>
-                        <div class="level article-meta is-mobile">
-                            <div class="level-left">
-                                
-                                <div class="level-item is-size-7 is-uppercase">
-                                <a class="has-link-grey -link" href="/categories/JS-ES6/">JS/ES6</a>
-                                </div>
-                                
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </article>
-        
-            <article class="media">
-                
-                <div class="media-content">
-                    <div class="content">
-                        <time class="has-text-grey is-size-7 is-block is-uppercase" datetime="2019-07-05T06:45:16.000Z">2019-07-05</time>
-                        <a href="/2019/07/05/ReactNative应用包名修改/" class="has-link-black-ter is-size-6">ReactNative应用包名修改</a>
-                        <div class="level article-meta is-mobile">
-                            <div class="level-left">
-                                
-                                <div class="level-item is-size-7 is-uppercase">
-                                <a class="has-link-grey -link" href="/categories/ReactNative/">ReactNative</a>
-                                </div>
-                                
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </article>
-        
-            <article class="media">
-                
-                <div class="media-content">
-                    <div class="content">
-                        <time class="has-text-grey is-size-7 is-block is-uppercase" datetime="2019-07-04T07:03:58.000Z">2019-07-04</time>
-                        <a href="/2019/07/04/ReactNative应用名称及图标修改/" class="has-link-black-ter is-size-6">ReactNative应用名称及图标修改</a>
-                        <div class="level article-meta is-mobile">
-                            <div class="level-left">
-                                
-                                <div class="level-item is-size-7 is-uppercase">
-                                <a class="has-link-grey -link" href="/categories/ReactNative/">ReactNative</a>
-                                </div>
-                                
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </article>
-        
         </div>
     </div>
 </div>
 
 
 
-    
 <div class="card card-transparent">
-    <nav class="pagination is-centered" role="navigation" aria-label="pagination">
-        <div class="pagination-previous">
-            <a class="is-flex-grow has-text-black-ter" href="/archives/2019/">Anterior</a>
+    <div class="level post-navigation is-flex-wrap is-mobile">
+        
+        
+        <div class="level-end">
+            <a class="level level-item has-link-grey  article-nav-next" href="/2019/07/30/在Linux下安装MongoDB/">
+                <span class="level-item">在Linux下安装MongoDB</span>
+                <i class="level-item fas fa-chevron-right"></i>
+            </a>
         </div>
-        <div class="pagination-next">
-            <a class="is-flex-grow has-text-black-ter" href="/archives/2019/page/3/">Siguiente</a>
-        </div>
-        <ul class="pagination-list is-hidden-mobile">
-            
-            <li><a class="pagination-link has-text-black-ter" href="/archives/2019/">1</a></li>
-            
-            <li><a class="pagination-link is-current" href="/archives/2019/page/2/">2</a></li>
-            
-            <li><a class="pagination-link has-text-black-ter" href="/archives/2019/page/3/">3</a></li>
-            
-        </ul>
-    </nav>
+        
+    </div>
 </div>
+
+
 </div>
                 
 
@@ -1341,7 +1275,7 @@
             <div class="level-start has-text-centered-mobile">
                 <a class="footer-logo is-block has-mb-6" href="/">
                 
-                    <img src="/images/logo.svg" alt="Hexo" height="28">
+                    <img src="/images/logo.svg" alt="在Windows下安装MongoDB" height="28">
                 
                 </a>
                 <p class="is-size-7">
