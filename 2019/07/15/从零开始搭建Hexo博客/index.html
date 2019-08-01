@@ -16,7 +16,7 @@
 <meta property="og:description" content="从零开始的Hexo个人博客配置">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://shishuang.ga/images/og_image.png">
-<meta property="og:updated_time" content="2019-07-17T01:21:40.698Z">
+<meta property="og:updated_time" content="2019-08-01T03:55:56.778Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="从零开始搭建Hexo博客">
 <meta name="twitter:description" content="从零开始的Hexo个人博客配置">
@@ -155,7 +155,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    10 minutes read (About 1522 words)
+                    10 minutes read (About 1566 words)
                 </span>
                 
                 
@@ -212,20 +212,23 @@
 </ol>
 <h3 id="新建仓库"><a href="#新建仓库" class="headerlink" title="新建仓库"></a>新建仓库</h3><p>github创建一个新的仓库，名称为<code>username.github.io</code>， 其中username是你的<strong>github用户名</strong>，按照这个规则创建才有用哦，如下：</p>
 <p><img src="https://i.loli.net/2019/07/15/5d2c4053065b697239.png" alt></p>
-<h3 id="创建SSH-KEY"><a href="#创建SSH-KEY" class="headerlink" title="创建SSH KEY"></a>创建SSH KEY</h3><p>在gitbash中输入：<code>ssh-keygen -t rsa -C &quot;YourEmail&quot;</code>。<br>然后系统会要你输入密码，这个密码会在你提交项目时使用，如果为空的话提交项目时则不用输入。这个设置是防止别人往你的项目里提交内容。</p>
+<h3 id="设置用户信息"><a href="#设置用户信息" class="headerlink" title="设置用户信息"></a>设置用户信息</h3><p>Git会根据用户的名字和邮箱来记录提交。GitHub也是用这些信息来做权限的处理，输入下面的代码进行个人信息的设置，打开命令行，配置全局git信息：</p>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git config --global user.name &quot;YourName&quot;//填写你自己的用户名</span><br><span class="line">$ git config --global user.email  &quot;YourEmail&quot;//填写你自己的邮箱</span><br></pre></td></tr></table></figure>
+<h3 id="配置SSH-KEY"><a href="#配置SSH-KEY" class="headerlink" title="配置SSH KEY"></a>配置SSH KEY</h3><blockquote>
+<p>配置SSH KEY也可以参考<a href="[https://shishuang.ga/2019/08/01/GitHub%E8%AE%BE%E7%BD%AE%E6%B7%BB%E5%8A%A0SSH/](https://shishuang.ga/2019/08/01/GitHub设置添加SSH/">另一篇文章</a>)</p>
+</blockquote>
+<h4 id="创建SSH-KEY"><a href="#创建SSH-KEY" class="headerlink" title="创建SSH KEY"></a>创建SSH KEY</h4><p>在gitbash中输入：<code>ssh-keygen -t rsa -C &quot;YourEmail&quot;</code>。<br>然后系统会要你输入密码，这个密码会在你提交项目时使用，如果为空的话提交项目时则不用输入。这个设置是防止别人往你的项目里提交内容。</p>
 <figure class="highlight bash hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Enter passphrase (empty <span class="hljs-keyword">for</span> no passphrase):&lt;输入加密串&gt;</span><br><span class="line">Enter same passphrase again:&lt;再次输入加密串&gt;</span><br></pre></td></tr></table></figure>
 <p>最后看到这样的界面，就成功了：</p>
 <p><img src="https://i.loli.net/2019/07/15/5d2c40ac82e8a58030.png" alt></p>
 <p>然后按下图的方式找到<code>id_rsa.pub</code>文件的内容，或者一般在<code>C:\Users\用户名\.ssh</code>文件夹内：</p>
 <p><img src="https://i.loli.net/2019/07/15/5d2c40c83c17f97155.png" alt></p>
-<h3 id="添加SSH-KEY到GitHub"><a href="#添加SSH-KEY到GitHub" class="headerlink" title="添加SSH KEY到GitHub"></a>添加SSH KEY到GitHub</h3><p>title随便取，key就是上面获取的SSH Key（注意是全部复制，包括前面的<code>ssh-rsa</code>）。</p>
+<h4 id="添加SSH-KEY到GitHub"><a href="#添加SSH-KEY到GitHub" class="headerlink" title="添加SSH KEY到GitHub"></a>添加SSH KEY到GitHub</h4><p>title随便取，key就是上面获取的SSH Key（注意是全部复制，包括前面的<code>ssh-rsa</code>）。</p>
 <p><img src="https://i.loli.net/2019/07/15/5d2c4114b1ee724619.png" alt></p>
 <p>完成后在gitbash中测试是否添加成功：<code>ssh -T git@github.com</code><br>如果是下面的反馈：</p>
 <figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">The authenticity of host &apos;github.com (207.97.227.239)&apos; can&apos;t be established.</span><br><span class="line">RSA key fingerprint is 16:27:ac:a5:76:28:2d:36:63:1b:56:4d:eb:df:a6:48.</span><br><span class="line">Are you sure you want to continue connecting (yes/no)?</span><br></pre></td></tr></table></figure>
 <p>不用紧张，直接输入<code>yes</code>可以看到成功提示：</p>
 <figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Hi xxx! You&apos;ve successfully authenticated, but GitHub does not provide shell access.</span><br></pre></td></tr></table></figure>
-<h3 id="设置用户信息"><a href="#设置用户信息" class="headerlink" title="设置用户信息"></a>设置用户信息</h3><p>Git会根据用户的名字和邮箱来记录提交。GitHub也是用这些信息来做权限的处理，输入下面的代码进行个人信息的设置，打开命令行，配置全局git信息：</p>
-<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git config --global user.name &quot;YourName&quot;//填写你自己的用户名</span><br><span class="line">$ git config --global user.email  &quot;YourEmail&quot;//填写你自己的邮箱</span><br></pre></td></tr></table></figure>
 <h2 id="部署"><a href="#部署" class="headerlink" title="部署"></a>部署</h2><h3 id="配置Hexo"><a href="#配置Hexo" class="headerlink" title="配置Hexo"></a>配置Hexo</h3><p>用编辑器打开你的blog项目，修改_config.yml文件的一些配置(冒号之后都是有一个半角空格的)：</p>
 <figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">type: git</span><br><span class="line">repo: https://github.com/YourgithubName/YourgithubName.github.io.git</span><br><span class="line">branch: master</span><br></pre></td></tr></table></figure>
 <h3 id="主题修改"><a href="#主题修改" class="headerlink" title="主题修改"></a>主题修改</h3><ol>
@@ -383,7 +386,7 @@
             <div class="level-item has-text-centered is-marginless">
                 <div>
                     <p class="heading">
-                        Posts
+                        Entradas
                     </p>
                     <p class="title has-text-weight-normal">
                         30
@@ -393,7 +396,7 @@
             <div class="level-item has-text-centered is-marginless">
                 <div>
                     <p class="heading">
-                        Categories
+                        Categorias
                     </p>
                     <p class="title has-text-weight-normal">
                         10
@@ -403,7 +406,7 @@
             <div class="level-item has-text-centered is-marginless">
                 <div>
                     <p class="heading">
-                        Tags
+                        Etiquetas
                     </p>
                     <p class="title has-text-weight-normal">
                         31
@@ -413,7 +416,7 @@
         </nav>
         <div class="level">
             <a class="level-item button is-link is-rounded" href="https://github.com/dick3741" target="_blank">
-                Follow</a>
+                SEGUIR</a>
         </div>
         
         
@@ -465,7 +468,7 @@
     <div class="card-content">
         <div class="menu">
             <h3 class="menu-label">
-                Categories
+                Categorias
             </h3>
             <ul class="menu-list">
             <li>
@@ -558,7 +561,7 @@
 <div class="card widget">
     <div class="card-content">
         <h3 class="menu-label">
-            Tag Cloud
+            Nube de etiquetas
         </h3>
         <a href="/tags/Ajax/" style="font-size: 10px;">Ajax</a> <a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/Axios/" style="font-size: 10px;">Axios</a> <a href="/tags/CSS/" style="font-size: 10px;">CSS</a> <a href="/tags/HTTP/" style="font-size: 13.33px;">HTTP</a> <a href="/tags/Hook/" style="font-size: 10px;">Hook</a> <a href="/tags/Linux/" style="font-size: 13.33px;">Linux</a> <a href="/tags/MongoDB/" style="font-size: 13.33px;">MongoDB</a> <a href="/tags/Promise/" style="font-size: 10px;">Promise</a> <a href="/tags/React/" style="font-size: 13.33px;">React</a> <a href="/tags/ReactNative/" style="font-size: 20px;">ReactNative</a> <a href="/tags/TypeScript/" style="font-size: 10px;">TypeScript</a> <a href="/tags/VSCode/" style="font-size: 10px;">VSCode</a> <a href="/tags/Vue/" style="font-size: 10px;">Vue</a> <a href="/tags/VueRouter/" style="font-size: 10px;">VueRouter</a> <a href="/tags/XMLHttpRequest/" style="font-size: 10px;">XMLHttpRequest</a> <a href="/tags/absolute/" style="font-size: 10px;">absolute</a> <a href="/tags/async-await/" style="font-size: 13.33px;">async/await</a> <a href="/tags/flex/" style="font-size: 10px;">flex</a> <a href="/tags/git/" style="font-size: 13.33px;">git</a> <a href="/tags/node/" style="font-size: 10px;">node</a> <a href="/tags/pm2/" style="font-size: 10px;">pm2</a> <a href="/tags/table/" style="font-size: 10px;">table</a> <a href="/tags/上拉加载/" style="font-size: 10px;">上拉加载</a> <a href="/tags/事件委托/" style="font-size: 10px;">事件委托</a> <a href="/tags/多端开发/" style="font-size: 10px;">多端开发</a> <a href="/tags/布局/" style="font-size: 10px;">布局</a> <a href="/tags/排序/" style="font-size: 10px;">排序</a> <a href="/tags/数据结构/" style="font-size: 10px;">数据结构</a> <a href="/tags/环境配置/" style="font-size: 16.67px;">环境配置</a> <a href="/tags/网页配色/" style="font-size: 10px;">网页配色</a>
     </div>
@@ -572,7 +575,7 @@
 <div class="card widget">
     <div class="card-content">
         <h3 class="menu-label">
-            Recent
+            Recientes
         </h3>
         
         <article class="media">
@@ -678,7 +681,7 @@
     <div class="card-content">
         <div class="menu">
         <h3 class="menu-label">
-            Archives
+            Archivos
         </h3>
         <ul class="menu-list">
         
@@ -724,7 +727,7 @@
     <div class="card-content">
         <div class="menu">
             <h3 class="menu-label">
-                Tags
+                Etiquetas
             </h3>
             <div class="field is-grouped is-grouped-multiline">
                 
@@ -965,7 +968,7 @@
 <div class="card widget">
     <div class="card-content">
         <h3 class="menu-label">
-            Recent
+            Recientes
         </h3>
         
         <article class="media">
@@ -1071,7 +1074,7 @@
     <div class="card-content">
         <div class="menu">
         <h3 class="menu-label">
-            Archives
+            Archivos
         </h3>
         <ul class="menu-list">
         
@@ -1117,7 +1120,7 @@
     <div class="card-content">
         <div class="menu">
             <h3 class="menu-label">
-                Tags
+                Etiquetas
             </h3>
             <div class="field is-grouped is-grouped-multiline">
                 
@@ -1505,10 +1508,10 @@ document.addEventListener('DOMContentLoaded', function () {
     (function (window) {
         var INSIGHT_CONFIG = {
             TRANSLATION: {
-                POSTS: 'Posts',
+                POSTS: 'Entradas',
                 PAGES: 'Pages',
-                CATEGORIES: 'Categories',
-                TAGS: 'Tags',
+                CATEGORIES: 'Categorias',
+                TAGS: 'Etiquetas',
                 UNTITLED: '(Untitled)',
             },
             CONTENT_URL: '/content.json',
