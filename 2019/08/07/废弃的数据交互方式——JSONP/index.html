@@ -2,19 +2,24 @@
 <html>
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
-<title>Archives - Hexo</title>
+<title>废弃的数据交互方式——JSONP - Hexo</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
 
 
-    <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="https://shishuang.ga/archives/page/3/index.html">
+    <meta name="description" content="在以往我们可以使用JSONP来跨域，虽然目前已被废弃，但不妨碍我们学习其实现思路">
+<meta name="keywords" content="HTTP,跨域,JSONP">
+<meta property="og:type" content="article">
+<meta property="og:title" content="废弃的数据交互方式——JSONP">
+<meta property="og:url" content="https://shishuang.ga/2019/08/07/废弃的数据交互方式——JSONP/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="在以往我们可以使用JSONP来跨域，虽然目前已被废弃，但不妨碍我们学习其实现思路">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://shishuang.ga/images/og_image.png">
+<meta property="og:updated_time" content="2019-08-07T01:14:14.978Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo">
+<meta name="twitter:title" content="废弃的数据交互方式——JSONP">
+<meta name="twitter:description" content="在以往我们可以使用JSONP来跨域，虽然目前已被废弃，但不妨碍我们学习其实现思路">
 <meta name="twitter:image" content="https://shishuang.ga/images/og_image.png">
 
 
@@ -89,7 +94,7 @@
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
             
-                <img src="/images/logo.svg" alt="Hexo" height="28">
+                <img src="/images/logo.svg" alt="废弃的数据交互方式——JSONP" height="28">
             
             </a>
         </div>
@@ -134,233 +139,113 @@
     <section class="section">
         <div class="container">
             <div class="columns">
-                <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main">
+                <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main"><div class="card">
+    
+    <div class="card-content article ">
         
-<div class="card widget">
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2019-08-07T01:03:36.000Z">2019-08-07</time>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/HTTP/">HTTP</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    3 minutes read (About 495 words)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                废弃的数据交互方式——JSONP
+            
+        </h1>
+        <div class="content">
+            <blockquote>
+<p>在以往我们可以使用JSONP来跨域，虽然目前已被废弃，但不妨碍我们学习其实现思路</p>
+</blockquote>
+<a id="more"></a>
+<h2 id="原生JSONP实现百度搜索预测列表"><a href="#原生JSONP实现百度搜索预测列表" class="headerlink" title="原生JSONP实现百度搜索预测列表"></a>原生JSONP实现百度搜索预测列表</h2><p>JSONP的原理：利用了script标签的跨域能力。</p>
+<p>实现步骤：创建script标签，然后调用你的函数或外部地址。</p>
+<p>在17年的时候百度搜索首页还存在JSONP，当你输入字符后，会下拉一个搜索预测列表（目前好像已经没有了）。</p>
+<p>我们实现一个类似的功能，在本地请求百度的服务，具体代码如下：</p>
+<figure class="highlight html hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">html</span>&gt;</span></span><br><span class="line">  <span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span></span><br><span class="line">    <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">charset</span>=<span class="hljs-string">"utf-8"</span>&gt;</span></span><br><span class="line">    <span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>原生实现JSONP搜索列表<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span></span><br><span class="line">    <span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="hljs-undefined"></span></span><br><span class="line"><span class="hljs-javascript">    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">show</span>(<span class="hljs-params">json</span>)</span>&#123;</span></span><br><span class="line"><span class="hljs-javascript">      <span class="hljs-keyword">let</span> oUl=<span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">'ul1'</span>);</span></span><br><span class="line"><span class="hljs-undefined"></span></span><br><span class="line"><span class="hljs-javascript">      <span class="hljs-comment">//二次搜索前先清空列表</span></span></span><br><span class="line"><span class="hljs-javascript">      oUl.innerHTML=<span class="hljs-string">''</span>;</span></span><br><span class="line"><span class="hljs-javascript">      <span class="hljs-comment">// show(&#123;q:"ad",p:false,s:["阿迪达斯官方旗舰店","adobe flash player","adobe","adobe acrobat","adobe reader","adobe acrobat pro","adsafe","administrator","adidas","adc"]&#125;);</span></span></span><br><span class="line"><span class="hljs-javascript">      <span class="hljs-comment">//此处json.s就是上面注释中的s数组</span></span></span><br><span class="line"><span class="hljs-javascript">      json.s.forEach(<span class="hljs-function"><span class="hljs-params">str</span>=&gt;</span>&#123;</span></span><br><span class="line"><span class="hljs-javascript">        <span class="hljs-keyword">let</span> oLi=<span class="hljs-built_in">document</span>.createElement(<span class="hljs-string">'li'</span>);</span></span><br><span class="line"><span class="hljs-undefined"></span></span><br><span class="line"><span class="hljs-undefined">        oLi.innerHTML=str;</span></span><br><span class="line"><span class="hljs-undefined"></span></span><br><span class="line"><span class="hljs-undefined">        oUl.appendChild(oLi);</span></span><br><span class="line"><span class="hljs-undefined">      &#125;);</span></span><br><span class="line"><span class="hljs-undefined">    &#125;</span></span><br><span class="line"><span class="hljs-undefined"></span></span><br><span class="line"><span class="hljs-javascript">    <span class="hljs-built_in">window</span>.οnlοad=<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>)</span>&#123;</span></span><br><span class="line"><span class="hljs-javascript">      <span class="hljs-keyword">let</span> oTxt=<span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">'txt1'</span>);</span></span><br><span class="line"><span class="hljs-javascript">      <span class="hljs-keyword">let</span> oUl=<span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">'ul1'</span>);</span></span><br><span class="line"><span class="hljs-undefined"></span></span><br><span class="line"><span class="hljs-javascript">      <span class="hljs-comment">//oninput支持到IE9</span></span></span><br><span class="line"><span class="hljs-javascript">      oTxt.οninput=<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>)</span>&#123;</span></span><br><span class="line"><span class="hljs-javascript">        <span class="hljs-keyword">let</span> oS=<span class="hljs-built_in">document</span>.createElement(<span class="hljs-string">'script'</span>);</span></span><br><span class="line"><span class="hljs-undefined"></span></span><br><span class="line"><span class="hljs-javascript">        oS.src=<span class="hljs-string">`https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su?wd=<span class="hljs-subst">$&#123;oTxt.value&#125;</span>&amp;cb=show`</span>;</span></span><br><span class="line"><span class="hljs-undefined"></span></span><br><span class="line"><span class="hljs-javascript">        <span class="hljs-comment">//document.head支持到IE9</span></span></span><br><span class="line"><span class="hljs-javascript">        <span class="hljs-built_in">document</span>.head.appendChild(oS);</span></span><br><span class="line"><span class="hljs-undefined">      &#125;;</span></span><br><span class="line"><span class="hljs-undefined">    &#125;;</span></span><br><span class="line"><span class="hljs-undefined">    </span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></span><br><span class="line">  <span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span></span><br><span class="line">  <span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span></span><br><span class="line">    <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"txt1"</span>&gt;</span></span><br><span class="line">    <span class="hljs-tag">&lt;<span class="hljs-name">ul</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"ul1"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span></span><br><span class="line">  <span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span></span><br><span class="line"><span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>这样我们就通过JSONP获得了百度搜索预测列表的数据，完成了跨域请求。</p>
+<h2 id="JQuery实现JSONP"><a href="#JQuery实现JSONP" class="headerlink" title="JQuery实现JSONP"></a>JQuery实现JSONP</h2><p>在实际项目中如果要使用JSONP，一般会使用JQuery等对JSONP进行了封装的库来进行Ajax请求。</p>
+<p>在使用JQuery的AJax进行JSONP跨域请求时，只需要把<code>dataType</code>设置为<code>jsonp</code>就可以了，具体代码如下：</p>
+<figure class="highlight html hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">html</span>&gt;</span></span><br><span class="line">  <span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span></span><br><span class="line">    <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">charset</span>=<span class="hljs-string">"utf-8"</span>&gt;</span></span><br><span class="line">    <span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>JQuery实现JSONP搜索列表<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span></span><br><span class="line">    <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"jquery.js"</span> <span class="hljs-attr">charset</span>=<span class="hljs-string">"utf-8"</span>&gt;</span><span class="hljs-undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></span><br><span class="line">    <span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="hljs-undefined"></span></span><br><span class="line"><span class="hljs-javascript">    $(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>)</span>&#123;</span></span><br><span class="line"><span class="hljs-javascript">      $(<span class="hljs-string">'#txt1'</span>).on(<span class="hljs-string">'input'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>)</span>&#123;</span></span><br><span class="line"><span class="hljs-javascript">        $.ajax(&#123;</span></span><br><span class="line"><span class="hljs-javascript">          url: <span class="hljs-string">'https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su'</span>,</span></span><br><span class="line"><span class="hljs-javascript">          data: &#123;<span class="hljs-attr">wd</span>: $(<span class="hljs-string">'#txt1'</span>).val()&#125;,</span></span><br><span class="line"><span class="hljs-javascript">          dataType: <span class="hljs-string">'jsonp'</span>,	<span class="hljs-comment">// 关键代码</span></span></span><br><span class="line"><span class="hljs-javascript">          jsonp: <span class="hljs-string">'cb'</span>,	<span class="hljs-comment">//回调函数名，不一定叫‘cb’</span></span></span><br><span class="line"><span class="hljs-undefined">          success(json)&#123;</span></span><br><span class="line"><span class="hljs-javascript">            $(<span class="hljs-string">'#ul1'</span>).html(<span class="hljs-string">''</span>);</span></span><br><span class="line"><span class="hljs-javascript">            json.s.forEach(<span class="hljs-function"><span class="hljs-params">str</span>=&gt;</span>&#123;</span></span><br><span class="line"><span class="hljs-javascript">              $(<span class="hljs-string">`&lt;li&gt;<span class="hljs-subst">$&#123;str&#125;</span>&lt;/li&gt;`</span>).appendTo(<span class="hljs-string">'#ul1'</span>);</span></span><br><span class="line"><span class="hljs-undefined">            &#125;);</span></span><br><span class="line"><span class="hljs-undefined">          &#125;,</span></span><br><span class="line"><span class="hljs-undefined">          error()&#123;</span></span><br><span class="line"><span class="hljs-javascript">            alert(<span class="hljs-string">'错了'</span>);</span></span><br><span class="line"><span class="hljs-undefined">          &#125;</span></span><br><span class="line"><span class="hljs-undefined">        &#125;);</span></span><br><span class="line"><span class="hljs-undefined">      &#125;);</span></span><br><span class="line"><span class="hljs-undefined">    &#125;);</span></span><br><span class="line"><span class="hljs-undefined">    </span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></span><br><span class="line">  <span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span></span><br><span class="line">  <span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span></span><br><span class="line">    <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"txt1"</span>&gt;</span></span><br><span class="line">    <span class="hljs-tag">&lt;<span class="hljs-name">ul</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"ul1"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span></span><br><span class="line">  <span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span></span><br><span class="line"><span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+        </div>
+        
+        <div class="level is-size-7 is-uppercase">
+            <div class="level-start">
+                <div class="level-item">
+                    <span class="is-size-6 has-text-grey has-mr-7">#</span>
+                    <a class="has-link-grey -link" href="/tags/HTTP/">HTTP</a>, <a class="has-link-grey -link" href="/tags/JSONP/">JSONP</a>, <a class="has-link-grey -link" href="/tags/跨域/">跨域</a>
+                </div>
+            </div>
+        </div>
+        
+        
+        
+    </div>
+</div>
+
+
+
+<div class="card">
     <div class="card-content">
-        <h3 class="tag is-link">
-        2019
-        </h3>
-        <div class="timeline">
-        
-            <article class="media">
+        <h3 class="menu-label has-text-centered">Like this article? Support the author with</h3>
+        <div class="buttons is-centered">
+            
                 
-                <div class="media-content">
-                    <div class="content">
-                        <time class="has-text-grey is-size-7 is-block is-uppercase" datetime="2019-07-10T09:41:11.000Z">2019-07-10</time>
-                        <a href="/2019/07/10/数据结构：八大排序/" class="has-link-black-ter is-size-6">数据结构：八大排序</a>
-                        <div class="level article-meta is-mobile">
-                            <div class="level-left">
-                                
-                                <div class="level-item is-size-7 is-uppercase">
-                                <a class="has-link-grey -link" href="/categories/数据结构/">数据结构</a>
-                                </div>
-                                
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </article>
-        
-            <article class="media">
+<a class="button is-info donate">
+    <span class="icon is-small">
+        <i class="fab fa-alipay"></i>
+    </span>
+    <span>Alipay</span>
+    <div class="qrcode"><img src="/" alt="Alipay"></div>
+</a>
+
                 
-                <div class="media-content">
-                    <div class="content">
-                        <time class="has-text-grey is-size-7 is-block is-uppercase" datetime="2019-07-09T09:36:20.000Z">2019-07-09</time>
-                        <a href="/2019/07/09/Ajax和XMLHttpRequest/" class="has-link-black-ter is-size-6">Ajax和XMLHttpRequest</a>
-                        <div class="level article-meta is-mobile">
-                            <div class="level-left">
-                                
-                                <div class="level-item is-size-7 is-uppercase">
-                                <a class="has-link-grey -link" href="/categories/HTTP/">HTTP</a>
-                                </div>
-                                
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </article>
-        
-            <article class="media">
                 
-                <div class="media-content">
-                    <div class="content">
-                        <time class="has-text-grey is-size-7 is-block is-uppercase" datetime="2019-07-08T03:18:13.000Z">2019-07-08</time>
-                        <a href="/2019/07/08/用图表和实例解释Async和Await/" class="has-link-black-ter is-size-6">用图表和实例解释Async和Await</a>
-                        <div class="level article-meta is-mobile">
-                            <div class="level-left">
-                                
-                                <div class="level-item is-size-7 is-uppercase">
-                                <a class="has-link-grey -link" href="/categories/JS-ES6/">JS/ES6</a>
-                                </div>
-                                
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </article>
-        
-            <article class="media">
+<a class="button is-success donate">
+    <span class="icon is-small">
+        <i class="fab fa-weixin"></i>
+    </span>
+    <span>Wechat</span>
+    <div class="qrcode"><img src="/" alt="Wechat"></div>
+</a>
+
                 
-                <div class="media-content">
-                    <div class="content">
-                        <time class="has-text-grey is-size-7 is-block is-uppercase" datetime="2019-07-05T06:45:16.000Z">2019-07-05</time>
-                        <a href="/2019/07/05/ReactNative应用包名修改/" class="has-link-black-ter is-size-6">ReactNative应用包名修改</a>
-                        <div class="level article-meta is-mobile">
-                            <div class="level-left">
-                                
-                                <div class="level-item is-size-7 is-uppercase">
-                                <a class="has-link-grey -link" href="/categories/ReactNative/">ReactNative</a>
-                                </div>
-                                
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </article>
-        
-            <article class="media">
-                
-                <div class="media-content">
-                    <div class="content">
-                        <time class="has-text-grey is-size-7 is-block is-uppercase" datetime="2019-07-04T07:03:58.000Z">2019-07-04</time>
-                        <a href="/2019/07/04/ReactNative应用名称及图标修改/" class="has-link-black-ter is-size-6">ReactNative应用名称及图标修改</a>
-                        <div class="level article-meta is-mobile">
-                            <div class="level-left">
-                                
-                                <div class="level-item is-size-7 is-uppercase">
-                                <a class="has-link-grey -link" href="/categories/ReactNative/">ReactNative</a>
-                                </div>
-                                
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </article>
-        
-            <article class="media">
-                
-                <div class="media-content">
-                    <div class="content">
-                        <time class="has-text-grey is-size-7 is-block is-uppercase" datetime="2019-07-03T03:42:35.000Z">2019-07-03</time>
-                        <a href="/2019/07/03/ReactNative原生组件FlatList实现上拉加载/" class="has-link-black-ter is-size-6">ReactNative原生组件FlatList实现上拉加载</a>
-                        <div class="level article-meta is-mobile">
-                            <div class="level-left">
-                                
-                                <div class="level-item is-size-7 is-uppercase">
-                                <a class="has-link-grey -link" href="/categories/ReactNative/">ReactNative</a>
-                                </div>
-                                
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </article>
-        
-            <article class="media">
-                
-                <div class="media-content">
-                    <div class="content">
-                        <time class="has-text-grey is-size-7 is-block is-uppercase" datetime="2019-07-02T09:52:35.000Z">2019-07-02</time>
-                        <a href="/2019/07/02/ReactNative样式总结/" class="has-link-black-ter is-size-6">ReactNative样式总结</a>
-                        <div class="level article-meta is-mobile">
-                            <div class="level-left">
-                                
-                                <div class="level-item is-size-7 is-uppercase">
-                                <a class="has-link-grey -link" href="/categories/ReactNative/">ReactNative</a>
-                                </div>
-                                
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </article>
-        
-            <article class="media">
-                
-                <div class="media-content">
-                    <div class="content">
-                        <time class="has-text-grey is-size-7 is-block is-uppercase" datetime="2019-07-01T08:55:01.000Z">2019-07-01</time>
-                        <a href="/2019/07/01/如何在循环中使用await/" class="has-link-black-ter is-size-6">如何在循环中使用await</a>
-                        <div class="level article-meta is-mobile">
-                            <div class="level-left">
-                                
-                                <div class="level-item is-size-7 is-uppercase">
-                                <a class="has-link-grey -link" href="/categories/JS-ES6/">JS/ES6</a>
-                                </div>
-                                
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </article>
-        
-            <article class="media">
-                
-                <div class="media-content">
-                    <div class="content">
-                        <time class="has-text-grey is-size-7 is-block is-uppercase" datetime="2019-06-27T07:51:11.000Z">2019-06-27</time>
-                        <a href="/2019/06/27/Axios在项目中的封装/" class="has-link-black-ter is-size-6">Axios在项目中的封装</a>
-                        <div class="level article-meta is-mobile">
-                            <div class="level-left">
-                                
-                                <div class="level-item is-size-7 is-uppercase">
-                                <a class="has-link-grey -link" href="/categories/HTTP/">HTTP</a>
-                                </div>
-                                
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </article>
-        
-            <article class="media">
-                
-                <div class="media-content">
-                    <div class="content">
-                        <time class="has-text-grey is-size-7 is-block is-uppercase" datetime="2019-06-26T09:21:51.000Z">2019-06-26</time>
-                        <a href="/2019/06/26/ReactNative集成TypeScript/" class="has-link-black-ter is-size-6">ReactNative集成TypeScript</a>
-                        <div class="level article-meta is-mobile">
-                            <div class="level-left">
-                                
-                                <div class="level-item is-size-7 is-uppercase">
-                                <a class="has-link-grey -link" href="/categories/ReactNative/">ReactNative</a>
-                                </div>
-                                
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </article>
-        
         </div>
     </div>
 </div>
 
-    
 
-    
+
 <div class="card card-transparent">
-    <nav class="pagination is-centered" role="navigation" aria-label="pagination">
-        <div class="pagination-previous">
-            <a class="is-flex-grow has-text-black-ter" href="/archives/page/2/">Préc</a>
+    <div class="level post-navigation is-flex-wrap is-mobile">
+        
+        
+        <div class="level-end">
+            <a class="level level-item has-link-grey  article-nav-next" href="/2019/08/06/如何利用CORS解决跨域问题/">
+                <span class="level-item">如何利用CORS解决跨域问题</span>
+                <i class="level-item fas fa-chevron-right"></i>
+            </a>
         </div>
-        <div class="pagination-next">
-            <a class="is-flex-grow has-text-black-ter" href="/archives/page/4/">Suiv</a>
-        </div>
-        <ul class="pagination-list is-hidden-mobile">
-            
-            <li><a class="pagination-link has-text-black-ter" href="/archives/">1</a></li>
-            
-            <li><a class="pagination-link has-text-black-ter" href="/archives/page/2/">2</a></li>
-            
-            <li><a class="pagination-link is-current" href="/archives/page/3/">3</a></li>
-            
-            <li><a class="pagination-link has-text-black-ter" href="/archives/page/4/">4</a></li>
-            
-        </ul>
-    </nav>
+        
+    </div>
 </div>
+
+
 </div>
                 
 
@@ -1421,7 +1306,7 @@
             <div class="level-start has-text-centered-mobile">
                 <a class="footer-logo is-block has-mb-6" href="/">
                 
-                    <img src="/images/logo.svg" alt="Hexo" height="28">
+                    <img src="/images/logo.svg" alt="废弃的数据交互方式——JSONP" height="28">
                 
                 </a>
                 <p class="is-size-7">
