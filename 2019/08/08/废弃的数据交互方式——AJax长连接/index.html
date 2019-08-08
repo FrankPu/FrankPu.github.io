@@ -2,19 +2,24 @@
 <html>
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
-<title>Tag: absolute - Hexo</title>
+<title>废弃的数据交互方式——AJax长连接 - Hexo</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
 
 
-    <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="https://shishuang.ga/tags/absolute/index.html">
+    <meta name="description" content="目前已被websocket替代">
+<meta name="keywords" content="HTTP,AJax">
+<meta property="og:type" content="article">
+<meta property="og:title" content="废弃的数据交互方式——AJax长连接">
+<meta property="og:url" content="https://shishuang.ga/2019/08/08/废弃的数据交互方式——AJax长连接/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="目前已被websocket替代">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://shishuang.ga/images/og_image.png">
+<meta property="og:updated_time" content="2019-08-08T01:50:52.394Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo">
+<meta name="twitter:title" content="废弃的数据交互方式——AJax长连接">
+<meta name="twitter:description" content="目前已被websocket替代">
 <meta name="twitter:image" content="https://shishuang.ga/images/og_image.png">
 
 
@@ -89,7 +94,7 @@
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
             
-                <img src="/images/logo.svg" alt="Hexo" height="28">
+                <img src="/images/logo.svg" alt="废弃的数据交互方式——AJax长连接" height="28">
             
             </a>
         </div>
@@ -135,33 +140,22 @@
         <div class="container">
             <div class="columns">
                 <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main"><div class="card">
-    <div class="card-content">
-        <nav class="breadcrumb" aria-label="breadcrumbs">
-        <ul>
-            <li><a href="/tags">Tags</a></li>
-            <li class="is-active"><a href="#" aria-current="page">absolute</a></li>
-        </ul>
-        </nav>
-    </div>
-</div>
-
-    <div class="card">
     
     <div class="card-content article ">
         
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
             <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2019-07-12T09:00:39.000Z">2019-07-12</time>
+                <time class="level-item has-text-grey" datetime="2019-08-08T01:49:01.000Z">2019-08-08</time>
                 
                 <div class="level-item">
-                <a class="has-link-grey -link" href="/categories/CSS/">CSS</a>
+                <a class="has-link-grey -link" href="/categories/HTTP/">HTTP</a>
                 </div>
                 
                 
                 <span class="level-item has-text-grey">
                     
                     
-                    3 minutes read (About 440 words)
+                    2 minutes read (About 269 words)
                 </span>
                 
                 
@@ -170,21 +164,34 @@
         
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                <a class="has-link-black-ter" href="/2019/07/12/布局：水平居中、垂直居中、水平垂直居中/">布局：水平居中、垂直居中、水平垂直居中</a>
+                废弃的数据交互方式——AJax长连接
             
         </h1>
         <div class="content">
-            <h2 id="水平垂直居中"><a href="#水平垂直居中" class="headerlink" title="水平垂直居中"></a>水平垂直居中</h2><h3 id="flex-margin（非常推荐）"><a href="#flex-margin（非常推荐）" class="headerlink" title="flex + margin（非常推荐）"></a>flex + margin（非常推荐）</h3><figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&lt;div <span class="hljs-class"><span class="hljs-keyword">class</span></span>=<span class="hljs-string">"parent"</span>&gt;</span><br><span class="line">    &lt;div <span class="hljs-class"><span class="hljs-keyword">class</span></span>=<span class="hljs-string">"child "</span>&gt;&lt;/div&gt;</span><br><span class="line">&lt;<span class="hljs-regexp">/div&gt;</span></span><br><span class="line"><span class="hljs-regexp"></span></span><br><span class="line"><span class="hljs-regexp">.parent &#123;</span></span><br><span class="line"><span class="hljs-regexp">    background-color: lightblue;</span></span><br><span class="line"><span class="hljs-regexp">    height: 500px;</span></span><br><span class="line"><span class="hljs-regexp">    display: flex;   /</span>* 关键代码 *<span class="hljs-regexp">/</span></span><br><span class="line"><span class="hljs-regexp">&#125;</span></span><br><span class="line"><span class="hljs-regexp"></span></span><br><span class="line"><span class="hljs-regexp">.child &#123;</span></span><br><span class="line"><span class="hljs-regexp">    width: 100px; height: 100px;</span></span><br><span class="line"><span class="hljs-regexp">    background-color: lightseagreen;</span></span><br><span class="line"><span class="hljs-regexp">    margin: auto;   /</span>* 关键代码 *<span class="hljs-regexp">/</span></span><br><span class="line"><span class="hljs-regexp">&#125;</span></span><br></pre></td></tr></table></figure>
+            <blockquote>
+<p>目前已被websocket替代</p>
+</blockquote>
+<a id="more"></a>
+<p>在以往网页聊天、动态图表等场景中，需要服务器源源不断地向客户端输入数据，就要两者之间保持长连接。</p>
+<p>但由于HTTP没有长连接，每次请求后客户端都会主动断开连接。又由于HTTP无状态的特征，再次请求时服务器不知道你是谁，所以又要进行三次握手四次挥手。</p>
+<p>如果想一直跟服务器保持连接，就要利用AJax长连接。其思路不过是服务器设置定时器，来让HTTP请求保持连接。</p>
+<p>这里后台我们使用Node，具体代码如下：</p>
+<p><strong>HTML</strong></p>
+<figure class="highlight html hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">html</span>&gt;</span></span><br><span class="line">  <span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span></span><br><span class="line">    <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">charset</span>=<span class="hljs-string">"utf-8"</span>&gt;</span></span><br><span class="line">    <span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span></span><br><span class="line">    <span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="hljs-undefined"></span></span><br><span class="line"><span class="hljs-javascript">    <span class="hljs-built_in">window</span>.οnlοad=<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>)</span>&#123;</span></span><br><span class="line"><span class="hljs-javascript">      <span class="hljs-keyword">var</span> oBtn=<span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">'btn1'</span>);</span></span><br><span class="line"><span class="hljs-undefined"></span></span><br><span class="line"><span class="hljs-javascript">      oBtn.οnclick=<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>)</span>&#123;</span></span><br><span class="line"><span class="hljs-javascript">        <span class="hljs-keyword">var</span> xhr=<span class="hljs-keyword">new</span> XMLHttpRequest();</span></span><br><span class="line"><span class="hljs-undefined"></span></span><br><span class="line"><span class="hljs-javascript">        xhr.open(<span class="hljs-string">'post'</span>, <span class="hljs-string">'http://localhost:8080/'</span>, <span class="hljs-literal">true</span>);</span></span><br><span class="line"><span class="hljs-undefined">        xhr.send();</span></span><br><span class="line"><span class="hljs-undefined"></span></span><br><span class="line"><span class="hljs-javascript">        xhr.onreadystatechange=<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>)</span>&#123;</span></span><br><span class="line"><span class="hljs-javascript">          <span class="hljs-built_in">console</span>.log(xhr.readyState);</span></span><br><span class="line"><span class="hljs-undefined">        &#125;;</span></span><br><span class="line"><span class="hljs-undefined">      &#125;;</span></span><br><span class="line"><span class="hljs-undefined">    &#125;;</span></span><br><span class="line"><span class="hljs-undefined">    </span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></span><br><span class="line">  <span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span></span><br><span class="line">  <span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span></span><br><span class="line">    <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"button"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"ajax请求"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"btn1"</span>&gt;</span></span><br><span class="line">  <span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span></span><br><span class="line"><span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p><strong>JavaScript</strong></p>
+<figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">const</span> http=<span class="hljs-built_in">require</span>(<span class="hljs-string">'http'</span>);</span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">let</span> server=http.createServer(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">req, res</span>)</span>&#123;</span><br><span class="line">  res.setHeader(<span class="hljs-string">'Access-Control-Allow-Origin'</span>, <span class="hljs-string">'*'</span>);</span><br><span class="line"></span><br><span class="line">  setTimeout(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>)</span>&#123;</span><br><span class="line">    res.write(<span class="hljs-string">'abc'</span>);</span><br><span class="line">    res.end();</span><br><span class="line">  &#125;, <span class="hljs-built_in">Math</span>.floor(<span class="hljs-built_in">Math</span>.random()*<span class="hljs-number">20000</span>));  <span class="hljs-comment">//设置定时器，不断请求</span></span><br><span class="line">&#125;);</span><br><span class="line">server.listen(<span class="hljs-number">8080</span>);</span><br></pre></td></tr></table></figure>
+
         </div>
         
-        
-        <div class="level is-mobile">
+        <div class="level is-size-7 is-uppercase">
             <div class="level-start">
                 <div class="level-item">
-                <a class="button is-size-7 is-light" href="/2019/07/12/布局：水平居中、垂直居中、水平垂直居中/#more">Read More</a>
+                    <span class="is-size-6 has-text-grey has-mr-7">#</span>
+                    <a class="has-link-grey -link" href="/tags/AJax/">AJax</a>, <a class="has-link-grey -link" href="/tags/HTTP/">HTTP</a>
                 </div>
             </div>
         </div>
+        
         
         
     </div>
@@ -192,9 +199,50 @@
 
 
 
+<div class="card">
+    <div class="card-content">
+        <h3 class="menu-label has-text-centered">Like this article? Support the author with</h3>
+        <div class="buttons is-centered">
+            
+                
+<a class="button is-info donate">
+    <span class="icon is-small">
+        <i class="fab fa-alipay"></i>
+    </span>
+    <span>Alipay</span>
+    <div class="qrcode"><img src="/" alt="Alipay"></div>
+</a>
+
+                
+                
+<a class="button is-success donate">
+    <span class="icon is-small">
+        <i class="fab fa-weixin"></i>
+    </span>
+    <span>Wechat</span>
+    <div class="qrcode"><img src="/" alt="Wechat"></div>
+</a>
+
+                
+        </div>
+    </div>
+</div>
 
 
 
+<div class="card card-transparent">
+    <div class="level post-navigation is-flex-wrap is-mobile">
+        
+        
+        <div class="level-end">
+            <a class="level level-item has-link-grey  article-nav-next" href="/2019/08/07/废弃的数据交互方式——JSONP/">
+                <span class="level-item">废弃的数据交互方式——JSONP</span>
+                <i class="level-item fas fa-chevron-right"></i>
+            </a>
+        </div>
+        
+    </div>
+</div>
 
 
 </div>
@@ -1271,7 +1319,7 @@
             <div class="level-start has-text-centered-mobile">
                 <a class="footer-logo is-block has-mb-6" href="/">
                 
-                    <img src="/images/logo.svg" alt="Hexo" height="28">
+                    <img src="/images/logo.svg" alt="废弃的数据交互方式——AJax长连接" height="28">
                 
                 </a>
                 <p class="is-size-7">
