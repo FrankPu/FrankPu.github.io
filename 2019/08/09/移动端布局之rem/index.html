@@ -2,19 +2,24 @@
 <html>
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
-<title>Tag: MongoDB - Hexo</title>
+<title>移动端布局之rem - Hexo</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
 
 
-    <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="https://shishuang.ga/tags/MongoDB/index.html">
+    <meta name="description" content="参考地址：手机端页面自适应解决方案—rem布局进阶版（附源码示例）">
+<meta name="keywords" content="布局,rem">
+<meta property="og:type" content="article">
+<meta property="og:title" content="移动端布局之rem">
+<meta property="og:url" content="https://shishuang.ga/2019/08/09/移动端布局之rem/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="参考地址：手机端页面自适应解决方案—rem布局进阶版（附源码示例）">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://shishuang.ga/images/og_image.png">
+<meta property="og:updated_time" content="2019-08-09T00:43:12.390Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo">
+<meta name="twitter:title" content="移动端布局之rem">
+<meta name="twitter:description" content="参考地址：手机端页面自适应解决方案—rem布局进阶版（附源码示例）">
 <meta name="twitter:image" content="https://shishuang.ga/images/og_image.png">
 
 
@@ -89,7 +94,7 @@
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
             
-                <img src="/images/logo.svg" alt="Hexo" height="28">
+                <img src="/images/logo.svg" alt="移动端布局之rem" height="28">
             
             </a>
         </div>
@@ -135,122 +140,116 @@
         <div class="container">
             <div class="columns">
                 <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main"><div class="card">
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2019-08-09T00:41:27.000Z">2019-08-09</time>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/CSS/">CSS</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    3 minutes read (About 421 words)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                移动端布局之rem
+            
+        </h1>
+        <div class="content">
+            <blockquote>
+<p>参考地址：<a href="https://www.jianshu.com/p/985d26b40199" target="_blank" rel="noopener">手机端页面自适应解决方案—rem布局进阶版（附源码示例）</a></p>
+</blockquote>
+<a id="more"></a>
+<p>rem取决于页面根元素的字体大小，兼容到<strong>IE9+</strong></p>
+<p><img src="https://frank-database.oss-cn-hangzhou.aliyuncs.com/img/20190807143751.png" alt></p>
+<h2 id="移动端rem适配"><a href="#移动端rem适配" class="headerlink" title="移动端rem适配"></a>移动端rem适配</h2><p>要实现全局rem的配置，只需在入口文件引入如下JS代码：</p>
+<figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">var</span> fun = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">doc, win</span>) </span>&#123;</span><br><span class="line">  <span class="hljs-comment">// 判断在window对象中是否有orientationchange属性，因为orientationchange会遇到兼容性问题</span></span><br><span class="line">  resizeEvt = <span class="hljs-string">'orientationchange'</span> <span class="hljs-keyword">in</span> <span class="hljs-built_in">window</span> ? <span class="hljs-string">'orientationchange'</span> : <span class="hljs-string">'resize'</span>;</span><br><span class="line"></span><br><span class="line">  <span class="hljs-keyword">var</span> docEl = doc.documentElement;</span><br><span class="line"></span><br><span class="line">  resize = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;</span><br><span class="line">      <span class="hljs-keyword">var</span> width = docEl.clientWidth;</span><br><span class="line">      <span class="hljs-keyword">if</span> (!width) <span class="hljs-keyword">return</span>;</span><br><span class="line">      <span class="hljs-keyword">if</span> (width &gt;= <span class="hljs-number">750</span>) &#123;</span><br><span class="line">        docEl.style.fontSize = <span class="hljs-string">'100px'</span>;</span><br><span class="line">      &#125; <span class="hljs-keyword">else</span> &#123;</span><br><span class="line">        <span class="hljs-comment">// 1rem = 100px</span></span><br><span class="line">        docEl.style.fontSize =  ((width / <span class="hljs-number">750</span>) * <span class="hljs-number">100</span>) + <span class="hljs-string">'px'</span>;</span><br><span class="line">      &#125;</span><br><span class="line">  &#125;;</span><br><span class="line"></span><br><span class="line">  <span class="hljs-keyword">if</span> (!doc.addEventListener) <span class="hljs-keyword">return</span>;</span><br><span class="line">  win.addEventListener(resizeEvt, resize, <span class="hljs-literal">false</span>);</span><br><span class="line">  doc.addEventListener(<span class="hljs-string">'DOMContentLoaded'</span>, resize, <span class="hljs-literal">false</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">fun(<span class="hljs-built_in">document</span>, <span class="hljs-built_in">window</span>);</span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> fun;</span><br></pre></td></tr></table></figure>
+<p><strong>项目中的小经验：</strong></p>
+<ul>
+<li>页面中模块间距离一般为0.2rem</li>
+<li>字体的大小一般分为四个档次：0.2rem 0.24rem 0.28rem 0.32rem</li>
+<li>最外层的div样式就设置成了<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">position: relative;</span><br><span class="line">width: 100%;</span><br><span class="line">max-width: 750px;</span><br><span class="line">min-width: 320px;</span><br><span class="line">margin: 0 auto;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="动态监听窗口变化"><a href="#动态监听窗口变化" class="headerlink" title="动态监听窗口变化"></a>动态监听窗口变化</h2><p>如果我们需要在<strong>非固定尺寸</strong>的地方使用rem，让视图根据窗口的变化而变化，那么需要单独设置。</p>
+<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Document/documentElement" target="_blank" rel="noopener">document.documentElement</a>方法返回的<code>html</code>中<code>dom</code>的<strong>根节点</strong>root，即<code>&lt;html&gt;</code>。</p>
+<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Element/getBoundingClientRect" target="_blank" rel="noopener">getBoundingClientRect</a>方法返回某元素相对于视窗的位置集合，内含top, right, bottom, left属性，单位为像素。</p>
+<figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">setRem</span> (<span class="hljs-params"></span>) </span>&#123;</span><br><span class="line">  <span class="hljs-comment">//1. 获取根节点</span></span><br><span class="line">  <span class="hljs-keyword">let</span> docEl = <span class="hljs-built_in">document</span>.documentElement;</span><br><span class="line"></span><br><span class="line">  <span class="hljs-comment">// 2. 获取根节点相对视窗的宽度</span></span><br><span class="line">  <span class="hljs-keyword">let</span> width = docEl.getBoundingClientRect.width;</span><br><span class="line"></span><br><span class="line">  <span class="hljs-comment">// 3. 1rem = 10px</span></span><br><span class="line">  <span class="hljs-keyword">let</span> rem = width / <span class="hljs-number">75</span>;</span><br><span class="line"></span><br><span class="line">  <span class="hljs-comment">// 4.设置页面根元素字体大小</span></span><br><span class="line">  docEl.style.fontSize = rem + <span class="hljs-string">'px'</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">addEventListener(<span class="hljs-string">'resize'</span>, setRem);</span><br></pre></td></tr></table></figure>
+
+        </div>
+        
+        <div class="level is-size-7 is-uppercase">
+            <div class="level-start">
+                <div class="level-item">
+                    <span class="is-size-6 has-text-grey has-mr-7">#</span>
+                    <a class="has-link-grey -link" href="/tags/rem/">rem</a>, <a class="has-link-grey -link" href="/tags/布局/">布局</a>
+                </div>
+            </div>
+        </div>
+        
+        
+        
+    </div>
+</div>
+
+
+
+<div class="card">
     <div class="card-content">
-        <nav class="breadcrumb" aria-label="breadcrumbs">
-        <ul>
-            <li><a href="/tags">Tags</a></li>
-            <li class="is-active"><a href="#" aria-current="page">MongoDB</a></li>
-        </ul>
-        </nav>
-    </div>
-</div>
+        <h3 class="menu-label has-text-centered">Like this article? Support the author with</h3>
+        <div class="buttons is-centered">
+            
+                
+<a class="button is-info donate">
+    <span class="icon is-small">
+        <i class="fab fa-alipay"></i>
+    </span>
+    <span>Alipay</span>
+    <div class="qrcode"><img src="/" alt="Alipay"></div>
+</a>
 
-    <div class="card">
-    
-    <div class="card-content article ">
-        
-        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
-            <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2019-07-31T09:29:45.000Z">2019-07-31</time>
-                
-                <div class="level-item">
-                <a class="has-link-grey -link" href="/categories/服务器/">服务器</a>
-                </div>
                 
                 
-                <span class="level-item has-text-grey">
-                    
-                    
-                    7 minutes read (About 1090 words)
-                </span>
+<a class="button is-success donate">
+    <span class="icon is-small">
+        <i class="fab fa-weixin"></i>
+    </span>
+    <span>Wechat</span>
+    <div class="qrcode"><img src="/" alt="Wechat"></div>
+</a>
+
                 
-                
-            </div>
         </div>
-        
-        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
-            
-                <a class="has-link-black-ter" href="/2019/07/31/在Windows下安装MongoDB/">在Windows下安装MongoDB</a>
-            
-        </h1>
-        <div class="content">
-            <blockquote>
-<p>参考地址：<a href="https://www.cnblogs.com/jacksoft/p/6910709.html" target="_blank" rel="noopener">河畔一角</a></p>
-</blockquote>
-        </div>
-        
-        
-        <div class="level is-mobile">
-            <div class="level-start">
-                <div class="level-item">
-                <a class="button is-size-7 is-light" href="/2019/07/31/在Windows下安装MongoDB/#more">Read More</a>
-                </div>
-            </div>
-        </div>
-        
-        
     </div>
 </div>
 
 
 
-
-
-
-
-
-    <div class="card">
-    
-    <div class="card-content article ">
+<div class="card card-transparent">
+    <div class="level post-navigation is-flex-wrap is-mobile">
         
-        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
-            <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2019-07-30T09:12:38.000Z">2019-07-30</time>
-                
-                <div class="level-item">
-                <a class="has-link-grey -link" href="/categories/服务器/">服务器</a>
-                </div>
-                
-                
-                <span class="level-item has-text-grey">
-                    
-                    
-                    5 minutes read (About 676 words)
-                </span>
-                
-                
-            </div>
+        
+        <div class="level-end">
+            <a class="level level-item has-link-grey  article-nav-next" href="/2019/08/08/废弃的数据交互方式——AJax长连接/">
+                <span class="level-item">废弃的数据交互方式——AJax长连接</span>
+                <i class="level-item fas fa-chevron-right"></i>
+            </a>
         </div>
-        
-        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
-            
-                <a class="has-link-black-ter" href="/2019/07/30/在Linux下安装MongoDB/">在Linux下安装MongoDB</a>
-            
-        </h1>
-        <div class="content">
-            <blockquote>
-<p>参考地址：<a href="https://www.linuxidc.com/Linux/2016-06/132675.htm" target="_blank" rel="noopener">linuxidc</a></p>
-</blockquote>
-        </div>
-        
-        
-        <div class="level is-mobile">
-            <div class="level-start">
-                <div class="level-item">
-                <a class="button is-size-7 is-light" href="/2019/07/30/在Linux下安装MongoDB/#more">Read More</a>
-                </div>
-            </div>
-        </div>
-        
         
     </div>
 </div>
-
-
-
-
-
-
 
 
 </div>
@@ -1327,7 +1326,7 @@
             <div class="level-start has-text-centered-mobile">
                 <a class="footer-logo is-block has-mb-6" href="/">
                 
-                    <img src="/images/logo.svg" alt="Hexo" height="28">
+                    <img src="/images/logo.svg" alt="移动端布局之rem" height="28">
                 
                 </a>
                 <p class="is-size-7">
