@@ -162,7 +162,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    3 minutes read (About 408 words)
+                    3 minutes read (About 409 words)
                 </span>
                 
                 
@@ -183,10 +183,16 @@
 <li><a href="https://react.docschina.org/tutorial/tutorial.html#why-immutability-is-important" target="_blank" rel="noopener">为什么不可变性在 React 中非常重要</a>，使用<code>slice()</code>创建了数组副本。</li>
 <li><a href="https://react.docschina.org/tutorial/tutorial.html#function-components" target="_blank" rel="noopener">函数组件</a>，通过<code>props</code>而不是<code>this.props</code>传入属性和方法。</li>
 </ol>
-<h2 id="核心JS代码"><a href="#核心JS代码" class="headerlink" title="核心JS代码"></a>核心JS代码</h2><figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">import</span> React <span class="hljs-keyword">from</span> <span class="hljs-string">'react'</span>;</span><br><span class="line"><span class="hljs-keyword">import</span> ReactDOM <span class="hljs-keyword">from</span> <span class="hljs-string">'react-dom'</span>;</span><br><span class="line"><span class="hljs-keyword">import</span> <span class="hljs-string">'./index.css'</span>;</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">// 函数组件写法</span></span><br><span class="line"><span class="hljs-comment">// 通过props传入方法，函数写法不带this</span></span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Square</span>(<span class="hljs-params">props</span>) </span>&#123;</span><br><span class="line">  <span class="hljs-keyword">return</span> (</span><br><span class="line">    &lt;button className=<span class="hljs-string">"square"</span> onClick=&#123;props.onClick&#125;&gt;</span><br><span class="line">      &#123;props.value&#125;</span><br><span class="line">    &lt;<span class="hljs-regexp">/button&gt;</span></span><br><span class="line"><span class="hljs-regexp">  );</span></span><br><span class="line"><span class="hljs-regexp">&#125;</span></span><br><span class="line"><span class="hljs-regexp"></span></span><br><span class="line"><span class="hljs-regexp">class Board extends React.Component &#123;</span></span><br><span class="line"><span class="hljs-regexp">  renderSquare(i) &#123;</span></span><br><span class="line"><span class="hljs-regexp">    return (</span></span><br><span class="line"><span class="hljs-regexp">      &lt;Square</span></span><br><span class="line"><span class="hljs-regexp">        value=&#123;this.props.squares[i]&#125;</span></span><br><span class="line"><span class="hljs-regexp">        onClick=&#123;() =&gt; this.props.onClick(i)&#125;</span></span><br><span class="line"><span class="hljs-regexp">      /</span>&gt;</span><br><span class="line">    );</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  render() &#123;</span><br><span class="line">    <span class="hljs-keyword">return</span> (</span><br><span class="line">      &lt;div&gt;</span><br><span class="line">        &lt;div className=<span class="hljs-string">"board-row"</span>&gt;</span><br><span class="line">          &#123;<span class="hljs-keyword">this</span>.renderSquare(<span class="hljs-number">0</span>)&#125;</span><br><span class="line">          &#123;<span class="hljs-keyword">this</span>.renderSquare(<span class="hljs-number">1</span>)&#125;</span><br><span class="line">          &#123;<span class="hljs-keyword">this</span>.renderSquare(<span class="hljs-number">2</span>)&#125;</span><br><span class="line">        &lt;<span class="hljs-regexp">/div&gt;</span></span><br><span class="line"><span class="hljs-regexp">        &lt;div className="board-row"&gt;</span></span><br><span class="line"><span class="hljs-regexp">          &#123;this.renderSquare(3)&#125;</span></span><br><span class="line"><span class="hljs-regexp">          &#123;this.renderSquare(4)&#125;</span></span><br><span class="line"><span class="hljs-regexp">          &#123;this.renderSquare(5)&#125;</span></span><br><span class="line"><span class="hljs-regexp">        &lt;/</span>div&gt;</span><br><span class="line">        &lt;div className=<span class="hljs-string">"board-row"</span>&gt;</span><br><span class="line">          &#123;<span class="hljs-keyword">this</span>.renderSquare(<span class="hljs-number">6</span>)&#125;</span><br><span class="line">          &#123;<span class="hljs-keyword">this</span>.renderSquare(<span class="hljs-number">7</span>)&#125;</span><br><span class="line">          &#123;<span class="hljs-keyword">this</span>.renderSquare(<span class="hljs-number">8</span>)&#125;</span><br><span class="line">        &lt;<span class="hljs-regexp">/div&gt;</span></span><br><span class="line"><span class="hljs-regexp">      &lt;/</span>div&gt;</span><br><span class="line">    );</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Game</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">React</span>.<span class="hljs-title">Component</span> </span>&#123;</span><br><span class="line">  <span class="hljs-keyword">constructor</span>(props) &#123;</span><br><span class="line">    <span class="hljs-keyword">super</span>(props);</span><br><span class="line">    <span class="hljs-keyword">this</span>.state = &#123;</span><br><span class="line">      history: [</span><br><span class="line">        &#123;</span><br><span class="line">          squares: <span class="hljs-built_in">Array</span>(<span class="hljs-number">9</span>).fill(<span class="hljs-literal">null</span>)</span><br><span class="line">        &#125;</span><br><span class="line">      ],</span><br><span class="line">      stepNumber: <span class="hljs-number">0</span>,</span><br><span class="line">      xIsNext: <span class="hljs-literal">true</span></span><br><span class="line">    &#125;;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  handleClick(i) &#123;</span><br><span class="line">    <span class="hljs-comment">// 创建副本而不是直接修改原数组！！！</span></span><br><span class="line">    <span class="hljs-comment">// https://react.docschina.org/tutorial/tutorial.html#why-immutability-is-important</span></span><br><span class="line">    <span class="hljs-keyword">const</span> history = <span class="hljs-keyword">this</span>.state.history.slice(<span class="hljs-number">0</span>, <span class="hljs-keyword">this</span>.state.stepNumber + <span class="hljs-number">1</span>);</span><br><span class="line">    <span class="hljs-keyword">const</span> current = history[history.length - <span class="hljs-number">1</span>];</span><br><span class="line">    <span class="hljs-keyword">const</span> squares = current.squares.slice();</span><br><span class="line">    <span class="hljs-keyword">if</span> (calculateWinner(squares) || squares[i]) &#123;</span><br><span class="line">      <span class="hljs-keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    squares[i] = <span class="hljs-keyword">this</span>.state.xIsNext ? <span class="hljs-string">"X"</span> : <span class="hljs-string">"O"</span>;</span><br><span class="line">    <span class="hljs-keyword">this</span>.setState(&#123;</span><br><span class="line">      history: history.concat([</span><br><span class="line">        &#123;</span><br><span class="line">          squares: squares</span><br><span class="line">        &#125;</span><br><span class="line">      ]),</span><br><span class="line">      stepNumber: history.length,</span><br><span class="line">      xIsNext: !<span class="hljs-keyword">this</span>.state.xIsNext</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  jumpTo(step) &#123;</span><br><span class="line">    <span class="hljs-keyword">this</span>.setState(&#123;</span><br><span class="line">      stepNumber: step,</span><br><span class="line">      xIsNext: (step % <span class="hljs-number">2</span>) === <span class="hljs-number">0</span></span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  render() &#123;</span><br><span class="line">    <span class="hljs-keyword">const</span> history = <span class="hljs-keyword">this</span>.state.history;</span><br><span class="line">    <span class="hljs-keyword">const</span> current = history[<span class="hljs-keyword">this</span>.state.stepNumber];</span><br><span class="line">    <span class="hljs-keyword">const</span> winner = calculateWinner(current.squares);</span><br><span class="line"></span><br><span class="line">    <span class="hljs-keyword">const</span> moves = history.map(<span class="hljs-function">(<span class="hljs-params">step, move</span>) =&gt;</span> &#123;</span><br><span class="line">      <span class="hljs-keyword">const</span> desc = move ?</span><br><span class="line">        <span class="hljs-string">'Go to move #'</span> + move :</span><br><span class="line">        <span class="hljs-string">'Go to game start'</span>;</span><br><span class="line">      <span class="hljs-keyword">return</span> (</span><br><span class="line">        &lt;li key=&#123;move&#125;&gt;</span><br><span class="line">          &lt;button onClick=&#123;() =&gt; <span class="hljs-keyword">this</span>.jumpTo(move)&#125;&gt;&#123;desc&#125;&lt;<span class="hljs-regexp">/button&gt;</span></span><br><span class="line"><span class="hljs-regexp">        &lt;/</span>li&gt;</span><br><span class="line">      );</span><br><span class="line">    &#125;);</span><br><span class="line"></span><br><span class="line">    <span class="hljs-keyword">let</span> status;</span><br><span class="line">    <span class="hljs-keyword">if</span> (winner) &#123;</span><br><span class="line">      status = <span class="hljs-string">"Winner: "</span> + winner;</span><br><span class="line">    &#125; <span class="hljs-keyword">else</span> &#123;</span><br><span class="line">      status = <span class="hljs-string">"Next player: "</span> + (<span class="hljs-keyword">this</span>.state.xIsNext ? <span class="hljs-string">"X"</span> : <span class="hljs-string">"O"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="hljs-keyword">return</span> (</span><br><span class="line">      &lt;div className=<span class="hljs-string">"game"</span>&gt;</span><br><span class="line">        &lt;div className=<span class="hljs-string">"game-board"</span>&gt;</span><br><span class="line">          &lt;Board</span><br><span class="line">            squares=&#123;current.squares&#125;</span><br><span class="line">            onClick=&#123;i =&gt; <span class="hljs-keyword">this</span>.handleClick(i)&#125;</span><br><span class="line">          /&gt;</span><br><span class="line">        &lt;<span class="hljs-regexp">/div&gt;</span></span><br><span class="line"><span class="hljs-regexp">        &lt;div className="game-info"&gt;</span></span><br><span class="line"><span class="hljs-regexp">          &lt;div&gt;&#123;status&#125;&lt;/</span>div&gt;</span><br><span class="line">          &lt;ol&gt;&#123;moves&#125;&lt;<span class="hljs-regexp">/ol&gt;</span></span><br><span class="line"><span class="hljs-regexp">        &lt;/</span>div&gt;</span><br><span class="line">      &lt;<span class="hljs-regexp">/div&gt;</span></span><br><span class="line"><span class="hljs-regexp">    );</span></span><br><span class="line"><span class="hljs-regexp">  &#125;</span></span><br><span class="line"><span class="hljs-regexp">&#125;</span></span><br><span class="line"><span class="hljs-regexp"></span></span><br><span class="line"><span class="hljs-regexp">/</span><span class="hljs-regexp">/ ========================================</span></span><br><span class="line"><span class="hljs-regexp"></span></span><br><span class="line"><span class="hljs-regexp">ReactDOM.render(&lt;Game /</span>&gt;, <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">"root"</span>));</span><br><span class="line"></span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">calculateWinner</span>(<span class="hljs-params">squares</span>) </span>&#123;</span><br><span class="line">  <span class="hljs-keyword">const</span> lines = [</span><br><span class="line">    [<span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">2</span>],</span><br><span class="line">    [<span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>],</span><br><span class="line">    [<span class="hljs-number">6</span>, <span class="hljs-number">7</span>, <span class="hljs-number">8</span>],</span><br><span class="line">    [<span class="hljs-number">0</span>, <span class="hljs-number">3</span>, <span class="hljs-number">6</span>],</span><br><span class="line">    [<span class="hljs-number">1</span>, <span class="hljs-number">4</span>, <span class="hljs-number">7</span>],</span><br><span class="line">    [<span class="hljs-number">2</span>, <span class="hljs-number">5</span>, <span class="hljs-number">8</span>],</span><br><span class="line">    [<span class="hljs-number">0</span>, <span class="hljs-number">4</span>, <span class="hljs-number">8</span>],</span><br><span class="line">    [<span class="hljs-number">2</span>, <span class="hljs-number">4</span>, <span class="hljs-number">6</span>]</span><br><span class="line">  ];</span><br><span class="line">  <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>; i &lt; lines.length; i++) &#123;</span><br><span class="line">    <span class="hljs-keyword">const</span> [a, b, c] = lines[i];</span><br><span class="line">    <span class="hljs-keyword">if</span> (squares[a] &amp;&amp; squares[a] === squares[b] &amp;&amp; squares[a] === squares[c]) &#123;</span><br><span class="line">      <span class="hljs-keyword">return</span> squares[a];</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="hljs-keyword">return</span> <span class="hljs-literal">null</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
         </div>
         
+        
+        <div class="level is-mobile">
+            <div class="level-start">
+                <div class="level-item">
+                <a class="button is-size-7 is-light" href="/2019/08/14/写给自己看的React入门教程Demo/#more">Read More</a>
+                </div>
+            </div>
+        </div>
         
         
     </div>
@@ -350,7 +356,7 @@
                         Posts
                     </p>
                     <p class="title has-text-weight-normal">
-                        39
+                        40
                     </p>
                 </div>
             </div>
@@ -370,7 +376,7 @@
                         Tags
                     </p>
                     <p class="title has-text-weight-normal">
-                        39
+                        41
                     </p>
                 </div>
             </div>
@@ -454,7 +460,7 @@
                 <span class="level-item">JS/ES6</span>
             </span>
             <span class="level-end">
-                <span class="level-item tag">5</span>
+                <span class="level-item tag">6</span>
             </span>
         </a></li><li>
         <a class="level is-marginless" href="/categories/React/">
@@ -516,7 +522,7 @@
         <h3 class="menu-label">
             Tag Cloud
         </h3>
-        <a href="/tags/AJax/" style="font-size: 12px;">AJax</a> <a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/Axios/" style="font-size: 10px;">Axios</a> <a href="/tags/CORS/" style="font-size: 10px;">CORS</a> <a href="/tags/CSRF/" style="font-size: 10px;">CSRF</a> <a href="/tags/CSS/" style="font-size: 10px;">CSS</a> <a href="/tags/HTTP/" style="font-size: 16px;">HTTP</a> <a href="/tags/Hook/" style="font-size: 10px;">Hook</a> <a href="/tags/JSONP/" style="font-size: 12px;">JSONP</a> <a href="/tags/Linux/" style="font-size: 12px;">Linux</a> <a href="/tags/MongoDB/" style="font-size: 12px;">MongoDB</a> <a href="/tags/Promise/" style="font-size: 10px;">Promise</a> <a href="/tags/React/" style="font-size: 14px;">React</a> <a href="/tags/ReactNative/" style="font-size: 18px;">ReactNative</a> <a href="/tags/SameSite/" style="font-size: 10px;">SameSite</a> <a href="/tags/TypeScript/" style="font-size: 10px;">TypeScript</a> <a href="/tags/VSCode/" style="font-size: 10px;">VSCode</a> <a href="/tags/Vue/" style="font-size: 10px;">Vue</a> <a href="/tags/VueRouter/" style="font-size: 10px;">VueRouter</a> <a href="/tags/XMLHttpRequest/" style="font-size: 10px;">XMLHttpRequest</a> <a href="/tags/absolute/" style="font-size: 10px;">absolute</a> <a href="/tags/async-await/" style="font-size: 12px;">async/await</a> <a href="/tags/cookie/" style="font-size: 10px;">cookie</a> <a href="/tags/flex/" style="font-size: 10px;">flex</a> <a href="/tags/git/" style="font-size: 12px;">git</a> <a href="/tags/ngnix/" style="font-size: 10px;">ngnix</a> <a href="/tags/node/" style="font-size: 10px;">node</a> <a href="/tags/pm2/" style="font-size: 10px;">pm2</a> <a href="/tags/rem/" style="font-size: 10px;">rem</a> <a href="/tags/table/" style="font-size: 10px;">table</a> <a href="/tags/上拉加载/" style="font-size: 10px;">上拉加载</a> <a href="/tags/事件委托/" style="font-size: 10px;">事件委托</a> <a href="/tags/多端开发/" style="font-size: 10px;">多端开发</a> <a href="/tags/布局/" style="font-size: 12px;">布局</a> <a href="/tags/排序/" style="font-size: 10px;">排序</a> <a href="/tags/数据结构/" style="font-size: 10px;">数据结构</a> <a href="/tags/环境配置/" style="font-size: 20px;">环境配置</a> <a href="/tags/网页配色/" style="font-size: 10px;">网页配色</a> <a href="/tags/跨域/" style="font-size: 12px;">跨域</a>
+        <a href="/tags/AJax/" style="font-size: 12px;">AJax</a> <a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/Array/" style="font-size: 10px;">Array</a> <a href="/tags/Axios/" style="font-size: 10px;">Axios</a> <a href="/tags/CORS/" style="font-size: 10px;">CORS</a> <a href="/tags/CSRF/" style="font-size: 10px;">CSRF</a> <a href="/tags/CSS/" style="font-size: 10px;">CSS</a> <a href="/tags/HTTP/" style="font-size: 16px;">HTTP</a> <a href="/tags/Hook/" style="font-size: 10px;">Hook</a> <a href="/tags/JSONP/" style="font-size: 12px;">JSONP</a> <a href="/tags/Linux/" style="font-size: 12px;">Linux</a> <a href="/tags/MongoDB/" style="font-size: 12px;">MongoDB</a> <a href="/tags/Promise/" style="font-size: 10px;">Promise</a> <a href="/tags/React/" style="font-size: 14px;">React</a> <a href="/tags/ReactNative/" style="font-size: 18px;">ReactNative</a> <a href="/tags/SameSite/" style="font-size: 10px;">SameSite</a> <a href="/tags/TypeScript/" style="font-size: 10px;">TypeScript</a> <a href="/tags/VSCode/" style="font-size: 10px;">VSCode</a> <a href="/tags/Vue/" style="font-size: 10px;">Vue</a> <a href="/tags/VueRouter/" style="font-size: 10px;">VueRouter</a> <a href="/tags/XMLHttpRequest/" style="font-size: 10px;">XMLHttpRequest</a> <a href="/tags/absolute/" style="font-size: 10px;">absolute</a> <a href="/tags/async-await/" style="font-size: 12px;">async/await</a> <a href="/tags/cookie/" style="font-size: 10px;">cookie</a> <a href="/tags/flex/" style="font-size: 10px;">flex</a> <a href="/tags/git/" style="font-size: 12px;">git</a> <a href="/tags/ngnix/" style="font-size: 10px;">ngnix</a> <a href="/tags/node/" style="font-size: 10px;">node</a> <a href="/tags/pm2/" style="font-size: 10px;">pm2</a> <a href="/tags/rem/" style="font-size: 10px;">rem</a> <a href="/tags/table/" style="font-size: 10px;">table</a> <a href="/tags/上拉加载/" style="font-size: 10px;">上拉加载</a> <a href="/tags/事件委托/" style="font-size: 10px;">事件委托</a> <a href="/tags/多端开发/" style="font-size: 10px;">多端开发</a> <a href="/tags/布局/" style="font-size: 12px;">布局</a> <a href="/tags/排序/" style="font-size: 10px;">排序</a> <a href="/tags/数据结构/" style="font-size: 10px;">数据结构</a> <a href="/tags/环境配置/" style="font-size: 20px;">环境配置</a> <a href="/tags/网页配色/" style="font-size: 10px;">网页配色</a> <a href="/tags/跨域/" style="font-size: 12px;">跨域</a> <a href="/tags/迭代/" style="font-size: 10px;">迭代</a>
     </div>
 </div>
 
@@ -530,6 +536,25 @@
         <h3 class="menu-label">
             Recent
         </h3>
+        
+        <article class="media">
+            
+            <a href="/2019/08/15/一张图看懂JavaScript中数组的迭代方法/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="一张图看懂JavaScript中数组的迭代方法">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-08-15T01:32:40.000Z">2019-08-15</time></div>
+                    <a href="/2019/08/15/一张图看懂JavaScript中数组的迭代方法/" class="has-link-black-ter is-size-6">一张图看懂JavaScript中数组的迭代方法</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/JS-ES6/">JS/ES6</a>
+                    </p>
+                </div>
+            </div>
+        </article>
         
         <article class="media">
             
@@ -607,25 +632,6 @@
             </div>
         </article>
         
-        <article class="media">
-            
-            <a href="/2019/08/08/废弃的数据交互方式——AJax长连接/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="废弃的数据交互方式——AJax长连接">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-08-08T01:49:01.000Z">2019-08-08</time></div>
-                    <a href="/2019/08/08/废弃的数据交互方式——AJax长连接/" class="has-link-black-ter is-size-6">废弃的数据交互方式——AJax长连接</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/HTTP/">HTTP</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
 
@@ -644,7 +650,7 @@
                     <span class="level-item">August 2019</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">10</span>
+                    <span class="level-item tag">11</span>
                 </span>
             </a>
         </li>
@@ -694,6 +700,13 @@
                 <div class="control">
                     <a class="tags has-addons" href="/tags/Android/">
                         <span class="tag">Android</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Array/">
+                        <span class="tag">Array</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
@@ -954,6 +967,13 @@
                     <a class="tags has-addons" href="/tags/跨域/">
                         <span class="tag">跨域</span>
                         <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/迭代/">
+                        <span class="tag">迭代</span>
+                        <span class="tag is-grey">1</span>
                     </a>
                 </div>
                 
@@ -982,6 +1002,25 @@
         
         <article class="media">
             
+            <a href="/2019/08/15/一张图看懂JavaScript中数组的迭代方法/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="一张图看懂JavaScript中数组的迭代方法">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-08-15T01:32:40.000Z">2019-08-15</time></div>
+                    <a href="/2019/08/15/一张图看懂JavaScript中数组的迭代方法/" class="has-link-black-ter is-size-6">一张图看懂JavaScript中数组的迭代方法</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/JS-ES6/">JS/ES6</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
             <a href="/2019/08/14/写给自己看的React入门教程Demo/" class="media-left">
                 <p class="image is-64x64">
                     <img class="thumbnail" src="/images/thumbnail.svg" alt="写给自己看的React入门教程Demo">
@@ -1056,25 +1095,6 @@
             </div>
         </article>
         
-        <article class="media">
-            
-            <a href="/2019/08/08/废弃的数据交互方式——AJax长连接/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="废弃的数据交互方式——AJax长连接">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-08-08T01:49:01.000Z">2019-08-08</time></div>
-                    <a href="/2019/08/08/废弃的数据交互方式——AJax长连接/" class="has-link-black-ter is-size-6">废弃的数据交互方式——AJax长连接</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/HTTP/">HTTP</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
 
@@ -1093,7 +1113,7 @@
                     <span class="level-item">August 2019</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">10</span>
+                    <span class="level-item tag">11</span>
                 </span>
             </a>
         </li>
@@ -1143,6 +1163,13 @@
                 <div class="control">
                     <a class="tags has-addons" href="/tags/Android/">
                         <span class="tag">Android</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Array/">
+                        <span class="tag">Array</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
@@ -1403,6 +1430,13 @@
                     <a class="tags has-addons" href="/tags/跨域/">
                         <span class="tag">跨域</span>
                         <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/迭代/">
+                        <span class="tag">迭代</span>
+                        <span class="tag is-grey">1</span>
                     </a>
                 </div>
                 
