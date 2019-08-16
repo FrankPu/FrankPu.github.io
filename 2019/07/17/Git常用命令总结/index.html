@@ -16,7 +16,7 @@
 <meta property="og:description" content="常用命令 本地创建公钥：ssh-keygen -t rsa -C &amp;quot;邮箱&amp;quot; 克隆最新主分支代码到本地：git clone 地址  下载指定分支：git clone -b 分支名仓库地址  创建本地分支：git branch 分支名  查看本地分支：git branch  查看远程分支：git branch -a  切换分支：git checkout 分支名  将本地分支推送到远">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://shishuang.ga/images/og_image.png">
-<meta property="og:updated_time" content="2019-07-24T08:33:14.160Z">
+<meta property="og:updated_time" content="2019-08-16T08:54:04.877Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Git常用命令总结">
 <meta name="twitter:description" content="常用命令 本地创建公钥：ssh-keygen -t rsa -C &amp;quot;邮箱&amp;quot; 克隆最新主分支代码到本地：git clone 地址  下载指定分支：git clone -b 分支名仓库地址  创建本地分支：git branch 分支名  查看本地分支：git branch  查看远程分支：git branch -a  切换分支：git checkout 分支名  将本地分支推送到远">
@@ -155,7 +155,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    14 minutes read (About 2118 words)
+                    14 minutes read (About 2127 words)
                 </span>
                 
                 
@@ -186,7 +186,7 @@
 </li>
 </ul>
 <a id="more"></a>
-<h2 id="git原理图"><a href="#git原理图" class="headerlink" title="git原理图"></a>git原理图</h2><p><img src="https://i.loli.net/2019/07/17/5d2ee126bc88876506.png" alt></p>
+<h2 id="git原理图"><a href="#git原理图" class="headerlink" title="git原理图"></a>git原理图</h2><p><img src="https://frank-database.oss-cn-hangzhou.aliyuncs.com/img/2019-8-16-16-46-47.png" alt="git原理图"></p>
 <ol>
 <li><strong>Remote：</strong>远程主仓库；</li>
 <li><strong>Repository：</strong>本地仓库；</li>
@@ -280,13 +280,14 @@
 <li><p>把本地分支与远程分支关联：<code>git branch --set-upstream-to=origin/&lt;newName&gt;</code></p>
 <p><strong>举个栗子：</strong></p>
 <ol>
-<li><p>查看本地分支与远程分支的关联关系：<code>git branch -vv</code></p>
-<p><img src="https://i.loli.net/2019/07/17/5d2eea6af1eac19109.png" alt></p>
+<li><p>查看本地分支与远程分支的关联关系：</p>
+<p><code>git branch -vv</code></p>
+<p><img src="https://frank-database.oss-cn-hangzhou.aliyuncs.com/img/2019-8-16-16-51-24.png" alt></p>
 </li>
 <li><p>把本地分支与远程origin的某分支进行关联处理</p>
 <p>通过 –set-upstream-to 命令：</p>
 <p><code>git branch --set-upstream-to=origin/feature/clear-server-eslint-error_180713</code></p>
-<p><img src="https://i.loli.net/2019/07/17/5d2eea9e9e4ba78952.png" alt></p>
+<p><img src="https://frank-database.oss-cn-hangzhou.aliyuncs.com/img/2019-8-16-16-47-54.png" alt></p>
 </li>
 </ol>
 </li>
@@ -298,7 +299,7 @@
 <li><p>查看本地特定分支与远程分支的差异：</p>
 <p><code>git diff master origin/feature/reserve-3.4</code></p>
 <p>查看本地master分支与远程feature/reserve-3.4分支的差异，如图：</p>
-<p><img src="https://i.loli.net/2019/07/17/5d2eeeff2f89b71245.png" alt></p>
+<p><img src="https://frank-database.oss-cn-hangzhou.aliyuncs.com/img/2019-8-16-16-52-43.png" alt></p>
 </li>
 </ol>
 <h2 id="暂存修改"><a href="#暂存修改" class="headerlink" title="暂存修改"></a>暂存修改</h2><p>当你准备暂存当前正在进行的工作，比如想要pull最新代码又不想commit，或者另为了修改一个紧急的bug，可以使用<code>git stash</code> 。</p>
@@ -315,7 +316,7 @@
 <li><p>取出特定缓存内容：<code>git stash apply stash@{1}</code></p>
 </li>
 </ol>
-<p><img src="https://i.loli.net/2019/07/17/5d2ef0e78871c20267.png" alt></p>
+<p><img src="https://frank-database.oss-cn-hangzhou.aliyuncs.com/img/2019-8-16-16-53-18.png" alt></p>
 <h2 id="撤销修改"><a href="#撤销修改" class="headerlink" title="撤销修改"></a>撤销修改</h2><ol>
 <li><code>git checkout -- &lt;文件名&gt;</code>：丢弃工作区的修改，就是让这个文件回到最近一次<code>git commit</code>或<code>git add</code>时的状态。</li>
 <li><code>git reset HEAD &lt;文件名&gt;</code>：把暂存区的修改撤销掉（unstage），重新放回工作区。</li>
@@ -444,7 +445,7 @@
                         Posts
                     </p>
                     <p class="title has-text-weight-normal">
-                        40
+                        41
                     </p>
                 </div>
             </div>
@@ -464,7 +465,7 @@
                         Tags
                     </p>
                     <p class="title has-text-weight-normal">
-                        41
+                        43
                     </p>
                 </div>
             </div>
@@ -548,7 +549,7 @@
                 <span class="level-item">JS/ES6</span>
             </span>
             <span class="level-end">
-                <span class="level-item tag">6</span>
+                <span class="level-item tag">7</span>
             </span>
         </a></li><li>
         <a class="level is-marginless" href="/categories/React/">
@@ -610,7 +611,7 @@
         <h3 class="menu-label">
             Tag Cloud
         </h3>
-        <a href="/tags/AJax/" style="font-size: 12px;">AJax</a> <a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/Array/" style="font-size: 10px;">Array</a> <a href="/tags/Axios/" style="font-size: 10px;">Axios</a> <a href="/tags/CORS/" style="font-size: 10px;">CORS</a> <a href="/tags/CSRF/" style="font-size: 10px;">CSRF</a> <a href="/tags/CSS/" style="font-size: 10px;">CSS</a> <a href="/tags/HTTP/" style="font-size: 16px;">HTTP</a> <a href="/tags/Hook/" style="font-size: 10px;">Hook</a> <a href="/tags/JSONP/" style="font-size: 12px;">JSONP</a> <a href="/tags/Linux/" style="font-size: 12px;">Linux</a> <a href="/tags/MongoDB/" style="font-size: 12px;">MongoDB</a> <a href="/tags/Promise/" style="font-size: 10px;">Promise</a> <a href="/tags/React/" style="font-size: 14px;">React</a> <a href="/tags/ReactNative/" style="font-size: 18px;">ReactNative</a> <a href="/tags/SameSite/" style="font-size: 10px;">SameSite</a> <a href="/tags/TypeScript/" style="font-size: 10px;">TypeScript</a> <a href="/tags/VSCode/" style="font-size: 10px;">VSCode</a> <a href="/tags/Vue/" style="font-size: 10px;">Vue</a> <a href="/tags/VueRouter/" style="font-size: 10px;">VueRouter</a> <a href="/tags/XMLHttpRequest/" style="font-size: 10px;">XMLHttpRequest</a> <a href="/tags/absolute/" style="font-size: 10px;">absolute</a> <a href="/tags/async-await/" style="font-size: 12px;">async/await</a> <a href="/tags/cookie/" style="font-size: 10px;">cookie</a> <a href="/tags/flex/" style="font-size: 10px;">flex</a> <a href="/tags/git/" style="font-size: 12px;">git</a> <a href="/tags/ngnix/" style="font-size: 10px;">ngnix</a> <a href="/tags/node/" style="font-size: 10px;">node</a> <a href="/tags/pm2/" style="font-size: 10px;">pm2</a> <a href="/tags/rem/" style="font-size: 10px;">rem</a> <a href="/tags/table/" style="font-size: 10px;">table</a> <a href="/tags/上拉加载/" style="font-size: 10px;">上拉加载</a> <a href="/tags/事件委托/" style="font-size: 10px;">事件委托</a> <a href="/tags/多端开发/" style="font-size: 10px;">多端开发</a> <a href="/tags/布局/" style="font-size: 12px;">布局</a> <a href="/tags/排序/" style="font-size: 10px;">排序</a> <a href="/tags/数据结构/" style="font-size: 10px;">数据结构</a> <a href="/tags/环境配置/" style="font-size: 20px;">环境配置</a> <a href="/tags/网页配色/" style="font-size: 10px;">网页配色</a> <a href="/tags/跨域/" style="font-size: 12px;">跨域</a> <a href="/tags/迭代/" style="font-size: 10px;">迭代</a>
+        <a href="/tags/AJax/" style="font-size: 12px;">AJax</a> <a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/Array/" style="font-size: 14px;">Array</a> <a href="/tags/Axios/" style="font-size: 10px;">Axios</a> <a href="/tags/CORS/" style="font-size: 10px;">CORS</a> <a href="/tags/CSRF/" style="font-size: 10px;">CSRF</a> <a href="/tags/CSS/" style="font-size: 10px;">CSS</a> <a href="/tags/HTTP/" style="font-size: 16px;">HTTP</a> <a href="/tags/Hook/" style="font-size: 10px;">Hook</a> <a href="/tags/JSONP/" style="font-size: 12px;">JSONP</a> <a href="/tags/Linux/" style="font-size: 12px;">Linux</a> <a href="/tags/MongoDB/" style="font-size: 12px;">MongoDB</a> <a href="/tags/Object/" style="font-size: 10px;">Object</a> <a href="/tags/Promise/" style="font-size: 10px;">Promise</a> <a href="/tags/React/" style="font-size: 14px;">React</a> <a href="/tags/ReactNative/" style="font-size: 18px;">ReactNative</a> <a href="/tags/SameSite/" style="font-size: 10px;">SameSite</a> <a href="/tags/TypeScript/" style="font-size: 10px;">TypeScript</a> <a href="/tags/URI/" style="font-size: 10px;">URI</a> <a href="/tags/VSCode/" style="font-size: 10px;">VSCode</a> <a href="/tags/Vue/" style="font-size: 10px;">Vue</a> <a href="/tags/VueRouter/" style="font-size: 10px;">VueRouter</a> <a href="/tags/XMLHttpRequest/" style="font-size: 10px;">XMLHttpRequest</a> <a href="/tags/absolute/" style="font-size: 10px;">absolute</a> <a href="/tags/async-await/" style="font-size: 12px;">async/await</a> <a href="/tags/cookie/" style="font-size: 10px;">cookie</a> <a href="/tags/flex/" style="font-size: 10px;">flex</a> <a href="/tags/git/" style="font-size: 12px;">git</a> <a href="/tags/ngnix/" style="font-size: 10px;">ngnix</a> <a href="/tags/node/" style="font-size: 10px;">node</a> <a href="/tags/pm2/" style="font-size: 10px;">pm2</a> <a href="/tags/rem/" style="font-size: 10px;">rem</a> <a href="/tags/table/" style="font-size: 10px;">table</a> <a href="/tags/上拉加载/" style="font-size: 10px;">上拉加载</a> <a href="/tags/事件委托/" style="font-size: 10px;">事件委托</a> <a href="/tags/多端开发/" style="font-size: 10px;">多端开发</a> <a href="/tags/布局/" style="font-size: 12px;">布局</a> <a href="/tags/排序/" style="font-size: 10px;">排序</a> <a href="/tags/数据结构/" style="font-size: 10px;">数据结构</a> <a href="/tags/环境配置/" style="font-size: 20px;">环境配置</a> <a href="/tags/网页配色/" style="font-size: 10px;">网页配色</a> <a href="/tags/跨域/" style="font-size: 12px;">跨域</a> <a href="/tags/迭代/" style="font-size: 10px;">迭代</a>
     </div>
 </div>
 
@@ -624,6 +625,25 @@
         <h3 class="menu-label">
             Recent
         </h3>
+        
+        <article class="media">
+            
+            <a href="/2019/08/16/一张图看懂URI的编码和解码函数/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="一张图看懂URI的编码和解码函数">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-08-16T08:08:03.000Z">2019-08-16</time></div>
+                    <a href="/2019/08/16/一张图看懂URI的编码和解码函数/" class="has-link-black-ter is-size-6">一张图看懂URI的编码和解码函数</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/JS-ES6/">JS/ES6</a>
+                    </p>
+                </div>
+            </div>
+        </article>
         
         <article class="media">
             
@@ -701,25 +721,6 @@
             </div>
         </article>
         
-        <article class="media">
-            
-            <a href="/2019/08/09/移动端布局之rem/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="移动端布局之rem">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-08-09T00:41:27.000Z">2019-08-09</time></div>
-                    <a href="/2019/08/09/移动端布局之rem/" class="has-link-black-ter is-size-6">移动端布局之rem</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/CSS/">CSS</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
 
@@ -738,7 +739,7 @@
                     <span class="level-item">August 2019</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">11</span>
+                    <span class="level-item tag">12</span>
                 </span>
             </a>
         </li>
@@ -795,7 +796,7 @@
                 <div class="control">
                     <a class="tags has-addons" href="/tags/Array/">
                         <span class="tag">Array</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag is-grey">3</span>
                     </a>
                 </div>
                 
@@ -863,6 +864,13 @@
                 </div>
                 
                 <div class="control">
+                    <a class="tags has-addons" href="/tags/Object/">
+                        <span class="tag">Object</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
                     <a class="tags has-addons" href="/tags/Promise/">
                         <span class="tag">Promise</span>
                         <span class="tag is-grey">1</span>
@@ -893,6 +901,13 @@
                 <div class="control">
                     <a class="tags has-addons" href="/tags/TypeScript/">
                         <span class="tag">TypeScript</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/URI/">
+                        <span class="tag">URI</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
@@ -1090,6 +1105,25 @@
         
         <article class="media">
             
+            <a href="/2019/08/16/一张图看懂URI的编码和解码函数/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="一张图看懂URI的编码和解码函数">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-08-16T08:08:03.000Z">2019-08-16</time></div>
+                    <a href="/2019/08/16/一张图看懂URI的编码和解码函数/" class="has-link-black-ter is-size-6">一张图看懂URI的编码和解码函数</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/JS-ES6/">JS/ES6</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
             <a href="/2019/08/15/一张图看懂JavaScript中数组的迭代方法/" class="media-left">
                 <p class="image is-64x64">
                     <img class="thumbnail" src="/images/thumbnail.svg" alt="一张图看懂JavaScript中数组的迭代方法">
@@ -1164,25 +1198,6 @@
             </div>
         </article>
         
-        <article class="media">
-            
-            <a href="/2019/08/09/移动端布局之rem/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="移动端布局之rem">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-08-09T00:41:27.000Z">2019-08-09</time></div>
-                    <a href="/2019/08/09/移动端布局之rem/" class="has-link-black-ter is-size-6">移动端布局之rem</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/CSS/">CSS</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
 
@@ -1201,7 +1216,7 @@
                     <span class="level-item">August 2019</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">11</span>
+                    <span class="level-item tag">12</span>
                 </span>
             </a>
         </li>
@@ -1258,7 +1273,7 @@
                 <div class="control">
                     <a class="tags has-addons" href="/tags/Array/">
                         <span class="tag">Array</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag is-grey">3</span>
                     </a>
                 </div>
                 
@@ -1326,6 +1341,13 @@
                 </div>
                 
                 <div class="control">
+                    <a class="tags has-addons" href="/tags/Object/">
+                        <span class="tag">Object</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
                     <a class="tags has-addons" href="/tags/Promise/">
                         <span class="tag">Promise</span>
                         <span class="tag is-grey">1</span>
@@ -1356,6 +1378,13 @@
                 <div class="control">
                     <a class="tags has-addons" href="/tags/TypeScript/">
                         <span class="tag">TypeScript</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/URI/">
+                        <span class="tag">URI</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>

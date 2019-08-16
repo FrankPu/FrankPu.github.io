@@ -7,19 +7,19 @@
 
 
 
-    <meta name="description" content="各种排序的性能比较">
+    <meta name="description" content="参考地址：Handsome-Lee">
 <meta name="keywords" content="数据结构,排序">
 <meta property="og:type" content="article">
 <meta property="og:title" content="数据结构：八大排序">
 <meta property="og:url" content="https://shishuang.ga/2019/07/10/数据结构：八大排序/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="各种排序的性能比较">
+<meta property="og:description" content="参考地址：Handsome-Lee">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://shishuang.ga/images/og_image.png">
-<meta property="og:updated_time" content="2019-07-18T09:29:13.204Z">
+<meta property="og:updated_time" content="2019-08-16T09:18:16.821Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="数据结构：八大排序">
-<meta name="twitter:description" content="各种排序的性能比较">
+<meta name="twitter:description" content="参考地址：Handsome-Lee">
 <meta name="twitter:image" content="https://shishuang.ga/images/og_image.png">
 
 
@@ -155,7 +155,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    13 minutes read (About 1883 words)
+                    13 minutes read (About 1932 words)
                 </span>
                 
                 
@@ -169,19 +169,19 @@
         </h1>
         <div class="content">
             <blockquote>
-<p>各种排序的性能比较</p>
+<p>参考地址：<a href="https://blog.csdn.net/BigBrick/article/details/85312927" target="_blank" rel="noopener">Handsome-Lee</a></p>
 </blockquote>
 <a id="more"></a>
-<h2 id="排序分类一览"><a href="#排序分类一览" class="headerlink" title="排序分类一览"></a>排序分类一览</h2><p><img src="https://i.loli.net/2019/07/18/5d3038161b79312289.png" alt></p>
+<h2 id="排序分类一览"><a href="#排序分类一览" class="headerlink" title="排序分类一览"></a>排序分类一览</h2><p><img src="https://frank-database.oss-cn-hangzhou.aliyuncs.com/img/2019-8-16-16-55-38.png" alt="排序分类"></p>
 <h2 id="类型一：交换排序"><a href="#类型一：交换排序" class="headerlink" title="类型一：交换排序"></a>类型一：交换排序</h2><h3 id="冒泡排序"><a href="#冒泡排序" class="headerlink" title="冒泡排序"></a>冒泡排序</h3><blockquote>
 <p>特点：稳定，每一次都会有一个数字到最终的位置</p>
 </blockquote>
-<p><img src="https://i.loli.net/2019/07/18/5d3038489daf128309.png" alt></p>
+<p><img src="https://frank-database.oss-cn-hangzhou.aliyuncs.com/img/2019-8-16-16-56-11.png" alt="冒泡排序"></p>
 <figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">void swap(int &amp;a,int &amp;b)</span><br><span class="line">&#123;</span><br><span class="line">    int c = a;</span><br><span class="line">    a = b;</span><br><span class="line">    b = c;</span><br><span class="line">&#125;</span><br><span class="line">void bubbleSort(int a[],int num)</span><br><span class="line">&#123;</span><br><span class="line">    for(int i=0;i&lt;num-1;i++)</span><br><span class="line">        for(int j=0;j&lt;num-i-1;j++)</span><br><span class="line">            if(a[j]&gt;a[j+1])swap(a[j],a[j+1]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h3 id="快速排序"><a href="#快速排序" class="headerlink" title="快速排序"></a>快速排序</h3><blockquote>
 <p>特点：不稳定，每次中间的数字会有序，如果数据量太大的话，可能会爆栈。</p>
 </blockquote>
-<p><img src="https://i.loli.net/2019/07/18/5d3038a7b771f65816.png" alt></p>
+<p><img src="https://frank-database.oss-cn-hangzhou.aliyuncs.com/img/2019-8-16-16-56-49.png" alt="快速排序"></p>
 <figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">int qivotPosition(int a[],int low,int high)</span><br><span class="line">&#123;</span><br><span class="line">    int temp = a[low];</span><br><span class="line">    while(low&lt;high)</span><br><span class="line">    &#123;</span><br><span class="line">        while(low&lt;high&amp;&amp;a[high]&gt;=temp)high--;</span><br><span class="line">        a[low] = a[high];</span><br><span class="line">        while(low&lt;high&amp;&amp;a[low]&lt;=temp)low++;</span><br><span class="line">        a[high] = a[low];</span><br><span class="line">    &#125;</span><br><span class="line">    a[low] = temp;</span><br><span class="line">    return low;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">void quickSort(int a[],int low,int high)</span><br><span class="line">&#123;</span><br><span class="line">    if(low&lt;high)</span><br><span class="line">    &#123;</span><br><span class="line">        int qivot = qivotPosition(a,low,high);</span><br><span class="line">        quickSort(a,low,qivot-1);</span><br><span class="line">        quickSort(a,qivot+1,high);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h3 id="比较"><a href="#比较" class="headerlink" title="比较"></a>比较</h3><table>
 <thead>
@@ -210,12 +210,12 @@
 <h2 id="类型二：插入排序"><a href="#类型二：插入排序" class="headerlink" title="类型二：插入排序"></a>类型二：插入排序</h2><h3 id="直接插入排序"><a href="#直接插入排序" class="headerlink" title="直接插入排序"></a>直接插入排序</h3><blockquote>
 <p>特点：稳定，前面的一部分总是有序的，数据量比较小的时候适用。</p>
 </blockquote>
-<p><img src="https://i.loli.net/2019/07/18/5d303956a93b511531.png" alt></p>
+<p><img src="https://frank-database.oss-cn-hangzhou.aliyuncs.com/img/2019-8-16-17-11-57.png" alt="直接插入排序"></p>
 <figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">void directInsert(int a[],int num)</span><br><span class="line">&#123;</span><br><span class="line">    int temp;</span><br><span class="line">    for(int i=0; i&lt;num-1; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        if(a[i]&gt;a[i+1])</span><br><span class="line">        &#123;</span><br><span class="line">            int j;</span><br><span class="line">            temp = a[i+1];</span><br><span class="line">            for(j=i; temp&lt;a[j]&amp;&amp;j&gt;=0; j-- )</span><br><span class="line">                a[j+1] = a[j];</span><br><span class="line">            a[j+1] = temp;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h3 id="希尔排序"><a href="#希尔排序" class="headerlink" title="希尔排序"></a>希尔排序</h3><blockquote>
 <p>特点：不稳定，跨步长有序</p>
 </blockquote>
-<p><img src="https://i.loli.net/2019/07/18/5d303981685a734962.png" alt></p>
+<p><img src="https://frank-database.oss-cn-hangzhou.aliyuncs.com/img/2019-8-16-17-11-42.png" alt="希尔排序"></p>
 <figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">void shellSort(int a[],int num)</span><br><span class="line">&#123;</span><br><span class="line">    int temp;</span><br><span class="line">    for(int dk=num/2; dk&gt;=1; dk/=2)</span><br><span class="line">        for(int i=dk; i&lt;=num; i++)</span><br><span class="line">         &#123;</span><br><span class="line">            if(a[i]&lt;a[i-dk])</span><br><span class="line">            &#123;</span><br><span class="line">                temp = a[i];</span><br><span class="line">                int j;</span><br><span class="line">                for(j=i-dk;temp&lt;a[j]&amp;&amp;j&gt;=0;j-=dk)</span><br><span class="line">                    a[j+dk] = a[j];</span><br><span class="line">                a[j+dk] = temp;</span><br><span class="line">            &#125;</span><br><span class="line">         &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h3 id="比较-1"><a href="#比较-1" class="headerlink" title="比较"></a>比较</h3><table>
 <thead>
@@ -244,7 +244,7 @@
 <h2 id="类型三：选择排序"><a href="#类型三：选择排序" class="headerlink" title="类型三：选择排序"></a>类型三：选择排序</h2><h3 id="简单选择排序"><a href="#简单选择排序" class="headerlink" title="简单选择排序"></a>简单选择排序</h3><blockquote>
 <p>特点：不稳定，每次都能有一个有序</p>
 </blockquote>
-<p><img src="https://i.loli.net/2019/07/18/5d3039c424e8f81970.png" alt></p>
+<p><img src="https://frank-database.oss-cn-hangzhou.aliyuncs.com/img/2019-8-16-17-9-27.png" alt="简单选择排序"></p>
 <figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">void selectSort(int a[],int num)</span><br><span class="line">&#123;</span><br><span class="line">    for(int i=0;i&lt;num-1;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        int min = i;</span><br><span class="line">        for(int j=i+1;j&lt;num;j++)</span><br><span class="line">            if(a[j]&lt;a[min])min = j;  //记录最小值</span><br><span class="line">        if(min!=i)</span><br><span class="line">            swap(a[i],a[min]);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h3 id="堆排"><a href="#堆排" class="headerlink" title="堆排"></a>堆排</h3><blockquote>
 <p>特点：堆排分为大顶堆和小顶堆，本例是以大顶堆为例，每次调整以后都可以找到最大值。最为重要的是堆排在最坏的情况下也可以保证O(nlogn)的时间复杂度，且空间复杂度为O(1)。数据量较大的时候比较适合选择。</p>
@@ -253,12 +253,12 @@
 <p>步骤如下：</p>
 <ol>
 <li><p>首先将序列构造成大根堆（位于根节点的一定是当前序列的最大值）</p>
-<p><img src="https://i.loli.net/2019/07/18/5d303a040e18156098.png" alt></p>
+<p><img src="https://frank-database.oss-cn-hangzhou.aliyuncs.com/img/2019-8-16-17-11-9.png" alt></p>
 </li>
 <li><p>取出当前大顶堆的根节点，将其与序列末尾元素进行交换</p>
 </li>
 <li><p>对交换后的n-1个序列元素进行调整，使其满足大顶堆的性质</p>
-<p><img src="https://i.loli.net/2019/07/18/5d303a1b640d322314.png" alt></p>
+<p><img src="https://frank-database.oss-cn-hangzhou.aliyuncs.com/img/2019-8-16-17-11-20.png" alt></p>
 </li>
 <li><p>重复2.3步骤，直至堆中只有1个元素为止</p>
 </li>
@@ -291,7 +291,7 @@
 <h2 id="类型四：归并排序"><a href="#类型四：归并排序" class="headerlink" title="类型四：归并排序"></a>类型四：归并排序</h2><h3 id="归并排序"><a href="#归并排序" class="headerlink" title="归并排序"></a>归并排序</h3><blockquote>
 <p>特点：稳定，唯一速度快的排序中稳定的排序算法，但付出了空间的代价。局部有序，进而全局有序。</p>
 </blockquote>
-<p><img src="https://i.loli.net/2019/07/18/5d303a8ede07285199.png" alt></p>
+<p><img src="https://frank-database.oss-cn-hangzhou.aliyuncs.com/img/2019-8-16-17-12-34.png" alt="归并排序"></p>
 <figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">int b[100];</span><br><span class="line">void merge(int a[],int low,int mid,int high)</span><br><span class="line">&#123;</span><br><span class="line">    int i,j,k;</span><br><span class="line">    for(k=low;k&lt;=high;k++)</span><br><span class="line">    &#123;</span><br><span class="line">        b[k] = a[k];</span><br><span class="line">    &#125;</span><br><span class="line">    for(i=low,j=mid+1,k=i;i&lt;=mid&amp;&amp;j&lt;=high;k++)</span><br><span class="line">    &#123;</span><br><span class="line">        if(b[i]&lt;=b[j])</span><br><span class="line">            a[k] = b[i++];</span><br><span class="line">        else</span><br><span class="line">            a[k] = b[j++];</span><br><span class="line">    &#125;</span><br><span class="line">    while(i&lt;=mid) a[k++] = b[i++];               //若第一个表未检测完，复制</span><br><span class="line">    while(j&lt;=high) a[k++] = b[j++];              //若第二个表未检测完，复制</span><br><span class="line">&#125;</span><br><span class="line">void mergeSort(int a[],int low,int high)</span><br><span class="line">&#123;</span><br><span class="line">    if(low&lt;high)</span><br><span class="line">    &#123;</span><br><span class="line">        int mid = (low+high)/2;</span><br><span class="line">        mergeSort(a,low,mid);</span><br><span class="line">        mergeSort(a,mid+1,high);</span><br><span class="line">        merge(a,low,mid,high);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h3 id="比较-3"><a href="#比较-3" class="headerlink" title="比较"></a>比较</h3><table>
 <thead>
@@ -336,7 +336,7 @@
 </tbody>
 </table>
 <h2 id="八大排序的代码实现"><a href="#八大排序的代码实现" class="headerlink" title="八大排序的代码实现"></a>八大排序的代码实现</h2><figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;iostream&gt;</span><br><span class="line"></span><br><span class="line">using namespace std;</span><br><span class="line">//交换排序</span><br><span class="line">//冒泡 稳定 每一次都会有一个数字到最终的位置</span><br><span class="line">void swap(int &amp;a,int &amp;b)</span><br><span class="line">&#123;</span><br><span class="line">    int c = a;</span><br><span class="line">    a = b;</span><br><span class="line">    b = c;</span><br><span class="line">&#125;</span><br><span class="line">void bubbleSort(int a[],int num)</span><br><span class="line">&#123;</span><br><span class="line">    for(int i=0;i&lt;num-1;i++)</span><br><span class="line">        for(int j=0;j&lt;num-i-1;j++)</span><br><span class="line">            if(a[j]&gt;a[j+1])swap(a[j],a[j+1]);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//快排 不稳定 每次中间的数字会有序</span><br><span class="line">//数据量中等时选用 数量太大可能会爆栈</span><br><span class="line"></span><br><span class="line">int qivotPosition(int a[],int low,int high)</span><br><span class="line">&#123;</span><br><span class="line">    int temp = a[low];</span><br><span class="line">    while(low&lt;high)</span><br><span class="line">    &#123;</span><br><span class="line">        while(low&lt;high&amp;&amp;a[high]&gt;=temp)high--;</span><br><span class="line">        a[low] = a[high];</span><br><span class="line">        while(low&lt;high&amp;&amp;a[low]&lt;=temp)low++;</span><br><span class="line">        a[high] = a[low];</span><br><span class="line">    &#125;</span><br><span class="line">    a[low] = temp;</span><br><span class="line">    return low;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">void quickSort(int a[],int low,int high)</span><br><span class="line">&#123;</span><br><span class="line">    if(low&lt;high)</span><br><span class="line">    &#123;</span><br><span class="line">        int qivot = qivotPosition(a,low,high);</span><br><span class="line">        quickSort(a,low,qivot-1);</span><br><span class="line">        quickSort(a,qivot+1,high);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//插入排序</span><br><span class="line">//直接插入 稳定 前面的一部分总是有序的</span><br><span class="line">//数据量比较小的时候适用</span><br><span class="line"></span><br><span class="line">void directInsert(int a[],int num)</span><br><span class="line">&#123;</span><br><span class="line">    int temp;</span><br><span class="line">    for(int i=0; i&lt;num-1; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        if(a[i]&gt;a[i+1])</span><br><span class="line">        &#123;</span><br><span class="line">            int j;</span><br><span class="line">            temp = a[i+1];</span><br><span class="line">            for(j=i; temp&lt;a[j]&amp;&amp;j&gt;=0; j-- )</span><br><span class="line">                a[j+1] = a[j];</span><br><span class="line">            a[j+1] = temp;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">//希尔排序 不稳定 跨步长有序</span><br><span class="line">//步长的起始值为num/2</span><br><span class="line"></span><br><span class="line">void shellSort(int a[],int num)</span><br><span class="line">&#123;</span><br><span class="line">    int temp;</span><br><span class="line">    for(int dk=num/2; dk&gt;=1; dk/=2)</span><br><span class="line">        for(int i=dk; i&lt;=num; i++)</span><br><span class="line">         &#123;</span><br><span class="line">            if(a[i]&lt;a[i-dk])</span><br><span class="line">            &#123;</span><br><span class="line">                temp = a[i];</span><br><span class="line">                int j;</span><br><span class="line">                for(j=i-dk;temp&lt;a[j]&amp;&amp;j&gt;=0;j-=dk)</span><br><span class="line">                    a[j+dk] = a[j];</span><br><span class="line">                a[j+dk] = temp;</span><br><span class="line">            &#125;</span><br><span class="line">         &#125;</span><br><span class="line">&#125;</span><br><span class="line">//选择排序 不稳定</span><br><span class="line">//简单选择排序 每次都能有一个有序</span><br><span class="line">void selectSort(int a[],int num)</span><br><span class="line">&#123;</span><br><span class="line">    for(int i=0;i&lt;num-1;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        int min = i;</span><br><span class="line">        for(int j=i+1;j&lt;num;j++)</span><br><span class="line">            if(a[j]&lt;a[min])min = j;  //记录最小值</span><br><span class="line">        if(min!=i)</span><br><span class="line">            swap(a[i],a[min]);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//堆排  因为最后的交换 所以也是不稳定排序</span><br><span class="line">//分为大顶堆和小顶堆 本例以大顶堆为例 每次调整之后都可以找到最大值</span><br><span class="line">//本例中的数据有特殊性 a[1]-a[num] 其中a[0]为临时存储容器 所以数组声明需要a[num+1]</span><br><span class="line">void adjustDown(int a[],int k,int num);</span><br><span class="line">void buildMaxHeap(int a[],int num)</span><br><span class="line">&#123;</span><br><span class="line">    for(int i=num/2;i&gt;0;i--)</span><br><span class="line">        adjustDown(a,i,num);</span><br><span class="line">&#125;</span><br><span class="line">void adjustDown(int a[],int k,int num)</span><br><span class="line">&#123;</span><br><span class="line">    a[0] = a[k];</span><br><span class="line">    for(int i=2*k;i&lt;=num;i*=2)</span><br><span class="line">    &#123;</span><br><span class="line">        if(i&lt;num&amp;&amp;a[i]&lt;a[i+1])</span><br><span class="line">            i++;</span><br><span class="line">        if(a[0]&gt;=a[i])break;</span><br><span class="line">        else</span><br><span class="line">        &#123;</span><br><span class="line">            a[k] = a[i];</span><br><span class="line">            k = i;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    a[k] = a[0];</span><br><span class="line">&#125;</span><br><span class="line">void heapSort(int a[],int num)</span><br><span class="line">&#123;</span><br><span class="line">    buildMaxHeap(a,num);</span><br><span class="line">    for(int i=num;i&gt;1;i--)</span><br><span class="line">    &#123;</span><br><span class="line">        swap(a[i],a[1]);</span><br><span class="line">        adjustDown(a,1,i-1);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">//归并排序 稳定排序 局部有序，进而全局有序</span><br><span class="line">int b[100];</span><br><span class="line">void merge(int a[],int low,int mid,int high)</span><br><span class="line">&#123;</span><br><span class="line">    int i,j,k;</span><br><span class="line">    for(k=low;k&lt;=high;k++)</span><br><span class="line">    &#123;</span><br><span class="line">        b[k] = a[k];</span><br><span class="line">    &#125;</span><br><span class="line">    for(i=low,j=mid+1,k=i;i&lt;=mid&amp;&amp;j&lt;=high;k++)</span><br><span class="line">    &#123;</span><br><span class="line">        if(b[i]&lt;=b[j])</span><br><span class="line">            a[k] = b[i++];</span><br><span class="line">        else</span><br><span class="line">            a[k] = b[j++];</span><br><span class="line">    &#125;</span><br><span class="line">    while(i&lt;=mid) a[k++] = b[i++];               //若第一个表未检测完，复制</span><br><span class="line">    while(j&lt;=high) a[k++] = b[j++];              //若第二个表未检测完，复制</span><br><span class="line">&#125;</span><br><span class="line">void mergeSort(int a[],int low,int high)</span><br><span class="line">&#123;</span><br><span class="line">    if(low&lt;high)</span><br><span class="line">    &#123;</span><br><span class="line">        int mid = (low+high)/2;</span><br><span class="line">        mergeSort(a,low,mid);</span><br><span class="line">        mergeSort(a,mid+1,high);</span><br><span class="line">        merge(a,low,mid,high);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    int num;</span><br><span class="line">    int a[100];</span><br><span class="line">    /*</span><br><span class="line">    //堆排的输入输出</span><br><span class="line">    while(cin&gt;&gt;num)</span><br><span class="line">    &#123;</span><br><span class="line">        for(int i=1;i&lt;=num;i++)</span><br><span class="line">            cin&gt;&gt;a[i];</span><br><span class="line">        heapSort(a,num);</span><br><span class="line">        for(int i=1;i&lt;=num;i++)</span><br><span class="line">            cout&lt;&lt;a[i]&lt;&lt;&quot; &quot;;</span><br><span class="line">        cout&lt;&lt;endl;</span><br><span class="line"></span><br><span class="line">    &#125;*/</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    while(cin&gt;&gt;num)</span><br><span class="line">    &#123;</span><br><span class="line">    //cin&gt;&gt;num;  //一个数组的长度</span><br><span class="line">    for(int i=0;i&lt;num;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        cin&gt;&gt;a[i];</span><br><span class="line">    &#125;</span><br><span class="line">    //bubbleSort(a,num);</span><br><span class="line">    //quickSort(a,0,num-1);</span><br><span class="line">    //directInsert(a,num);</span><br><span class="line">    //shellSort(a,num);</span><br><span class="line">    //selectSort(a,num);</span><br><span class="line">    mergeSort(a,0,num-1);</span><br><span class="line">    for(int i=0;i&lt;num;i++)</span><br><span class="line">        cout&lt;&lt;a[i]&lt;&lt;&quot; &quot;;</span><br><span class="line">    cout&lt;&lt;endl;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="性能比较"><a href="#性能比较" class="headerlink" title="性能比较"></a>性能比较</h2><p><img src="https://i.loli.net/2019/07/18/5d303b3c05ed294606.png" alt></p>
+<h2 id="性能比较"><a href="#性能比较" class="headerlink" title="性能比较"></a>性能比较</h2><p><img src="https://frank-database.oss-cn-hangzhou.aliyuncs.com/img/2019-8-16-17-6-19.png" alt></p>
 <p>注：</p>
 <ol>
 <li><strong>归并排序</strong>是唯一一个效率较高，却稳定的算法，因为它付出了空间的代价。</li>
@@ -346,20 +346,20 @@
 </ol>
 <p>相关概念：</p>
 <ol>
-<li><strong>时间复杂度</strong></li>
+<li><p><strong>时间复杂度</strong></p>
+<p>时间复杂度可以认为是对排序数据的总的操作次数。反映当n变化时，操作次数呈现什么规律。</p>
+<p>常见的时间复杂度有：</p>
+<p>常数阶<code>O(1)</code>，对数阶<code>O(log2n)</code>，线性阶<code>O(n)</code>，线性对数阶<code>O(nlog2n)</code>，平方阶<code>O(n2)</code>。</p>
+<p>时间复杂度O(1)：算法中语句执行次数为一个常数，则时间复杂度为<code>O(1)</code>。</p>
+</li>
+<li><p><strong>空间复杂度</strong></p>
+<p>空间复杂度是指算法在计算机内执行时所需存储空间的度量，它也是问题规模n的函数。</p>
+<p>空间复杂度O(1)：当一个算法的空间复杂度为一个常量，即不随被处理数据量n的大小而改变时，可表示为O(1)。</p>
+<p>空间复杂度O(log2N)：当一个算法的空间复杂度与以2为底的n的对数成正比时，可表示为O(log2n)。</p>
+<p>ax=N，则x=logaN。</p>
+<p>空间复杂度O(n)：当一个算法的空间复杂度与n成线性比例关系时，可表示为<code>0(n)</code>。</p>
+</li>
 </ol>
-<p>​    时间复杂度可以认为是对排序数据的总的操作次数。反映当n变化时，操作次数呈现什么规律。</p>
-<p>​    常见的时间复杂度有：</p>
-<p>​    常数阶<code>O(1)</code>，对数阶<code>O(log2n)</code>，线性阶<code>O(n)</code>，线性对数阶<code>O(nlog2n)</code>，平方阶<code>O(n2)</code></p>
-<p>​    时间复杂度O(1)：算法中语句执行次数为一个常数，则时间复杂度为<code>O(1)</code>。</p>
-<ol start="2">
-<li><strong>空间复杂度</strong></li>
-</ol>
-<p>​    空间复杂度是指算法在计算机内执行时所需存储空间的度量，它也是问题规模n的函数。</p>
-<p>​    空间复杂度O(1)：当一个算法的空间复杂度为一个常量，即不随被处理数据量n的大小而改变时，可表示为O(1)。</p>
-<p>​    空间复杂度O(log2N)：当一个算法的空间复杂度与以2为底的n的对数成正比时，可表示为O(log2n)</p>
-<p>​                                 ax=N，则x=logaN。</p>
-<p>​    空间复杂度O(n)：当一个算法的空间复杂度与n成线性比例关系时，可表示为<code>0(n)</code>。</p>
 
         </div>
         
@@ -475,7 +475,7 @@
                         Posts
                     </p>
                     <p class="title has-text-weight-normal">
-                        40
+                        41
                     </p>
                 </div>
             </div>
@@ -495,7 +495,7 @@
                         Tags
                     </p>
                     <p class="title has-text-weight-normal">
-                        41
+                        43
                     </p>
                 </div>
             </div>
@@ -579,7 +579,7 @@
                 <span class="level-item">JS/ES6</span>
             </span>
             <span class="level-end">
-                <span class="level-item tag">6</span>
+                <span class="level-item tag">7</span>
             </span>
         </a></li><li>
         <a class="level is-marginless" href="/categories/React/">
@@ -641,7 +641,7 @@
         <h3 class="menu-label">
             Tag Cloud
         </h3>
-        <a href="/tags/AJax/" style="font-size: 12px;">AJax</a> <a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/Array/" style="font-size: 10px;">Array</a> <a href="/tags/Axios/" style="font-size: 10px;">Axios</a> <a href="/tags/CORS/" style="font-size: 10px;">CORS</a> <a href="/tags/CSRF/" style="font-size: 10px;">CSRF</a> <a href="/tags/CSS/" style="font-size: 10px;">CSS</a> <a href="/tags/HTTP/" style="font-size: 16px;">HTTP</a> <a href="/tags/Hook/" style="font-size: 10px;">Hook</a> <a href="/tags/JSONP/" style="font-size: 12px;">JSONP</a> <a href="/tags/Linux/" style="font-size: 12px;">Linux</a> <a href="/tags/MongoDB/" style="font-size: 12px;">MongoDB</a> <a href="/tags/Promise/" style="font-size: 10px;">Promise</a> <a href="/tags/React/" style="font-size: 14px;">React</a> <a href="/tags/ReactNative/" style="font-size: 18px;">ReactNative</a> <a href="/tags/SameSite/" style="font-size: 10px;">SameSite</a> <a href="/tags/TypeScript/" style="font-size: 10px;">TypeScript</a> <a href="/tags/VSCode/" style="font-size: 10px;">VSCode</a> <a href="/tags/Vue/" style="font-size: 10px;">Vue</a> <a href="/tags/VueRouter/" style="font-size: 10px;">VueRouter</a> <a href="/tags/XMLHttpRequest/" style="font-size: 10px;">XMLHttpRequest</a> <a href="/tags/absolute/" style="font-size: 10px;">absolute</a> <a href="/tags/async-await/" style="font-size: 12px;">async/await</a> <a href="/tags/cookie/" style="font-size: 10px;">cookie</a> <a href="/tags/flex/" style="font-size: 10px;">flex</a> <a href="/tags/git/" style="font-size: 12px;">git</a> <a href="/tags/ngnix/" style="font-size: 10px;">ngnix</a> <a href="/tags/node/" style="font-size: 10px;">node</a> <a href="/tags/pm2/" style="font-size: 10px;">pm2</a> <a href="/tags/rem/" style="font-size: 10px;">rem</a> <a href="/tags/table/" style="font-size: 10px;">table</a> <a href="/tags/上拉加载/" style="font-size: 10px;">上拉加载</a> <a href="/tags/事件委托/" style="font-size: 10px;">事件委托</a> <a href="/tags/多端开发/" style="font-size: 10px;">多端开发</a> <a href="/tags/布局/" style="font-size: 12px;">布局</a> <a href="/tags/排序/" style="font-size: 10px;">排序</a> <a href="/tags/数据结构/" style="font-size: 10px;">数据结构</a> <a href="/tags/环境配置/" style="font-size: 20px;">环境配置</a> <a href="/tags/网页配色/" style="font-size: 10px;">网页配色</a> <a href="/tags/跨域/" style="font-size: 12px;">跨域</a> <a href="/tags/迭代/" style="font-size: 10px;">迭代</a>
+        <a href="/tags/AJax/" style="font-size: 12px;">AJax</a> <a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/Array/" style="font-size: 14px;">Array</a> <a href="/tags/Axios/" style="font-size: 10px;">Axios</a> <a href="/tags/CORS/" style="font-size: 10px;">CORS</a> <a href="/tags/CSRF/" style="font-size: 10px;">CSRF</a> <a href="/tags/CSS/" style="font-size: 10px;">CSS</a> <a href="/tags/HTTP/" style="font-size: 16px;">HTTP</a> <a href="/tags/Hook/" style="font-size: 10px;">Hook</a> <a href="/tags/JSONP/" style="font-size: 12px;">JSONP</a> <a href="/tags/Linux/" style="font-size: 12px;">Linux</a> <a href="/tags/MongoDB/" style="font-size: 12px;">MongoDB</a> <a href="/tags/Object/" style="font-size: 10px;">Object</a> <a href="/tags/Promise/" style="font-size: 10px;">Promise</a> <a href="/tags/React/" style="font-size: 14px;">React</a> <a href="/tags/ReactNative/" style="font-size: 18px;">ReactNative</a> <a href="/tags/SameSite/" style="font-size: 10px;">SameSite</a> <a href="/tags/TypeScript/" style="font-size: 10px;">TypeScript</a> <a href="/tags/URI/" style="font-size: 10px;">URI</a> <a href="/tags/VSCode/" style="font-size: 10px;">VSCode</a> <a href="/tags/Vue/" style="font-size: 10px;">Vue</a> <a href="/tags/VueRouter/" style="font-size: 10px;">VueRouter</a> <a href="/tags/XMLHttpRequest/" style="font-size: 10px;">XMLHttpRequest</a> <a href="/tags/absolute/" style="font-size: 10px;">absolute</a> <a href="/tags/async-await/" style="font-size: 12px;">async/await</a> <a href="/tags/cookie/" style="font-size: 10px;">cookie</a> <a href="/tags/flex/" style="font-size: 10px;">flex</a> <a href="/tags/git/" style="font-size: 12px;">git</a> <a href="/tags/ngnix/" style="font-size: 10px;">ngnix</a> <a href="/tags/node/" style="font-size: 10px;">node</a> <a href="/tags/pm2/" style="font-size: 10px;">pm2</a> <a href="/tags/rem/" style="font-size: 10px;">rem</a> <a href="/tags/table/" style="font-size: 10px;">table</a> <a href="/tags/上拉加载/" style="font-size: 10px;">上拉加载</a> <a href="/tags/事件委托/" style="font-size: 10px;">事件委托</a> <a href="/tags/多端开发/" style="font-size: 10px;">多端开发</a> <a href="/tags/布局/" style="font-size: 12px;">布局</a> <a href="/tags/排序/" style="font-size: 10px;">排序</a> <a href="/tags/数据结构/" style="font-size: 10px;">数据结构</a> <a href="/tags/环境配置/" style="font-size: 20px;">环境配置</a> <a href="/tags/网页配色/" style="font-size: 10px;">网页配色</a> <a href="/tags/跨域/" style="font-size: 12px;">跨域</a> <a href="/tags/迭代/" style="font-size: 10px;">迭代</a>
     </div>
 </div>
 
@@ -655,6 +655,25 @@
         <h3 class="menu-label">
             Recent
         </h3>
+        
+        <article class="media">
+            
+            <a href="/2019/08/16/一张图看懂URI的编码和解码函数/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="一张图看懂URI的编码和解码函数">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-08-16T08:08:03.000Z">2019-08-16</time></div>
+                    <a href="/2019/08/16/一张图看懂URI的编码和解码函数/" class="has-link-black-ter is-size-6">一张图看懂URI的编码和解码函数</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/JS-ES6/">JS/ES6</a>
+                    </p>
+                </div>
+            </div>
+        </article>
         
         <article class="media">
             
@@ -732,25 +751,6 @@
             </div>
         </article>
         
-        <article class="media">
-            
-            <a href="/2019/08/09/移动端布局之rem/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="移动端布局之rem">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-08-09T00:41:27.000Z">2019-08-09</time></div>
-                    <a href="/2019/08/09/移动端布局之rem/" class="has-link-black-ter is-size-6">移动端布局之rem</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/CSS/">CSS</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
 
@@ -769,7 +769,7 @@
                     <span class="level-item">August 2019</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">11</span>
+                    <span class="level-item tag">12</span>
                 </span>
             </a>
         </li>
@@ -826,7 +826,7 @@
                 <div class="control">
                     <a class="tags has-addons" href="/tags/Array/">
                         <span class="tag">Array</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag is-grey">3</span>
                     </a>
                 </div>
                 
@@ -894,6 +894,13 @@
                 </div>
                 
                 <div class="control">
+                    <a class="tags has-addons" href="/tags/Object/">
+                        <span class="tag">Object</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
                     <a class="tags has-addons" href="/tags/Promise/">
                         <span class="tag">Promise</span>
                         <span class="tag is-grey">1</span>
@@ -924,6 +931,13 @@
                 <div class="control">
                     <a class="tags has-addons" href="/tags/TypeScript/">
                         <span class="tag">TypeScript</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/URI/">
+                        <span class="tag">URI</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
@@ -1121,6 +1135,25 @@
         
         <article class="media">
             
+            <a href="/2019/08/16/一张图看懂URI的编码和解码函数/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="一张图看懂URI的编码和解码函数">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-08-16T08:08:03.000Z">2019-08-16</time></div>
+                    <a href="/2019/08/16/一张图看懂URI的编码和解码函数/" class="has-link-black-ter is-size-6">一张图看懂URI的编码和解码函数</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/JS-ES6/">JS/ES6</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
             <a href="/2019/08/15/一张图看懂JavaScript中数组的迭代方法/" class="media-left">
                 <p class="image is-64x64">
                     <img class="thumbnail" src="/images/thumbnail.svg" alt="一张图看懂JavaScript中数组的迭代方法">
@@ -1195,25 +1228,6 @@
             </div>
         </article>
         
-        <article class="media">
-            
-            <a href="/2019/08/09/移动端布局之rem/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="移动端布局之rem">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-08-09T00:41:27.000Z">2019-08-09</time></div>
-                    <a href="/2019/08/09/移动端布局之rem/" class="has-link-black-ter is-size-6">移动端布局之rem</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/CSS/">CSS</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
 
@@ -1232,7 +1246,7 @@
                     <span class="level-item">August 2019</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">11</span>
+                    <span class="level-item tag">12</span>
                 </span>
             </a>
         </li>
@@ -1289,7 +1303,7 @@
                 <div class="control">
                     <a class="tags has-addons" href="/tags/Array/">
                         <span class="tag">Array</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag is-grey">3</span>
                     </a>
                 </div>
                 
@@ -1357,6 +1371,13 @@
                 </div>
                 
                 <div class="control">
+                    <a class="tags has-addons" href="/tags/Object/">
+                        <span class="tag">Object</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
                     <a class="tags has-addons" href="/tags/Promise/">
                         <span class="tag">Promise</span>
                         <span class="tag is-grey">1</span>
@@ -1387,6 +1408,13 @@
                 <div class="control">
                     <a class="tags has-addons" href="/tags/TypeScript/">
                         <span class="tag">TypeScript</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/URI/">
+                        <span class="tag">URI</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
