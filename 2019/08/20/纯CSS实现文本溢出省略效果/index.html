@@ -2,19 +2,23 @@
 <html>
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
-<title>Tag: Axios - Hexo</title>
+<title>纯CSS实现文本溢出省略效果 - Hexo</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
 
 
-    <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="https://shishuang.ga/tags/Axios/index.html">
+    <meta name="description" content="单行文本、多行文本溢出后显示省略号">
+<meta property="og:type" content="article">
+<meta property="og:title" content="纯CSS实现文本溢出省略效果">
+<meta property="og:url" content="https://shishuang.ga/2019/08/20/纯CSS实现文本溢出省略效果/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="单行文本、多行文本溢出后显示省略号">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://shishuang.ga/images/og_image.png">
+<meta property="og:updated_time" content="2019-08-20T03:00:57.202Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo">
+<meta name="twitter:title" content="纯CSS实现文本溢出省略效果">
+<meta name="twitter:description" content="单行文本、多行文本溢出后显示省略号">
 <meta name="twitter:image" content="https://shishuang.ga/images/og_image.png">
 
 
@@ -89,7 +93,7 @@
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
             
-                <img src="/images/logo.svg" alt="Hexo" height="28">
+                <img src="/images/logo.svg" alt="纯CSS实现文本溢出省略效果" height="28">
             
             </a>
         </div>
@@ -135,33 +139,22 @@
         <div class="container">
             <div class="columns">
                 <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main"><div class="card">
-    <div class="card-content">
-        <nav class="breadcrumb" aria-label="breadcrumbs">
-        <ul>
-            <li><a href="/tags">Tags</a></li>
-            <li class="is-active"><a href="#" aria-current="page">Axios</a></li>
-        </ul>
-        </nav>
-    </div>
-</div>
-
-    <div class="card">
     
     <div class="card-content article ">
         
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
             <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2019-06-27T07:51:11.000Z">2019-06-27</time>
+                <time class="level-item has-text-grey" datetime="2019-08-20T02:52:07.000Z">2019-08-20</time>
                 
                 <div class="level-item">
-                <a class="has-link-grey -link" href="/categories/HTTP/">HTTP</a>
+                <a class="has-link-grey -link" href="/categories/CSS/">CSS</a>
                 </div>
                 
                 
                 <span class="level-item has-text-grey">
                     
                     
-                    4 minutes read (About 602 words)
+                    a minute read (About 123 words)
                 </span>
                 
                 
@@ -170,23 +163,19 @@
         
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                <a class="has-link-black-ter" href="/2019/06/27/Axios在项目中的封装/">Axios在项目中的封装</a>
+                纯CSS实现文本溢出省略效果
             
         </h1>
         <div class="content">
-            <blockquote>
-<p>实际项目开发中用到的Axios封装</p>
-</blockquote>
+            <p>单行文本、多行文本溢出后显示省略号</p>
+<a id="more"></a>
+<h2 id="单行文字"><a href="#单行文字" class="headerlink" title="单行文字"></a>单行文字</h2><figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">overflow: hidden;</span><br><span class="line">text-overflow: ellipsis;</span><br><span class="line">white-space: nowrap;</span><br></pre></td></tr></table></figure>
+<h2 id="多行文字"><a href="#多行文字" class="headerlink" title="多行文字"></a>多行文字</h2><p>和单行文字一样，都需要用到<code>overflow: hidden;</code>。</p>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">overflow: hidden;</span><br><span class="line">display: -webkit-box;</span><br><span class="line">-webkit-box-orient: vertical;</span><br><span class="line">-webkit-box-clamp: 3; // 行数</span><br></pre></td></tr></table></figure>
+<h3 id="多行文字考虑兼容性"><a href="#多行文字考虑兼容性" class="headerlink" title="多行文字考虑兼容性"></a>多行文字考虑兼容性</h3><figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">&lt;style&gt;</span><br><span class="line">  p &#123;</span><br><span class="line">    overflow: hidden;</span><br><span class="line">    position: relative;</span><br><span class="line">    max-height: <span class="hljs-number">40</span>px;</span><br><span class="line">    line-height: <span class="hljs-number">20</span>px;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  p::after &#123;</span><br><span class="line">    content: <span class="hljs-string">"..."</span>;</span><br><span class="line">    position: absolute;</span><br><span class="line">    bottom: <span class="hljs-number">0</span>;</span><br><span class="line">    right: <span class="hljs-number">0</span>;</span><br><span class="line">    padding-left: <span class="hljs-number">40</span>px;</span><br><span class="line">    background: -webkit-linear-gradient(left, transparent, #fff 55%);</span><br><span class="line">    background: -o-linear-gradient(right, transparent, #fff 55%);</span><br><span class="line">    background: -moz-linear-gradient(right, transparent, #fff 55%);</span><br><span class="line">    background: linear-gradient(to right, transparent, #fff 55%);</span><br><span class="line">  &#125;</span><br><span class="line">&lt;<span class="hljs-regexp">/style&gt;</span></span><br></pre></td></tr></table></figure>
+
         </div>
         
-        
-        <div class="level is-mobile">
-            <div class="level-start">
-                <div class="level-item">
-                <a class="button is-size-7 is-light" href="/2019/06/27/Axios在项目中的封装/#more">Read More</a>
-                </div>
-            </div>
-        </div>
         
         
     </div>
@@ -194,9 +183,50 @@
 
 
 
+<div class="card">
+    <div class="card-content">
+        <h3 class="menu-label has-text-centered">Like this article? Support the author with</h3>
+        <div class="buttons is-centered">
+            
+                
+<a class="button is-info donate">
+    <span class="icon is-small">
+        <i class="fab fa-alipay"></i>
+    </span>
+    <span>Alipay</span>
+    <div class="qrcode"><img src="/" alt="Alipay"></div>
+</a>
+
+                
+                
+<a class="button is-success donate">
+    <span class="icon is-small">
+        <i class="fab fa-weixin"></i>
+    </span>
+    <span>Wechat</span>
+    <div class="qrcode"><img src="/" alt="Wechat"></div>
+</a>
+
+                
+        </div>
+    </div>
+</div>
 
 
 
+<div class="card card-transparent">
+    <div class="level post-navigation is-flex-wrap is-mobile">
+        
+        
+        <div class="level-end">
+            <a class="level level-item has-link-grey  article-nav-next" href="/2019/08/19/三张图看懂JavaScript原型对象和原型链/">
+                <span class="level-item">三张图看懂JavaScript原型对象和原型链</span>
+                <i class="level-item fas fa-chevron-right"></i>
+            </a>
+        </div>
+        
+    </div>
+</div>
 
 
 </div>
@@ -1399,7 +1429,7 @@
             <div class="level-start has-text-centered-mobile">
                 <a class="footer-logo is-block has-mb-6" href="/">
                 
-                    <img src="/images/logo.svg" alt="Hexo" height="28">
+                    <img src="/images/logo.svg" alt="纯CSS实现文本溢出省略效果" height="28">
                 
                 </a>
                 <p class="is-size-7">
