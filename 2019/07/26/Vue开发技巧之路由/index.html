@@ -16,7 +16,7 @@
 <meta property="og:description" content="Vue日常开发中使用到的小技巧：路由监听、路由懒加载">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://shishuang.ga/images/og_image.png">
-<meta property="og:updated_time" content="2019-07-26T03:27:36.377Z">
+<meta property="og:updated_time" content="2019-08-20T03:35:59.409Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Vue开发技巧之路由">
 <meta name="twitter:description" content="Vue日常开发中使用到的小技巧：路由监听、路由懒加载">
@@ -168,9 +168,7 @@
             
         </h1>
         <div class="content">
-            <blockquote>
-<p>Vue日常开发中使用到的小技巧：路由监听、路由懒加载</p>
-</blockquote>
+            <p>Vue日常开发中使用到的小技巧：<strong>路由监听</strong>、<strong>路由懒加载</strong></p>
 <a id="more"></a>
 <h2 id="路由监听"><a href="#路由监听" class="headerlink" title="路由监听"></a>路由监听</h2><p>在某个场景中，<code>vue-router</code>从<code>/post-page/a</code>跳转到<code>/post-page/b</code>后，我们惊人地发现，<strong>页面跳转后数据竟然没更新？！</strong>原因是<code>vue-router</code> 认为这是<strong>同一个组件</strong>，然后它就决定要复用这个组件，所以你在 <code>created</code> 里的方法<strong>不会执行</strong>。</p>
 <p>通常的解决方案是监听 <code>$route</code> 的变化来初始化数据，如下：</p>

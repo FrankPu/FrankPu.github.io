@@ -16,7 +16,7 @@
 <meta property="og:description" content="利用sort()，Set()等方法实现JS数组去重">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://shishuang.ga/images/og_image.png">
-<meta property="og:updated_time" content="2019-08-15T01:49:34.383Z">
+<meta property="og:updated_time" content="2019-08-20T03:35:17.033Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JS数组去重的几种方式">
 <meta name="twitter:description" content="利用sort()，Set()等方法实现JS数组去重">
@@ -168,9 +168,7 @@
             
         </h1>
         <div class="content">
-            <blockquote>
-<p>利用<code>sort()</code>，<code>Set()</code>等方法实现JS数组去重</p>
-</blockquote>
+            <p>利用<code>sort()</code>，<code>Set()</code>等方法实现JS数组去重</p>
 <a id="more"></a>
 <h2 id="sort-方法"><a href="#sort-方法" class="headerlink" title="sort()方法"></a><code>sort()</code>方法</h2><p>先sort()排序，再去重</p>
 <figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">select</span>(<span class="hljs-params">arr</span>)</span>&#123;</span><br><span class="line">    arr.sort();</span><br><span class="line">    </span><br><span class="line">    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">let</span> i=<span class="hljs-number">0</span>;i&lt;arr.length;i++)&#123;</span><br><span class="line">        <span class="hljs-keyword">if</span>(arr[i]==arr[i+<span class="hljs-number">1</span>])&#123;</span><br><span class="line">            arr.splice(i,<span class="hljs-number">1</span>);</span><br><span class="line">            <span class="hljs-comment">//需要注意的是，i--，避免少比较一次</span></span><br><span class="line">            i--;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="hljs-keyword">return</span> arr;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>

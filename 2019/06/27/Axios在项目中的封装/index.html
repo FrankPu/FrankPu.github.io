@@ -16,7 +16,7 @@
 <meta property="og:description" content="实际项目开发中用到的Axios封装">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://shishuang.ga/images/og_image.png">
-<meta property="og:updated_time" content="2019-08-15T09:20:17.115Z">
+<meta property="og:updated_time" content="2019-08-20T03:39:51.214Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Axios在项目中的封装">
 <meta name="twitter:description" content="实际项目开发中用到的Axios封装">
@@ -168,9 +168,7 @@
             
         </h1>
         <div class="content">
-            <blockquote>
-<p>实际项目开发中用到的Axios封装</p>
-</blockquote>
+            <p>实际项目开发中用到的Axios封装</p>
 <a id="more"></a>
 <h3 id="TOKEN验证"><a href="#TOKEN验证" class="headerlink" title="TOKEN验证"></a>TOKEN验证</h3><p>可以在每次请求之前验证token信息：</p>
 <figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">// 在请求拦截器中加入，用到了js-cookie</span><br><span class="line">import Cookies from &apos;js-cookie&apos;;</span><br><span class="line"></span><br><span class="line">if (Cookies.get(&apos;Admin-Token&apos;)) &#123;</span><br><span class="line">	config.headers[&apos;Authorization&apos;] = Cookies.get(&apos;Admin-Token&apos;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>

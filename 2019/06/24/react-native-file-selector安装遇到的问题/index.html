@@ -7,19 +7,19 @@
 
 
 
-    <meta name="description" content="在安装react-native-file-selector时遇到的一些问题，特此记录  安装npm install react-native-file-selector --save之后，千万不要link，不然会出错！">
+    <meta name="description" content="在安装react-native-file-selector时遇到的一些问题，特此记录">
 <meta name="keywords" content="ReactNative,环境配置">
 <meta property="og:type" content="article">
 <meta property="og:title" content="react-native-file-selector安装遇到的问题">
 <meta property="og:url" content="https://shishuang.ga/2019/06/24/react-native-file-selector安装遇到的问题/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="在安装react-native-file-selector时遇到的一些问题，特此记录  安装npm install react-native-file-selector --save之后，千万不要link，不然会出错！">
+<meta property="og:description" content="在安装react-native-file-selector时遇到的一些问题，特此记录">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://shishuang.ga/images/og_image.png">
-<meta property="og:updated_time" content="2019-07-04T07:12:02.098Z">
+<meta property="og:updated_time" content="2019-08-20T03:42:43.159Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="react-native-file-selector安装遇到的问题">
-<meta name="twitter:description" content="在安装react-native-file-selector时遇到的一些问题，特此记录  安装npm install react-native-file-selector --save之后，千万不要link，不然会出错！">
+<meta name="twitter:description" content="在安装react-native-file-selector时遇到的一些问题，特此记录">
 <meta name="twitter:image" content="https://shishuang.ga/images/og_image.png">
 
 
@@ -155,7 +155,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    2 minutes read (About 251 words)
+                    2 minutes read (About 253 words)
                 </span>
                 
                 
@@ -168,12 +168,11 @@
             
         </h1>
         <div class="content">
-            <blockquote>
-<p>在安装react-native-file-selector时遇到的一些问题，特此记录</p>
-</blockquote>
-<p>安装<code>npm install react-native-file-selector --save</code>之后，千万不要link，不然会出错！</p>
+            <p>在安装react-native-file-selector时遇到的一些问题，特此记录</p>
 <a id="more"></a>
-<ol>
+<h2 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h2><ol>
+<li><p>安装<code>npm install react-native-file-selector --save</code>，之后千万不要link，不然会出错！</p>
+</li>
 <li><p>在<code>android\settings.gradle</code>添加</p>
 <figure class="highlight bash hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">include <span class="hljs-string">':react-native-file-selector'</span></span><br><span class="line">project(<span class="hljs-string">':react-native-file-selector'</span>).projectDir = new File(rootProject.projectDir, <span class="hljs-string">'../node_modules/react-native-file-selector/android'</span>)</span><br></pre></td></tr></table></figure>
 </li>

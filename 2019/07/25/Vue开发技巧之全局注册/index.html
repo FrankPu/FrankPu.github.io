@@ -16,7 +16,7 @@
 <meta property="og:description" content="Vue日常开发中使用到的小技巧：全局注册过滤器、全局注册组件">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://shishuang.ga/images/og_image.png">
-<meta property="og:updated_time" content="2019-07-25T07:07:11.470Z">
+<meta property="og:updated_time" content="2019-08-20T03:36:13.957Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Vue开发技巧之全局注册">
 <meta name="twitter:description" content="Vue日常开发中使用到的小技巧：全局注册过滤器、全局注册组件">
@@ -168,9 +168,7 @@
             
         </h1>
         <div class="content">
-            <blockquote>
-<p>Vue日常开发中使用到的小技巧：全局注册过滤器、全局注册组件</p>
-</blockquote>
+            <p>Vue日常开发中使用到的小技巧：<strong>全局注册过滤器</strong>、<strong>全局注册组件</strong></p>
 <a id="more"></a>
 <h2 id="全局注册过滤器"><a href="#全局注册过滤器" class="headerlink" title="全局注册过滤器"></a>全局注册过滤器</h2><p>官方的方式：</p>
 <figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">// 注册</span></span><br><span class="line">Vue.filter(<span class="hljs-string">'my-filter'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">value</span>) </span>&#123;</span><br><span class="line">	<span class="hljs-comment">// 返回处理后的值</span></span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">//getter 返回已注册的过滤器</span></span><br><span class="line"><span class="hljs-keyword">var</span> maFilter = Vue.filter(<span class="hljs-string">'my-filter'</span>);</span><br></pre></td></tr></table></figure>
