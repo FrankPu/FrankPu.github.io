@@ -2,24 +2,19 @@
 <html>
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
-<title>react-native-file-selector安装遇到的问题 - Hexo</title>
+<title>Etiqueta: 响应式 - Hexo</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
 
 
-    <meta name="description" content="在安装react-native-file-selector时遇到的一些问题，特此记录">
-<meta name="keywords" content="ReactNative,环境配置">
-<meta property="og:type" content="article">
-<meta property="og:title" content="react-native-file-selector安装遇到的问题">
-<meta property="og:url" content="https://shishuang.ga/2019/06/24/react-native-file-selector安装遇到的问题/index.html">
+    <meta property="og:type" content="website">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="https://shishuang.ga/tags/响应式/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="在安装react-native-file-selector时遇到的一些问题，特此记录">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://shishuang.ga/images/og_image.png">
-<meta property="og:updated_time" content="2019-08-20T03:42:43.159Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="react-native-file-selector安装遇到的问题">
-<meta name="twitter:description" content="在安装react-native-file-selector时遇到的一些问题，特此记录">
+<meta name="twitter:title" content="Hexo">
 <meta name="twitter:image" content="https://shishuang.ga/images/og_image.png">
 
 
@@ -94,7 +89,7 @@
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
             
-                <img src="/images/logo.svg" alt="react-native-file-selector安装遇到的问题" height="28">
+                <img src="/images/logo.svg" alt="Hexo" height="28">
             
             </a>
         </div>
@@ -140,22 +135,33 @@
         <div class="container">
             <div class="columns">
                 <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main"><div class="card">
+    <div class="card-content">
+        <nav class="breadcrumb" aria-label="breadcrumbs">
+        <ul>
+            <li><a href="/tags">Etiquetas</a></li>
+            <li class="is-active"><a href="#" aria-current="page">响应式</a></li>
+        </ul>
+        </nav>
+    </div>
+</div>
+
+    <div class="card">
     
     <div class="card-content article ">
         
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
             <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2019-06-24T09:36:24.000Z">2019-06-24</time>
+                <time class="level-item has-text-grey" datetime="2019-08-21T01:46:45.000Z">2019-08-21</time>
                 
                 <div class="level-item">
-                <a class="has-link-grey -link" href="/categories/ReactNative/">ReactNative</a>
+                <a class="has-link-grey -link" href="/categories/CSS/">CSS</a>
                 </div>
                 
                 
                 <span class="level-item has-text-grey">
                     
                     
-                    2 minutes read (About 253 words)
+                    7 minutes read (About 995 words)
                 </span>
                 
                 
@@ -164,111 +170,34 @@
         
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                react-native-file-selector安装遇到的问题
+                <a class="has-link-black-ter" href="/2019/08/21/响应式图片/">响应式图片</a>
             
         </h1>
         <div class="content">
-            <p>在安装react-native-file-selector时遇到的一些问题，特此记录</p>
-<a id="more"></a>
-<h2 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h2><ol>
-<li><p>安装<code>npm install react-native-file-selector --save</code>，之后千万不要link，不然会出错！</p>
-</li>
-<li><p>在<code>android\settings.gradle</code>添加</p>
-<figure class="highlight bash hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">include <span class="hljs-string">':react-native-file-selector'</span></span><br><span class="line">project(<span class="hljs-string">':react-native-file-selector'</span>).projectDir = new File(rootProject.projectDir, <span class="hljs-string">'../node_modules/react-native-file-selector/android'</span>)</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>在<code>android\build.gradle</code>添加</p>
-<figure class="highlight bash hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">maven &#123; url <span class="hljs-string">"http://dl.bintray.com/lukaville/maven"</span> &#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>在<code>android\app\build.gradle</code>中添加</p>
-<figure class="highlight bash hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">implementation project(<span class="hljs-string">':react-native-file-selector'</span>)</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>在<code>MainApplication.java</code>中引用jar包</p>
-<figure class="highlight bash hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">import ui.fileselector.RNFileSelectorPackage;</span><br></pre></td></tr></table></figure>
-<p>在下面的<code>getPackages()</code>中使用</p>
-<figure class="highlight bash hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">new RNFileSelectorPackage(),</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>新增主题文件<code>android/app/src/main/res/values/colors.xml</code>，可以自定义</p>
-<figure class="highlight bash hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">	&lt;resources&gt;</span><br><span class="line">    &lt;color name=<span class="hljs-string">"colorPrimary"</span>&gt;<span class="hljs-comment">#3F51B5&lt;/color&gt;</span></span><br><span class="line">    &lt;color name=<span class="hljs-string">"colorPrimaryDark"</span>&gt;<span class="hljs-comment">#303F9F&lt;/color&gt;</span></span><br><span class="line">    &lt;color name=<span class="hljs-string">"colorAccent"</span>&gt;<span class="hljs-comment">#FF4081&lt;/color&gt;</span></span><br><span class="line">&lt;/resources&gt;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>在<code>android\app\src\main\AndroidManifest.xml</code>添加权限</p>
-<figure class="highlight bash hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;uses-permission android:name=<span class="hljs-string">"android.permission.WRITE_EXTERNAL_STORAGE"</span> /&gt;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>到这里算是完成了自动<code>link</code>的步骤，但是还有<strong>bug</strong>！！！错误提示：</p>
-<figure class="highlight bash hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Android dependency <span class="hljs-string">'com.android.support:support-v4'</span> has different version <span class="hljs-keyword">for</span> the compile (27.0.2) and runtime (28.0.0) classpath. You should manually <span class="hljs-built_in">set</span> the same version via DependencyResolution</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<p>解决办法，修改我们第4步为：<br>  <figure class="highlight bash hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">implementation (project(<span class="hljs-string">':react-native-file-selector'</span>)) &#123;</span><br><span class="line">     exclude group: <span class="hljs-string">'com.android.support'</span></span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure></p>
-<p>  至此，结束！</p>
-
+            <p>所谓响应式图片，就是<strong>根据客户端的情况返回最适合客户端的图片。</strong></p>
+<blockquote>
+<p>参考地址：<a href="https://cjting.me/2019/07/29/image-optimization/" target="_blank" rel="noopener">cjting</a>，<a href="http://www.ruanyifeng.com/blog/2019/06/responsive-images.html" target="_blank" rel="noopener">阮一峰</a></p>
+</blockquote>
         </div>
         
-        <div class="level is-size-7 is-uppercase">
+        
+        <div class="level is-mobile">
             <div class="level-start">
                 <div class="level-item">
-                    <span class="is-size-6 has-text-grey has-mr-7">#</span>
-                    <a class="has-link-grey -link" href="/tags/ReactNative/">ReactNative</a>, <a class="has-link-grey -link" href="/tags/环境配置/">环境配置</a>
+                <a class="button is-size-7 is-light" href="/2019/08/21/响应式图片/#more">Read More</a>
                 </div>
             </div>
         </div>
         
         
-        
     </div>
 </div>
 
 
 
-<div class="card">
-    <div class="card-content">
-        <h3 class="menu-label has-text-centered">Like this article? Support the author with</h3>
-        <div class="buttons is-centered">
-            
-                
-<a class="button is-info donate">
-    <span class="icon is-small">
-        <i class="fab fa-alipay"></i>
-    </span>
-    <span>Alipay</span>
-    <div class="qrcode"><img src="/" alt="Alipay"></div>
-</a>
-
-                
-                
-<a class="button is-success donate">
-    <span class="icon is-small">
-        <i class="fab fa-weixin"></i>
-    </span>
-    <span>Wechat</span>
-    <div class="qrcode"><img src="/" alt="Wechat"></div>
-</a>
-
-                
-        </div>
-    </div>
-</div>
 
 
 
-<div class="card card-transparent">
-    <div class="level post-navigation is-flex-wrap is-mobile">
-        
-        <div class="level-start">
-            <a class="level level-item has-link-grey  article-nav-prev" href="/2019/06/25/写给自己看的React笔记/">
-                <i class="level-item fas fa-chevron-left"></i>
-                <span class="level-item">写给自己看的React笔记</span>
-            </a>
-        </div>
-        
-        
-        <div class="level-end">
-            <a class="level level-item has-link-grey  article-nav-next" href="/2019/06/21/写给自己看的react-native-pushy使用笔记/">
-                <span class="level-item">写给自己看的react-native-pushy使用笔记</span>
-                <i class="level-item fas fa-chevron-right"></i>
-            </a>
-        </div>
-        
-    </div>
-</div>
 
 
 </div>
@@ -1485,7 +1414,7 @@
             <div class="level-start has-text-centered-mobile">
                 <a class="footer-logo is-block has-mb-6" href="/">
                 
-                    <img src="/images/logo.svg" alt="react-native-file-selector安装遇到的问题" height="28">
+                    <img src="/images/logo.svg" alt="Hexo" height="28">
                 
                 </a>
                 <p class="is-size-7">

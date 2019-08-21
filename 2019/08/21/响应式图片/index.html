@@ -2,24 +2,24 @@
 <html>
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
-<title>react-native-file-selector安装遇到的问题 - Hexo</title>
+<title>响应式图片 - Hexo</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
 
 
-    <meta name="description" content="在安装react-native-file-selector时遇到的一些问题，特此记录">
-<meta name="keywords" content="ReactNative,环境配置">
+    <meta name="description" content="所谓响应式图片，就是根据客户端的情况返回最适合客户端的图片。  参考地址：cjting，阮一峰">
+<meta name="keywords" content="响应式">
 <meta property="og:type" content="article">
-<meta property="og:title" content="react-native-file-selector安装遇到的问题">
-<meta property="og:url" content="https://shishuang.ga/2019/06/24/react-native-file-selector安装遇到的问题/index.html">
+<meta property="og:title" content="响应式图片">
+<meta property="og:url" content="https://shishuang.ga/2019/08/21/响应式图片/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="在安装react-native-file-selector时遇到的一些问题，特此记录">
+<meta property="og:description" content="所谓响应式图片，就是根据客户端的情况返回最适合客户端的图片。  参考地址：cjting，阮一峰">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://shishuang.ga/images/og_image.png">
-<meta property="og:updated_time" content="2019-08-20T03:42:43.159Z">
+<meta property="og:updated_time" content="2019-08-21T01:50:32.263Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="react-native-file-selector安装遇到的问题">
-<meta name="twitter:description" content="在安装react-native-file-selector时遇到的一些问题，特此记录">
+<meta name="twitter:title" content="响应式图片">
+<meta name="twitter:description" content="所谓响应式图片，就是根据客户端的情况返回最适合客户端的图片。  参考地址：cjting，阮一峰">
 <meta name="twitter:image" content="https://shishuang.ga/images/og_image.png">
 
 
@@ -94,7 +94,7 @@
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
             
-                <img src="/images/logo.svg" alt="react-native-file-selector安装遇到的问题" height="28">
+                <img src="/images/logo.svg" alt="响应式图片" height="28">
             
             </a>
         </div>
@@ -145,17 +145,17 @@
         
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
             <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2019-06-24T09:36:24.000Z">2019-06-24</time>
+                <time class="level-item has-text-grey" datetime="2019-08-21T01:46:45.000Z">2019-08-21</time>
                 
                 <div class="level-item">
-                <a class="has-link-grey -link" href="/categories/ReactNative/">ReactNative</a>
+                <a class="has-link-grey -link" href="/categories/CSS/">CSS</a>
                 </div>
                 
                 
                 <span class="level-item has-text-grey">
                     
                     
-                    2 minutes read (About 253 words)
+                    7 minutes read (About 995 words)
                 </span>
                 
                 
@@ -164,41 +164,74 @@
         
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                react-native-file-selector安装遇到的问题
+                响应式图片
             
         </h1>
         <div class="content">
-            <p>在安装react-native-file-selector时遇到的一些问题，特此记录</p>
+            <p>所谓响应式图片，就是<strong>根据客户端的情况返回最适合客户端的图片。</strong></p>
+<blockquote>
+<p>参考地址：<a href="https://cjting.me/2019/07/29/image-optimization/" target="_blank" rel="noopener">cjting</a>，<a href="http://www.ruanyifeng.com/blog/2019/06/responsive-images.html" target="_blank" rel="noopener">阮一峰</a></p>
+</blockquote>
 <a id="more"></a>
-<h2 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h2><ol>
-<li><p>安装<code>npm install react-native-file-selector --save</code>，之后千万不要link，不然会出错！</p>
-</li>
-<li><p>在<code>android\settings.gradle</code>添加</p>
-<figure class="highlight bash hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">include <span class="hljs-string">':react-native-file-selector'</span></span><br><span class="line">project(<span class="hljs-string">':react-native-file-selector'</span>).projectDir = new File(rootProject.projectDir, <span class="hljs-string">'../node_modules/react-native-file-selector/android'</span>)</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>在<code>android\build.gradle</code>添加</p>
-<figure class="highlight bash hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">maven &#123; url <span class="hljs-string">"http://dl.bintray.com/lukaville/maven"</span> &#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>在<code>android\app\build.gradle</code>中添加</p>
-<figure class="highlight bash hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">implementation project(<span class="hljs-string">':react-native-file-selector'</span>)</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>在<code>MainApplication.java</code>中引用jar包</p>
-<figure class="highlight bash hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">import ui.fileselector.RNFileSelectorPackage;</span><br></pre></td></tr></table></figure>
-<p>在下面的<code>getPackages()</code>中使用</p>
-<figure class="highlight bash hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">new RNFileSelectorPackage(),</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>新增主题文件<code>android/app/src/main/res/values/colors.xml</code>，可以自定义</p>
-<figure class="highlight bash hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">	&lt;resources&gt;</span><br><span class="line">    &lt;color name=<span class="hljs-string">"colorPrimary"</span>&gt;<span class="hljs-comment">#3F51B5&lt;/color&gt;</span></span><br><span class="line">    &lt;color name=<span class="hljs-string">"colorPrimaryDark"</span>&gt;<span class="hljs-comment">#303F9F&lt;/color&gt;</span></span><br><span class="line">    &lt;color name=<span class="hljs-string">"colorAccent"</span>&gt;<span class="hljs-comment">#FF4081&lt;/color&gt;</span></span><br><span class="line">&lt;/resources&gt;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>在<code>android\app\src\main\AndroidManifest.xml</code>添加权限</p>
-<figure class="highlight bash hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;uses-permission android:name=<span class="hljs-string">"android.permission.WRITE_EXTERNAL_STORAGE"</span> /&gt;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>到这里算是完成了自动<code>link</code>的步骤，但是还有<strong>bug</strong>！！！错误提示：</p>
-<figure class="highlight bash hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Android dependency <span class="hljs-string">'com.android.support:support-v4'</span> has different version <span class="hljs-keyword">for</span> the compile (27.0.2) and runtime (28.0.0) classpath. You should manually <span class="hljs-built_in">set</span> the same version via DependencyResolution</span><br></pre></td></tr></table></figure>
-</li>
+<h2 id="picture标签"><a href="#picture标签" class="headerlink" title="picture标签"></a><code>picture</code>标签</h2><figure class="highlight html hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">picture</span>&gt;</span></span><br><span class="line">  <span class="hljs-tag">&lt;<span class="hljs-name">source</span> <span class="hljs-attr">srcset</span>=<span class="hljs-string">"a.jpg"</span>&gt;</span></span><br><span class="line">  <span class="hljs-tag">&lt;<span class="hljs-name">source</span> <span class="hljs-attr">srcset</span>=<span class="hljs-string">"b.jpg"</span>&gt;</span></span><br><span class="line">  <span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"c.jpg"</span> &gt;</span></span><br><span class="line"><span class="hljs-tag">&lt;/<span class="hljs-name">picture</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p><code>&lt;picture&gt;</code>标签会从 source 中选择最合适的一个，然后将它的 URL 赋值给 img。对于不认识 picture 的旧浏览器，他们会忽略<code>&lt;source&gt;</code>标签，只渲染 <code>&lt;img&gt;</code>标签。</p>
+<p><strong>注意：</strong><code>&lt;picture&gt;</code>标签<strong>最后一定要包含一个 <code>&lt;img&gt;</code>标签</strong>，否则，什么都不会显示。</p>
+<h3 id="动态内容"><a href="#动态内容" class="headerlink" title="动态内容"></a>动态内容</h3><p>根据客户端情况<strong>返回不同的图片</strong>，使用 <code>&lt;source&gt;</code>标签的<code>media</code>属性即可。</p>
+<p>示例代码如下：</p>
+<figure class="highlight html hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">picture</span>&gt;</span></span><br><span class="line">  <span class="hljs-comment">&lt;!-- 大于等于 1024px 时，显示 img-full.jpg --&gt;</span></span><br><span class="line">  <span class="hljs-tag">&lt;<span class="hljs-name">source</span></span></span><br><span class="line"><span class="hljs-tag">    <span class="hljs-attr">media</span>=<span class="hljs-string">"(min-width: 1024px)"</span></span></span><br><span class="line"><span class="hljs-tag">    <span class="hljs-attr">srcset</span>=<span class="hljs-string">"img-full.jpg"</span></span></span><br><span class="line"><span class="hljs-tag">  &gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="hljs-comment">&lt;!-- 大于等于 768px 且小于 1024px 时，显示 img-center.jpg --&gt;</span></span><br><span class="line">  <span class="hljs-tag">&lt;<span class="hljs-name">source</span></span></span><br><span class="line"><span class="hljs-tag">    <span class="hljs-attr">media</span>=<span class="hljs-string">"(min-width: 768px)"</span></span></span><br><span class="line"><span class="hljs-tag">    <span class="hljs-attr">srcset</span>=<span class="hljs-string">"img-center.jpg"</span></span></span><br><span class="line"><span class="hljs-tag">  &gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="hljs-comment">&lt;!-- 小于 1024px 时，显示 img-default.jpg --&gt;</span></span><br><span class="line">  <span class="hljs-tag">&lt;<span class="hljs-name">img</span></span></span><br><span class="line"><span class="hljs-tag">    <span class="hljs-attr">src</span>=<span class="hljs-string">"img-default.jpg"</span></span></span><br><span class="line"><span class="hljs-tag">  &gt;</span></span><br><span class="line"><span class="hljs-tag">&lt;/<span class="hljs-name">picture</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="动态格式"><a href="#动态格式" class="headerlink" title="动态格式"></a>动态格式</h3><p>根据客户端情况<strong>返回不同的图片格式</strong>，使用 <code>&lt;source&gt;</code>标签的<code>type</code>属性即可。</p>
+<p>示例代码如下：</p>
+<figure class="highlight html hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">picture</span>&gt;</span></span><br><span class="line">  <span class="hljs-comment">&lt;!-- 在支持 WebP 的浏览器上使用 img.webp --&gt;</span></span><br><span class="line">  <span class="hljs-tag">&lt;<span class="hljs-name">source</span></span></span><br><span class="line"><span class="hljs-tag">    <span class="hljs-attr">srcset</span>=<span class="hljs-string">"img.webp"</span></span></span><br><span class="line"><span class="hljs-tag">    <span class="hljs-attr">type</span>=<span class="hljs-string">"image/webp"</span></span></span><br><span class="line"><span class="hljs-tag">  &gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="hljs-comment">&lt;!-- 在不支持 WebP 的浏览器上使用 img.jpg --&gt;</span></span><br><span class="line">  <span class="hljs-tag">&lt;<span class="hljs-name">img</span></span></span><br><span class="line"><span class="hljs-tag">    <span class="hljs-attr">src</span>=<span class="hljs-string">"img.jpg"</span></span></span><br><span class="line"><span class="hljs-tag">  &gt;</span></span><br><span class="line"><span class="hljs-tag">&lt;/<span class="hljs-name">picture</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="动态分辨率"><a href="#动态分辨率" class="headerlink" title="动态分辨率"></a>动态分辨率</h3><p>根据屏幕的DPI<strong>返回同一张图片的不同分辨率版本</strong>，使用 <code>&lt;img&gt;</code>标签的<code>srcset</code>属性即可。</p>
+<p><code>srcset</code>属性：</p>
+<ol>
+<li>用来<strong>提供多张图片</strong>，浏览器会下载与其 DPR 对应的<strong>最佳</strong>图片。</li>
+<li>它的值是一个逗号分隔的字符串，每个部分格式都是<strong>一张图片的 URL</strong> + <strong>描述符</strong>。</li>
+<li>描述符有两种：<ol>
+<li>用 字母<code>x</code> 来区分设备<strong>像素比 (DPR)</strong></li>
+<li>用 字母<code>w</code> 来描述图片的<strong>宽度</strong></li>
 </ol>
-<p>解决办法，修改我们第4步为：<br>  <figure class="highlight bash hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">implementation (project(<span class="hljs-string">':react-native-file-selector'</span>)) &#123;</span><br><span class="line">     exclude group: <span class="hljs-string">'com.android.support'</span></span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure></p>
-<p>  至此，结束！</p>
+</li>
+<li>如果<code>srcset</code>属性都不满足条件，那么就加载src属性指定的默认图片。</li>
+</ol>
+<p><strong>像素密度描述符</strong>：格式是<strong>像素密度倍数</strong> + 字母<code>x</code>。</p>
+<p>示例代码如下：</p>
+<figure class="highlight html hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">&lt;!-- 在低DPI使用 img-200.jpg，在高DPI使用 img-400.jpg --&gt;</span></span><br><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">img</span></span></span><br><span class="line"><span class="hljs-tag">  <span class="hljs-attr">srcset</span>=<span class="hljs-string">"</span></span></span><br><span class="line"><span class="hljs-tag"><span class="hljs-string">    img-200.jpg,</span></span></span><br><span class="line"><span class="hljs-tag"><span class="hljs-string">    img-400.jpg 2x"</span></span></span><br><span class="line"><span class="hljs-tag">  <span class="hljs-attr">src</span>=<span class="hljs-string">"img-400.jpg"</span></span></span><br><span class="line"><span class="hljs-tag">&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">style</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text/css"</span>&gt;</span><span class="hljs-undefined"></span></span><br><span class="line"><span class="hljs-undefined">  img &#123;</span></span><br><span class="line"><span class="hljs-undefined">    width: 200px;</span></span><br><span class="line"><span class="hljs-undefined">  &#125;</span></span><br><span class="line"><span class="hljs-undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="动态尺寸"><a href="#动态尺寸" class="headerlink" title="动态尺寸"></a>动态尺寸</h3><p>根据客户端情况<strong>返回不同的图片尺寸</strong>。<br>我们需要用到 <code>&lt;img&gt;</code>标签的两个属性：</p>
+<ol>
+<li>有哪些尺寸的图片（<code>srcset</code>属性来提供）</li>
+<li>浏览器在不同视窗应该显示什么尺寸的图片（<code>size</code>属性来指定）</li>
+</ol>
+<p>第一步，<code>srcset</code>属性提供值类似于<strong>动态分辨率</strong>，不过这里的单位为<strong>宽度描述符</strong>。</p>
+<p><strong>宽度描述符</strong>：格式是<strong>图片原始的宽度</strong> + 字母<code>w</code>。</p>
+<p>第二步，<code>sizes</code>属性列出不同设备的图片显示宽度。格式是<strong>一个放在括号里面的媒体查询表达式</strong> + <strong>图片的显示宽度</strong>。</p>
+<p><strong>注意：</strong><code>sizes</code>属性<strong>必须</strong>与<code>srcset</code>属性搭配使用。单独使用sizes属性是无效的。</p>
+<p>第三步，浏览器根据当前设备的宽度，从<code>sizes</code>属性获得<strong>图片的显示宽度</strong>，然后从<code>srcset</code>属性<strong>找出最接近该宽度的图片</strong>，进行加载。</p>
+<p>示例代码如下：</p>
+<figure class="highlight html hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">img</span></span></span><br><span class="line"><span class="hljs-tag">  <span class="hljs-attr">srcset</span>=<span class="hljs-string">"</span></span></span><br><span class="line"><span class="hljs-tag"><span class="hljs-string">    img-160.jpg 160w,</span></span></span><br><span class="line"><span class="hljs-tag"><span class="hljs-string">    img-320.jpg 320w,</span></span></span><br><span class="line"><span class="hljs-tag"><span class="hljs-string">    img-640.jpg 640w,</span></span></span><br><span class="line"><span class="hljs-tag"><span class="hljs-string">    img-1280.jpg 1280w"</span></span></span><br><span class="line"><span class="hljs-tag">  <span class="hljs-attr">sizes</span>=<span class="hljs-string">"</span></span></span><br><span class="line"><span class="hljs-tag"><span class="hljs-string">    (min-width: 440px) 100vw,</span></span></span><br><span class="line"><span class="hljs-tag"><span class="hljs-string">    (min-width: 900px) 33vw,</span></span></span><br><span class="line"><span class="hljs-tag"><span class="hljs-string">    254px"</span></span></span><br><span class="line"><span class="hljs-tag">  <span class="hljs-attr">src</span>=<span class="hljs-string">"img-1280.jpg"</span></span></span><br><span class="line"><span class="hljs-tag">&gt;</span></span><br></pre></td></tr></table></figure>
+<p>上面代码中，<code>sizes</code>属性给出了三种<strong>屏幕条件</strong>，以及对应的<strong>图片显示宽度</strong>：</p>
+<ol>
+<li>宽度不超过 440px 的设备，图片显示宽度为 100%</li>
+<li>宽度 441px到 900px 的设备，图片显示宽度为 33%</li>
+<li>宽度 900px 以上的设备，图片显示宽度为 254px</li>
+</ol>
+<p><strong>举个栗子：</strong></p>
+<p>假定当前设备的屏幕宽度是480px，浏览器从sizes属性查询得到，图片的显示宽度是33vw（即33%），等于160px。srcset属性里面，正好有宽度等于160px的图片，于是加载foo-160.jpg。</p>
+<h3 id="综合应用"><a href="#综合应用" class="headerlink" title="综合应用"></a>综合应用</h3><ul>
+<li><p>视口 &gt;= 1280px 时</p>
+<ul>
+<li>根据视口的具体宽度，返回不同尺寸的<strong>img-full</strong>图片</li>
+<li>如果客户端支持 WebP，返回 WebP 格式</li>
+</ul>
+</li>
+<li><p>视口 &lt; 1280px 时</p>
+<ul>
+<li>根据视口的具体宽度，返回不同尺寸的<strong>img</strong>图片</li>
+<li>如果客户端支持 WebP，返回 WebP 格式</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight html hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">picture</span>&gt;</span></span><br><span class="line">  <span class="hljs-tag">&lt;<span class="hljs-name">source</span></span></span><br><span class="line"><span class="hljs-tag">    <span class="hljs-attr">media</span>=<span class="hljs-string">"(min-width: 1280px)"</span></span></span><br><span class="line"><span class="hljs-tag">    <span class="hljs-attr">sizes</span>=<span class="hljs-string">"50vw"</span></span></span><br><span class="line"><span class="hljs-tag">    <span class="hljs-attr">srcset</span>=<span class="hljs-string">"</span></span></span><br><span class="line"><span class="hljs-tag"><span class="hljs-string">      img-full-200.webp 200w,</span></span></span><br><span class="line"><span class="hljs-tag"><span class="hljs-string">      img-full-400.webp 400w,</span></span></span><br><span class="line"><span class="hljs-tag"><span class="hljs-string">      img-full-800.webp 800w,</span></span></span><br><span class="line"><span class="hljs-tag"><span class="hljs-string">      img-full-1200.webp 1200w,</span></span></span><br><span class="line"><span class="hljs-tag"><span class="hljs-string">      img-full-1600.webp 1600w,</span></span></span><br><span class="line"><span class="hljs-tag"><span class="hljs-string">      img-full-2000.webp 2000w"</span></span></span><br><span class="line"><span class="hljs-tag">    <span class="hljs-attr">type</span>=<span class="hljs-string">"image/webp"</span></span></span><br><span class="line"><span class="hljs-tag">  &gt;</span></span><br><span class="line">  <span class="hljs-tag">&lt;<span class="hljs-name">source</span></span></span><br><span class="line"><span class="hljs-tag">    <span class="hljs-attr">media</span>=<span class="hljs-string">"(min-width: 1280px)"</span></span></span><br><span class="line"><span class="hljs-tag">    <span class="hljs-attr">sizes</span>=<span class="hljs-string">"50vw"</span></span></span><br><span class="line"><span class="hljs-tag">    <span class="hljs-attr">srcset</span>=<span class="hljs-string">"</span></span></span><br><span class="line"><span class="hljs-tag"><span class="hljs-string">      img-full-200.jpg 200w,</span></span></span><br><span class="line"><span class="hljs-tag"><span class="hljs-string">      img-full-400.jpg 400w,</span></span></span><br><span class="line"><span class="hljs-tag"><span class="hljs-string">      img-full-800.jpg 800w,</span></span></span><br><span class="line"><span class="hljs-tag"><span class="hljs-string">      img-full-1200.jpg 1200w,</span></span></span><br><span class="line"><span class="hljs-tag"><span class="hljs-string">      img-full-1600.jpg 1800w,</span></span></span><br><span class="line"><span class="hljs-tag"><span class="hljs-string">      img-full-2000.jpg 2000w"</span></span></span><br><span class="line"><span class="hljs-tag">  &gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="hljs-tag">&lt;<span class="hljs-name">source</span></span></span><br><span class="line"><span class="hljs-tag">    <span class="hljs-attr">sizes</span>=<span class="hljs-string">"(min-width: 640px) 60vw, 100vw"</span></span></span><br><span class="line"><span class="hljs-tag">    <span class="hljs-attr">srcset</span>=<span class="hljs-string">"</span></span></span><br><span class="line"><span class="hljs-tag"><span class="hljs-string">      img-200.webp 200w,</span></span></span><br><span class="line"><span class="hljs-tag"><span class="hljs-string">      img-400.webp 400w,</span></span></span><br><span class="line"><span class="hljs-tag"><span class="hljs-string">      img-800.webp 800w,</span></span></span><br><span class="line"><span class="hljs-tag"><span class="hljs-string">      img-1200.webp 1200w,</span></span></span><br><span class="line"><span class="hljs-tag"><span class="hljs-string">      img-1600.webp 1600w,</span></span></span><br><span class="line"><span class="hljs-tag"><span class="hljs-string">      img-2000.webp 2000w"</span></span></span><br><span class="line"><span class="hljs-tag">    <span class="hljs-attr">type</span>=<span class="hljs-string">"image/webp"</span></span></span><br><span class="line"><span class="hljs-tag">  &gt;</span></span><br><span class="line">  <span class="hljs-tag">&lt;<span class="hljs-name">img</span></span></span><br><span class="line"><span class="hljs-tag">    <span class="hljs-attr">src</span>=<span class="hljs-string">"img-400.jpg"</span></span></span><br><span class="line"><span class="hljs-tag">    <span class="hljs-attr">sizes</span>=<span class="hljs-string">"(min-width: 640px) 60vw, 100vw"</span></span></span><br><span class="line"><span class="hljs-tag">    <span class="hljs-attr">srcset</span>=<span class="hljs-string">"</span></span></span><br><span class="line"><span class="hljs-tag"><span class="hljs-string">      img-200.jpg 200w,</span></span></span><br><span class="line"><span class="hljs-tag"><span class="hljs-string">      img-400.jpg 400w,</span></span></span><br><span class="line"><span class="hljs-tag"><span class="hljs-string">      img-800.jpg 800w,</span></span></span><br><span class="line"><span class="hljs-tag"><span class="hljs-string">      img-1200.jpg 1200w,</span></span></span><br><span class="line"><span class="hljs-tag"><span class="hljs-string">      img-1600.jpg 1600w,</span></span></span><br><span class="line"><span class="hljs-tag"><span class="hljs-string">      img-2000.jpg 2000w"</span></span></span><br><span class="line"><span class="hljs-tag">  &gt;</span></span><br><span class="line"><span class="hljs-tag">&lt;/<span class="hljs-name">picture</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
         </div>
         
@@ -206,7 +239,7 @@
             <div class="level-start">
                 <div class="level-item">
                     <span class="is-size-6 has-text-grey has-mr-7">#</span>
-                    <a class="has-link-grey -link" href="/tags/ReactNative/">ReactNative</a>, <a class="has-link-grey -link" href="/tags/环境配置/">环境配置</a>
+                    <a class="has-link-grey -link" href="/tags/响应式/">响应式</a>
                 </div>
             </div>
         </div>
@@ -252,17 +285,10 @@
 <div class="card card-transparent">
     <div class="level post-navigation is-flex-wrap is-mobile">
         
-        <div class="level-start">
-            <a class="level level-item has-link-grey  article-nav-prev" href="/2019/06/25/写给自己看的React笔记/">
-                <i class="level-item fas fa-chevron-left"></i>
-                <span class="level-item">写给自己看的React笔记</span>
-            </a>
-        </div>
-        
         
         <div class="level-end">
-            <a class="level level-item has-link-grey  article-nav-next" href="/2019/06/21/写给自己看的react-native-pushy使用笔记/">
-                <span class="level-item">写给自己看的react-native-pushy使用笔记</span>
+            <a class="level level-item has-link-grey  article-nav-next" href="/2019/08/20/纯CSS实现文本溢出省略效果/">
+                <span class="level-item">纯CSS实现文本溢出省略效果</span>
                 <i class="level-item fas fa-chevron-right"></i>
             </a>
         </div>
@@ -1485,7 +1511,7 @@
             <div class="level-start has-text-centered-mobile">
                 <a class="footer-logo is-block has-mb-6" href="/">
                 
-                    <img src="/images/logo.svg" alt="react-native-file-selector安装遇到的问题" height="28">
+                    <img src="/images/logo.svg" alt="响应式图片" height="28">
                 
                 </a>
                 <p class="is-size-7">
