@@ -2,19 +2,23 @@
 <html>
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
-<title>Tag: 跨域 - Hexo</title>
+<title>HTTP状态码之重定向（301，302） - Hexo</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
 
 
-    <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="https://shishuang.ga/tags/跨域/index.html">
+    <meta name="description" content="HTTP状态码301、302的使用场景">
+<meta property="og:type" content="article">
+<meta property="og:title" content="HTTP状态码之重定向（301，302）">
+<meta property="og:url" content="https://shishuang.ga/2019/08/22/HTTP状态码之重定向（301，302）/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="HTTP状态码301、302的使用场景">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://shishuang.ga/images/og_image.png">
+<meta property="og:updated_time" content="2019-08-22T03:41:08.922Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo">
+<meta name="twitter:title" content="HTTP状态码之重定向（301，302）">
+<meta name="twitter:description" content="HTTP状态码301、302的使用场景">
 <meta name="twitter:image" content="https://shishuang.ga/images/og_image.png">
 
 
@@ -89,7 +93,7 @@
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
             
-                <img src="/images/logo.svg" alt="Hexo" height="28">
+                <img src="/images/logo.svg" alt="HTTP状态码之重定向（301，302）" height="28">
             
             </a>
         </div>
@@ -135,118 +139,95 @@
         <div class="container">
             <div class="columns">
                 <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main"><div class="card">
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2019-08-22T03:37:54.000Z">2019-08-22</time>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/HTTP/">HTTP</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    3 minutes read (About 416 words)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                HTTP状态码之重定向（301，302）
+            
+        </h1>
+        <div class="content">
+            <p>HTTP状态码301、302的使用场景</p>
+<a id="more"></a>
+<h2 id="301和302之间的区别"><a href="#301和302之间的区别" class="headerlink" title="301和302之间的区别"></a>301和302之间的区别</h2><ul>
+<li><strong>301</strong>：<strong>永久</strong>性转移(Permanently Moved)，301重定向是网页更改地址后对搜索引擎最友好的方法，<strong>利于SEO</strong>。只要不是临时搬移的情况，都建议使用301来做转址。<br>如果我们把一个地址采用301跳转方式跳转的话，<strong>搜索引擎会把老地址的PageRank等信息带到新地址，同时在搜索引擎索引库中彻底废弃掉原先的老地址。</strong>旧网址的排名等完全清零。</li>
+<li><strong>302</strong>：<strong>临时</strong>性转移(Temporarily Moved)，迄今为止能够对302重定向具备优异处理能力的只有Google。也就是说，在网站使用302重定向命令将其它域名指向主域时，只有Google会把其它域名的链接成绩计入主域，而其它搜索引擎<strong>只会把链接成绩向多个域名分摊</strong>，从而削弱主站的链接总量，<strong>不利用SEO</strong>。既然作为网站排名关键因素之一的外链数量受到了影响，网站排名降低也是很自然的事情了。在前些年，不少黑帽子利用这项技术作弊，目前，各大主要搜索引擎均加强了打击力度，像Google前些年对Business.com以及近来对BMW德国网站的惩罚。即使网站客观上不是spam，也很容易被搜寻引擎容易误判为spam而遭到惩罚。</li>
+</ul>
+<h2 id="重定向"><a href="#重定向" class="headerlink" title="重定向"></a>重定向</h2><p><img src="https://frank-database.oss-cn-hangzhou.aliyuncs.com/img/2019-8-20-14-44-42.png" alt="重定向"></p>
+
+        </div>
+        
+        
+        
+    </div>
+</div>
+
+
+
+<div class="card">
     <div class="card-content">
-        <nav class="breadcrumb" aria-label="breadcrumbs">
-        <ul>
-            <li><a href="/tags">Tags</a></li>
-            <li class="is-active"><a href="#" aria-current="page">跨域</a></li>
-        </ul>
-        </nav>
-    </div>
-</div>
+        <h3 class="menu-label has-text-centered">Like this article? Support the author with</h3>
+        <div class="buttons is-centered">
+            
+                
+<a class="button is-info donate">
+    <span class="icon is-small">
+        <i class="fab fa-alipay"></i>
+    </span>
+    <span>Alipay</span>
+    <div class="qrcode"><img src="/" alt="Alipay"></div>
+</a>
 
-    <div class="card">
-    
-    <div class="card-content article ">
-        
-        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
-            <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2019-08-07T01:03:36.000Z">2019-08-07</time>
-                
-                <div class="level-item">
-                <a class="has-link-grey -link" href="/categories/HTTP/">HTTP</a>
-                </div>
                 
                 
-                <span class="level-item has-text-grey">
-                    
-                    
-                    3 minutes read (About 494 words)
-                </span>
+<a class="button is-success donate">
+    <span class="icon is-small">
+        <i class="fab fa-weixin"></i>
+    </span>
+    <span>Wechat</span>
+    <div class="qrcode"><img src="/" alt="Wechat"></div>
+</a>
+
                 
-                
-            </div>
         </div>
-        
-        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
-            
-                <a class="has-link-black-ter" href="/2019/08/07/废弃的数据交互方式——JSONP/">废弃的数据交互方式——JSONP</a>
-            
-        </h1>
-        <div class="content">
-            <p>以往我们可以使用JSONP来跨域，虽然目前已被废弃，但不妨碍我们学习其实现思路</p>
-        </div>
-        
-        
-        <div class="level is-mobile">
-            <div class="level-start">
-                <div class="level-item">
-                <a class="button is-size-7 is-light" href="/2019/08/07/废弃的数据交互方式——JSONP/#more">Read More</a>
-                </div>
-            </div>
-        </div>
-        
-        
     </div>
 </div>
 
 
 
-
-
-
-
-
-    <div class="card">
-    
-    <div class="card-content article ">
+<div class="card card-transparent">
+    <div class="level post-navigation is-flex-wrap is-mobile">
         
-        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
-            <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2019-08-06T02:55:25.000Z">2019-08-06</time>
-                
-                <div class="level-item">
-                <a class="has-link-grey -link" href="/categories/HTTP/">HTTP</a>
-                </div>
-                
-                
-                <span class="level-item has-text-grey">
-                    
-                    
-                    21 minutes read (About 3200 words)
-                </span>
-                
-                
-            </div>
+        
+        <div class="level-end">
+            <a class="level level-item has-link-grey  article-nav-next" href="/2019/08/21/响应式图片/">
+                <span class="level-item">响应式图片</span>
+                <i class="level-item fas fa-chevron-right"></i>
+            </a>
         </div>
-        
-        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
-            
-                <a class="has-link-black-ter" href="/2019/08/06/如何利用CORS解决跨域问题/">如何利用CORS解决跨域问题</a>
-            
-        </h1>
-        <div class="content">
-            <p>从刚接触前端起，<code>跨域</code>这个词就一直高频出现，本文介绍了如何分析跨域问题并利用CORS来解决问题</p>
-        </div>
-        
-        
-        <div class="level is-mobile">
-            <div class="level-start">
-                <div class="level-item">
-                <a class="button is-size-7 is-light" href="/2019/08/06/如何利用CORS解决跨域问题/#more">Read More</a>
-                </div>
-            </div>
-        </div>
-        
         
     </div>
 </div>
-
-
-
-
-
-
 
 
 </div>
@@ -1463,7 +1444,7 @@
             <div class="level-start has-text-centered-mobile">
                 <a class="footer-logo is-block has-mb-6" href="/">
                 
-                    <img src="/images/logo.svg" alt="Hexo" height="28">
+                    <img src="/images/logo.svg" alt="HTTP状态码之重定向（301，302）" height="28">
                 
                 </a>
                 <p class="is-size-7">
