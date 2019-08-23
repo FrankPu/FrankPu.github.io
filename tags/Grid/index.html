@@ -2,24 +2,19 @@
 <html>
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
-<title>写给自己看的React笔记 - Hexo</title>
+<title>Etiqueta: Grid - Hexo</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
 
 
-    <meta name="description" content="一些React知识点的总结">
-<meta name="keywords" content="ReactNative,React">
-<meta property="og:type" content="article">
-<meta property="og:title" content="写给自己看的React笔记">
-<meta property="og:url" content="https://shishuang.ga/2019/06/25/写给自己看的React笔记/index.html">
+    <meta property="og:type" content="website">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="https://shishuang.ga/tags/Grid/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="一些React知识点的总结">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://shishuang.ga/images/og_image.png">
-<meta property="og:updated_time" content="2019-08-20T03:40:00.696Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="写给自己看的React笔记">
-<meta name="twitter:description" content="一些React知识点的总结">
+<meta name="twitter:title" content="Hexo">
 <meta name="twitter:image" content="https://shishuang.ga/images/og_image.png">
 
 
@@ -94,7 +89,7 @@
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
             
-                <img src="/images/logo.svg" alt="写给自己看的React笔记" height="28">
+                <img src="/images/logo.svg" alt="Hexo" height="28">
             
             </a>
         </div>
@@ -140,22 +135,33 @@
         <div class="container">
             <div class="columns">
                 <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main"><div class="card">
+    <div class="card-content">
+        <nav class="breadcrumb" aria-label="breadcrumbs">
+        <ul>
+            <li><a href="/tags">Etiquetas</a></li>
+            <li class="is-active"><a href="#" aria-current="page">Grid</a></li>
+        </ul>
+        </nav>
+    </div>
+</div>
+
+    <div class="card">
     
     <div class="card-content article ">
         
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
             <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2019-06-25T03:08:20.000Z">2019-06-25</time>
+                <time class="level-item has-text-grey" datetime="2019-08-23T07:43:03.000Z">2019-08-23</time>
                 
                 <div class="level-item">
-                <a class="has-link-grey -link" href="/categories/React/">React</a>
+                <a class="has-link-grey -link" href="/categories/CSS/">CSS</a>
                 </div>
                 
                 
                 <span class="level-item has-text-grey">
                     
                     
-                    2 minutes read (About 372 words)
+                    17 minutes read (About 2570 words)
                 </span>
                 
                 
@@ -164,108 +170,34 @@
         
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                写给自己看的React笔记
+                <a class="has-link-black-ter" href="/2019/08/23/CSS-Grid-网格布局教程/">CSS Grid 网格布局教程</a>
             
         </h1>
         <div class="content">
-            <p>一些React知识点的总结</p>
-<a id="more"></a>
-<h3 id="修改object中某项"><a href="#修改object中某项" class="headerlink" title="修改object中某项"></a>修改object中某项</h3><figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">this</span>.setState(&#123;</span><br><span class="line">object: &#123;...object, <span class="hljs-attr">key</span>: value&#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-<h3 id="组件通信"><a href="#组件通信" class="headerlink" title="组件通信"></a>组件通信</h3><h4 id="父子组件通信"><a href="#父子组件通信" class="headerlink" title="父子组件通信"></a>父子组件通信</h4><ol>
-<li><p>在<strong>子组件</strong>上添加：</p>
-<figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ref=&#123;<span class="hljs-string">'xxx'</span>&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p><strong>父组件</strong>通过下列代码调用：</p>
-<figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">this</span>.refs[<span class="hljs-string">'xxx'</span>].someMethod();</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<h4 id="子父组件通信"><a href="#子父组件通信" class="headerlink" title="子父组件通信"></a>子父组件通信</h4><ol>
-<li><p>在<strong>父组件调用</strong>的子组件的地方添加：</p>
-<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">function Parent () &#123;</span><br><span class="line">  someMethod() &#123;</span><br><span class="line">    //Todo...</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  render &#123;</span><br><span class="line">    return (</span><br><span class="line">      &lt;View&gt;</span><br><span class="line">       &lt;Children</span><br><span class="line">         xxx=&#123;this.someMethod.bind(this [,...args])&#125;</span><br><span class="line">       /&gt;</span><br><span class="line">      &lt;/View&gt;</span><br><span class="line">    )</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>在子组件中通过下列代码调用：</p>
-<figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">this</span>.props.xxx.someMethod();</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<h3 id="遍历所有子节点"><a href="#遍历所有子节点" class="headerlink" title="遍历所有子节点"></a>遍历所有子节点</h3><p>使用React.children来处理this.props.children，因为this.props.children可能有三种类型，undefined, object, array，使用React.children可以不用担心此问题。</p>
-<figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">var</span> NotesList = React.createClass(&#123;</span><br><span class="line">  render: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>&#123;</span><br><span class="line">    <span class="hljs-keyword">return</span> (</span><br><span class="line">      &lt;ol&gt;</span><br><span class="line">      &#123;</span><br><span class="line">        React.Children.map(<span class="hljs-keyword">this</span>.props.children, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">child</span>) </span>&#123;</span><br><span class="line">          <span class="hljs-keyword">return</span> &lt;li&gt;&#123;child&#125;&lt;/li&gt;;</span><br><span class="line">        &#125;)</span><br><span class="line">      &#125;</span><br><span class="line">      &lt;<span class="hljs-regexp">/ol&gt;</span></span><br><span class="line"><span class="hljs-regexp">    );</span></span><br><span class="line"><span class="hljs-regexp">  &#125;&#125;);</span></span><br><span class="line"><span class="hljs-regexp"></span></span><br><span class="line"><span class="hljs-regexp"></span></span><br><span class="line"><span class="hljs-regexp">ReactDOM.render(</span></span><br><span class="line"><span class="hljs-regexp">  &lt;NotesList&gt;</span></span><br><span class="line"><span class="hljs-regexp">    &lt;span&gt;hello&lt;/</span>span&gt;</span><br><span class="line">    &lt;span&gt;world&lt;<span class="hljs-regexp">/span&gt;</span></span><br><span class="line"><span class="hljs-regexp">  &lt;/</span>NotesList&gt;,</span><br><span class="line">  <span class="hljs-built_in">document</span>.body</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
-<h3 id="props验证（使用PropTypes）"><a href="#props验证（使用PropTypes）" class="headerlink" title="props验证（使用PropTypes）"></a>props验证（使用PropTypes）</h3><figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">var</span> MyTitle = React.createClass(&#123;</span><br><span class="line">  propTypes: &#123;</span><br><span class="line">    <span class="hljs-comment">// 表示必要属性，并且是string类型</span></span><br><span class="line">    title: React.PropTypes.string.isRequired,</span><br><span class="line">  &#125;,</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">  render: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>&#123;</span><br><span class="line">     <span class="hljs-keyword">return</span> &lt;h1&gt; &#123;this.props.title&#125; &lt;/h1&gt;;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-<h3 id="设置默认props（使用getDefaultProps）"><a href="#设置默认props（使用getDefaultProps）" class="headerlink" title="设置默认props（使用getDefaultProps）"></a>设置默认props（使用getDefaultProps）</h3><figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">var</span> MyTitle = React.createClass(&#123;</span><br><span class="line">  getDefaultProps : <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;</span><br><span class="line">    <span class="hljs-keyword">return</span> &#123;</span><br><span class="line">      <span class="hljs-comment">// 如果没有传入title props，那么默认值为‘Hello World’</span></span><br><span class="line">      title : <span class="hljs-string">'Hello World'</span></span><br><span class="line">    &#125;;</span><br><span class="line">  &#125;,</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">  render: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>&#123;</span><br><span class="line">     <span class="hljs-keyword">return</span> &lt;h1&gt; &#123;this.props.title&#125; &lt;/h1&gt;;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-<h3 id="获取表单的输入内容"><a href="#获取表单的输入内容" class="headerlink" title="获取表单的输入内容"></a>获取表单的输入内容</h3><p>表单组件Input, Textarea, Select, Radio等，必须添加一个方法来获取其中的内容（<strong>event.target.value</strong>）</p>
-<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;input type=&quot;text&quot; value=&#123;value&#125; onChange=&#123;this.handleChange&#125; /&gt;</span><br><span class="line"></span><br><span class="line">handleChange: function(event) &#123;</span><br><span class="line">    this.setState(&#123;value: event.target.value&#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="生命周期"><a href="#生命周期" class="headerlink" title="生命周期"></a>生命周期</h3><p>更新页面的3个生命周期：<code>compomentDidMount</code>, <code>compomentWillReceiveProps</code>, <code>shouldCompomentUpdate</code></p>
-<p><img src="https://frank-database.oss-cn-hangzhou.aliyuncs.com/img/2019-8-20-11-4-46.png" alt="React生命周期"><br><img src="https://frank-database.oss-cn-hangzhou.aliyuncs.com/img/2019-8-19-16-18-0.png" alt="React生命周期"></p>
-<h3 id="Tips"><a href="#Tips" class="headerlink" title="Tips"></a>Tips</h3><p>JSX中render对象不能用async</p>
-
+            <p>CSS Grid 网格布局教程的笔记整理</p>
+<blockquote>
+<p>参考地址：<a href="http://www.ruanyifeng.com/blog/2019/03/grid-layout-tutorial.html" target="_blank" rel="noopener">阮一峰</a></p>
+</blockquote>
         </div>
         
-        <div class="level is-size-7 is-uppercase">
+        
+        <div class="level is-mobile">
             <div class="level-start">
                 <div class="level-item">
-                    <span class="is-size-6 has-text-grey has-mr-7">#</span>
-                    <a class="has-link-grey -link" href="/tags/React/">React</a>, <a class="has-link-grey -link" href="/tags/ReactNative/">ReactNative</a>
+                <a class="button is-size-7 is-light" href="/2019/08/23/CSS-Grid-网格布局教程/#more">Read More</a>
                 </div>
             </div>
         </div>
         
         
-        
     </div>
 </div>
 
 
 
-<div class="card">
-    <div class="card-content">
-        <h3 class="menu-label has-text-centered">Like this article? Support the author with</h3>
-        <div class="buttons is-centered">
-            
-                
-<a class="button is-info donate">
-    <span class="icon is-small">
-        <i class="fab fa-alipay"></i>
-    </span>
-    <span>Alipay</span>
-    <div class="qrcode"><img src="/" alt="Alipay"></div>
-</a>
-
-                
-                
-<a class="button is-success donate">
-    <span class="icon is-small">
-        <i class="fab fa-weixin"></i>
-    </span>
-    <span>Wechat</span>
-    <div class="qrcode"><img src="/" alt="Wechat"></div>
-</a>
-
-                
-        </div>
-    </div>
-</div>
 
 
 
-<div class="card card-transparent">
-    <div class="level post-navigation is-flex-wrap is-mobile">
-        
-        <div class="level-start">
-            <a class="level level-item has-link-grey  article-nav-prev" href="/2019/06/26/ReactNative集成TypeScript/">
-                <i class="level-item fas fa-chevron-left"></i>
-                <span class="level-item">ReactNative集成TypeScript</span>
-            </a>
-        </div>
-        
-        
-        <div class="level-end">
-            <a class="level level-item has-link-grey  article-nav-next" href="/2019/06/24/react-native-file-selector安装遇到的问题/">
-                <span class="level-item">react-native-file-selector安装遇到的问题</span>
-                <i class="level-item fas fa-chevron-right"></i>
-            </a>
-        </div>
-        
-    </div>
-</div>
 
 
 </div>
@@ -1482,7 +1414,7 @@
             <div class="level-start has-text-centered-mobile">
                 <a class="footer-logo is-block has-mb-6" href="/">
                 
-                    <img src="/images/logo.svg" alt="写给自己看的React笔记" height="28">
+                    <img src="/images/logo.svg" alt="Hexo" height="28">
                 
                 </a>
                 <p class="is-size-7">
