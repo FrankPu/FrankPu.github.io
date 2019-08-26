@@ -2,24 +2,19 @@
 <html>
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
-<title>CSS Grid 网格布局教程 - Hexo</title>
+<title>Tag: 防抖 - Hexo</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
 
 
-    <meta name="description" content="CSS Grid 网格布局教程的笔记整理  参考地址：阮一峰">
-<meta name="keywords" content="Grid">
-<meta property="og:type" content="article">
-<meta property="og:title" content="CSS Grid 网格布局教程">
-<meta property="og:url" content="https://shishuang.ga/2019/08/23/CSS-Grid-网格布局教程/index.html">
+    <meta property="og:type" content="website">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="https://shishuang.ga/tags/防抖/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="CSS Grid 网格布局教程的笔记整理  参考地址：阮一峰">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://shishuang.ga/images/og_image.png">
-<meta property="og:updated_time" content="2019-08-23T07:46:51.979Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="CSS Grid 网格布局教程">
-<meta name="twitter:description" content="CSS Grid 网格布局教程的笔记整理  参考地址：阮一峰">
+<meta name="twitter:title" content="Hexo">
 <meta name="twitter:image" content="https://shishuang.ga/images/og_image.png">
 
 
@@ -94,7 +89,7 @@
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
             
-                <img src="/images/logo.svg" alt="CSS Grid 网格布局教程" height="28">
+                <img src="/images/logo.svg" alt="Hexo" height="28">
             
             </a>
         </div>
@@ -140,22 +135,33 @@
         <div class="container">
             <div class="columns">
                 <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main"><div class="card">
+    <div class="card-content">
+        <nav class="breadcrumb" aria-label="breadcrumbs">
+        <ul>
+            <li><a href="/tags">Tags</a></li>
+            <li class="is-active"><a href="#" aria-current="page">防抖</a></li>
+        </ul>
+        </nav>
+    </div>
+</div>
+
+    <div class="card">
     
     <div class="card-content article ">
         
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
             <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2019-08-23T07:43:03.000Z">2019-08-23</time>
+                <time class="level-item has-text-grey" datetime="2019-08-26T06:16:24.000Z">2019-08-26</time>
                 
                 <div class="level-item">
-                <a class="has-link-grey -link" href="/categories/CSS/">CSS</a>
+                <a class="has-link-grey -link" href="/categories/JS-ES6/">JS/ES6</a>
                 </div>
                 
                 
                 <span class="level-item has-text-grey">
                     
                     
-                    17 minutes read (About 2570 words)
+                    2 minutes read (About 264 words)
                 </span>
                 
                 
@@ -164,224 +170,31 @@
         
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                CSS Grid 网格布局教程
+                <a class="has-link-black-ter" href="/2019/08/26/手写函数：节流throttle和防抖debounce/">手写函数：节流throttle和防抖debounce</a>
             
         </h1>
         <div class="content">
-            <p>CSS Grid 网格布局教程的笔记整理</p>
-<blockquote>
-<p>参考地址：<a href="http://www.ruanyifeng.com/blog/2019/03/grid-layout-tutorial.html" target="_blank" rel="noopener">阮一峰</a></p>
-</blockquote>
-<a id="more"></a>
-<h2 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h2><h3 id="容器和项目"><a href="#容器和项目" class="headerlink" title="容器和项目"></a>容器和项目</h3><figure class="highlight html hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"container"</span>&gt;</span></span><br><span class="line">  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"item"</span>&gt;</span></span><br><span class="line">    <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>1<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span></span><br><span class="line">  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span><br><span class="line">  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"item"</span>&gt;</span></span><br><span class="line">    <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>1<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span></span><br><span class="line">  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span><br><span class="line">  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"item"</span>&gt;</span></span><br><span class="line">    <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>1<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span></span><br><span class="line">  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span><br><span class="line"><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>上述代码中，有3个知识点：</p>
-<ol>
-<li><strong>最外层</strong><code>id</code>为<code>container</code>的<code>&lt;div&gt;</code>标签称之为<strong>容器</strong></li>
-<li><strong>子元素</strong><code>class</code>为<code>item</code>的<code>&lt;div&gt;</code>标签称之为<strong>项目</strong></li>
-<li><strong>子孙元素</strong><code>&lt;p&gt;</code>标签所在的元素不是<strong>项目</strong></li>
-</ol>
-<h2 id="容器属性"><a href="#容器属性" class="headerlink" title="容器属性"></a>容器属性</h2><h3 id="display-grid"><a href="#display-grid" class="headerlink" title="display: grid"></a><code>display: grid</code></h3><p>和<code>display: flex</code>相似，让一个容器使用<strong>网格布局</strong>。</p>
-<p><img src="https://frank-database.oss-cn-hangzhou.aliyuncs.com/img/2019-8-21-10-54-32.png" alt="块级网格布局"></p>
-<p>默认情况下，容器元素都是<strong>块级元素</strong>，所以是<code>vertical</code>排列（Flex布局默认是<code>horizontal</code>排列）。</p>
-<h3 id="display-inline-grid"><a href="#display-inline-grid" class="headerlink" title="display: inline-grid"></a><code>display: inline-grid</code></h3><p>让一个容器使用<strong>网格布局</strong>，并且容器元素成为<strong>行内元素</strong>。</p>
-<p><img src="https://frank-database.oss-cn-hangzhou.aliyuncs.com/img/2019-8-21-10-59-45.png" alt="行内网格布局"></p>
-<blockquote>
-<p>注意：设为网格布局以后，容器子元素（项目）的float、display: inline-block、display: table-cell、vertical-align和column-*等设置都将失效。</p>
-</blockquote>
-<h3 id="grid-template-columns和grid-template-rows"><a href="#grid-template-columns和grid-template-rows" class="headerlink" title="grid-template-columns和grid-template-rows"></a><code>grid-template-columns</code>和<code>grid-template-rows</code></h3><p><code>grid-template-columns</code>属性定义每一列的列宽，<code>grid-template-rows</code>属性定义每一行的行高。</p>
-<p>可以使用绝对单位，也可以使用百分比。</p>
-<figure class="highlight css hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-selector-class">.container</span> &#123;</span><br><span class="line">  <span class="hljs-attribute">display</span>: grid;</span><br><span class="line">  <span class="hljs-attribute">grid-template-columns</span>: <span class="hljs-number">100px</span> <span class="hljs-number">100px</span> <span class="hljs-number">100px</span>;</span><br><span class="line">  <span class="hljs-attribute">grid-template-rows</span>: <span class="hljs-number">33.33%</span> <span class="hljs-number">33.33%</span> <span class="hljs-number">33.33%</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><img src="https://frank-database.oss-cn-hangzhou.aliyuncs.com/img/2019-8-21-11-7-13.png" alt="列宽行高"></p>
-<h4 id="repeat"><a href="#repeat" class="headerlink" title="repeat()"></a><code>repeat()</code></h4><p><code>repeat()</code>用来简写重复的值。它接受2个参数：</p>
-<ol>
-<li>重复的次数</li>
-<li>所要重复的值</li>
-</ol>
-<figure class="highlight css hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-selector-class">.container</span> &#123;</span><br><span class="line">  <span class="hljs-attribute">display</span>: grid;</span><br><span class="line">  <span class="hljs-attribute">grid-template-columns</span>: <span class="hljs-built_in">repeat</span>(3, 100px);</span><br><span class="line">  <span class="hljs-attribute">grid-template-rows</span>: <span class="hljs-built_in">repeat</span>(3, 33.33%);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>也可以使用<code>repeat()</code>来重复某种模式：</p>
-<p><code>grid-template-columns: repeat(2, 100px 20px 80px);</code></p>
-<p>上述代码定义了6列，第一列和第四列的宽度为100px，第二列和第五列为20px，第三列和第六列为80px。</p>
-<p><img src="https://frank-database.oss-cn-hangzhou.aliyuncs.com/img/2019-8-21-11-19-54.png" alt="repeat"></p>
-<h4 id="auto-fill"><a href="#auto-fill" class="headerlink" title="auto-fill"></a><code>auto-fill</code></h4><p><code>auto-fill</code>表示单元格<strong>尽可能多的自动</strong>填充容器。</p>
-<figure class="highlight css hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-selector-class">.container</span> &#123;</span><br><span class="line">  <span class="hljs-attribute">display</span>: grid;</span><br><span class="line">  <span class="hljs-attribute">grid-template-columns</span>: <span class="hljs-built_in">repeat</span>(auto-fill, 100px);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>上述代码表示<strong>每列</strong>宽<code>100px</code>，然后<strong>自动填充</strong>，直到容器<strong>水平方向</strong>不能放下更多为止。</p>
-<p><img src="https://frank-database.oss-cn-hangzhou.aliyuncs.com/img/2019-8-21-11-25-53.png" alt="auto-fill"></p>
-<h4 id="fr关键字"><a href="#fr关键字" class="headerlink" title="fr关键字"></a><code>fr</code>关键字</h4><p><code>fr</code>关键字（fraction 的缩写，意为”片段”）。</p>
-<p>如果有两列的宽度分别为<code>1fr</code>和<code>2fr</code>，就表示后者是前者的两倍：</p>
-<figure class="highlight css hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-selector-class">.container</span> &#123;</span><br><span class="line">  <span class="hljs-attribute">display</span>: grid;</span><br><span class="line">  <span class="hljs-attribute">grid-template-columns</span>: <span class="hljs-number">1</span>fr <span class="hljs-number">2</span>fr;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>效果图如下：</p>
-<p><img src="https://frank-database.oss-cn-hangzhou.aliyuncs.com/img/2019-8-21-11-29-40.png" alt="fr关键字"></p>
-<p><code>fr</code>关键字很灵活，还可以与<strong>绝对长度</strong>的单位<strong>结合使用</strong>，这时会非常方便。</p>
-<figure class="highlight css hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-selector-class">.container</span> &#123;</span><br><span class="line">  <span class="hljs-attribute">display</span>: grid;</span><br><span class="line">  <span class="hljs-attribute">grid-template-columns</span>: <span class="hljs-number">150px</span> <span class="hljs-number">1</span>fr <span class="hljs-number">2</span>fr;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>上述代码表示<strong>第一列</strong>的宽度<strong>固定</strong>为<code>150px</code>，第三列的宽度是第二列的<strong>两倍</strong>。</p>
-<p>效果图如下：</p>
-<p><img src="https://frank-database.oss-cn-hangzhou.aliyuncs.com/img/2019-8-21-11-33-12.png" alt="fr关键字"></p>
-<h4 id="minmax"><a href="#minmax" class="headerlink" title="minmax()"></a><code>minmax()</code></h4><p><code>minmax()</code>可以设定一个长度范围，格式为：<code>minmax(最小值, 最大值)</code>。</p>
-<p><code>grid-template-columns: 1fr 1fr minmax(100px, 1fr);</code></p>
-<p>上述代码表示有3列，第一列和第二列都是<code>1fr</code>，第三列最少<code>100px</code>，最大<code>1fr</code>。可以用到一些需要响应式的地方。</p>
-<h4 id="auto关键字"><a href="#auto关键字" class="headerlink" title="auto关键字"></a><code>auto</code>关键字</h4><p><code>auto</code>关键字可以让浏览器<strong>自己决定</strong>长度。</p>
-<p><code>grid-template-columns: 100px auto 100px;</code></p>
-<p>上述代码中，第二列的宽度，基本上<strong>等于该列单元格的最大宽度</strong>，除非单元格内容设置了min-width，且这个值大于最大宽度。</p>
-<h4 id="网格线的名称"><a href="#网格线的名称" class="headerlink" title="网格线的名称"></a>网格线的名称</h4><p>我们可以为网格线定义名称，方便以后引用。</p>
-<figure class="highlight css hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-selector-class">.container</span> &#123;</span><br><span class="line">  <span class="hljs-attribute">display</span>: grid;</span><br><span class="line">  <span class="hljs-attribute">grid-template-columns</span>: [c1] <span class="hljs-number">100px</span> [c2] <span class="hljs-number">100px</span> [c3] auto [c4];</span><br><span class="line">  <span class="hljs-attribute">grid-template-rows</span>: [r1] <span class="hljs-number">100px</span> [r2] <span class="hljs-number">100px</span> [r3] auto [r4];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>上述代码指定网格布局为<strong>3行 x 3列</strong>，因此有<strong>4根垂直</strong>网格线和<strong>4根水平</strong>网格线。<strong><code>[]</code>方括号</strong>里面依次是这<strong>8根线</strong>的名字。</p>
-<p>网格布局<strong>允许</strong>同一根线有<strong>多个</strong>名字，比如<code>[fifth-line row-5]</code>。</p>
-<h4 id="简单应用"><a href="#简单应用" class="headerlink" title="简单应用"></a>简单应用</h4><p>可以利用<code>grid-template-columns</code>属性对网页进行快速的两栏式布局，只需要一行代码：</p>
-<figure class="highlight css hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-selector-class">.wrapper</span> &#123;</span><br><span class="line">  <span class="hljs-attribute">display</span>: grid;</span><br><span class="line">  <span class="hljs-attribute">grid-template-columns</span>: <span class="hljs-number">70%</span> <span class="hljs-number">30%</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="grid-template-areas区域"><a href="#grid-template-areas区域" class="headerlink" title="grid-template-areas区域"></a><code>grid-template-areas</code>区域</h3><figure class="highlight css hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-selector-class">.container</span> &#123;</span><br><span class="line">  <span class="hljs-attribute">display</span>: grid;</span><br><span class="line">  <span class="hljs-attribute">grid-template-columns</span>: <span class="hljs-number">100px</span> <span class="hljs-number">100px</span> <span class="hljs-number">100px</span>;</span><br><span class="line">  <span class="hljs-attribute">grid-template-rows</span>: <span class="hljs-number">100px</span> <span class="hljs-number">100px</span> <span class="hljs-number">100px</span>;</span><br><span class="line">  <span class="hljs-attribute">grid-template-areas</span>: <span class="hljs-string">'a b c'</span></span><br><span class="line">                       <span class="hljs-string">'d e f'</span></span><br><span class="line">                       <span class="hljs-string">'g h i'</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>上述代码把<strong>区域划分成9个单元格</strong>，然后将其定名为<code>a</code>到<code>i</code>的<strong>9个区域</strong>，分别对应这<strong>9个单元格</strong>。</p>
-<p>下面是一个布局实例：</p>
-<figure class="highlight css hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-selector-class">.container</span> &#123;</span><br><span class="line">  <span class="hljs-attribute">display</span>: grid;</span><br><span class="line">  <span class="hljs-attribute">grid-template-columns</span>: <span class="hljs-number">100px</span> <span class="hljs-number">100px</span> <span class="hljs-number">100px</span>;</span><br><span class="line">  <span class="hljs-attribute">grid-template-rows</span>: <span class="hljs-number">100px</span> <span class="hljs-number">100px</span> <span class="hljs-number">100px</span>;</span><br><span class="line">  <span class="hljs-attribute">grid-template-areas</span>: <span class="hljs-string">"header header header"</span></span><br><span class="line">                       <span class="hljs-string">"main main sidebar"</span></span><br><span class="line">                       <span class="hljs-string">"footer . ."</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>如果某些区域不需要利用，则使用”点”（<code>.</code>）表示。</p>
-<blockquote>
-<p>注意：区域的命名会影响到网格线。每个区域的起始网格线，会自动命名为区域名-start，终止网格线自动命名为区域名-end。<br>比如区域名为header，则起始位置的水平网格线和垂直网格线叫做header-start，终止位置的水平网格线和垂直网格线叫做header-end。</p>
-</blockquote>
-<h3 id="grid-template"><a href="#grid-template" class="headerlink" title="grid-template"></a><code>grid-template</code></h3><p><code>grid-template</code>属性是<code>grid-template-columns</code>、<code>grid-template-rows</code>和<code>grid-template-areas</code>这三个属性的合并简写形式。</p>
-<h3 id="gap间距"><a href="#gap间距" class="headerlink" title="gap间距"></a><code>gap</code>间距</h3><p>间距包含3个可用属性：</p>
-<ol>
-<li><code>row-gap</code><strong>行与行</strong>之间的距离</li>
-<li><code>column-gap</code><strong>列与列</strong>之间的距离</li>
-<li><p><code>gap</code>是<code>column-gap</code>和<code>row-gap</code>的<strong>合并简写</strong>形式，语法是：</p>
-<p><code>gap: &lt;row-gap&gt; &lt;column-gap&gt;;</code></p>
-</li>
-</ol>
-<figure class="highlight css hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-selector-class">.container</span> &#123;</span><br><span class="line">  <span class="hljs-attribute">row-gap</span>: <span class="hljs-number">20px</span>;</span><br><span class="line">  <span class="hljs-attribute">column-gap</span>: <span class="hljs-number">20px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>效果图如下：</p>
-<p><img src="https://frank-database.oss-cn-hangzhou.aliyuncs.com/img/2019-8-21-14-25-16.png" alt="间距"></p>
-<p>可以使用<code>gap</code>来简写上述代码：</p>
-<figure class="highlight css hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-selector-class">.container</span> &#123;</span><br><span class="line">  <span class="hljs-attribute">gap</span>: <span class="hljs-number">20px</span> <span class="hljs-number">20px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>注意：如果<code>gap</code>省略了第二个参数，那么浏览器认为第二个值等于第一个。</p>
-</blockquote>
-<h3 id="grid-auto-flow方向"><a href="#grid-auto-flow方向" class="headerlink" title="grid-auto-flow方向"></a><code>grid-auto-flow</code>方向</h3><p>和<code>flex-direction</code>相似，控制容器内部的<strong>放置顺序</strong>。</p>
-<p>默认情况下，和<code>flex</code>一样是<strong>水平布局</strong>，如图：</p>
-<p><img src="https://frank-database.oss-cn-hangzhou.aliyuncs.com/img/2019-8-21-14-59-45.png" alt="先行后列"></p>
-<p>如果要<strong>先列后行</strong>的<strong>竖直布局</strong>，那么<code>grid-auto-flow: column;</code>，如图：</p>
-<p><img src="https://frank-database.oss-cn-hangzhou.aliyuncs.com/img/2019-8-21-15-0-4.png" alt="先列后行"></p>
-<h4 id="dense参数"><a href="#dense参数" class="headerlink" title="dense参数"></a><code>dense</code>参数</h4><p>在<code>grid-auto-flow</code>里面还可以接受<code>dense</code>参数，表示<strong>紧密填满空余</strong>的位置。</p>
-<p><strong>举个栗子：</strong></p>
-<p>默认<code>grid-auto-flow: row</code>的情况下，效果如下：</p>
-<p><img src="https://frank-database.oss-cn-hangzhou.aliyuncs.com/img/2019-8-21-15-8-52.png" alt="dense"></p>
-<p>上图中1号项目后面的位置是空的。</p>
-<p>现在设为<code>grid-auto-flow: row dense</code>，添加了<code>dense</code>参数，尽可能紧密填满，尽量不出现空格，效果如下：</p>
-<p><img src="https://frank-database.oss-cn-hangzhou.aliyuncs.com/img/2019-8-21-15-10-21.png" alt="dense"></p>
-<p>上图会先填满第一行，再填满第二行，所以3号项目就会紧跟在1号项目的后面。8号项目和9号项目就会排到第四行。</p>
-<p>如果设为<code>grid-auto-flow: column dense</code>，表示”先列后行”，并且尽量填满空格，效果如下：</p>
-<p><img src="https://frank-database.oss-cn-hangzhou.aliyuncs.com/img/2019-8-21-15-11-41.png" alt="dense"></p>
-<p>上图会先填满第一列，再填满第2列，所以3号项目在第一列，4号项目在第二列。8号项目和9号项目被挤到了第四列。</p>
-<h3 id="justify-content和align-content"><a href="#justify-content和align-content" class="headerlink" title="justify-content和align-content"></a><code>justify-content</code>和<code>align-content</code></h3><p>这两个属性跟<code>flex</code>中的<code>justify-content</code>、<code>align-content</code>相似：</p>
-<ol>
-<li><code>justify-content</code>属性是<strong>整个区域</strong>在容器里面的<strong>水平</strong>位置（左中右）</li>
-<li><code>align-content</code>属性是<strong>整个区域</strong>在容器里面的<strong>垂直</strong>位置（上中下）</li>
-</ol>
-<p>两个属性的取值一样，包含：</p>
-<ol>
-<li>start——对齐容器的<strong>起始</strong>边框<br><img src="https://frank-database.oss-cn-hangzhou.aliyuncs.com/img/2019-8-22-15-30-26.png" alt="start"></li>
-<li>end——对齐容器的<strong>结束</strong>边框<br><img src="https://frank-database.oss-cn-hangzhou.aliyuncs.com/img/2019-8-22-15-33-56.png" alt="end"></li>
-<li>center——容器内部<strong>居中</strong><br><img src="https://frank-database.oss-cn-hangzhou.aliyuncs.com/img/2019-8-22-15-34-33.png" alt="center"></li>
-<li>stretch——项目大小没有指定时，<strong>拉伸占据</strong>整个网格容器<br><img src="https://frank-database.oss-cn-hangzhou.aliyuncs.com/img/2019-8-22-15-35-30.png" alt="stretch"></li>
-<li>space-around——每个项目两侧的间隔相等。所以，<strong>项目之间</strong>的间隔为<code>1X</code>，<strong>项目与容器边框</strong>的间隔为<code>2X</code><br><img src="https://frank-database.oss-cn-hangzhou.aliyuncs.com/img/2019-8-22-15-39-6.png" alt="space-around"></li>
-<li>space-between——项目与项目的间隔相等，项目与容器边框之间没有间隔<br><img src="https://frank-database.oss-cn-hangzhou.aliyuncs.com/img/2019-8-22-15-41-14.png" alt="space-between"></li>
-<li>space-evenly——项目与项目的间隔相等，<strong>项目与容器边框之间也是同样长度的间隔</strong><br><img src="https://frank-database.oss-cn-hangzhou.aliyuncs.com/img/2019-8-22-15-44-7.png" alt="space-evenly"></li>
-</ol>
-<h4 id="place-content"><a href="#place-content" class="headerlink" title="place-content"></a><code>place-content</code></h4><p><code>place-content</code>属性是<code>align-content</code>属性和<code>justify-content</code>属性的<strong>合并简写</strong>形式，语法是：</p>
-<p><code>place-content: &lt;align-content&gt; &lt;justify-content&gt;;</code></p>
-<blockquote>
-<p>注意：如果<code>place-content</code>省略了第二个参数，那么浏览器认为第二个值等于第一个。</p>
-</blockquote>
-<h3 id="justify-items和align-items"><a href="#justify-items和align-items" class="headerlink" title="justify-items和align-items"></a><code>justify-items</code>和<code>align-items</code></h3><p>这两个属性跟<code>flex</code>中的<code>align-items</code>相似：</p>
-<ol>
-<li><code>justify-items</code>属性设置<strong>单元格</strong>内容的<strong>水平</strong>位置（左中右）</li>
-<li><code>align-items</code>属性设置<strong>单元格</strong>内容的<strong>垂直</strong>位置（上中下）</li>
-</ol>
-<p>两个属性的取值一样，包含：</p>
-<ol>
-<li><code>start</code>——对齐单元格的<strong>起始</strong>边缘</li>
-<li><code>end</code>——对齐单元格的<strong>结束</strong>边缘</li>
-<li><code>center</code>——单元格内部<strong>居中</strong></li>
-<li><code>stretch</code>——拉伸，<strong>拉伸占据</strong>单元格的整个宽度（<strong>默认值</strong>）</li>
-</ol>
-<h4 id="place-items"><a href="#place-items" class="headerlink" title="place-items"></a><code>place-items</code></h4><p><code>place-items</code>属性是<code>align-items</code>属性和<code>justify-items</code>属性的<strong>合并简写</strong>形式，语法是：</p>
-<p><code>place-items: &lt;align-items&gt; &lt;justify-items&gt;;</code></p>
-<blockquote>
-<p>注意：如果<code>place-imtes</code>省略了第二个参数，那么浏览器认为第二个值等于第一个。</p>
-</blockquote>
-<h3 id="grid-auto-columns和grid-auto-rows"><a href="#grid-auto-columns和grid-auto-rows" class="headerlink" title="grid-auto-columns和grid-auto-rows"></a><code>grid-auto-columns</code>和<code>grid-auto-rows</code></h3><p><code>grid-auto-columns</code>属性和<code>grid-auto-rows</code>属性用来设置<strong>浏览器自动创建</strong>的<strong>多余网格</strong>的列宽和行高。</p>
-<p>它们的写法与<code>grid-template-columns</code>和<code>grid-template-rows</code>完全相同。</p>
-<p>如果<strong>不指定</strong>这两个属性，浏览器<strong>根据单元格内容的大小</strong>，<strong>自动决定</strong>新增网格的列宽和行高。</p>
-<figure class="highlight css hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-selector-class">.container</span> &#123;</span><br><span class="line">  <span class="hljs-attribute">display</span>: grid;</span><br><span class="line">  <span class="hljs-attribute">grid-template-columns</span>: <span class="hljs-number">100px</span> <span class="hljs-number">100px</span> <span class="hljs-number">100px</span>;</span><br><span class="line">  <span class="hljs-attribute">grid-template-rows</span>: <span class="hljs-number">100px</span> <span class="hljs-number">100px</span> <span class="hljs-number">100px</span>;</span><br><span class="line">  <span class="hljs-attribute">grid-auto-rows</span>: <span class="hljs-number">50px</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="hljs-selector-class">.item-8</span> &#123;</span><br><span class="line">  <span class="hljs-attribute">grid-row-start</span>: <span class="hljs-number">4</span>;</span><br><span class="line">  <span class="hljs-attribute">grid-column-start</span>: <span class="hljs-number">2</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="hljs-selector-class">.item-9</span> &#123;</span><br><span class="line">  <span class="hljs-attribute">grid-row-start</span>: <span class="hljs-number">6</span>;</span><br><span class="line">  <span class="hljs-attribute">grid-column-start</span>: <span class="hljs-number">3</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><a href="https://jsbin.com/sayuric/edit?css,output" target="_blank" rel="noopener">上述代码</a>划分了一个3行 x 3列的九宫格，但是<code>8</code>号项目用<code>grid-row-start: 4;</code>指定在第<code>4</code>行、第<code>2</code>列，<code>9</code>号项目用<code>grid-row-start: 6;</code>指定在第<code>5</code>行、第<code>3</code>列。效果图如下：</p>
-<p><img src="https://frank-database.oss-cn-hangzhou.aliyuncs.com/img/2019-8-23-15-27-54.png" alt="多余网格的长度"></p>
-
+            <p>节流与防抖是<strong>高频触发优化</strong>方式</p>
         </div>
         
-        <div class="level is-size-7 is-uppercase">
+        
+        <div class="level is-mobile">
             <div class="level-start">
                 <div class="level-item">
-                    <span class="is-size-6 has-text-grey has-mr-7">#</span>
-                    <a class="has-link-grey -link" href="/tags/Grid/">Grid</a>
+                <a class="button is-size-7 is-light" href="/2019/08/26/手写函数：节流throttle和防抖debounce/#more">Read More</a>
                 </div>
             </div>
         </div>
         
         
-        
     </div>
 </div>
 
 
 
-<div class="card">
-    <div class="card-content">
-        <h3 class="menu-label has-text-centered">Like this article? Support the author with</h3>
-        <div class="buttons is-centered">
-            
-                
-<a class="button is-info donate">
-    <span class="icon is-small">
-        <i class="fab fa-alipay"></i>
-    </span>
-    <span>Alipay</span>
-    <div class="qrcode"><img src="/" alt="Alipay"></div>
-</a>
-
-                
-                
-<a class="button is-success donate">
-    <span class="icon is-small">
-        <i class="fab fa-weixin"></i>
-    </span>
-    <span>Wechat</span>
-    <div class="qrcode"><img src="/" alt="Wechat"></div>
-</a>
-
-                
-        </div>
-    </div>
-</div>
 
 
 
-<div class="card card-transparent">
-    <div class="level post-navigation is-flex-wrap is-mobile">
-        
-        <div class="level-start">
-            <a class="level level-item has-link-grey  article-nav-prev" href="/2019/08/26/手写函数：节流throttle和防抖debounce/">
-                <i class="level-item fas fa-chevron-left"></i>
-                <span class="level-item">手写函数：节流throttle和防抖debounce</span>
-            </a>
-        </div>
-        
-        
-        <div class="level-end">
-            <a class="level level-item has-link-grey  article-nav-next" href="/2019/08/22/HTTP状态码之重定向（301，302）/">
-                <span class="level-item">HTTP状态码之重定向（301，302）</span>
-                <i class="level-item fas fa-chevron-right"></i>
-            </a>
-        </div>
-        
-    </div>
-</div>
 
 
 </div>
@@ -1626,7 +1439,7 @@
             <div class="level-start has-text-centered-mobile">
                 <a class="footer-logo is-block has-mb-6" href="/">
                 
-                    <img src="/images/logo.svg" alt="CSS Grid 网格布局教程" height="28">
+                    <img src="/images/logo.svg" alt="Hexo" height="28">
                 
                 </a>
                 <p class="is-size-7">
