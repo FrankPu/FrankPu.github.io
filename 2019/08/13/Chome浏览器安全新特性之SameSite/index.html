@@ -19,7 +19,7 @@
 <meta property="og:description" content="chrome浏览器研发团队宣布将会对用户隐私和安全的处理机制作出重大改变">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://shishuang.ga/images/og_image.png">
-<meta property="og:updated_time" content="2019-08-20T03:32:50.163Z">
+<meta property="og:updated_time" content="2019-09-10T09:09:23.816Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Chome浏览器安全新特性之SameSite">
 <meta name="twitter:description" content="chrome浏览器研发团队宣布将会对用户隐私和安全的处理机制作出重大改变">
@@ -159,7 +159,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    10 分钟 读完 (大约 1449 个字)
+                    10 分钟 读完 (大约 1484 个字)
                 </span>
                 
                 
@@ -219,11 +219,13 @@
 <li>在 HTTP 头中<strong>自定义属性并验证</strong>。</li>
 </ol>
 <p>在2016年5月，Google起草了一份<a href="https://tools.ietf.org/html/draft-west-first-party-cookies-07" target="_blank" rel="noopener">草案</a>来改进HTTP协议。在2016年的chrome 51版本中为Set-Cookie响应头新增<a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Set-Cookie" target="_blank" rel="noopener">SameSite</a>属性，它用来标明这个 Cookie是个“同站 Cookie”，来控制原本“第三方cookie”带来的安全风险。</p>
-<h2 id="SameSite属性"><a href="#SameSite属性" class="headerlink" title="SameSite属性"></a><code>SameSite</code>属性</h2><p>使用SameSite这个属性时：需要在Set-Cookie中加入SameSite属性，并可以对其赋予几种值，例如：</p>
+<h2 id="SameSite属性"><a href="#SameSite属性" class="headerlink" title="SameSite属性"></a><code>SameSite</code>属性</h2><p>可以参考阮老师的<a href="http://www.ruanyifeng.com/blog/2019/09/cookie-samesite.html" target="_blank" rel="noopener">这篇文章</a>。</p>
+<p>使用SameSite这个属性时：需要在Set-Cookie中加入SameSite属性，并可以对其赋予几种值，例如：</p>
 <figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Set - Cookie : key = value ; HttpOnly ; SameSite = Strict</span><br></pre></td></tr></table></figure>
 <h3 id="严格模式"><a href="#严格模式" class="headerlink" title="严格模式"></a>严格模式</h3><figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SameSite=Strict</span><br></pre></td></tr></table></figure>
 <p>含义为：此cookie为禁止发送所有第三方链接的cookie。<br>当我们通过其他网站来访问一个有 SameSite-Cookies 机制的网站时，例如从 a.com 点击链接进入 b.com，如果 b.com 设置了 Set-Cookie:foo=bar;SameSite=Strict，那么，foo=bar 这一 cookie 是不会随着 request 发送的，这就防御了CSRF。</p>
 <h3 id="宽松模式"><a href="#宽松模式" class="headerlink" title="宽松模式"></a>宽松模式</h3><figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SameSite=LAX</span><br></pre></td></tr></table></figure>
+<p><img src="https://frank-database.oss-cn-hangzhou.aliyuncs.com/img/2019-9-10-17-9-4.png" alt="宽松模式"></p>
 <p>宽松模式下也不是允许所有类型的跨域请求都可以携带cookie，限制有以下几类：</p>
 <ol>
 <li><p>允许发送安全 HTTP 请求类型（ GET , HEAD , OPTIONS , TRACE ）第三方链接的 cookies。</p>
