@@ -18,7 +18,7 @@
 <meta property="og:description" content="一些有意思、有用的代码段集合">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://shishuang.ga/images/og_image.png">
-<meta property="og:updated_time" content="2019-09-04T09:27:34.557Z">
+<meta property="og:updated_time" content="2019-10-24T07:46:36.336Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="有意思的代码段（持续更新中）">
 <meta name="twitter:description" content="一些有意思、有用的代码段集合">
@@ -158,7 +158,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    6 分钟 读完 (大约 922 个字)
+                    7 分钟 读完 (大约 1025 个字)
                 </span>
                 
                 
@@ -207,6 +207,9 @@
 <p>这个的运行时间是<strong>10秒多一点</strong>，因为<code>a</code>，<code>b</code>，<code>c</code>的<strong>异步请求</strong>会<strong>按顺序</strong>发起。而这个过程是<strong>不需要互相依赖等待</strong>的。</p>
 <p>等待<code>wait</code>的时候，其实是比较哪一个异步耗时最多。整体的耗时就是<code>wait</code>时间最长的那个异步。</p>
 <p>如果在业务中，两个异步没有依赖关系，就使用后面这种写法，否则使用题目问题的写法。</p>
+<h2 id="将数字以每3位分隔展示"><a href="#将数字以每3位分隔展示" class="headerlink" title="将数字以每3位分隔展示"></a>将数字以每3位分隔展示</h2><p><a href="https://github.com/Advanced-Frontend/Daily-Interview-Question/issues/296" target="_blank" rel="noopener">题目地址</a></p>
+<p>解题：</p>
+<figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">// 德国以 . 分割金钱, 转到德国当地格式化方案即可(注意有2个 .)</span></span><br><span class="line"><span class="hljs-number">10000000000.</span>.toLocaleString(<span class="hljs-string">'de-DE'</span>)</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">// 寻找字符空隙加 .</span></span><br><span class="line"><span class="hljs-string">'10000000000'</span>.replace(<span class="hljs-regexp">/\B(?=(\d&#123;3&#125;)+(?!\d))/g</span>, <span class="hljs-string">'.'</span>)</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">// 寻找数字并在其后面加 .</span></span><br><span class="line"><span class="hljs-string">'10000000000'</span>.replace(<span class="hljs-regexp">/(\d)(?=(\d&#123;3&#125;)+\b)/g</span>, <span class="hljs-string">'$1.'</span>)</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">//</span></span><br><span class="line"><span class="hljs-keyword">const</span> thousandsNumber = <span class="hljs-function">(<span class="hljs-params">num: number</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="hljs-keyword">var</span> str = num.toString();</span><br><span class="line">  <span class="hljs-keyword">var</span> reg =</span><br><span class="line">    str.indexOf(<span class="hljs-string">"."</span>) &gt; <span class="hljs-number">-1</span> ? <span class="hljs-regexp">/(\d)(?=(\d&#123;3&#125;)+\.)/g</span> : <span class="hljs-regexp">/(\d)(?=(?:\d&#123;3&#125;)+$)/g</span>;</span><br><span class="line">  <span class="hljs-keyword">return</span> str.replace(reg, <span class="hljs-string">"$1,"</span>);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
         </div>
         
