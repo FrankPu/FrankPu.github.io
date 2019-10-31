@@ -19,7 +19,7 @@
 <meta property="og:description" content="常用命令 本地创建公钥：ssh-keygen -t rsa -C &amp;quot;邮箱&amp;quot; 克隆最新主分支代码到本地：git clone 地址  下载指定分支：git clone -b 分支名仓库地址  创建本地分支：git branch 分支名  查看本地分支：git branch  查看远程分支：git branch -a  切换分支：git checkout 分支名  将本地分支推送到远">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://shishuang.ga/images/og_image.png">
-<meta property="og:updated_time" content="2019-08-16T08:54:04.877Z">
+<meta property="og:updated_time" content="2019-10-31T01:11:04.697Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Git常用命令总结">
 <meta name="twitter:description" content="常用命令 本地创建公钥：ssh-keygen -t rsa -C &amp;quot;邮箱&amp;quot; 克隆最新主分支代码到本地：git clone 地址  下载指定分支：git clone -b 分支名仓库地址  创建本地分支：git branch 分支名  查看本地分支：git branch  查看远程分支：git branch -a  切换分支：git checkout 分支名  将本地分支推送到远">
@@ -159,7 +159,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    14 分钟 读完 (大约 2127 个字)
+                    15 分钟 读完 (大约 2235 个字)
                 </span>
                 
                 
@@ -252,23 +252,24 @@
 <li><strong>注意</strong>:分支推送顺序的格式为<strong>&lt;来源地&gt;:&lt;目的地&gt;</strong>，所以<code>git pull</code>格式：<strong>&lt;远程分支&gt;:&lt;本地分支&gt;</strong>，<code>git push</code>格式为：<strong>&lt;本地分支&gt;:&lt;远程分支&gt;</strong>。</li>
 </ul>
 <h2 id="分支操作"><a href="#分支操作" class="headerlink" title="分支操作"></a>分支操作</h2><h3 id="常用分支命令"><a href="#常用分支命令" class="headerlink" title="常用分支命令"></a>常用分支命令</h3><ol>
-<li><p>创建本地分支：<code>git branch test</code>（创建名为test的本地分支）</p>
-</li>
+<li>创建本地分支：<code>git branch test</code>（创建名为test的本地分支）</li>
 <li><p>切换分支：<code>git checkout test</code>（切换到test分支）</p>
 <p>一般修改未提交则无法切换，大小写问题经常会有，可使用命令<code>git checkout 分支名 -f</code>强制切换（慎用）</p>
 </li>
-<li><p>创建并切换分支<code>git checkout -b test</code>（相当于执行了上面两条命令）</p>
-</li>
-<li><p>查看本地分支：<code>git branch</code></p>
-</li>
-<li><p>查看远程仓库所有分支：<code>git branch -a</code></p>
-</li>
-<li><p>删除本地分支：<code>git branch -d test</code>（删除本地test分支）</p>
-</li>
-<li><p>删除远程仓库分支：<code>git push -d origin test</code>（删除远程仓库test分支）</p>
-</li>
-<li><p>分支合并：<code>git merge master</code>（将master分支合并到当前分支）</p>
-</li>
+<li>创建并切换分支<code>git checkout -b test</code>（相当于执行了上面两条命令）</li>
+<li>把本地分支与远程分支关联：<code>git push --set-upstream origin branch_name</code></li>
+<li>. 查看本地分支：<code>git branch</code></li>
+<li>查看远程仓库所有分支：<code>git branch -a</code></li>
+<li>删除本地分支：<code>git branch -d test</code>（删除本地test分支）</li>
+<li>删除远程仓库分支：<code>git push -d origin test</code>（删除远程仓库test分支）</li>
+<li>分支合并：<code>git merge master</code>（将master分支合并到当前分支）</li>
+</ol>
+<h3 id="初始化本地已有项目，并推送到远端Git仓库"><a href="#初始化本地已有项目，并推送到远端Git仓库" class="headerlink" title="初始化本地已有项目，并推送到远端Git仓库"></a>初始化本地已有项目，并推送到远端Git仓库</h3><ol>
+<li>在本地项目根目录<code>git init</code></li>
+<li>与远端Git仓库建立联系<code>git remote &lt;仓库地址&gt;</code></li>
+<li>拉取远端Git仓库代码与本地合并<code>git pull</code></li>
+<li>在本地新建分支<code>git branch dev</code></li>
+<li>推送本地dev分支到远端dev分支<code>git push origin dev</code></li>
 </ol>
 <h3 id="拉取远程分支代码"><a href="#拉取远程分支代码" class="headerlink" title="拉取远程分支代码"></a>拉取远程分支代码</h3><ul>
 <li><code>git checkout -b 本地分支名 origin/远程分支名</code>：在本地新建分支，并自动切换到该本地分支；</li>
