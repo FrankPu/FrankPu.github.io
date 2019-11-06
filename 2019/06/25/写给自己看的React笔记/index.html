@@ -19,7 +19,7 @@
 <meta property="og:description" content="一些React知识点的总结">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://shishuang.ga/images/og_image.png">
-<meta property="og:updated_time" content="2019-11-05T02:59:10.047Z">
+<meta property="og:updated_time" content="2019-11-06T03:54:34.830Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="写给自己看的React笔记">
 <meta name="twitter:description" content="一些React知识点的总结">
@@ -159,7 +159,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    3 分钟 读完 (大约 435 个字)
+                    4 分钟 读完 (大约 596 个字)
                 </span>
                 
                 
@@ -204,7 +204,28 @@
 <figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;input type=&quot;text&quot; value=&#123;value&#125; onChange=&#123;this.handleChange&#125; /&gt;</span><br><span class="line"></span><br><span class="line">handleChange: function(event) &#123;</span><br><span class="line">    this.setState(&#123;value: event.target.value&#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h3 id="生命周期"><a href="#生命周期" class="headerlink" title="生命周期"></a>生命周期</h3><p>更新页面的3个生命周期：<code>compomentDidMount</code>, <code>compomentWillReceiveProps</code>, <code>shouldCompomentUpdate</code></p>
 <p><img src="https://frank-database.oss-cn-hangzhou.aliyuncs.com/img/2019-8-20-11-4-46.png" alt="React生命周期"><br><img src="https://frank-database.oss-cn-hangzhou.aliyuncs.com/img/2019-8-19-16-18-0.png" alt="React生命周期"></p>
-<h3 id="Tips"><a href="#Tips" class="headerlink" title="Tips"></a>Tips</h3><p>JSX中render对象不能用async</p>
+<h3 id="Tips"><a href="#Tips" class="headerlink" title="Tips"></a>Tips</h3><ol>
+<li>JSX中render对象不能用async</li>
+<li><p>不要在调用 <code>this.setState</code> 时使用 <code>this.state</code></p>
+<blockquote>
+<p>由于 this.setState 异步的缘故，这样的做法会导致一些错误，可以通过给 this.setState 传入函数来避免</p>
+</blockquote>
+ <figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="hljs-keyword">this</span>.setState(&#123;</span><br><span class="line">  value: <span class="hljs-keyword">this</span>.state.value + <span class="hljs-number">1</span></span><br><span class="line">&#125;)  <span class="hljs-comment">// ✗ 错误</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">this</span>.setState(<span class="hljs-function"><span class="hljs-params">prevState</span> =&gt;</span> (</span><br><span class="line">  &#123; <span class="hljs-attr">value</span>: prevState.value + <span class="hljs-number">1</span> &#125;</span><br><span class="line">))  <span class="hljs-comment">// ✓ 正确</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>尽量避免在 <code>componentDidMount</code> 中调用 <code>this.setState</code></p>
+<blockquote>
+<p>因为在 componentDidMount 中调用 this.setState 会导致触发更新</p>
+</blockquote>
+</li>
+<li><p>不要在 <code>componentWillUpdate</code>/<code>componentDidUpdate</code>/<code>render</code> 中调用 <code>this.setState</code></p>
+<blockquote>
+<p>会导致页面的一直重复更新</p>
+</blockquote>
+</li>
+<li><p>组件最好定义 <a href="https://zh-hans.reactjs.org/docs/react-component.html#defaultprops" target="_blank" rel="noopener"><code>defaultProps</code></a></p>
+ <figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">CustomButton</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">React</span>.<span class="hljs-title">Component</span> </span>&#123;</span><br><span class="line">  <span class="hljs-keyword">static</span> defaultProps = &#123;</span><br><span class="line">    color: <span class="hljs-string">'blue'</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Main</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">React</span>.<span class="hljs-title">Component</span> </span>&#123;</span><br><span class="line">  render() &#123;</span><br><span class="line">    <span class="hljs-keyword">return</span> &lt;CustomButton /&gt; ; // props.color 默认将设置为 'blue'</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
 
         </div>
         
