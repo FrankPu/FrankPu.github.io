@@ -7,17 +7,21 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
-<title>分类: React - Frank&#39;s Blog</title>
+<title>ReactNative踩坑集合 - Frank&#39;s Blog</title>
 
 
-    <meta property="og:type" content="website">
-<meta property="og:title" content="Frank&#39;s Blog">
-<meta property="og:url" content="https://shishuang.ga/categories/React/index.html">
+    <meta name="description" content="Execution failed for task &amp;#39;:xxxx:compileDebugJavaWithJavac遇到这种跟compileDebugJavaWithJavac相关的问题，是因为AndroidX引起的。解决办法，使用jetifier： 执行命令：12npm i jetifiernpx jetify -r 然后更新package.json中scripts： 12345&amp;qu">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ReactNative踩坑集合">
+<meta property="og:url" content="https://shishuang.ga/2019/11/14/ReactNative踩坑集合/index.html">
 <meta property="og:site_name" content="Frank&#39;s Blog">
+<meta property="og:description" content="Execution failed for task &amp;#39;:xxxx:compileDebugJavaWithJavac遇到这种跟compileDebugJavaWithJavac相关的问题，是因为AndroidX引起的。解决办法，使用jetifier： 执行命令：12npm i jetifiernpx jetify -r 然后更新package.json中scripts： 12345&amp;qu">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://shishuang.ga/images/og_image.png">
+<meta property="og:updated_time" content="2019-11-14T09:09:23.442Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Frank&#39;s Blog">
+<meta name="twitter:title" content="ReactNative踩坑集合">
+<meta name="twitter:description" content="Execution failed for task &amp;#39;:xxxx:compileDebugJavaWithJavac遇到这种跟compileDebugJavaWithJavac相关的问题，是因为AndroidX引起的。解决办法，使用jetifier： 执行命令：12npm i jetifiernpx jetify -r 然后更新package.json中scripts： 12345&amp;qu">
 <meta name="twitter:image" content="https://shishuang.ga/images/og_image.png">
 
 
@@ -88,7 +92,7 @@
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
             
-                <img src="/images/logo.svg" alt="Frank&#39;s Blog" height="28">
+                <img src="/images/logo.svg" alt="ReactNative踩坑集合" height="28">
             
             </a>
         </div>
@@ -139,176 +143,96 @@
         <div class="container">
             <div class="columns">
                 <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main"><div class="card">
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2019-11-14T08:57:22.000Z">2019-11-14</time>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/ReactNative/">ReactNative</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    几秒 读完 (大约 94 个字)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                ReactNative踩坑集合
+            
+        </h1>
+        <div class="content">
+            <a id="more"></a>
+<h2 id="Execution-failed-for-task-39-xxxx-compileDebugJavaWithJavac"><a href="#Execution-failed-for-task-39-xxxx-compileDebugJavaWithJavac" class="headerlink" title="Execution failed for task &#39;:xxxx:compileDebugJavaWithJavac"></a><code>Execution failed for task &#39;:xxxx:compileDebugJavaWithJavac</code></h2><p>遇到这种跟<code>compileDebugJavaWithJavac</code>相关的问题，是因为AndroidX引起的。<br>解决办法，使用<a href="https://github.com/mikehardy/jetifier" target="_blank" rel="noopener">jetifier</a>：</p>
+<p>执行命令：<br><figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm i jetifier</span><br><span class="line">npx jetify -r</span><br></pre></td></tr></table></figure></p>
+<p>然后更新<code>package.json</code>中<code>scripts</code>：</p>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&quot;scripts&quot;: &#123;</span><br><span class="line">  ....</span><br><span class="line">  &quot;postinstall&quot;: &quot;npx jetify -r&quot;,</span><br><span class="line">  &quot;jetify&quot;: &quot;npx jetify&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p><a href="https://github.com/mikehardy/jetifier#to-reverse-jetify--convert-node_modules-dependencies-to-support-libraries" target="_blank" rel="noopener">无限期的延迟AndroidX的迁移</a></p>
+</blockquote>
+
+        </div>
+        
+        
+        
+    </div>
+</div>
+
+
+
+<div class="card">
     <div class="card-content">
-        <nav class="breadcrumb" aria-label="breadcrumbs">
-        <ul>
-            <li><a href="/categories">分类</a></li>
+        <h3 class="menu-label has-text-centered">喜欢这篇文章？打赏一下作者吧</h3>
+        <div class="buttons is-centered">
             
-            <li class="is-active"><a href="#" aria-current="page">React</a></li>
-        </ul>
-        </nav>
-    </div>
-</div>
+                
+<a class="button is-info donate">
+    <span class="icon is-small">
+        <i class="fab fa-alipay"></i>
+    </span>
+    <span>支付宝</span>
+    <div class="qrcode"><img src="/" alt="支付宝"></div>
+</a>
 
-    <div class="card">
-    
-    <div class="card-content article ">
-        
-        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
-            <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2019-08-14T02:51:44.000Z">2019-08-14</time>
-                
-                <div class="level-item">
-                <a class="has-link-grey -link" href="/categories/React/">React</a>
-                </div>
                 
                 
-                <span class="level-item has-text-grey">
-                    
-                    
-                    3 分钟 读完 (大约 409 个字)
-                </span>
+<a class="button is-success donate">
+    <span class="icon is-small">
+        <i class="fab fa-weixin"></i>
+    </span>
+    <span>微信</span>
+    <div class="qrcode"><img src="/" alt="微信"></div>
+</a>
+
                 
-                
-            </div>
         </div>
-        
-        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
-            
-                <a class="has-link-black-ter" href="/2019/08/14/写给自己看的React入门教程Demo/">写给自己看的React入门教程Demo</a>
-            
-        </h1>
-        <div class="content">
-            <p>React中文网教程——井字棋</p>
-<h2 id="比较重要的点"><a href="#比较重要的点" class="headerlink" title="比较重要的点"></a>比较重要的点</h2><ol>
-<li><a href="https://react.docschina.org/tutorial/tutorial.html#lifting-state-up" target="_blank" rel="noopener">状态提升</a>，把<strong>子组件</strong>的<code>state</code>数据提升至父组件，以便组件之间的状态数据共享。</li>
-<li><a href="https://react.docschina.org/tutorial/tutorial.html#why-immutability-is-important" target="_blank" rel="noopener">为什么不可变性在 React 中非常重要</a>，使用<code>slice()</code>创建了数组副本。</li>
-<li><a href="https://react.docschina.org/tutorial/tutorial.html#function-components" target="_blank" rel="noopener">函数组件</a>，通过<code>props</code>而不是<code>this.props</code>传入属性和方法。</li>
-</ol>
-        </div>
-        
-        
-        <div class="level is-mobile">
-            <div class="level-start">
-                <div class="level-item">
-                <a class="button is-size-7 is-light" href="/2019/08/14/写给自己看的React入门教程Demo/#more">阅读更多</a>
-                </div>
-            </div>
-        </div>
-        
-        
     </div>
 </div>
 
 
 
-
-
-
-
-
-    <div class="card">
-    
-    <div class="card-content article ">
+<div class="card card-transparent">
+    <div class="level post-navigation is-flex-wrap is-mobile">
         
-        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
-            <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2019-06-25T03:08:20.000Z">2019-06-25</time>
-                
-                <div class="level-item">
-                <a class="has-link-grey -link" href="/categories/React/">React</a>
-                </div>
-                
-                
-                <span class="level-item has-text-grey">
-                    
-                    
-                    4 分钟 读完 (大约 596 个字)
-                </span>
-                
-                
-            </div>
+        
+        <div class="level-end">
+            <a class="level level-item has-link-grey  article-nav-next" href="/2019/09/02/有意思的代码段（持续更新中）/">
+                <span class="level-item">有意思的代码段（持续更新中）</span>
+                <i class="level-item fas fa-chevron-right"></i>
+            </a>
         </div>
-        
-        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
-            
-                <a class="has-link-black-ter" href="/2019/06/25/写给自己看的React笔记/">写给自己看的React笔记</a>
-            
-        </h1>
-        <div class="content">
-            <p>一些React知识点的总结</p>
-        </div>
-        
-        
-        <div class="level is-mobile">
-            <div class="level-start">
-                <div class="level-item">
-                <a class="button is-size-7 is-light" href="/2019/06/25/写给自己看的React笔记/#more">阅读更多</a>
-                </div>
-            </div>
-        </div>
-        
         
     </div>
 </div>
-
-
-
-
-
-
-
-
-    <div class="card">
-    
-    <div class="card-content article ">
-        
-        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
-            <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2019-06-20T02:19:44.000Z">2019-06-20</time>
-                
-                <div class="level-item">
-                <a class="has-link-grey -link" href="/categories/React/">React</a>
-                </div>
-                
-                
-                <span class="level-item has-text-grey">
-                    
-                    
-                    16 分钟 读完 (大约 2402 个字)
-                </span>
-                
-                
-            </div>
-        </div>
-        
-        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
-            
-                <a class="has-link-black-ter" href="/2019/06/20/写给自己看的ReactHook笔记/">写给自己看的ReactHook笔记</a>
-            
-        </h1>
-        <div class="content">
-            <p><a href="https://react.docschina.org/docs/hooks-effect.html" target="_blank" rel="noopener">Hook</a>是 React 16.8 的新增特性。它可以让你在不编写 class 的情况下使用 state 以及其他的 React 特性</p>
-        </div>
-        
-        
-        <div class="level is-mobile">
-            <div class="level-start">
-                <div class="level-item">
-                <a class="button is-size-7 is-light" href="/2019/06/20/写给自己看的ReactHook笔记/#more">阅读更多</a>
-                </div>
-            </div>
-        </div>
-        
-        
-    </div>
-</div>
-
-
-
-
-
-
 
 
 </div>
@@ -1626,7 +1550,7 @@
             <div class="level-start has-text-centered-mobile">
                 <a class="footer-logo is-block has-mb-6" href="/">
                 
-                    <img src="/images/logo.svg" alt="Frank&#39;s Blog" height="28">
+                    <img src="/images/logo.svg" alt="ReactNative踩坑集合" height="28">
                 
                 </a>
                 <p class="is-size-7">
