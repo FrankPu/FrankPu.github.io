@@ -166,7 +166,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    几秒 读完 (大约 94 个字)
+                    几秒 读完 (大约 106 个字)
                 </span>
                 
                 
@@ -179,17 +179,17 @@
             
         </h1>
         <div class="content">
-            <a id="more"></a>
-<h2 id="Execution-failed-for-task-39-xxxx-compileDebugJavaWithJavac"><a href="#Execution-failed-for-task-39-xxxx-compileDebugJavaWithJavac" class="headerlink" title="Execution failed for task &#39;:xxxx:compileDebugJavaWithJavac"></a><code>Execution failed for task &#39;:xxxx:compileDebugJavaWithJavac</code></h2><p>遇到这种跟<code>compileDebugJavaWithJavac</code>相关的问题，是因为AndroidX引起的。<br>解决办法，使用<a href="https://github.com/mikehardy/jetifier" target="_blank" rel="noopener">jetifier</a>：</p>
-<p>执行命令：<br><figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm i jetifier</span><br><span class="line">npx jetify -r</span><br></pre></td></tr></table></figure></p>
-<p>然后更新<code>package.json</code>中<code>scripts</code>：</p>
-<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&quot;scripts&quot;: &#123;</span><br><span class="line">  ....</span><br><span class="line">  &quot;postinstall&quot;: &quot;npx jetify -r&quot;,</span><br><span class="line">  &quot;jetify&quot;: &quot;npx jetify&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p><a href="https://github.com/mikehardy/jetifier#to-reverse-jetify--convert-node_modules-dependencies-to-support-libraries" target="_blank" rel="noopener">无限期的延迟AndroidX的迁移</a></p>
-</blockquote>
-
+            <p>RN过程中遇到的一些问题。</p>
         </div>
         
+        
+        <div class="level is-mobile">
+            <div class="level-start">
+                <div class="level-item">
+                <a class="button is-size-7 is-light" href="/2019/11/14/ReactNative踩坑集合/#more">阅读更多</a>
+                </div>
+            </div>
+        </div>
         
         
     </div>
