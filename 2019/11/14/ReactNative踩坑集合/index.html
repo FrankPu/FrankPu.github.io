@@ -18,7 +18,7 @@
 <meta property="og:description" content="RN过程中遇到的一些问题。">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://shishuang.ga/images/og_image.png">
-<meta property="og:updated_time" content="2019-11-21T01:28:11.493Z">
+<meta property="og:updated_time" content="2019-12-10T07:05:36.939Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ReactNative踩坑集合">
 <meta name="twitter:description" content="RN过程中遇到的一些问题。">
@@ -158,7 +158,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    几秒 读完 (大约 106 个字)
+                    1 分钟 读完 (大约 123 个字)
                 </span>
                 
                 
@@ -176,7 +176,8 @@
 <h2 id="Execution-failed-for-task-39-xxxx-compileDebugJavaWithJavac"><a href="#Execution-failed-for-task-39-xxxx-compileDebugJavaWithJavac" class="headerlink" title="Execution failed for task &#39;:xxxx:compileDebugJavaWithJavac"></a><code>Execution failed for task &#39;:xxxx:compileDebugJavaWithJavac</code></h2><p>遇到这种跟<code>compileDebugJavaWithJavac</code>相关的问题，是因为AndroidX引起的。<br>解决办法，使用<a href="https://github.com/mikehardy/jetifier" target="_blank" rel="noopener">jetifier</a>：</p>
 <p>执行命令：<br><figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm i jetifier</span><br><span class="line">npx jetify -r</span><br></pre></td></tr></table></figure></p>
 <p>然后更新<code>package.json</code>中<code>scripts</code>：</p>
-<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&quot;scripts&quot;: &#123;</span><br><span class="line">  ....</span><br><span class="line">  &quot;postinstall&quot;: &quot;npx jetify -r&quot;,</span><br><span class="line">  &quot;jetify&quot;: &quot;npx jetify&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&quot;scripts&quot;: &#123;</span><br><span class="line">  ....</span><br><span class="line">  &quot;postinstall&quot;: &quot;jetify&quot;,</span><br><span class="line">  &quot;jetify&quot;: &quot;npx jetify -r&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>以后如果重装node_modules后，记得<code>npm run jetify</code>一下。</p>
 <blockquote>
 <p><a href="https://github.com/mikehardy/jetifier#to-reverse-jetify--convert-node_modules-dependencies-to-support-libraries" target="_blank" rel="noopener">无限期的延迟AndroidX的迁移</a></p>
 </blockquote>
