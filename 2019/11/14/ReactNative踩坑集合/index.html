@@ -18,7 +18,7 @@
 <meta property="og:description" content="RN过程中遇到的一些问题。">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://shishuang.ga/images/og_image.png">
-<meta property="og:updated_time" content="2019-12-10T07:05:36.939Z">
+<meta property="og:updated_time" content="2020-01-09T13:34:50.033Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ReactNative踩坑集合">
 <meta name="twitter:description" content="RN过程中遇到的一些问题。">
@@ -158,7 +158,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    1 分钟 读完 (大约 123 个字)
+                    3 分钟 读完 (大约 397 个字)
                 </span>
                 
                 
@@ -173,14 +173,30 @@
         <div class="content">
             <p>RN过程中遇到的一些问题。</p>
 <a id="more"></a>
-<h2 id="Execution-failed-for-task-39-xxxx-compileDebugJavaWithJavac"><a href="#Execution-failed-for-task-39-xxxx-compileDebugJavaWithJavac" class="headerlink" title="Execution failed for task &#39;:xxxx:compileDebugJavaWithJavac"></a><code>Execution failed for task &#39;:xxxx:compileDebugJavaWithJavac</code></h2><p>遇到这种跟<code>compileDebugJavaWithJavac</code>相关的问题，是因为AndroidX引起的。<br>解决办法，使用<a href="https://github.com/mikehardy/jetifier" target="_blank" rel="noopener">jetifier</a>：</p>
-<p>执行命令：<br><figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm i jetifier</span><br><span class="line">npx jetify -r</span><br></pre></td></tr></table></figure></p>
+<h2 id="Execution-failed-for-task-39-xxxx-compileDebugJavaWithJavac"><a href="#Execution-failed-for-task-39-xxxx-compileDebugJavaWithJavac" class="headerlink" title="Execution failed for task &#39;:xxxx:compileDebugJavaWithJavac"></a><code>Execution failed for task &#39;:xxxx:compileDebugJavaWithJavac</code></h2><p>遇到这种跟<code>compileDebugJavaWithJavac</code>相关的问题，是因为AndroidX引起的。</p>
+<p><strong>解决办法：</strong></p>
+<p>使用<a href="https://github.com/mikehardy/jetifier" target="_blank" rel="noopener">jetifier</a>：</p>
+<p>执行命令：</p>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm i jetifier</span><br><span class="line">npx jetify -r</span><br></pre></td></tr></table></figure>
 <p>然后更新<code>package.json</code>中<code>scripts</code>：</p>
 <figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&quot;scripts&quot;: &#123;</span><br><span class="line">  ....</span><br><span class="line">  &quot;postinstall&quot;: &quot;jetify&quot;,</span><br><span class="line">  &quot;jetify&quot;: &quot;npx jetify -r&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>以后如果重装node_modules后，记得<code>npm run jetify</code>一下。</p>
 <blockquote>
 <p><a href="https://github.com/mikehardy/jetifier#to-reverse-jetify--convert-node_modules-dependencies-to-support-libraries" target="_blank" rel="noopener">无限期的延迟AndroidX的迁移</a></p>
 </blockquote>
+<h2 id="Warning-setState-Can-only-update-a-mounted-or-mounting-component-This-usually-means-you-called-setState-on-an-unmounted-component-This-is-a-no-op"><a href="#Warning-setState-Can-only-update-a-mounted-or-mounting-component-This-usually-means-you-called-setState-on-an-unmounted-component-This-is-a-no-op" class="headerlink" title="Warning: setState(...): Can only update a mounted or mounting component. This usually means you called setState() on an unmounted component. This is a no-op."></a><code>Warning: setState(...): Can only update a mounted or mounting component. This usually means you called setState() on an unmounted component. This is a no-op.</code></h2><p>在切换路由时报以上错误，是因为在组件挂载（mounted）之后进行了<strong>异步</strong>操作，比如<code>ajax</code>请求或者设置了<strong>定时器</strong>等，而你在<code>callback</code>中进行了<code>setState</code>操作。当你切换路由时，组件已经被<strong>卸载</strong>（unmounted）了，此时<strong>异步</strong>操作中<code>callback</code>还在执行，因此setState没有得到值。</p>
+<p><strong>解决办法：</strong></p>
+<ol>
+<li><p>在卸载的时候对所有的操作进行清除（例如：abort你的ajax请求或者清除定时器）</p>
+ <figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">componentDidMount = <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="hljs-comment">//1.ajax请求</span></span><br><span class="line">  $.ajax(<span class="hljs-string">'你的请求'</span>,&#123;&#125;)</span><br><span class="line">      .then(<span class="hljs-function"><span class="hljs-params">res</span> =&gt;</span> &#123;</span><br><span class="line">          <span class="hljs-keyword">this</span>.setState(&#123;</span><br><span class="line">              aa:<span class="hljs-literal">true</span></span><br><span class="line">          &#125;)</span><br><span class="line">      &#125;)</span><br><span class="line">      .catch(<span class="hljs-function"><span class="hljs-params">err</span> =&gt;</span> &#123;&#125;)</span><br><span class="line">  <span class="hljs-comment">//2.定时器</span></span><br><span class="line">  timer = setTimeout(<span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> &#123;</span><br><span class="line">      <span class="hljs-comment">//dosomething</span></span><br><span class="line">  &#125;,<span class="hljs-number">1000</span>)</span><br><span class="line">&#125;</span><br><span class="line">componentWillUnMount = <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="hljs-comment">//1.ajax请求</span></span><br><span class="line">    $.ajax.abort()</span><br><span class="line">    <span class="hljs-comment">//2.定时器</span></span><br><span class="line">    clearTimeout(timer)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>设置一个flag，当unmount的时候重置这个flag</p>
+ <figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">componentDidMount = <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="hljs-keyword">this</span>._isMounted = <span class="hljs-literal">true</span>;</span><br><span class="line">    $.ajax(<span class="hljs-string">'你的请求'</span>,&#123;&#125;)</span><br><span class="line">        .then(<span class="hljs-function"><span class="hljs-params">res</span> =&gt;</span> &#123;</span><br><span class="line">            <span class="hljs-keyword">if</span>(<span class="hljs-keyword">this</span>._isMounted)&#123;</span><br><span class="line">                <span class="hljs-keyword">this</span>.setState(&#123;</span><br><span class="line">                    aa:<span class="hljs-literal">true</span></span><br><span class="line">                &#125;)</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;)</span><br><span class="line">        .catch(<span class="hljs-function"><span class="hljs-params">err</span> =&gt;</span> &#123;&#125;)</span><br><span class="line">&#125;</span><br><span class="line">componentWillUnMount = <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="hljs-keyword">this</span>._isMounted = <span class="hljs-literal">false</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>最简单的方式（万金油）</p>
+ <figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">componentDidMount = <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> &#123;</span><br><span class="line">  $.ajax(<span class="hljs-string">'你的请求'</span>,&#123;&#125;)</span><br><span class="line">  .then(<span class="hljs-function"><span class="hljs-params">res</span> =&gt;</span> &#123;</span><br><span class="line">      <span class="hljs-keyword">this</span>.setState(&#123;</span><br><span class="line">          data: datas,</span><br><span class="line">      &#125;);</span><br><span class="line">  &#125;)</span><br><span class="line">  .catch(<span class="hljs-function"><span class="hljs-params">error</span> =&gt;</span> &#123;</span><br><span class="line"></span><br><span class="line">  &#125;);</span><br><span class="line">&#125;</span><br><span class="line">componentWillUnmount = <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="hljs-keyword">this</span>.setState = <span class="hljs-function">(<span class="hljs-params">state,callback</span>)=&gt;</span>&#123;</span><br><span class="line">      <span class="hljs-keyword">return</span>;</span><br><span class="line">    &#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
 
         </div>
         
@@ -1556,7 +1572,7 @@
                 
                 </a>
                 <p class="is-size-7">
-                &copy; 2019 Frank&nbsp;
+                &copy; 2020 Frank&nbsp;
                 Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> & <a
                         href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank">Icarus</a>
                 
