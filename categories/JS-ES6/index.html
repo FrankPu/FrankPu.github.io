@@ -156,6 +156,60 @@
         
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
             <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2020-02-10T07:14:28.000Z">2020-02-10</time>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/JS-ES6/">JS/ES6</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    2 分钟 读完 (大约 331 个字)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="has-link-black-ter" href="/2020/02/10/类型判断/">类型判断</a>
+            
+        </h1>
+        <div class="content">
+            <blockquote>
+<p>几种类型判断的方法</p>
+</blockquote>
+        </div>
+        
+        
+        <div class="level is-mobile">
+            <div class="level-start">
+                <div class="level-item">
+                <a class="button is-size-7 is-light" href="/2020/02/10/类型判断/#more">阅读更多</a>
+                </div>
+            </div>
+        </div>
+        
+        
+    </div>
+</div>
+
+
+
+
+
+
+
+
+    <div class="card">
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
                 <time class="level-item has-text-grey" datetime="2020-02-06T07:56:34.000Z">2020-02-06</time>
                 
                 <div class="level-item">
@@ -182,54 +236,16 @@
             <blockquote>
 <p>在JS中，这三者都是用来<strong>改变函数的this指向</strong>，那他们有什么样的区别呢？</p>
 </blockquote>
-<!-- more -- >
-
-
-
-## 相同点
-
-1. 都是用来改变函数的this对象的指向的。
-
-2. 第一个参数都是this要指向的对象。
-
-3. 都可以利用后续参数传参。
-
-
-
-## 区别
-
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> xw = &#123;</span><br><span class="line">    name : <span class="string">"小王"</span>,</span><br><span class="line">    gender : <span class="string">"男"</span>,</span><br><span class="line">    age : <span class="number">24</span>,</span><br><span class="line">    say : <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        alert(<span class="keyword">this</span>.name + <span class="string">" , "</span> + <span class="keyword">this</span>.gender + <span class="string">" ,今年"</span> + <span class="keyword">this</span>.age);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> xh = &#123;</span><br><span class="line">     name : <span class="string">"小红"</span>,</span><br><span class="line">     gender : <span class="string">"女"</span>,</span><br><span class="line">     age : <span class="number">18</span></span><br><span class="line"> &#125;</span><br><span class="line"></span><br><span class="line">xw.say();	<span class="comment">// 输出结果为 “小王 ， 男 ， 今年24”</span></span><br></pre></td></tr></table></figure>
-<p>那么如何用xw的<code>say()</code>方法来显示xh的数据呢？</p>
-<ol>
-<li><p>对于<code>call</code>可以这样：<code>xw.say.call(xh);</code></p>
-</li>
-<li><p>对于<code>apply</code>可以这样：<code>xw.say.apply(xh);</code></p>
-</li>
-<li><p>对于<code>bind</code>可以这样：<code>xw.say.bind(xh)();</code></p>
-<p>如果直接写<code>xw.say.bind(xh)</code>是不会有任何结果的，看到区别了吗？<code>call</code>和<code>apply</code>都是对函数的<strong>直接</strong>调用，而<code>bind</code>方法返回的仍然是一个函数，因此后面还需要()来进行调用才可以。</p>
-</li>
-</ol>
-<ol start="4">
-<li><p>复制代码</p>
-</li>
-</ol>
-<p>那么<code>call</code>和<code>apply</code>有什么区别呢？我们把例子稍微改写一下：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> xw = &#123;</span><br><span class="line">    name : <span class="string">"小王"</span>,</span><br><span class="line">    gender : <span class="string">"男"</span>,</span><br><span class="line">    age : <span class="number">24</span>,</span><br><span class="line">    say(school,grade) &#123;</span><br><span class="line">        alert(<span class="keyword">this</span>.name + <span class="string">" , "</span> + <span class="keyword">this</span>.gender + <span class="string">" ,今年"</span> + <span class="keyword">this</span>.age + <span class="string">" ,在"</span> + school + <span class="string">"上"</span> + grade);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> xh = &#123;</span><br><span class="line">     name : <span class="string">"小红"</span>,</span><br><span class="line">     gender : <span class="string">"女"</span>,</span><br><span class="line">     age : <span class="number">18</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>可以看到<code>say()</code>方法多了两个<strong>参数</strong>，我们通过call/apply的参数进行传参：</p>
-<ol>
-<li><p>对于call来说是这样的：<code>xw.say.call(xh,&quot;实验小学&quot;,&quot;六年级&quot;);</code></p>
-</li>
-<li><p>而对于apply来说是这样的：<code>xw.say.apply(xh,[&quot;实验小学&quot;,&quot;六年级&quot;]);</code></p>
-</li>
-</ol>
-<p>看到区别了吗，call后面的参数与say方法中是一一对应的，而apply的第二个参数是一个<strong>数组</strong>，数组中的元素是和say方法中一一对应的，这就是两者最大的区别。</p>
-<p>那么bind怎么传参呢？它可以像call那样传参：</p>
-<p><code>xw.say.bind(xh,&quot;实验小学&quot;,&quot;六年级&quot;)();</code></p>
-<p>但是由于bind返回的仍然是一个函数，所以我们也可以在调用的时候进行传参：</p>
-<p><code>xw.say.bind(xh)(&quot;实验小学&quot;,&quot;六年级&quot;);</code></p>
--->
         </div>
         
+        
+        <div class="level is-mobile">
+            <div class="level-start">
+                <div class="level-item">
+                <a class="button is-size-7 is-light" href="/2020/02/06/call-aplly-bind的区别/#more">阅读更多</a>
+                </div>
+            </div>
+        </div>
         
         
     </div>
@@ -674,60 +690,6 @@
 
 
 
-    <div class="card">
-    
-    <div class="card-content article ">
-        
-        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
-            <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2019-07-08T03:18:13.000Z">2019-07-08</time>
-                
-                <div class="level-item">
-                <a class="has-link-grey -link" href="/categories/JS-ES6/">JS/ES6</a>
-                </div>
-                
-                
-                <span class="level-item has-text-grey">
-                    
-                    
-                    22 分钟 读完 (大约 3368 个字)
-                </span>
-                
-                
-            </div>
-        </div>
-        
-        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
-            
-                <a class="has-link-black-ter" href="/2019/07/08/用图表和实例解释Async和Await/">用图表和实例解释Async和Await</a>
-            
-        </h1>
-        <div class="content">
-            <blockquote>
-<p>Promise和Async/Await，一篇写的很深刻的<a href="https://nikgrozev.com/2017/10/01/async-await/" target="_blank" rel="noopener">文章</a></p>
-</blockquote>
-        </div>
-        
-        
-        <div class="level is-mobile">
-            <div class="level-start">
-                <div class="level-item">
-                <a class="button is-size-7 is-light" href="/2019/07/08/用图表和实例解释Async和Await/#more">阅读更多</a>
-                </div>
-            </div>
-        </div>
-        
-        
-    </div>
-</div>
-
-
-
-
-
-
-
-
 
     
 <div class="card card-transparent">
@@ -790,7 +752,7 @@
                         文章
                     </p>
                     <p class="title has-text-weight-normal">
-                        53
+                        54
                     </p>
                 </div>
             </div>
@@ -895,7 +857,7 @@
                 <span class="level-item">JS/ES6</span>
             </span>
             <span class="level-end">
-                <span class="level-item tag">11</span>
+                <span class="level-item tag">12</span>
             </span>
         </a></li><li>
         <a class="level is-marginless" href="/categories/React/">
@@ -974,6 +936,25 @@
         
         <article class="media">
             
+            <a href="/2020/02/10/类型判断/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="类型判断">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-02-10T07:14:28.000Z">2020-02-10</time></div>
+                    <a href="/2020/02/10/类型判断/" class="title has-link-black-ter is-size-6 has-text-weight-normal">类型判断</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/JS-ES6/">JS/ES6</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
             <a href="/2020/02/06/call-aplly-bind的区别/" class="media-left">
                 <p class="image is-64x64">
                     <img class="thumbnail" src="/images/thumbnail.svg" alt="call,aplly,bind的区别">
@@ -1048,25 +1029,6 @@
             </div>
         </article>
         
-        <article class="media">
-            
-            <a href="/2019/08/29/Debugging-JavaScript-in-Chrome-DevTools/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Debugging JavaScript in Chrome DevTools">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-08-29T09:27:27.000Z">2019-08-29</time></div>
-                    <a href="/2019/08/29/Debugging-JavaScript-in-Chrome-DevTools/" class="title has-link-black-ter is-size-6 has-text-weight-normal">Debugging JavaScript in Chrome DevTools</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/其他前端/">其他前端</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
 
@@ -1085,7 +1047,7 @@
                     <span class="level-item">二月 2020</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">1</span>
+                    <span class="level-item tag">2</span>
                 </span>
             </a>
         </li>
@@ -1540,6 +1502,25 @@
         
         <article class="media">
             
+            <a href="/2020/02/10/类型判断/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="类型判断">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-02-10T07:14:28.000Z">2020-02-10</time></div>
+                    <a href="/2020/02/10/类型判断/" class="title has-link-black-ter is-size-6 has-text-weight-normal">类型判断</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/JS-ES6/">JS/ES6</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
             <a href="/2020/02/06/call-aplly-bind的区别/" class="media-left">
                 <p class="image is-64x64">
                     <img class="thumbnail" src="/images/thumbnail.svg" alt="call,aplly,bind的区别">
@@ -1614,25 +1595,6 @@
             </div>
         </article>
         
-        <article class="media">
-            
-            <a href="/2019/08/29/Debugging-JavaScript-in-Chrome-DevTools/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Debugging JavaScript in Chrome DevTools">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-08-29T09:27:27.000Z">2019-08-29</time></div>
-                    <a href="/2019/08/29/Debugging-JavaScript-in-Chrome-DevTools/" class="title has-link-black-ter is-size-6 has-text-weight-normal">Debugging JavaScript in Chrome DevTools</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/其他前端/">其他前端</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
 
@@ -1651,7 +1613,7 @@
                     <span class="level-item">二月 2020</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">1</span>
+                    <span class="level-item tag">2</span>
                 </span>
             </a>
         </li>

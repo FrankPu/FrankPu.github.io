@@ -7,22 +7,21 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
-<title>在Linux下安装MongoDB - Frank&#39;s Blog</title>
+<title>类型判断 - Frank&#39;s Blog</title>
 
 
-    <meta name="description" content="参考地址：linuxidc">
-<meta name="keywords" content="环境配置,Linux,MongoDB">
+    <meta name="description" content="几种类型判断的方法">
 <meta property="og:type" content="article">
-<meta property="og:title" content="在Linux下安装MongoDB">
-<meta property="og:url" content="https://shishuang.ga/2019/07/30/在Linux下安装MongoDB/index.html">
+<meta property="og:title" content="类型判断">
+<meta property="og:url" content="https://shishuang.ga/2020/02/10/类型判断/index.html">
 <meta property="og:site_name" content="Frank&#39;s Blog">
-<meta property="og:description" content="参考地址：linuxidc">
+<meta property="og:description" content="几种类型判断的方法">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://shishuang.ga/images/og_image.png">
-<meta property="og:updated_time" content="2019-07-30T09:14:41.331Z">
+<meta property="og:updated_time" content="2020-02-10T07:16:41.807Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="在Linux下安装MongoDB">
-<meta name="twitter:description" content="参考地址：linuxidc">
+<meta name="twitter:title" content="类型判断">
+<meta name="twitter:description" content="几种类型判断的方法">
 <meta name="twitter:image" content="https://shishuang.ga/images/og_image.png">
 
 
@@ -93,7 +92,7 @@
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
             
-                <img src="/images/logo.svg" alt="在Linux下安装MongoDB" height="28">
+                <img src="/images/logo.svg" alt="类型判断" height="28">
             
             </a>
         </div>
@@ -149,17 +148,17 @@
         
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
             <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2019-07-30T09:12:38.000Z">2019-07-30</time>
+                <time class="level-item has-text-grey" datetime="2020-02-10T07:14:28.000Z">2020-02-10</time>
                 
                 <div class="level-item">
-                <a class="has-link-grey -link" href="/categories/服务器/">服务器</a>
+                <a class="has-link-grey -link" href="/categories/JS-ES6/">JS/ES6</a>
                 </div>
                 
                 
                 <span class="level-item has-text-grey">
                     
                     
-                    5 分钟 读完 (大约 676 个字)
+                    2 分钟 读完 (大约 331 个字)
                 </span>
                 
                 
@@ -168,79 +167,40 @@
         
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                在Linux下安装MongoDB
+                类型判断
             
         </h1>
         <div class="content">
             <blockquote>
-<p>参考地址：<a href="https://www.linuxidc.com/Linux/2016-06/132675.htm" target="_blank" rel="noopener">linuxidc</a></p>
+<p>几种类型判断的方法</p>
 </blockquote>
 <a id="more"></a>
-<h2 id="安装步骤"><a href="#安装步骤" class="headerlink" title="安装步骤"></a>安装步骤</h2><ol>
-<li><p>下载你的服务器系统版本的mongodb，这里是<code>mongodb-linux-x86_64-3.4.9.tgz</code></p>
+<h2 id="typeof"><a href="#typeof" class="headerlink" title="typeof"></a>typeof</h2><figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">typeof</span> &#123;&#125; <span class="hljs-comment">// 'object'</span></span><br><span class="line"><span class="hljs-keyword">typeof</span> [] <span class="hljs-comment">// 'object'</span></span><br><span class="line"><span class="hljs-keyword">typeof</span> <span class="hljs-literal">null</span> <span class="hljs-comment">// 'object'</span></span><br><span class="line"><span class="hljs-keyword">typeof</span> <span class="hljs-literal">undefined</span>  <span class="hljs-comment">//'undefined'</span></span><br></pre></td></tr></table></figure>
+<h2 id="instanceof"><a href="#instanceof" class="headerlink" title="instanceof"></a>instanceof</h2><figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[] <span class="hljs-keyword">instanceof</span> <span class="hljs-built_in">Array</span> <span class="hljs-comment">// true</span></span><br><span class="line">(&#123;&#125;) <span class="hljs-keyword">instanceof</span> <span class="hljs-built_in">Object</span>  <span class="hljs-comment">// true</span></span><br><span class="line">(<span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> &#123;&#125;) <span class="hljs-keyword">instanceof</span> <span class="hljs-built_in">Function</span>  <span class="hljs-comment">// true</span></span><br></pre></td></tr></table></figure>
+<h2 id="Object-prototype-toString"><a href="#Object-prototype-toString" class="headerlink" title="Object.prototype.toString"></a>Object.prototype.toString</h2><figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-built_in">Object</span>.prototype.toString.call(&#123;&#125;)              <span class="hljs-comment">// '[object Object]'</span></span><br><span class="line"><span class="hljs-built_in">Object</span>.prototype.toString.call([])              <span class="hljs-comment">// '[object Array]'</span></span><br><span class="line"><span class="hljs-built_in">Object</span>.prototype.toString.call(<span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> &#123;&#125;)        <span class="hljs-comment">// '[object Function]'</span></span><br><span class="line"><span class="hljs-built_in">Object</span>.prototype.toString.call(<span class="hljs-string">'seymoe'</span>)        <span class="hljs-comment">// '[object String]'</span></span><br><span class="line"><span class="hljs-built_in">Object</span>.prototype.toString.call(<span class="hljs-number">1</span>)               <span class="hljs-comment">// '[object Number]'</span></span><br><span class="line"><span class="hljs-built_in">Object</span>.prototype.toString.call(<span class="hljs-literal">true</span>)            <span class="hljs-comment">// '[object Boolean]'</span></span><br><span class="line"><span class="hljs-built_in">Object</span>.prototype.toString.call(<span class="hljs-built_in">Symbol</span>())        <span class="hljs-comment">// '[object Symbol]'</span></span><br><span class="line"><span class="hljs-built_in">Object</span>.prototype.toString.call(<span class="hljs-literal">null</span>)            <span class="hljs-comment">// '[object Null]'</span></span><br><span class="line"><span class="hljs-built_in">Object</span>.prototype.toString.call(<span class="hljs-literal">undefined</span>)       <span class="hljs-comment">// '[object Undefined]'</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-built_in">Object</span>.prototype.toString.call(newDate())      <span class="hljs-comment">// '[object Date]'</span></span><br><span class="line"><span class="hljs-built_in">Object</span>.prototype.toString.call(<span class="hljs-built_in">Math</span>)            <span class="hljs-comment">// '[object Math]'</span></span><br><span class="line"><span class="hljs-built_in">Object</span>.prototype.toString.call(newSet())       <span class="hljs-comment">// '[object Set]'</span></span><br><span class="line"><span class="hljs-built_in">Object</span>.prototype.toString.call(newWeakSet())   <span class="hljs-comment">// '[object WeakSet]'</span></span><br><span class="line"><span class="hljs-built_in">Object</span>.prototype.toString.call(newMap())       <span class="hljs-comment">// '[object Map]'</span></span><br><span class="line"><span class="hljs-built_in">Object</span>.prototype.toString.call(newWeakMap())   <span class="hljs-comment">// '[object WeakMap]'</span></span><br></pre></td></tr></table></figure>
+<h3 id="利用Object-property-toString-，进行简单封装"><a href="#利用Object-property-toString-，进行简单封装" class="headerlink" title="利用Object.property.toString()，进行简单封装"></a>利用Object.property.toString()，进行简单封装</h3><figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">var</span> type = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">data</span>) </span>&#123;</span><br><span class="line">  <span class="hljs-keyword">var</span> toString = <span class="hljs-built_in">Object</span>.prototype.toString;</span><br><span class="line">  <span class="hljs-keyword">var</span> dataType = toString</span><br><span class="line">          .call(data)</span><br><span class="line">          .replace(<span class="hljs-regexp">/\[object\s(.+)\]/</span>, <span class="hljs-string">"$1"</span>)</span><br><span class="line">          .toLowerCase()</span><br><span class="line">  <span class="hljs-keyword">return</span> dataType</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h2 id="空对象判断"><a href="#空对象判断" class="headerlink" title="空对象判断"></a>空对象判断</h2><ol>
+<li><p>利用<code>Object.keys()</code></p>
+<figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">var</span> obj = &#123;&#125;</span><br><span class="line"><span class="hljs-built_in">Object</span>.keys(obj).length === <span class="hljs-number">0</span>; <span class="hljs-comment">// true</span></span><br></pre></td></tr></table></figure>
 </li>
-<li><p>传输到服务器，我这里使用<strong>putty的pscp传输</strong>（mac用户直接在shell使用scp传输）</p>
-<p>格式为：</p>
-<p><code>pscp.exe 文件路径 服务器登录名@服务器ip:传输到的服务器路径</code></p>
-<p>具体命令如下：</p>
-<p><code>C:\Program Files\PuTTY&gt;pscp.exe d:/mongodb-linux-x86_64-3.4.9.tgz root@120.78.82.59:/</code></p>
-<p>我这里是传到了<strong>根目录</strong>，所以直接是<code>/</code></p>
+<li><p>利用<code>Object.getOwnPropertyNames()</code></p>
+<figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">var</span> obj = &#123;&#125;</span><br><span class="line"><span class="hljs-built_in">Object</span>.getOwnPropertyNames(obj).length === <span class="hljs-number">0</span>; <span class="hljs-comment">// true</span></span><br></pre></td></tr></table></figure>
 </li>
-<li><p><code>wget https://fastdl.mongodb.org/linux/mongodb-linux-x86_64-3.4.9.tgz</code></p>
-<p><code>wget  https://fastdl.mongodb.org/linux/mongodb-linux-x86_64-rhel70-3.4.9.tgz</code></p>
-<p>解压mongodb：</p>
-<p><code>tar -zxvf mongodb-linux-x86_64-rhel70-3.4.9.tgz</code></p>
+<li><p>将json对象转换为字符串</p>
+<figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">var</span> obj = &#123;&#125;;</span><br><span class="line"><span class="hljs-built_in">JSON</span>.stringify(obj) === <span class="hljs-string">"&#123;&#125;"</span>; <span class="hljs-comment">// true</span></span><br></pre></td></tr></table></figure>
 </li>
-<li><p>新建mongodb文件夹：</p>
-<p><code>mkdir mongodb</code></p>
-<p>移动刚才解压缩完的文件夹到<strong>新建的mongodb目录</strong>下：</p>
-<p><code>mv mongodb-linux-x86_64-rhel70-3.4.9 mongodb</code></p>
+<li><p>for…in</p>
+<figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">var</span> obj = &#123;&#125;;</span><br><span class="line"></span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">judgeObj</span>(<span class="hljs-params">obj</span>) </span>&#123;</span><br><span class="line">  <span class="hljs-keyword">for</span>(<span class="hljs-keyword">let</span> key <span class="hljs-keyword">in</span> obj) &#123;</span><br><span class="line">    <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span></span><br><span class="line">  &#125;</span><br><span class="line">  <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span> <span class="hljs-comment">// 空对象会走这一步</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">judgeObj(obj); <span class="hljs-comment">// true</span></span><br></pre></td></tr></table></figure>
 </li>
-<li><p>进入新建的mongodb目录下，新建3个文件夹：</p>
-<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">cd mongodb</span><br><span class="line">mkdir data</span><br><span class="line">mkdir logs</span><br><span class="line">mkdir etc</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>进入logs创建</p>
-<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd logs</span><br><span class="line">touch mongo.log</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>进入etc创建</p>
-<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">cd ..</span><br><span class="line">cd etc</span><br><span class="line">// 进入vim编辑模式</span><br><span class="line">vi mongo.conf</span><br><span class="line"></span><br><span class="line">// 键入 I 进入编辑模式</span><br><span class="line">// 输入：</span><br><span class="line">dbpath=/mongodb/data</span><br><span class="line">logpath=/mongodb/logs/mongo.log</span><br><span class="line">logappend=true</span><br><span class="line">journal=true</span><br><span class="line">quiet=true</span><br><span class="line">port=27017</span><br><span class="line"></span><br><span class="line">// 完成后按esc退出编辑模式</span><br><span class="line">// 再输入 :wq 保存退出（有一个冒号哦！）</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>建mongodb软连接</p>
-<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cd /</span><br><span class="line">ln -s /mongodb/mongodb-linux-x86_64-rhel70-3.4.9/bin/mongo /usr/local/bin/mongo</span><br><span class="line">ln -s /mongodb/mongodb-linux-x86_64-rhel70-3.4.9/bin/mongod /usr/local/bin/mongod</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>打开第一个putty窗口，启动服务器（在服务器ssh上执行）</p>
-<p><code>mongod -f /mongodb/etc/mongo.conf</code></p>
-</li>
-<li><p>双开第二个putty窗口，连接数据库，输入：<code>mongo</code></p>
-</li>
-<li><p>此时，我们已经可以进入数据库，我们插入一条数据（mongodb的语法）：</p>
-<p><code>db.goods.insert({ id:1000, name:test })</code></p>
-<p>再执行<code>db.goods.find()</code>就可以看到我们刚才插入的数据了，但是这种做法我们不常用，一般使用可视化软件<strong>robot 3t</strong></p>
-</li>
-<li><p>打开第三个putty窗口，执行：<code>node imooc/server/bin/www</code>，可以看到<code>mongodb connected success</code></p>
-</li>
-<li><p>将mongodb加入系统自启动</p>
-<p>编辑文件<code>vi /etc/rc.loacl</code>，在最底部输入：</p>
-<p><code>/mongodb/mongodb-linux-x86_64-rhel70-3.4.9/bin/mongod --dbpath=/mongodb/data --fork --port 27017 --logpath=/mongodb/logs/mongo.log --logappend --auth</code></p>
-</li>
-<li><p><strong>注意：</strong>此处有一个超级大坑！阿里云默认是没有开27017和3000端口的，我之前服务器虽然配置成功了，但是在浏览器中却一直无法访问。</p>
-<p>操作方法：</p>
-<p><code>阿里云控制台--云计算基础服务--云服务器CES--网络安全（安全组）--选到你的服务器所在安全组列表--管理实例</code></p>
-<p><img src="https://frank-database.oss-cn-hangzhou.aliyuncs.com/img/20190730170634.png" alt></p>
-<p>然后添加27017和3000端口即可：</p>
-<p><img src="https://frank-database.oss-cn-hangzhou.aliyuncs.com/img/20190730170703.png" alt></p>
+<li><p>直接查询对象中是否包含某一属性</p>
+<figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">var</span> obj = &#123;&#125;;</span><br><span class="line"></span><br><span class="line">obj &amp;&amp; obj.name ? <span class="hljs-string">'不包含'</span> : <span class="hljs-string">'包含'</span>;</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
+<h2 id="判断是否为数组"><a href="#判断是否为数组" class="headerlink" title="判断是否为数组"></a>判断是否为数组</h2><figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-built_in">Array</span>.isArray([]) <span class="hljs-comment">// true</span></span><br><span class="line"><span class="hljs-built_in">Array</span>.isArray(&#123;&#125;) <span class="hljs-comment">// false</span></span><br></pre></td></tr></table></figure>
+<h2 id="空数组判断"><a href="#空数组判断" class="headerlink" title="空数组判断"></a>空数组判断</h2><p>利用<code>.length &gt; 0</code>是否为<code>true</code>即可。</p>
+<p><strong>注意：</strong>  <code>[] == true</code></p>
+<h2 id="数字判断"><a href="#数字判断" class="headerlink" title="数字判断"></a>数字判断</h2><p>利用<code>isNaN()</code>，只有当且仅当传入参数为数字时，才返回<code>false</code></p>
 
-        </div>
-        
-        <div class="level is-size-7 is-uppercase">
-            <div class="level-start">
-                <div class="level-item">
-                    <span class="is-size-6 has-text-grey has-mr-7">#</span>
-                    <a class="has-link-grey -link" href="/tags/Linux/">Linux</a>, <a class="has-link-grey -link" href="/tags/MongoDB/">MongoDB</a>, <a class="has-link-grey -link" href="/tags/环境配置/">环境配置</a>
-                </div>
-            </div>
         </div>
         
         
@@ -284,17 +244,10 @@
 <div class="card card-transparent">
     <div class="level post-navigation is-flex-wrap is-mobile">
         
-        <div class="level-start">
-            <a class="level level-item has-link-grey  article-nav-prev" href="/2019/07/31/在Windows下安装MongoDB/">
-                <i class="level-item fas fa-chevron-left"></i>
-                <span class="level-item">在Windows下安装MongoDB</span>
-            </a>
-        </div>
-        
         
         <div class="level-end">
-            <a class="level level-item has-link-grey  article-nav-next" href="/2019/07/29/事件委托的原理及作用/">
-                <span class="level-item">事件委托的原理及作用</span>
+            <a class="level level-item has-link-grey  article-nav-next" href="/2020/02/06/call-aplly-bind的区别/">
+                <span class="level-item">call,aplly,bind的区别</span>
                 <i class="level-item fas fa-chevron-right"></i>
             </a>
         </div>
@@ -1654,7 +1607,7 @@
             <div class="level-start has-text-centered-mobile">
                 <a class="footer-logo is-block has-mb-6" href="/">
                 
-                    <img src="/images/logo.svg" alt="在Linux下安装MongoDB" height="28">
+                    <img src="/images/logo.svg" alt="类型判断" height="28">
                 
                 </a>
                 <p class="is-size-7">
