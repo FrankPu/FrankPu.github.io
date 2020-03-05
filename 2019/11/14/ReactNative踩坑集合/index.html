@@ -18,7 +18,7 @@
 <meta property="og:description" content="RN过程中遇到的一些问题。">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://shishuang.ga/images/og_image.png">
-<meta property="og:updated_time" content="2020-01-09T13:34:50.033Z">
+<meta property="og:updated_time" content="2020-03-05T03:15:50.793Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ReactNative踩坑集合">
 <meta name="twitter:description" content="RN过程中遇到的一些问题。">
@@ -158,7 +158,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    3 分钟 读完 (大约 397 个字)
+                    3 分钟 读完 (大约 468 个字)
                 </span>
                 
                 
@@ -196,6 +196,11 @@
 <li><p>最简单的方式（万金油）</p>
  <figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">componentDidMount = <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> &#123;</span><br><span class="line">  $.ajax(<span class="hljs-string">'你的请求'</span>,&#123;&#125;)</span><br><span class="line">  .then(<span class="hljs-function"><span class="hljs-params">res</span> =&gt;</span> &#123;</span><br><span class="line">      <span class="hljs-keyword">this</span>.setState(&#123;</span><br><span class="line">          data: datas,</span><br><span class="line">      &#125;);</span><br><span class="line">  &#125;)</span><br><span class="line">  .catch(<span class="hljs-function"><span class="hljs-params">error</span> =&gt;</span> &#123;</span><br><span class="line"></span><br><span class="line">  &#125;);</span><br><span class="line">&#125;</span><br><span class="line">componentWillUnmount = <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="hljs-keyword">this</span>.setState = <span class="hljs-function">(<span class="hljs-params">state,callback</span>)=&gt;</span>&#123;</span><br><span class="line">      <span class="hljs-keyword">return</span>;</span><br><span class="line">    &#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
+</ol>
+<h2 id="Unable-to-load-script-from-assets-‘index-android-bundle’-Make-sure-your-bundle-is-packaged-correctly-or-you’re-running-a-packager-server"><a href="#Unable-to-load-script-from-assets-‘index-android-bundle’-Make-sure-your-bundle-is-packaged-correctly-or-you’re-running-a-packager-server" class="headerlink" title="Unable to load script from assets ‘index.android.bundle’. Make sure your bundle is packaged correctly or you’re running a packager server"></a>Unable to load script from assets ‘index.android.bundle’. Make sure your bundle is packaged correctly or you’re running a packager server</h2><p><strong>解决办法：</strong></p>
+<ol>
+<li>创建assets目录<br><code>mkdir android/app/src/main/assets</code></li>
+<li>执行命令<br><code>react-native bundle --platform android --dev false --entry-file index.js --bundle-output android/app/src/main/assets/index.android.bundle --assets-dest android/app/src/main/res/</code></li>
 </ol>
 
         </div>
