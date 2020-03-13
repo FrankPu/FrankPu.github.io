@@ -199,13 +199,11 @@ categories: ReactNative
 - `transparent`
 - `Color Name`：支持了 [基本颜色关键字](http://css.doyoe.com/appendix/color-keywords.htm#basic) 和 [拓展颜色关键字](http://css.doyoe.com/appendix/color-keywords.htm#extended)，但不支持 [28个系统颜色](http://css.doyoe.com/appendix/color-keywords.htm#system)；
 
-
-
 ## Units 单位
 
 在 `React-Native` 中，并不支持百分比单位，目前只支持一种单位，即 `pt` 绝对长度单位，同时，你在定义时不需要加单位，例如：
 
-```
+```javascript
 <View style={{width: 100, height: 50}}></View>
 var styles = StyleSheet.create({
     box: {
@@ -214,4 +212,3 @@ var styles = StyleSheet.create({
     }
 });
 ```
-
