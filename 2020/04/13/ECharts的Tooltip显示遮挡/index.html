@@ -7,17 +7,22 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
-<title>标签: Vue - Frank&#39;s Blog</title>
+<title>ECharts的Tooltip显示遮挡 - Frank&#39;s Blog</title>
 
 
-    <meta property="og:type" content="website">
-<meta property="og:title" content="Frank&#39;s Blog">
-<meta property="og:url" content="https://shishuang.ga/tags/Vue/index.html">
+    <meta name="description" content="Echarts提示框（tooltip）浮层位置，不设置时，默认位置会跟随鼠标的位置。但是，当提示框位置超出图表所在区域时，就可能出现提示框显示不全的问题。">
+<meta name="keywords" content="ECharts">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ECharts的Tooltip显示遮挡">
+<meta property="og:url" content="https://shishuang.ga/2020/04/13/ECharts的Tooltip显示遮挡/index.html">
 <meta property="og:site_name" content="Frank&#39;s Blog">
+<meta property="og:description" content="Echarts提示框（tooltip）浮层位置，不设置时，默认位置会跟随鼠标的位置。但是，当提示框位置超出图表所在区域时，就可能出现提示框显示不全的问题。">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://shishuang.ga/images/og_image.png">
+<meta property="og:updated_time" content="2020-04-13T07:38:16.808Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Frank&#39;s Blog">
+<meta name="twitter:title" content="ECharts的Tooltip显示遮挡">
+<meta name="twitter:description" content="Echarts提示框（tooltip）浮层位置，不设置时，默认位置会跟随鼠标的位置。但是，当提示框位置超出图表所在区域时，就可能出现提示框显示不全的问题。">
 <meta name="twitter:image" content="https://shishuang.ga/images/og_image.png">
 
 
@@ -88,7 +93,7 @@
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
             
-                <img src="/images/logo.svg" alt="Frank&#39;s Blog" height="28">
+                <img src="/images/logo.svg" alt="ECharts的Tooltip显示遮挡" height="28">
             
             </a>
         </div>
@@ -139,33 +144,22 @@
         <div class="container">
             <div class="columns">
                 <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main"><div class="card">
-    <div class="card-content">
-        <nav class="breadcrumb" aria-label="breadcrumbs">
-        <ul>
-            <li><a href="/tags">标签</a></li>
-            <li class="is-active"><a href="#" aria-current="page">Vue</a></li>
-        </ul>
-        </nav>
-    </div>
-</div>
-
-    <div class="card">
     
     <div class="card-content article ">
         
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
             <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2019-07-25T02:52:34.000Z">2019-07-25</time>
+                <time class="level-item has-text-grey" datetime="2020-04-13T07:34:54.000Z">2020-04-13</time>
                 
                 <div class="level-item">
-                <a class="has-link-grey -link" href="/categories/Vue/">Vue</a>
+                <a class="has-link-grey -link" href="/categories/JS-ES6/">JS/ES6</a>
                 </div>
                 
                 
                 <span class="level-item has-text-grey">
                     
                     
-                    4 分钟 读完 (大约 593 个字)
+                    5 分钟 读完 (大约 747 个字)
                 </span>
                 
                 
@@ -174,21 +168,79 @@
         
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                <a class="has-link-black-ter" href="/2019/07/25/Vue开发技巧之全局注册/">Vue开发技巧之全局注册</a>
+                ECharts的Tooltip显示遮挡
             
         </h1>
         <div class="content">
-            <p>Vue日常开发中使用到的小技巧：<strong>全局注册过滤器</strong>、<strong>全局注册组件</strong></p>
+            <blockquote>
+<p>Echarts提示框（tooltip）浮层位置，不设置时，默认位置会跟随鼠标的位置。但是，当提示框位置超出图表所在区域时，就可能出现提示框显示不全的问题。</p>
+</blockquote>
+<a id="more"></a>
+<h2 id="设置提示框位置的方法"><a href="#设置提示框位置的方法" class="headerlink" title="设置提示框位置的方法"></a>设置提示框位置的方法</h2><h3 id="方法一：固定position的位置"><a href="#方法一：固定position的位置" class="headerlink" title="方法一：固定position的位置"></a>方法一：固定position的位置</h3><p>数组第一个元素设置距离父元素<strong>左边</strong>的距离，数组第二个元素设置距离父元素<strong>上边</strong>的距离。</p>
+<p>这种方法设置的提示框位置固定不变，不会随鼠标移动而位置变化。</p>
+<p>（1）数字设置绝对位置 position: [20, 20]</p>
+<pre><code>tooltip: {
+  trigger: &apos;axis&apos;,
+  position: [20, 20] // 等价于 position: [&apos;20px&apos;, &apos;20px&apos;]
+},
+</code></pre><p>（2）百分比设置相对位置 position: [‘50%’, ‘50%’]</p>
+<pre><code>tooltip: {
+  trigger: &apos;axis&apos;,
+  // 相对位置
+  position: [&apos;50%&apos;, &apos;30%&apos;]
+},
+</code></pre><h3 id="方法二：设置position的值为：’inside’-’top’-’bottom’-’left’-’right’"><a href="#方法二：设置position的值为：’inside’-’top’-’bottom’-’left’-’right’" class="headerlink" title="方法二：设置position的值为：’inside’|’top’|’bottom’|’left’|’right’"></a>方法二：设置position的值为：’inside’|’top’|’bottom’|’left’|’right’</h3><p>这种方法只在设置<code>trigger: &#39;item&#39;</code>的时候才有效。</p>
+<p><code>inside</code>  鼠标所在图形的内部中心位置</p>
+<p><code>top</code>  鼠标所在图形上侧</p>
+<p><code>left</code>  鼠标所在图形左侧</p>
+<p><code>right</code>  鼠标所在图形右侧</p>
+<p><code>bottom</code>  鼠标所在图形底侧</p>
+<pre><code>tooltip: {
+  trigger: &apos;item&apos;,
+  position: &apos;top&apos;
+},
+</code></pre><h3 id="方法三：通过回调函数设置提示框位置"><a href="#方法三：通过回调函数设置提示框位置" class="headerlink" title="方法三：通过回调函数设置提示框位置"></a>方法三：通过回调函数设置提示框位置</h3><p>回调函数中有<strong>五个参数</strong>和<strong>一个返回值</strong>：</p>
+<p><strong>参数：</strong></p>
+<ol>
+<li><p><code>point</code>：鼠标位置，是一个数组，如 [20, 50]</p>
+</li>
+<li><p><code>params</code>：Object|Array.<object>  是需要的数据集</object></p>
+</li>
+<li><p><code>dom</code>：tooltip 的 dom 对象。</p>
+</li>
+<li><p><code>rect</code>：一个对象，只有鼠标在图形上时有效，是一个用  x, y, width, height   四个属性表达的图形包围盒。</p>
+</li>
+<li><p><code>size</code>：一个对象，包括 dom 的尺寸和 echarts 容器的当前尺寸，例如：{contentSize: [width, height], viewSize: [width, height]}。</p>
+<p>size中有两个属性：viewSize为外层div的大小，contentSize为tooltip提示框的大小</p>
+</li>
+</ol>
+<p><strong>返回值：</strong></p>
+<p>（1）返回值可以是一个表示 tooltip 位置的数组，数组值可以是绝对像素值，也可以是相对百分比。</p>
+<pre><code>tooltip: {
+  trigger: &apos;axis&apos;,
+  position: function (point, params, dom, rect, size) {
+    return [&apos;40%&apos;, 30];
+  }
+},
+</code></pre><p>（2）返回值也可以是一个对象</p>
+<p>对象的属性有：top、bottom、left、right</p>
+<pre><code>position: function (point, params, dom, rect, size) {
+  return {left: &apos;40%&apos;, bottom: 20};
+}
+</code></pre><h2 id="设置提示框位置随鼠标移动，并解决提示框显示不全的问题"><a href="#设置提示框位置随鼠标移动，并解决提示框显示不全的问题" class="headerlink" title="设置提示框位置随鼠标移动，并解决提示框显示不全的问题"></a>设置提示框位置随鼠标移动，并解决提示框显示不全的问题</h2><figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">position: function (point, params, dom, rect, size) &#123;</span><br><span class="line">  // 鼠标坐标和提示框位置的参考坐标系是：以外层div的左上角那一点为原点，x轴向右，y轴向下</span><br><span class="line">  // 提示框位置</span><br><span class="line">  var x = 0; // x坐标位置</span><br><span class="line">  var y = 0; // y坐标位置</span><br><span class="line"></span><br><span class="line">  // 当前鼠标位置</span><br><span class="line">  var pointX = point[0];</span><br><span class="line">  var pointY = point[1];</span><br><span class="line"></span><br><span class="line">  // 外层div大小</span><br><span class="line">  // var viewWidth = size.viewSize[0];</span><br><span class="line">  // var viewHeight = size.viewSize[1];</span><br><span class="line"></span><br><span class="line">  // 提示框大小</span><br><span class="line">  var boxWidth = size.contentSize[0];</span><br><span class="line">  var boxHeight = size.contentSize[1];</span><br><span class="line"></span><br><span class="line">  // boxWidth &gt; pointX 说明鼠标左边放不下提示框</span><br><span class="line">  if (boxWidth &gt; pointX) &#123;</span><br><span class="line">    x = 5;</span><br><span class="line">  &#125; else &#123; // 左边放的下</span><br><span class="line">    x = pointX - boxWidth;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  // boxHeight &gt; pointY 说明鼠标上边放不下提示框</span><br><span class="line">  if (boxHeight &gt; pointY) &#123;</span><br><span class="line">    y = 5;</span><br><span class="line">  &#125; else &#123; // 上边放得下</span><br><span class="line">    y = pointY - boxHeight;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  return [x, y];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><a href="https://blog.csdn.net/sleepwalker_1992/article/details/83023546" target="_blank" rel="noopener">参考链接</a></p>
+
         </div>
         
-        
-        <div class="level is-mobile">
+        <div class="level is-size-7 is-uppercase">
             <div class="level-start">
                 <div class="level-item">
-                <a class="button is-size-7 is-light" href="/2019/07/25/Vue开发技巧之全局注册/#more">阅读更多</a>
+                    <span class="is-size-6 has-text-grey has-mr-7">#</span>
+                    <a class="has-link-grey -link" href="/tags/ECharts/">ECharts</a>
                 </div>
             </div>
         </div>
+        
         
         
     </div>
@@ -196,9 +248,55 @@
 
 
 
+<div class="card">
+    <div class="card-content">
+        <h3 class="menu-label has-text-centered">喜欢这篇文章？打赏一下作者吧</h3>
+        <div class="buttons is-centered">
+            
+                
+<div class="notification is-danger">
+    You forgot to set the <code>qrcode</code> for Alipay. Please set it in <code>_config.yml</code>.
+</div>
+
+                
+                
+<div class="notification is-danger">
+    You forgot to set the <code>qrcode</code> for Wechat. Please set it in <code>_config.yml</code>.
+</div>
+
+                
+                <!-- Visit https://www.paypal.com/donate/buttons/ to get your donate button -->
+
+<div class="notification is-danger">
+    You forgot to set the <code>business</code> and <code>currency_code</code> for Paypal. Please set it in <code>_config.yml</code>.
+</div>
+
+                
+                
+<div class="notification is-danger">
+    You forgot to set the <code>url</code> Patreon. Please set it in <code>_config.yml</code>.
+</div>
+
+                
+        </div>
+    </div>
+</div>
 
 
 
+<div class="card card-transparent">
+    <div class="level post-navigation is-flex-wrap is-mobile">
+        
+        
+        <div class="level-end">
+            <a class="level level-item has-link-grey  article-nav-next" href="/2020/04/13/写给自己看的github博客初始化步骤/">
+                <span class="level-item">写给自己看的github博客初始化步骤</span>
+                <i class="level-item fas fa-chevron-right"></i>
+            </a>
+        </div>
+        
+    </div>
+</div>
 
 
 </div>
@@ -1649,7 +1747,7 @@
             <div class="level-start has-text-centered-mobile">
                 <a class="footer-logo is-block has-mb-6" href="/">
                 
-                    <img src="/images/logo.svg" alt="Frank&#39;s Blog" height="28">
+                    <img src="/images/logo.svg" alt="ECharts的Tooltip显示遮挡" height="28">
                 
                 </a>
                 <p class="is-size-7">
