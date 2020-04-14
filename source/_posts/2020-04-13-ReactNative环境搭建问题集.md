@@ -5,13 +5,31 @@ tags:
 categories: ReactNative
 ---
 
-# metro-config sharedBlacklist regexp without scape "\"
+<!-- more -->
+
+## 环境变量配置
+
+**系统变量新增：**
+
+1. key: `ANDROID_HOME`, value: `D:\Android\Sdk`(你的sdk所在目录)
+2. key: `JAVA_HOME`, value: `C:\Program Files\Java\jdk1.8.0_241`(你的jdk所在目录)
+
+**系统变量Path中新增：**
+
+1. `%ANDROID_HOME%\platform-tools`
+2. `%ANDROID_HOME%\emulator`
+3. `%ANDROID_HOME%\tools`
+4. `%ANDROID_HOME%\tools\bin`
+5. `%JAVA_HOME%\bin`
+6. `%JAVA_HOME%\jre\bin`
+
+至此，你应该可以使用`javac`, `adb`, `keytool`等相关命令了。
+
+## metro-config sharedBlacklist regexp without scape "\"
 
 > npx react-native run-android 时，启动报错
 
-<!-- more -->
-
-## 错误信息
+### 错误信息
 
 ```
 error Invalid regular expression: /(.*\\__fixtures__\\.*|node_modules[\\\]react[\\\]dist[\\\].*|website\\node_modules\\.*|heapCapture\\bundle\.js|.*\\__tests__\\.*)$/: Unterminated character class. Run CLI with --verbose flag for more details.
@@ -28,12 +46,12 @@ SyntaxError: Invalid regular expression: /(.*\\__fixtures__\\.*|node_modules[\\\
     at Command.parseArgs (C:\Users\***\react\myApp\node_modules\commander\index.js:651:12)
 ```
 
-## 原因
+### 原因
 
 This bug is caused due to Node's parsing of regular expressions in Node versions >=12.11.0.
 
-## 解决方法
+### 解决方法
 
-使用[node-v12.0.0-x64.msi ](https://npm.taobao.org/mirrors/node/v12.0.0/node-v12.0.0-x64.msi)
+使用[node-v12.0.0-x64.msi](https://npm.taobao.org/mirrors/node/v12.0.0/node-v12.0.0-x64.msi)
 
 [Github参考地址](https://github.com/facebook/metro/issues/453)
