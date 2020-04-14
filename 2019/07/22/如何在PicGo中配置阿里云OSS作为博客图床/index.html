@@ -19,7 +19,7 @@
 <meta property="og:description" content="我们之前从零开始搭建Hexo博客，现在需要拥有自己的图床">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://shishuang.ga/images/og_image.png">
-<meta property="og:updated_time" content="2020-04-13T07:16:08.149Z">
+<meta property="og:updated_time" content="2020-04-14T06:21:29.120Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="如何在PicGo中配置阿里云OSS作为博客图床">
 <meta name="twitter:description" content="我们之前从零开始搭建Hexo博客，现在需要拥有自己的图床">
@@ -159,7 +159,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    3 分钟 读完 (大约 413 个字)
+                    3 分钟 读完 (大约 437 个字)
                 </span>
                 
                 
@@ -179,11 +179,9 @@
 <li>上传工具：PicGo</li>
 </ul>
 <h2 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h2><ol>
-<li><p>先来看一下<a href="https://github.com/Molunerfinn/PicGo" target="_blank" rel="noopener">PicGo</a>配置阿里云OSS所需的参数，一共4项：</p>
-<p><img src="https://frank-database.oss-cn-hangzhou.aliyuncs.com/img/20190719115150.png" alt="PicGo配置项"></p>
+<li><p>先来看一下<a href="https://github.com/Molunerfinn/PicGo" target="_blank" rel="noopener">PicGo</a>配置阿里云OSS所需的参数，一共4项：<br><img src="https://frank-database.oss-cn-hangzhou.aliyuncs.com/img/20190719115150.png" alt="PicGo配置项"></p>
 </li>
-<li><p>登录阿里云后，在<a href="https://usercenter.console.aliyun.com/#/manage/ak" target="_blank" rel="noopener">页面</a>获取<code>KeyId</code>和<code>KeySecret</code>，建议使用子账户：</p>
-<p><img src="https://frank-database.oss-cn-hangzhou.aliyuncs.com/img/2019-8-20-11-12-43.png" alt="创建子用户AccessKey"></p>
+<li><p>登录阿里云后，在<a href="https://usercenter.console.aliyun.com/#/manage/ak" target="_blank" rel="noopener">页面</a>获取<code>KeyId</code>和<code>KeySecret</code>，建议使用子账户：<br><img src="https://frank-database.oss-cn-hangzhou.aliyuncs.com/img/2019-8-20-11-12-43.png" alt="创建子用户AccessKey"></p>
 <p>勾选<strong>编程访问</strong>，</p>
 <p><img src="https://frank-database.oss-cn-hangzhou.aliyuncs.com/img/2019-8-20-11-17-41.png" alt="创建子用户AccessKey"></p>
 <p>记录下<code>AccessKey ID</code>和<code>AccessKeySecret</code>，<strong>关闭页面后无法再次获取！</strong></p>
@@ -191,14 +189,13 @@
 <p>勾选新添加的用户，<strong>添加权限</strong>，加入<strong>OSS权限</strong>。</p>
 <p><img src="https://frank-database.oss-cn-hangzhou.aliyuncs.com/img/2019-8-20-11-21-11.png" alt="OSS权限"></p>
 </li>
-<li><p>打开<a href="[https://oss.console.aliyun.com](https://oss.console.aliyun.com/">控制台</a>，创建Bucket，填写的Bucket名称就是<strong>存储空间名</strong>，记录下来。</p>
-<p><img src="https://frank-database.oss-cn-hangzhou.aliyuncs.com/img/2019-8-20-11-25-36.png" alt="存储空间"></p>
+<li><p>打开<a href="[https://oss.console.aliyun.com](https://oss.console.aliyun.com/">控制台</a>，创建Bucket，填写的Bucket名称就是<strong>存储空间名</strong>，记录下来。<br><img src="https://frank-database.oss-cn-hangzhou.aliyuncs.com/img/2019-8-20-11-25-36.png" alt="存储空间"></p>
 </li>
-<li><p>创建完成以后，在概览页面——访问域名，图中框红的就是<strong>存储区域</strong>，记录下来。</p>
-<p><img src="https://frank-database.oss-cn-hangzhou.aliyuncs.com/img/20190719114548.png" alt="存储区域"></p>
+<li><p>创建完成以后，在概览页面——访问域名，图中框红的就是<strong>存储区域</strong>。<br><img src="https://frank-database.oss-cn-hangzhou.aliyuncs.com/img/20190719114548.png" alt="存储区域"></p>
 </li>
-<li><p>最后在Bucket的基础设置中，修改<strong>读写权限</strong>为公共读，这样blog才能读取到Bucket中的数据。</p>
-<p><img src="https://frank-database.oss-cn-hangzhou.aliyuncs.com/img/20190719114955.png" alt="读写权限"></p>
+<li><p>在Bucket的基础设置中，修改<strong>读写权限</strong>为公共读，这样blog才能读取到Bucket中的数据。<br><img src="https://frank-database.oss-cn-hangzhou.aliyuncs.com/img/20190719114955.png" alt="读写权限"></p>
+</li>
+<li><p>最后在防盗链中设置自己的域名，避免403。<br><img src="https://frank-database.oss-cn-hangzhou.aliyuncs.com/img/2020-04-14-14-20-43.png" alt="防盗链"></p>
 </li>
 </ol>
 
