@@ -317,7 +317,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    2 分钟 读完 (大约 247 个字)
+                    2 分钟 读完 (大约 340 个字)
                 </span>
                 
                 
@@ -330,19 +330,32 @@
             
         </h1>
         <div class="content">
-            <h1 id="metro-config-sharedBlacklist-regexp-without-scape-“-”"><a href="#metro-config-sharedBlacklist-regexp-without-scape-“-”" class="headerlink" title="metro-config sharedBlacklist regexp without scape “\”"></a>metro-config sharedBlacklist regexp without scape “\”</h1><blockquote>
+            <a id="more"></a>
+<h2 id="环境变量配置"><a href="#环境变量配置" class="headerlink" title="环境变量配置"></a>环境变量配置</h2><p><strong>系统变量新增：</strong></p>
+<ol>
+<li>key: <code>ANDROID_HOME</code>, value: <code>D:\Android\Sdk</code>(你的sdk所在目录)</li>
+<li>key: <code>JAVA_HOME</code>, value: <code>C:\Program Files\Java\jdk1.8.0_241</code>(你的jdk所在目录)</li>
+</ol>
+<p><strong>系统变量Path中新增：</strong></p>
+<ol>
+<li><code>%ANDROID_HOME%\platform-tools</code></li>
+<li><code>%ANDROID_HOME%\emulator</code></li>
+<li><code>%ANDROID_HOME%\tools</code></li>
+<li><code>%ANDROID_HOME%\tools\bin</code></li>
+<li><code>%JAVA_HOME%\bin</code></li>
+<li><code>%JAVA_HOME%\jre\bin</code></li>
+</ol>
+<p>至此，你应该可以使用<code>javac</code>, <code>adb</code>, <code>keytool</code>等相关命令了。</p>
+<h2 id="metro-config-sharedBlacklist-regexp-without-scape-“-”"><a href="#metro-config-sharedBlacklist-regexp-without-scape-“-”" class="headerlink" title="metro-config sharedBlacklist regexp without scape “\”"></a>metro-config sharedBlacklist regexp without scape “\”</h2><blockquote>
 <p>npx react-native run-android 时，启动报错</p>
 </blockquote>
+<h3 id="错误信息"><a href="#错误信息" class="headerlink" title="错误信息"></a>错误信息</h3><figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">error Invalid regular expression: /(.*\\__fixtures__\\.*|node_modules[\\\]react[\\\]dist[\\\].*|website\\node_modules\\.*|heapCapture\\bundle\.js|.*\\__tests__\\.*)$/: Unterminated character class. Run CLI with --verbose flag for more details.</span><br><span class="line">SyntaxError: Invalid regular expression: /(.*\\__fixtures__\\.*|node_modules[\\\]react[\\\]dist[\\\].*|website\\node_modules\\.*|heapCapture\\bundle\.js|.*\\__tests__\\.*)$/: Unterminated character class</span><br><span class="line">    at new RegExp (&lt;anonymous&gt;)</span><br><span class="line">    at blacklist (C:\Users\***\react\myApp\node_modules\metro-config\src\defaults\blacklist.js:34:10)</span><br><span class="line">    at getBlacklistRE (C:\Users\***\react\myApp\node_modules\@react-native-community\cli\build\tools\loadMetroConfig.js:69:59)</span><br><span class="line">    at getDefaultConfig (C:\Users\***\react\myApp\node_modules\@react-native-community\cli\build\tools\loadMetroConfig.js:85:20)</span><br><span class="line">    at load (C:\Users\***\react\myApp\node_modules\@react-native-community\cli\build\tools\loadMetroConfig.js:121:25)</span><br><span class="line">    at Object.runServer [as func] (C:\Users\***\react\myApp\node_modules\@react-native-community\cli\build\commands\server\runServer.js:82:58)</span><br><span class="line">    at Command.handleAction (C:\Users\***\react\myApp\node_modules\@react-native-community\cli\build\cliEntry.js:160:21)</span><br><span class="line">    at Command.listener (C:\Users\***\react\myApp\node_modules\commander\index.js:315:8)</span><br><span class="line">    at Command.emit (events.js:210:5)</span><br><span class="line">    at Command.parseArgs (C:\Users\***\react\myApp\node_modules\commander\index.js:651:12)</span><br></pre></td></tr></table></figure>
+<h3 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h3><p>This bug is caused due to Node’s parsing of regular expressions in Node versions &gt;=12.11.0.</p>
+<h3 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h3><p>使用<a href="https://npm.taobao.org/mirrors/node/v12.0.0/node-v12.0.0-x64.msi" target="_blank" rel="noopener">node-v12.0.0-x64.msi</a></p>
+<p><a href="https://github.com/facebook/metro/issues/453" target="_blank" rel="noopener">Github参考地址</a></p>
+
         </div>
         
-        
-        <div class="level is-mobile">
-            <div class="level-start">
-                <div class="level-item">
-                <a class="button is-size-7 is-light" href="/2020/04/13/ReactNative环境搭建问题集/#more">阅读更多</a>
-                </div>
-            </div>
-        </div>
         
         
     </div>
