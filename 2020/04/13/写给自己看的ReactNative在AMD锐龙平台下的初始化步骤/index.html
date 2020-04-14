@@ -7,17 +7,22 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
-<title>标签: MongoDB - Frank&#39;s Blog</title>
+<title>写给自己看的ReactNative在AMD锐龙平台下的初始化步骤 - Frank&#39;s Blog</title>
 
 
-    <meta property="og:type" content="website">
-<meta property="og:title" content="Frank&#39;s Blog">
-<meta property="og:url" content="https://shishuang.ga/tags/MongoDB/index.html">
+    <meta name="description" content="最近换了华为MagicBook Pro锐龙版，配置RN环境遇到一些问题">
+<meta name="keywords" content="环境配置">
+<meta property="og:type" content="article">
+<meta property="og:title" content="写给自己看的ReactNative在AMD锐龙平台下的初始化步骤">
+<meta property="og:url" content="https://shishuang.ga/2020/04/13/写给自己看的ReactNative在AMD锐龙平台下的初始化步骤/index.html">
 <meta property="og:site_name" content="Frank&#39;s Blog">
+<meta property="og:description" content="最近换了华为MagicBook Pro锐龙版，配置RN环境遇到一些问题">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://shishuang.ga/images/og_image.png">
+<meta property="og:updated_time" content="2020-04-13T08:25:54.218Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Frank&#39;s Blog">
+<meta name="twitter:title" content="写给自己看的ReactNative在AMD锐龙平台下的初始化步骤">
+<meta name="twitter:description" content="最近换了华为MagicBook Pro锐龙版，配置RN环境遇到一些问题">
 <meta name="twitter:image" content="https://shishuang.ga/images/og_image.png">
 
 
@@ -88,7 +93,7 @@
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
             
-                <img src="/images/logo.svg" alt="Frank&#39;s Blog" height="28">
+                <img src="/images/logo.svg" alt="写给自己看的ReactNative在AMD锐龙平台下的初始化步骤" height="28">
             
             </a>
         </div>
@@ -139,122 +144,123 @@
         <div class="container">
             <div class="columns">
                 <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main"><div class="card">
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2020-04-13T08:24:10.000Z">2020-04-13</time>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/ReactNative/">ReactNative</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    2 分钟 读完 (大约 335 个字)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                写给自己看的ReactNative在AMD锐龙平台下的初始化步骤
+            
+        </h1>
+        <div class="content">
+            <blockquote>
+<p>最近换了华为MagicBook Pro锐龙版，配置RN环境遇到一些问题</p>
+</blockquote>
+<a id="more"></a>
+<p>首先网上说的要开SVM MODE，但是我的笔记本进入BOIS并没有这个选项，我没有打开后来也成功了，可能是默认已经打开。</p>
+<p>其次，很多提到WIN10的Hyper-V，我是家庭版，打开window功能也并没有此选项，我没有打开后来也成功了。</p>
+<blockquote>
+<p>环境</p>
+<p>WIN10：家庭版，系统版本18363.752，版本号1909</p>
+<p>node：11.12.0</p>
+<p>android studio：3.61</p>
+</blockquote>
+<p>下面是解决步骤：</p>
+<ol>
+<li>打开任务管理器，性能，如果虚拟化已经开启，即已开启SVM MODE。</li>
+<li>关闭Win10的<code>Hyper-V</code>，<code>Windows Hypervisor Platform（虚拟机平台、windows 虚拟机监控程序平台）</code>，<code>Windows Sandbox（windows 沙盒）</code>。（没有就跳过）</li>
+<li>进入：<code>$ANDROID_SDK_ROOT\extras\google\Android_Emulator_Hypervisor_Driver</code>，<code>$ANDROID_SDK_ROOT\</code>是Android SDK的安装路径，可以在<strong>android studio</strong>的<strong>SDK Manager</strong>中查看位置。</li>
+<li>运行目录中的<strong>silent_install.bat</strong>，如果执行结果返回是：STATE: 4 RUNNING，说明成功。</li>
+</ol>
+<p>至此，就可以使用Android针对AMD处理器的高性能模拟器了。</p>
+<p><a href="https://androidstudio.googleblog.com/2019/10/android-emulator-hypervisor-driver-for.html" target="_blank" rel="noopener">参考地址1</a> <a href="https://blog.csdn.net/a497785609/article/details/103832368" target="_blank" rel="noopener">参考地址2</a></p>
+
+        </div>
+        
+        <div class="level is-size-7 is-uppercase">
+            <div class="level-start">
+                <div class="level-item">
+                    <span class="is-size-6 has-text-grey has-mr-7">#</span>
+                    <a class="has-link-grey -link" href="/tags/环境配置/">环境配置</a>
+                </div>
+            </div>
+        </div>
+        
+        
+        
+    </div>
+</div>
+
+
+
+<div class="card">
     <div class="card-content">
-        <nav class="breadcrumb" aria-label="breadcrumbs">
-        <ul>
-            <li><a href="/tags">标签</a></li>
-            <li class="is-active"><a href="#" aria-current="page">MongoDB</a></li>
-        </ul>
-        </nav>
-    </div>
+        <h3 class="menu-label has-text-centered">喜欢这篇文章？打赏一下作者吧</h3>
+        <div class="buttons is-centered">
+            
+                
+<div class="notification is-danger">
+    You forgot to set the <code>qrcode</code> for Alipay. Please set it in <code>_config.yml</code>.
 </div>
 
-    <div class="card">
-    
-    <div class="card-content article ">
-        
-        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
-            <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2019-07-31T09:29:45.000Z">2019-07-31</time>
-                
-                <div class="level-item">
-                <a class="has-link-grey -link" href="/categories/服务器/">服务器</a>
-                </div>
                 
                 
-                <span class="level-item has-text-grey">
-                    
-                    
-                    7 分钟 读完 (大约 1090 个字)
-                </span>
+<div class="notification is-danger">
+    You forgot to set the <code>qrcode</code> for Wechat. Please set it in <code>_config.yml</code>.
+</div>
+
+                
+                <!-- Visit https://www.paypal.com/donate/buttons/ to get your donate button -->
+
+<div class="notification is-danger">
+    You forgot to set the <code>business</code> and <code>currency_code</code> for Paypal. Please set it in <code>_config.yml</code>.
+</div>
+
                 
                 
-            </div>
+<div class="notification is-danger">
+    You forgot to set the <code>url</code> Patreon. Please set it in <code>_config.yml</code>.
+</div>
+
+                
         </div>
-        
-        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
-            
-                <a class="has-link-black-ter" href="/2019/07/31/在Windows下安装MongoDB/">在Windows下安装MongoDB</a>
-            
-        </h1>
-        <div class="content">
-            <blockquote>
-<p>参考地址：<a href="https://www.cnblogs.com/jacksoft/p/6910709.html" target="_blank" rel="noopener">河畔一角</a></p>
-</blockquote>
-        </div>
-        
-        
-        <div class="level is-mobile">
-            <div class="level-start">
-                <div class="level-item">
-                <a class="button is-size-7 is-light" href="/2019/07/31/在Windows下安装MongoDB/#more">阅读更多</a>
-                </div>
-            </div>
-        </div>
-        
-        
     </div>
 </div>
 
 
 
-
-
-
-
-
-    <div class="card">
-    
-    <div class="card-content article ">
+<div class="card card-transparent">
+    <div class="level post-navigation is-flex-wrap is-mobile">
         
-        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
-            <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2019-07-30T09:12:38.000Z">2019-07-30</time>
-                
-                <div class="level-item">
-                <a class="has-link-grey -link" href="/categories/服务器/">服务器</a>
-                </div>
-                
-                
-                <span class="level-item has-text-grey">
-                    
-                    
-                    5 分钟 读完 (大约 676 个字)
-                </span>
-                
-                
-            </div>
+        
+        <div class="level-end">
+            <a class="level level-item has-link-grey  article-nav-next" href="/2020/04/13/ECharts的Tooltip显示遮挡/">
+                <span class="level-item">ECharts的Tooltip显示遮挡</span>
+                <i class="level-item fas fa-chevron-right"></i>
+            </a>
         </div>
-        
-        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
-            
-                <a class="has-link-black-ter" href="/2019/07/30/在Linux下安装MongoDB/">在Linux下安装MongoDB</a>
-            
-        </h1>
-        <div class="content">
-            <blockquote>
-<p>参考地址：<a href="https://www.linuxidc.com/Linux/2016-06/132675.htm" target="_blank" rel="noopener">linuxidc</a></p>
-</blockquote>
-        </div>
-        
-        
-        <div class="level is-mobile">
-            <div class="level-start">
-                <div class="level-item">
-                <a class="button is-size-7 is-light" href="/2019/07/30/在Linux下安装MongoDB/#more">阅读更多</a>
-                </div>
-            </div>
-        </div>
-        
         
     </div>
 </div>
-
-
-
-
-
-
 
 
 </div>
@@ -1705,7 +1711,7 @@
             <div class="level-start has-text-centered-mobile">
                 <a class="footer-logo is-block has-mb-6" href="/">
                 
-                    <img src="/images/logo.svg" alt="Frank&#39;s Blog" height="28">
+                    <img src="/images/logo.svg" alt="写给自己看的ReactNative在AMD锐龙平台下的初始化步骤" height="28">
                 
                 </a>
                 <p class="is-size-7">
