@@ -1,11 +1,9 @@
 ---
 title: ReactNative环境搭建问题集
 date: 2020-04-13 15:27:52
-tags: 
+tags: 环境变量
 categories: ReactNative
 ---
-
-<!-- more -->
 
 ## 环境变量配置
 
@@ -24,6 +22,22 @@ categories: ReactNative
 6. `%JAVA_HOME%\jre\bin`
 
 至此，你应该可以使用`javac`, `adb`, `keytool`等相关命令了。
+
+<!-- more -->
+
+## SDK Platforms
+
+![](https://frank-database.oss-cn-hangzhou.aliyuncs.com/img/2020-04-15-10-06-51.png)
+![](https://frank-database.oss-cn-hangzhou.aliyuncs.com/img/2020-04-15-10-07-49.png)
+![](https://frank-database.oss-cn-hangzhou.aliyuncs.com/img/2020-04-15-10-08-11.png)
+![](https://frank-database.oss-cn-hangzhou.aliyuncs.com/img/2020-04-15-10-08-46.png)
+![](https://frank-database.oss-cn-hangzhou.aliyuncs.com/img/2020-04-15-10-09-07.png)
+![](https://frank-database.oss-cn-hangzhou.aliyuncs.com/img/2020-04-15-10-09-20.png)
+
+## SDK Tools
+
+![](https://frank-database.oss-cn-hangzhou.aliyuncs.com/img/2020-04-15-10-10-08.png)
+![](https://frank-database.oss-cn-hangzhou.aliyuncs.com/img/2020-04-15-10-11-01.png)
 
 ## metro-config sharedBlacklist regexp without scape "\"
 
