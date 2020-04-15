@@ -7,7 +7,7 @@ tags:
 categories: 其他前端
 ---
 
-在[搭建Hexo博客](https://shishuang.ga/2019/07/15/从零开始搭建Hexo博客/)的时候也会需要配置SSH
+在[搭建Hexo博客](https://pushishuang.top/2019/07/15/从零开始搭建Hexo博客/)的时候也会需要配置SSH
 
 
 
