@@ -19,7 +19,7 @@
 <meta property="og:description" content="环境变量配置系统变量新增：  key: ANDROID_HOME, value: D:\Android\Sdk(你的sdk所在目录) key: JAVA_HOME, value: C:\Program Files\Java\jdk1.8.0_241(你的jdk所在目录)  系统变量Path中新增：  %ANDROID_HOME%\platform-tools %ANDROID_HOME%\emul">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://shishuang.ga/images/og_image.png">
-<meta property="og:updated_time" content="2020-04-15T02:11:33.013Z">
+<meta property="og:updated_time" content="2020-04-15T07:56:12.363Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ReactNative环境搭建问题集">
 <meta name="twitter:description" content="环境变量配置系统变量新增：  key: ANDROID_HOME, value: D:\Android\Sdk(你的sdk所在目录) key: JAVA_HOME, value: C:\Program Files\Java\jdk1.8.0_241(你的jdk所在目录)  系统变量Path中新增：  %ANDROID_HOME%\platform-tools %ANDROID_HOME%\emul">
@@ -159,7 +159,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    3 分钟 读完 (大约 424 个字)
+                    4 分钟 读完 (大约 638 个字)
                 </span>
                 
                 
@@ -190,13 +190,20 @@
 <a id="more"></a>
 <h2 id="SDK-Platforms"><a href="#SDK-Platforms" class="headerlink" title="SDK Platforms"></a>SDK Platforms</h2><p><img src="https://frank-database.oss-cn-hangzhou.aliyuncs.com/img/2020-04-15-10-06-51.png" alt><br><img src="https://frank-database.oss-cn-hangzhou.aliyuncs.com/img/2020-04-15-10-07-49.png" alt><br><img src="https://frank-database.oss-cn-hangzhou.aliyuncs.com/img/2020-04-15-10-08-11.png" alt><br><img src="https://frank-database.oss-cn-hangzhou.aliyuncs.com/img/2020-04-15-10-08-46.png" alt><br><img src="https://frank-database.oss-cn-hangzhou.aliyuncs.com/img/2020-04-15-10-09-07.png" alt><br><img src="https://frank-database.oss-cn-hangzhou.aliyuncs.com/img/2020-04-15-10-09-20.png" alt></p>
 <h2 id="SDK-Tools"><a href="#SDK-Tools" class="headerlink" title="SDK Tools"></a>SDK Tools</h2><p><img src="https://frank-database.oss-cn-hangzhou.aliyuncs.com/img/2020-04-15-10-10-08.png" alt><br><img src="https://frank-database.oss-cn-hangzhou.aliyuncs.com/img/2020-04-15-10-11-01.png" alt></p>
+<h2 id="生成keystore"><a href="#生成keystore" class="headerlink" title="生成keystore"></a>生成keystore</h2><ol>
+<li>进入<code>C:\Program Files\Java\jdk1.8.0_241\bin</code>，因为没有配置环境变量，不然可以直接在项目目录执行<code>keytool</code>操作，<a href="[http://pushishuang.top/2020/04/13/ReactNative%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA%E9%97%AE%E9%A2%98%E9%9B%86/](http://pushishuang.top/2020/04/13/ReactNative环境搭建问题集/">环境变量配置参考</a>)，<strong>配置过的忽略本条</strong></li>
+<li><strong>管理员身份</strong>运行cmd，执行默认语句<code>keytool -genkey -v -keystore my-release-key.keystore -alias my-key-alias -keyalg RSA -keysize 2048 -validity 10000</code></li>
+<li>将生成的文件改名为<code>my-release-key.keystore</code>，并拷贝至项目目录的<code>android/app/</code>下，这里的名字<code>my-release-key.keystore</code>和<code>android\gradle.properties</code>中的<code>MYAPP_RELEASE_STORE_FILE</code>对应，名字<code>my-key-alias</code>和<code>android\gradle.properties</code>中的<code>MYAPP_RELEASE_KEY_ALIAS</code>对应，都可以自定义</li>
+<li>执行打包命令即可</li>
+</ol>
+<p><a href="https://reactnative.dev/docs/signed-apk-android#generating-an-upload-key" target="_blank" rel="noopener">参考地址</a></p>
 <h2 id="metro-config-sharedBlacklist-regexp-without-scape-“-”"><a href="#metro-config-sharedBlacklist-regexp-without-scape-“-”" class="headerlink" title="metro-config sharedBlacklist regexp without scape “\”"></a>metro-config sharedBlacklist regexp without scape “\”</h2><blockquote>
 <p>npx react-native run-android 时，启动报错</p>
 </blockquote>
 <h3 id="错误信息"><a href="#错误信息" class="headerlink" title="错误信息"></a>错误信息</h3><figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">error Invalid regular expression: /(.*\\__fixtures__\\.*|node_modules[\\\]react[\\\]dist[\\\].*|website\\node_modules\\.*|heapCapture\\bundle\.js|.*\\__tests__\\.*)$/: Unterminated character class. Run CLI with --verbose flag for more details.</span><br><span class="line">SyntaxError: Invalid regular expression: /(.*\\__fixtures__\\.*|node_modules[\\\]react[\\\]dist[\\\].*|website\\node_modules\\.*|heapCapture\\bundle\.js|.*\\__tests__\\.*)$/: Unterminated character class</span><br><span class="line">    at new RegExp (&lt;anonymous&gt;)</span><br><span class="line">    at blacklist (C:\Users\***\react\myApp\node_modules\metro-config\src\defaults\blacklist.js:34:10)</span><br><span class="line">    at getBlacklistRE (C:\Users\***\react\myApp\node_modules\@react-native-community\cli\build\tools\loadMetroConfig.js:69:59)</span><br><span class="line">    at getDefaultConfig (C:\Users\***\react\myApp\node_modules\@react-native-community\cli\build\tools\loadMetroConfig.js:85:20)</span><br><span class="line">    at load (C:\Users\***\react\myApp\node_modules\@react-native-community\cli\build\tools\loadMetroConfig.js:121:25)</span><br><span class="line">    at Object.runServer [as func] (C:\Users\***\react\myApp\node_modules\@react-native-community\cli\build\commands\server\runServer.js:82:58)</span><br><span class="line">    at Command.handleAction (C:\Users\***\react\myApp\node_modules\@react-native-community\cli\build\cliEntry.js:160:21)</span><br><span class="line">    at Command.listener (C:\Users\***\react\myApp\node_modules\commander\index.js:315:8)</span><br><span class="line">    at Command.emit (events.js:210:5)</span><br><span class="line">    at Command.parseArgs (C:\Users\***\react\myApp\node_modules\commander\index.js:651:12)</span><br></pre></td></tr></table></figure>
 <h3 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h3><p>This bug is caused due to Node’s parsing of regular expressions in Node versions &gt;=12.11.0.</p>
 <h3 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h3><p>使用<a href="https://npm.taobao.org/mirrors/node/v12.0.0/node-v12.0.0-x64.msi" target="_blank" rel="noopener">node-v12.0.0-x64.msi</a></p>
-<p><a href="https://github.com/facebook/metro/issues/453" target="_blank" rel="noopener">Github参考地址</a></p>
+<p><a href="https://github.com/facebook/metro/issues/453" target="_blank" rel="noopener">参考地址</a></p>
 
         </div>
         
