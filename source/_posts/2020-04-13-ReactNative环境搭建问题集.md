@@ -39,6 +39,15 @@ categories: ReactNative
 ![](https://frank-database.oss-cn-hangzhou.aliyuncs.com/img/2020-04-15-10-10-08.png)
 ![](https://frank-database.oss-cn-hangzhou.aliyuncs.com/img/2020-04-15-10-11-01.png)
 
+## 生成keystore
+
+1. 进入`C:\Program Files\Java\jdk1.8.0_241\bin`，因为没有配置环境变量，不然可以直接在项目目录执行`keytool`操作，[环境变量配置参考]([http://pushishuang.top/2020/04/13/ReactNative%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA%E9%97%AE%E9%A2%98%E9%9B%86/](http://pushishuang.top/2020/04/13/ReactNative环境搭建问题集/))，**配置过的忽略本条**
+2. **管理员身份**运行cmd，执行默认语句`keytool -genkey -v -keystore my-release-key.keystore -alias my-key-alias -keyalg RSA -keysize 2048 -validity 10000`
+3. 将生成的文件改名为`my-release-key.keystore`，并拷贝至项目目录的`android/app/`下，这里的名字`my-release-key.keystore`和`android\gradle.properties`中的`MYAPP_RELEASE_STORE_FILE`对应，名字`my-key-alias`和`android\gradle.properties`中的`MYAPP_RELEASE_KEY_ALIAS`对应，都可以自定义
+4. 执行打包命令即可
+
+[参考地址](https://reactnative.dev/docs/signed-apk-android#generating-an-upload-key)
+
 ## metro-config sharedBlacklist regexp without scape "\"
 
 > npx react-native run-android 时，启动报错
@@ -68,4 +77,4 @@ This bug is caused due to Node's parsing of regular expressions in Node versions
 
 使用[node-v12.0.0-x64.msi](https://npm.taobao.org/mirrors/node/v12.0.0/node-v12.0.0-x64.msi)
 
-[Github参考地址](https://github.com/facebook/metro/issues/453)
+[参考地址](https://github.com/facebook/metro/issues/453)

@@ -20,6 +20,10 @@ categories: ReactNative
 > node：11.12.0
 >
 > android studio：3.61
+>
+> java 1.8.0_241
+>
+> python 2.7.15
 
 下面是解决步骤：
 
