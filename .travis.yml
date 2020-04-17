@@ -1,5 +1,6 @@
 # 指定语言环境
 language: node_js
+
 node_js:
   - lts/*
 
@@ -12,13 +13,8 @@ cache:
 before_install:
   - export TZ='Asia/Shanghai' # 更改时区
 
-# Start: Build Lifecycle
 install:
   - npm install
-  # - cd ${FOLDER_SOURCE}
-  # - rm $(ls -F | grep [^/]$)
-  # - echo ${DOMAIN} > CNAME
-  # - cd ..
 
 script:
   # 执行清缓存，生成网页操作
@@ -33,8 +29,8 @@ after_script:
   - cd ../
   - mv .deploy_git/.git/ ./public/   # 这一步之前的操作是为了保留dev分支的提交记录，不然每次git init的话只有1条commit
   - cd ./public
-  - git config user.name ${NAME}
-  - git config user.email ${EMAIL}
+  - git config user.name dick3741
+  - git config user.email 233955487@qq.com
   - git add .
   - git commit -m "Travis CI Auto Builder at `date +"%Y-%m-%d %H:%M"`"  # 提交记录包含时间 跟上面更改时区配合
   - git push --force --quiet "https://${TOKEN}@${GH_REF}" master:master  # TOKEN是在Travis中配置环境变量的名称
