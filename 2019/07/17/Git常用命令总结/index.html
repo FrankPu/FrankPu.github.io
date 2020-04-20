@@ -19,7 +19,7 @@
 <meta property="og:description" content="常用命令 本地创建公钥：ssh-keygen -t rsa -C &amp;quot;邮箱&amp;quot; 克隆最新主分支代码到本地：git clone 地址  下载指定分支：git clone -b 分支名仓库地址  创建本地分支：git branch 分支名  查看本地分支：git branch  查看远程分支：git branch -a  切换分支：git checkout 分支名  将本地分支推送到远">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://pushishuang.top/images/og_image.png">
-<meta property="og:updated_time" content="2020-04-13T07:16:08.148Z">
+<meta property="og:updated_time" content="2020-04-20T03:50:23.517Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Git常用命令总结">
 <meta name="twitter:description" content="常用命令 本地创建公钥：ssh-keygen -t rsa -C &amp;quot;邮箱&amp;quot; 克隆最新主分支代码到本地：git clone 地址  下载指定分支：git clone -b 分支名仓库地址  创建本地分支：git branch 分支名  查看本地分支：git branch  查看远程分支：git branch -a  切换分支：git checkout 分支名  将本地分支推送到远">
@@ -159,7 +159,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    16 分钟 读完 (大约 2391 个字)
+                    16 分钟 读完 (大约 2471 个字)
                 </span>
                 
                 
@@ -190,11 +190,11 @@
 </li>
 </ul>
 <a id="more"></a>
-<h2 id="git原理图"><a href="#git原理图" class="headerlink" title="git原理图"></a>git原理图</h2><p><img src="https://frank-database.oss-cn-hangzhou.aliyuncs.com/img/2019-8-16-16-46-47.png" alt="git原理图"></p>
+<h2 id="git原理图"><a href="#git原理图" class="headerlink" title="git原理图"></a>git原理图</h2><p><img src="https://frank-database.oss-cn-hangzhou.aliyuncs.com/img/2019-8-16-16-46-47.png" alt="git原理图"><br>四个模块：</p>
 <ol>
-<li><strong>Remote：</strong>远程主仓库；</li>
-<li><strong>Repository：</strong>本地仓库；</li>
-<li><strong>Index：</strong>git追踪树，暂存区；</li>
+<li><strong>Remote：</strong>远程主仓库</li>
+<li><strong>Repository：</strong>本地仓库</li>
+<li><strong>Index：</strong>git追踪树，暂存区</li>
 <li><strong>workspace：</strong>本地工作区（即你编辑器的代码）</li>
 </ol>
 <p><strong>一般工作时的提交代码流程：</strong>《工作区》-&gt; <code>git status</code>查看状态 -&gt; <code>git add .</code>将所有修改加入暂存区-&gt; <code>git commit -m &quot;提交描述&quot;</code>将代码提交到本地仓库-&gt;<code>git push</code>将本地仓库代码更新到远程仓库</p>
@@ -217,7 +217,7 @@
 <p>如需彻底更新并合并，使用<code>git pull</code></p>
 </blockquote>
 <ol>
-<li>远程主机的更新，全部取回本地<code>git fetch &lt;远程主机名&gt;</code>；</li>
+<li>远程主机的更新，全部取回本地<code>git fetch &lt;远程主机名&gt;</code></li>
 <li>将远程仓库特定分支更新到本地<code>git fetch &lt;远程主机名&gt; &lt;分支名&gt;</code></li>
 </ol>
 <p>如果需要将拉取的更新合并到本地某一分支：<code>git merge &lt;被合并的分支&gt;</code></p>
@@ -237,7 +237,7 @@
 </blockquote>
 <ol>
 <li>将本地分支推送到远程分支：<code>git push &lt;远程主机名&gt; &lt;本地分支名&gt;:&lt;远程分支名&gt;</code></li>
-<li>如果省略远程分支名，则默认为将本地分支推送到与之关联的远程分支：(一般设置本地分支和与之关联的远程分支同名，防止混淆)<code>git push &lt;远程主机名&gt; &lt;本地分支名&gt;</code><ul>
+<li>如果<strong>省略远程分支名</strong>，则默认为将本地分支推送到<strong>与之关联</strong>的远程分支：(一般设置本地分支和与之关联的远程分支同名，防止混淆)<code>git push &lt;远程主机名&gt; &lt;本地分支名&gt;</code><ul>
 <li>如果对应的远程分支不存在，则会被创建（m默认与本地分支同名）</li>
 </ul>
 </li>
@@ -275,15 +275,15 @@
 <li>推送本地dev分支到远端dev分支<code>git push origin dev</code></li>
 </ol>
 <h3 id="拉取远程分支代码"><a href="#拉取远程分支代码" class="headerlink" title="拉取远程分支代码"></a>拉取远程分支代码</h3><ul>
-<li><code>git checkout -b 本地分支名 origin/远程分支名</code>：在本地新建分支，并自动切换到该本地分支；</li>
-<li><code>git fetch origin 远程分支名:本地分支名</code>：在本地新建分支，但是不会自动切换到该本地分支，需要手动checkout。</li>
+<li><code>git checkout -b 本地分支名 origin/远程分支名</code>：在本地新建分支，并自动切换到该本地分支</li>
+<li><code>git fetch origin 远程分支名:本地分支名</code>：在本地新建分支，但是不会自动切换到该本地分支，需要手动checkout</li>
 </ul>
 <h3 id="重命名远程分支"><a href="#重命名远程分支" class="headerlink" title="重命名远程分支"></a>重命名远程分支</h3><ol>
-<li><p>重命名本地分支：<code>git branch -m &lt;oldName&gt; &lt;newName&gt;</code>;</p>
+<li><p>重命名本地分支：<code>git branch -m &lt;oldName&gt; &lt;newName&gt;</code></p>
 </li>
-<li><p>删除远程分支：<code>git push -d origin &lt;oldName&gt;</code>;</p>
+<li><p>删除远程分支：<code>git push -d origin &lt;oldName&gt;</code></p>
 </li>
-<li><p>上传新命名的本地分支：<code>git push origin &lt;newName&gt;</code>;</p>
+<li><p>上传新命名的本地分支：<code>git push origin &lt;newName&gt;</code></p>
 </li>
 <li><p>把本地分支与远程分支关联：<code>git branch --set-upstream-to=origin/&lt;newName&gt;</code></p>
 <p><strong>举个栗子：</strong></p>
@@ -326,13 +326,19 @@
 </ol>
 <p><img src="https://frank-database.oss-cn-hangzhou.aliyuncs.com/img/2019-8-16-16-53-18.png" alt></p>
 <h2 id="撤销修改"><a href="#撤销修改" class="headerlink" title="撤销修改"></a>撤销修改</h2><ol>
-<li><code>git checkout -- &lt;文件名&gt;</code>：丢弃工作区的修改，就是让这个文件回到最近一次<code>git commit</code>或<code>git add</code>时的状态。</li>
-<li><code>git reset HEAD &lt;文件名&gt;</code>：把暂存区的修改撤销掉（unstage），重新放回工作区。</li>
-<li><code>git reset --hard commit_id</code>：git版本回退，回退到特定的commit_id版本</li>
+<li><p><code>git checkout -- &lt;文件名&gt;</code>：丢弃工作区的修改：</p>
+<ol>
+<li>文件自修改后<strong>还没有被放到暂存区</strong>，现在，撤销修改就回到和<strong>版本库</strong>一模一样的状态</li>
+<li>文件<strong>已经添加到暂存区后</strong>，又作了修改，现在，撤销修改就回到添加到<strong>暂存区</strong>后的状态</li>
 </ol>
-<h3 id="版本回退"><a href="#版本回退" class="headerlink" title="版本回退"></a>版本回退</h3><ol>
-<li><code>git log</code>查看提交历史，以便确定要回退到哪个版本(commit之后的一长串字符就是commit_id，记录下来);</li>
-<li><code>git reset --hard commit_id</code>：回退到commit_id版本；</li>
+<p>总之，就是让这个文件回到最近一次git commit或git add时的状态。</p>
+</li>
+<li><code>git reset HEAD &lt;文件名&gt;</code>：把暂存区的修改撤销掉（unstage），重新放回工作区</li>
+</ol>
+<h3 id="版本回退-重置"><a href="#版本回退-重置" class="headerlink" title="版本回退/重置"></a>版本回退/重置</h3><p>如果已经push了错误代码代码到仓库，可以执行如下步骤：</p>
+<ol>
+<li><code>git log</code>查看提交历史，以便确定要回退到哪个版本(commit之后的一长串字符就是commit_id，记录下来)</li>
+<li><code>git reset --hard commit_id</code>：回退到commit_id版本</li>
 </ol>
 <h2 id="git配置"><a href="#git配置" class="headerlink" title="git配置"></a>git配置</h2><ul>
 <li><code>git config -l</code>：列出所有的git配置项</li>
