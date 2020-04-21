@@ -103,9 +103,9 @@ notifications:
 
 ## 完成
 
-至此，完成了所有配置项，以后就只需要在博客源码分支进行如下操作即可：
+至此，完成了所有配置项，以后就不用`hexo generate && hexo deploy`了，只需要在博客源码分支进行如下操作即可：
 
-1. `hexo new 文章名`
+1. `hexo new 文章名`，或者直接`source\_posts\`目录下新建文章
 2. 编写文章
 3. `git add .`
 4. `git commit -am 提交信息`
