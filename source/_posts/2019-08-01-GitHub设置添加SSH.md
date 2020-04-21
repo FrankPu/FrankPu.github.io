@@ -2,8 +2,9 @@
 title: GitHub设置添加SSH
 date: 2019-08-01 11:49:05
 tags: 
-- 环境配置
 - git
+- SSH
+- 环境配置
 categories: 其他前端
 ---
 

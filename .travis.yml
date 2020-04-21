@@ -43,7 +43,7 @@ branches:
 
 env:
   global:
-    - GH_REF: github.com/dick3741/dick3741.github.io.git  #设置GH_REF
+    - GH_REF: github.com/dick3741/dick3741.github.io.git  #设置博客仓库地址
 
 notifications:
   email:
