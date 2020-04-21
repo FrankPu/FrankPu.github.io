@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
 
-<meta name="generator" content="Hexo 3.8.0" />
+<meta name="generator" content="Hexo 3.9.0" />
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
@@ -19,7 +19,7 @@
 <meta property="og:description" content="CSS Grid 网格布局教程的笔记整理  参考地址：阮一峰">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://pushishuang.top/images/og_image.png">
-<meta property="og:updated_time" content="2020-04-20T03:50:23.531Z">
+<meta property="og:updated_time" content="2020-04-21T01:32:34.148Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CSS Grid 网格布局教程">
 <meta name="twitter:description" content="CSS Grid 网格布局教程的笔记整理  参考地址：阮一峰">
@@ -202,13 +202,13 @@
 <li>重复的次数</li>
 <li>所要重复的值</li>
 </ol>
-<figure class="highlight css hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-selector-class">.container</span> &#123;</span><br><span class="line">  <span class="hljs-attribute">display</span>: grid;</span><br><span class="line">  <span class="hljs-attribute">grid-template-columns</span>: <span class="hljs-built_in">repeat</span>(3, 100px);</span><br><span class="line">  <span class="hljs-attribute">grid-template-rows</span>: <span class="hljs-built_in">repeat</span>(3, 33.33%);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight css hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-selector-class">.container</span> &#123;</span><br><span class="line">  <span class="hljs-attribute">display</span>: grid;</span><br><span class="line">  <span class="hljs-attribute">grid-template-columns</span>: <span class="hljs-built_in">repeat</span>(<span class="hljs-number">3</span>, <span class="hljs-number">100px</span>);</span><br><span class="line">  <span class="hljs-attribute">grid-template-rows</span>: <span class="hljs-built_in">repeat</span>(<span class="hljs-number">3</span>, <span class="hljs-number">33.33%</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>也可以使用<code>repeat()</code>来重复某种模式：</p>
 <p><code>grid-template-columns: repeat(2, 100px 20px 80px);</code></p>
 <p>上述代码定义了6列，第一列和第四列的宽度为100px，第二列和第五列为20px，第三列和第六列为80px。</p>
 <p><img src="https://frank-database.oss-cn-hangzhou.aliyuncs.com/img/2019-8-21-11-19-54.png" alt="repeat"></p>
 <h4 id="auto-fill"><a href="#auto-fill" class="headerlink" title="auto-fill"></a><code>auto-fill</code></h4><p><code>auto-fill</code>表示单元格<strong>尽可能多的自动</strong>填充容器。</p>
-<figure class="highlight css hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-selector-class">.container</span> &#123;</span><br><span class="line">  <span class="hljs-attribute">display</span>: grid;</span><br><span class="line">  <span class="hljs-attribute">grid-template-columns</span>: <span class="hljs-built_in">repeat</span>(auto-fill, 100px);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight css hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-selector-class">.container</span> &#123;</span><br><span class="line">  <span class="hljs-attribute">display</span>: grid;</span><br><span class="line">  <span class="hljs-attribute">grid-template-columns</span>: <span class="hljs-built_in">repeat</span>(auto-fill, <span class="hljs-number">100px</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>上述代码表示<strong>每列</strong>宽<code>100px</code>，然后<strong>自动填充</strong>，直到容器<strong>水平方向</strong>不能放下更多为止。</p>
 <p><img src="https://frank-database.oss-cn-hangzhou.aliyuncs.com/img/2019-8-21-11-25-53.png" alt="auto-fill"></p>
 <h4 id="fr关键字"><a href="#fr关键字" class="headerlink" title="fr关键字"></a><code>fr</code>关键字</h4><p><code>fr</code>关键字（fraction 的缩写，意为”片段”）。</p>
@@ -400,6 +400,31 @@
         <h3 class="menu-label has-text-centered">喜欢这篇文章？打赏一下作者吧</h3>
         <div class="buttons is-centered">
             
+                
+<div class="notification is-danger">
+    You forgot to set the <code>qrcode</code> for Alipay. Please set it in <code>_config.yml</code>.
+</div>
+
+                
+                
+<div class="notification is-danger">
+    You forgot to set the <code>qrcode</code> for Wechat. Please set it in <code>_config.yml</code>.
+</div>
+
+                
+                <!-- Visit https://www.paypal.com/donate/buttons/ to get your donate button -->
+
+<div class="notification is-danger">
+    You forgot to set the <code>business</code> and <code>currency_code</code> for Paypal. Please set it in <code>_config.yml</code>.
+</div>
+
+                
+                
+<div class="notification is-danger">
+    You forgot to set the <code>url</code> Patreon. Please set it in <code>_config.yml</code>.
+</div>
+
+                
         </div>
     </div>
 </div>

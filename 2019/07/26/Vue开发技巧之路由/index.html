@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
 
-<meta name="generator" content="Hexo 3.8.0" />
+<meta name="generator" content="Hexo 3.9.0" />
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
@@ -19,7 +19,7 @@
 <meta property="og:description" content="Vue日常开发中使用到的小技巧：路由监听、路由懒加载">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://pushishuang.top/images/og_image.png">
-<meta property="og:updated_time" content="2020-04-20T03:50:23.521Z">
+<meta property="og:updated_time" content="2020-04-21T01:32:34.148Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Vue开发技巧之路由">
 <meta name="twitter:description" content="Vue日常开发中使用到的小技巧：路由监听、路由懒加载">
@@ -190,7 +190,7 @@
 <p>所以当需要懒加载 <code>lazy-loading</code> 的时候，把 <code>routes</code> 中的 <code>component</code> 改为 <code>()=&gt;import(&#39;@/views/login.vue&#39;)</code>即可。</p>
 <h3 id="区分生产-开发环境"><a href="#区分生产-开发环境" class="headerlink" title="区分生产/开发环境"></a>区分生产/开发环境</h3><p>当你的项目页面越来越多之后，在开发环境之中使用 <code>lazy-loading</code> 会变得不太合适，<strong>每次更改代码触发热更新都会变得非常的慢。</strong>所以建议只在生成环境之中使用路由懒加载功能。</p>
 <h4 id="优化-1"><a href="#优化-1" class="headerlink" title="优化"></a>优化</h4><p>在路由文件夹下分别新建两个文件，<code>_import_production.js</code>和<code>_import_development.js</code>：</p>
-<figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">// _import_production.js</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-built_in">module</span>.exports = <span class="hljs-function"><span class="hljs-params">file</span> =&gt;</span> () =&gt; <span class="hljs-keyword">import</span>(<span class="hljs-string">'@/views/'</span> + file + <span class="hljs-string">'.vue'</span>)</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">// _import_production.js</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-built_in">module</span>.exports = <span class="hljs-function"><span class="hljs-params">file</span> =&gt;</span> <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> <span class="hljs-keyword">import</span>(<span class="hljs-string">'@/views/'</span> + file + <span class="hljs-string">'.vue'</span>)</span><br></pre></td></tr></table></figure>
 <figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">// _import_development.js (这种写法 `vue-loader`版本至少v13.0.0以上)</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-built_in">module</span>.exports = <span class="hljs-function"><span class="hljs-params">file</span> =&gt;</span> <span class="hljs-built_in">require</span>(<span class="hljs-string">'@/views/'</span> + file + <span class="hljs-string">'.vue'</span>).default</span><br></pre></td></tr></table></figure>
 <p>然后在路由入口文件 <code>router/index.js</code> 中添加：</p>
 <figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">// 关键的process.env.NODE_ENV</span></span><br><span class="line"><span class="hljs-keyword">const</span> _import = <span class="hljs-built_in">require</span>(<span class="hljs-string">'./_import_'</span> + process.env.NODE_ENV);</span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-keyword">new</span> Router(&#123;</span><br><span class="line">	routes: [&#123;</span><br><span class="line">  		path: <span class="hljs-string">'/login'</span>,</span><br><span class="line">  		name: <span class="hljs-string">'登陆'</span>,</span><br><span class="line">  		component: _import(<span class="hljs-string">'login/index'</span>)</span><br><span class="line">  	&#125;]</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
@@ -225,6 +225,31 @@
         <h3 class="menu-label has-text-centered">喜欢这篇文章？打赏一下作者吧</h3>
         <div class="buttons is-centered">
             
+                
+<div class="notification is-danger">
+    You forgot to set the <code>qrcode</code> for Alipay. Please set it in <code>_config.yml</code>.
+</div>
+
+                
+                
+<div class="notification is-danger">
+    You forgot to set the <code>qrcode</code> for Wechat. Please set it in <code>_config.yml</code>.
+</div>
+
+                
+                <!-- Visit https://www.paypal.com/donate/buttons/ to get your donate button -->
+
+<div class="notification is-danger">
+    You forgot to set the <code>business</code> and <code>currency_code</code> for Paypal. Please set it in <code>_config.yml</code>.
+</div>
+
+                
+                
+<div class="notification is-danger">
+    You forgot to set the <code>url</code> Patreon. Please set it in <code>_config.yml</code>.
+</div>
+
+                
         </div>
     </div>
 </div>

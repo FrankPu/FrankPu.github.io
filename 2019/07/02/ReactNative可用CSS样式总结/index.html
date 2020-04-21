@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
 
-<meta name="generator" content="Hexo 3.8.0" />
+<meta name="generator" content="Hexo 3.9.0" />
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
@@ -19,7 +19,7 @@
 <meta property="og:description" content="ReactNative的样式跟原生CSS样式有一定区别，且不支持部分原生CSS样式，下面是对RN常用样式的总结：  ReactNative中样式采用驼峰写法  View组件类似Div标签，包装容器，默认占用100%宽度，是最常用的块状元素  Text组件类似Span标签，在被View包裹时候可设置padding、margin像块状  绝对定位和相对定位父元素不需要设置position和zindex">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://pushishuang.top/images/og_image.png">
-<meta property="og:updated_time" content="2020-04-20T03:50:23.513Z">
+<meta property="og:updated_time" content="2020-04-21T01:32:34.148Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ReactNative可用CSS样式总结">
 <meta name="twitter:description" content="ReactNative的样式跟原生CSS样式有一定区别，且不支持部分原生CSS样式，下面是对RN常用样式的总结：  ReactNative中样式采用驼峰写法  View组件类似Div标签，包装容器，默认占用100%宽度，是最常用的块状元素  Text组件类似Span标签，在被View包裹时候可设置padding、margin像块状  绝对定位和相对定位父元素不需要设置position和zindex">
@@ -713,7 +713,7 @@
 <li><code>Color Name</code>：支持了 <a href="http://css.doyoe.com/appendix/color-keywords.htm#basic" target="_blank" rel="noopener">基本颜色关键字</a> 和 <a href="http://css.doyoe.com/appendix/color-keywords.htm#extended" target="_blank" rel="noopener">拓展颜色关键字</a>，但不支持 <a href="http://css.doyoe.com/appendix/color-keywords.htm#system" target="_blank" rel="noopener">28个系统颜色</a>；</li>
 </ul>
 <h2 id="Units-单位"><a href="#Units-单位" class="headerlink" title="Units 单位"></a>Units 单位</h2><p>在 <code>React-Native</code> 中，并不支持百分比单位，目前只支持一种单位，即 <code>pt</code> 绝对长度单位，同时，你在定义时不需要加单位，例如：</p>
-<figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;View style=&#123;&#123;<span class="hljs-attr">width</span>: <span class="hljs-number">100</span>, <span class="hljs-attr">height</span>: <span class="hljs-number">50</span>&#125;&#125;&gt;&lt;/View&gt;</span><br><span class="line"><span class="hljs-keyword">var</span> styles = StyleSheet.create(&#123;</span><br><span class="line">    box: &#123;</span><br><span class="line">        width: <span class="hljs-number">100</span>,</span><br><span class="line">        height: <span class="hljs-number">50</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;View style=&#123;&#123;<span class="hljs-attr">width</span>: <span class="hljs-number">100</span>, <span class="hljs-attr">height</span>: <span class="hljs-number">50</span>&#125;&#125;&gt;&lt;<span class="hljs-regexp">/View&gt;</span></span><br><span class="line"><span class="hljs-regexp">var styles = StyleSheet.create(&#123;</span></span><br><span class="line"><span class="hljs-regexp">    box: &#123;</span></span><br><span class="line"><span class="hljs-regexp">        width: 100,</span></span><br><span class="line"><span class="hljs-regexp">        height: 50</span></span><br><span class="line"><span class="hljs-regexp">    &#125;</span></span><br><span class="line"><span class="hljs-regexp">&#125;);</span></span><br></pre></td></tr></table></figure>
 
         </div>
         
@@ -738,6 +738,31 @@
         <h3 class="menu-label has-text-centered">喜欢这篇文章？打赏一下作者吧</h3>
         <div class="buttons is-centered">
             
+                
+<div class="notification is-danger">
+    You forgot to set the <code>qrcode</code> for Alipay. Please set it in <code>_config.yml</code>.
+</div>
+
+                
+                
+<div class="notification is-danger">
+    You forgot to set the <code>qrcode</code> for Wechat. Please set it in <code>_config.yml</code>.
+</div>
+
+                
+                <!-- Visit https://www.paypal.com/donate/buttons/ to get your donate button -->
+
+<div class="notification is-danger">
+    You forgot to set the <code>business</code> and <code>currency_code</code> for Paypal. Please set it in <code>_config.yml</code>.
+</div>
+
+                
+                
+<div class="notification is-danger">
+    You forgot to set the <code>url</code> Patreon. Please set it in <code>_config.yml</code>.
+</div>
+
+                
         </div>
     </div>
 </div>

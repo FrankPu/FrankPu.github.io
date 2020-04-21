@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
 
-<meta name="generator" content="Hexo 3.8.0" />
+<meta name="generator" content="Hexo 3.9.0" />
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
@@ -19,7 +19,7 @@
 <meta property="og:description" content="Hook是 React 16.8 的新增特性。它可以让你在不编写 class 的情况下使用 state 以及其他的 React 特性">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://pushishuang.top/images/og_image.png">
-<meta property="og:updated_time" content="2020-04-20T03:50:23.510Z">
+<meta property="og:updated_time" content="2020-04-21T01:32:34.148Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="写给自己看的ReactHook笔记">
 <meta name="twitter:description" content="Hook是 React 16.8 的新增特性。它可以让你在不编写 class 的情况下使用 state 以及其他的 React 特性">
@@ -248,7 +248,7 @@
 </ol>
 <h3 id="ESLint插件"><a href="#ESLint插件" class="headerlink" title="ESLint插件"></a>ESLint插件</h3><p><a href="https://www.npmjs.com/package/eslint-plugin-react-hooks" target="_blank" rel="noopener">eslint-plugin-react-hooks</a>插件可以强制Hook只在React函数中而非Js函数中调用（之后可能并入create react app）</p>
 <p><code>npm install eslint-plugin-react-hooks --save-dev</code></p>
-<figure class="highlight hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">// 你的 ESLint 配置</span><br><span class="line">&#123;</span><br><span class="line">  <span class="hljs-attr">"plugins"</span>: [</span><br><span class="line">    // ...</span><br><span class="line">    <span class="hljs-string">"react-hooks"</span></span><br><span class="line">  ],</span><br><span class="line">  <span class="hljs-attr">"rules"</span>: &#123;</span><br><span class="line">    // ...</span><br><span class="line">    "react-hooks/rules-of-hooks": "error", // 检查 Hook 的规则</span><br><span class="line">    "react-hooks/exhaustive-deps": "warn" // 检查 effect 的依赖</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight json hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">// 你的 ESLint 配置</span></span><br><span class="line">&#123;</span><br><span class="line">  <span class="hljs-attr">"plugins"</span>: [</span><br><span class="line">    <span class="hljs-comment">// ...</span></span><br><span class="line">    <span class="hljs-string">"react-hooks"</span></span><br><span class="line">  ],</span><br><span class="line">  <span class="hljs-attr">"rules"</span>: &#123;</span><br><span class="line">    <span class="hljs-comment">// ...</span></span><br><span class="line">    <span class="hljs-attr">"react-hooks/rules-of-hooks"</span>: <span class="hljs-string">"error"</span>, <span class="hljs-comment">// 检查 Hook 的规则</span></span><br><span class="line">    <span class="hljs-attr">"react-hooks/exhaustive-deps"</span>: <span class="hljs-string">"warn"</span> <span class="hljs-comment">// 检查 effect 的依赖</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h3 id="按顺序执行的Hook"><a href="#按顺序执行的Hook" class="headerlink" title="按顺序执行的Hook"></a>按顺序执行的Hook</h3><p>在单个组件中可以使用多个<strong>State Hook</strong>或<strong>Effect Hook</strong>，因为Hook<strong>必须按顺序执行</strong>，所以React才能知道<code>state</code>与哪一个<code>useState</code>对应。</p>
 <figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Form</span>(<span class="hljs-params"></span>) </span>&#123;</span><br><span class="line">  <span class="hljs-comment">// 1. Use the name state variable</span></span><br><span class="line">  <span class="hljs-keyword">const</span> [name, setName] = useState(<span class="hljs-string">'Mary'</span>);</span><br><span class="line"></span><br><span class="line">  <span class="hljs-comment">// 2. Use an effect for persisting the form</span></span><br><span class="line">  useEffect(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">persistForm</span>(<span class="hljs-params"></span>) </span>&#123;</span><br><span class="line">    localStorage.setItem(<span class="hljs-string">'formData'</span>, name);</span><br><span class="line">  &#125;);</span><br><span class="line"></span><br><span class="line">  <span class="hljs-comment">// 3. Use the surname state variable</span></span><br><span class="line">  <span class="hljs-keyword">const</span> [surname, setSurname] = useState(<span class="hljs-string">'Poppins'</span>);</span><br><span class="line"></span><br><span class="line">  <span class="hljs-comment">// 4. Use an effect for updating the title</span></span><br><span class="line">  useEffect(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">updateTitle</span>(<span class="hljs-params"></span>) </span>&#123;</span><br><span class="line">    <span class="hljs-built_in">document</span>.title = name + <span class="hljs-string">' '</span> + surname;</span><br><span class="line">  &#125;);</span><br><span class="line"></span><br><span class="line">  <span class="hljs-comment">// ...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>上述代码的工作如下：</p>
@@ -290,6 +290,31 @@
         <h3 class="menu-label has-text-centered">喜欢这篇文章？打赏一下作者吧</h3>
         <div class="buttons is-centered">
             
+                
+<div class="notification is-danger">
+    You forgot to set the <code>qrcode</code> for Alipay. Please set it in <code>_config.yml</code>.
+</div>
+
+                
+                
+<div class="notification is-danger">
+    You forgot to set the <code>qrcode</code> for Wechat. Please set it in <code>_config.yml</code>.
+</div>
+
+                
+                <!-- Visit https://www.paypal.com/donate/buttons/ to get your donate button -->
+
+<div class="notification is-danger">
+    You forgot to set the <code>business</code> and <code>currency_code</code> for Paypal. Please set it in <code>_config.yml</code>.
+</div>
+
+                
+                
+<div class="notification is-danger">
+    You forgot to set the <code>url</code> Patreon. Please set it in <code>_config.yml</code>.
+</div>
+
+                
         </div>
     </div>
 </div>
