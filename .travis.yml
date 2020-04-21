@@ -42,8 +42,8 @@ branches:
     - dev
 
 env:
- global:
-   - GH_REF: github.com/dick3741/dick3741.github.io.git  #设置GH_REF
+  global:
+    - GH_REF: github.com/dick3741/dick3741.github.io.git  #设置GH_REF
 
 notifications:
   email:
