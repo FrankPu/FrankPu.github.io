@@ -5,7 +5,7 @@ tags: 环境配置
 categories: ReactNative
 ---
 
-> 最近换了华为MagicBook Pro锐龙版，配置RN环境遇到一些问题
+> 最近换了荣耀MagicBook Pro锐龙版，配置RN环境遇到一些问题
 
 <!-- more -->
 
