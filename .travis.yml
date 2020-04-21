@@ -25,7 +25,7 @@ script:
 after_script:
   - git clone https://${GH_REF} .deploy_git
   - cd .deploy_git
-  - git checkout dev
+  - git checkout master
   - cd ../
   - mv .deploy_git/.git/ ./public/   # 这一步之前的操作是为了保留dev分支的提交记录，不然每次git init的话只有1条commit
   - cd ./public
