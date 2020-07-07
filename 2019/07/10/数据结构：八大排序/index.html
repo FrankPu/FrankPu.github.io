@@ -1,0 +1,2142 @@
+<!DOCTYPE html>
+<html  lang="zh">
+<head>
+    <meta charset="utf-8" />
+
+<meta name="generator" content="Hexo 3.9.0" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+
+<title>数据结构：八大排序 - Frank&#39;s Blog</title>
+
+
+    <meta name="description" content="参考地址：Handsome-Lee">
+<meta name="keywords" content="数据结构,排序">
+<meta property="og:type" content="article">
+<meta property="og:title" content="数据结构：八大排序">
+<meta property="og:url" content="https://pushishuang.top/2019/07/10/数据结构：八大排序/index.html">
+<meta property="og:site_name" content="Frank&#39;s Blog">
+<meta property="og:description" content="参考地址：Handsome-Lee">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://pushishuang.top/images/og_image.png">
+<meta property="og:updated_time" content="2020-07-07T06:39:47.344Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="数据结构：八大排序">
+<meta name="twitter:description" content="参考地址：Handsome-Lee">
+<meta name="twitter:image" content="https://pushishuang.top/images/og_image.png">
+
+
+
+
+
+
+
+<link rel="icon" href="/images/favicon.svg">
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.7.2/css/bulma.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:400,600|Source+Code+Pro">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css">
+
+
+    
+    
+    
+    <style>body>.footer,body>.navbar,body>.section{opacity:0}</style>
+    
+
+    
+    
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css">
+    
+
+    
+    
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.css">
+
+
+    
+    
+    
+    
+
+<link rel="stylesheet" href="/css/back-to-top.css">
+
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+<link rel="stylesheet" href="/css/progressbar.css">
+<script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
+
+    
+    
+    
+
+
+<link rel="stylesheet" href="/css/style.css">
+</head>
+<body class="is-3-column">
+    <nav class="navbar navbar-main">
+    <div class="container">
+        <div class="navbar-brand is-flex-center">
+            <a class="navbar-item navbar-logo" href="/">
+            
+                <img src="/images/logo.svg" alt="数据结构：八大排序" height="28">
+            
+            </a>
+        </div>
+        <div class="navbar-menu">
+            
+            <div class="navbar-start">
+                
+                <a class="navbar-item"
+                href="/">Home</a>
+                
+                <a class="navbar-item"
+                href="/archives">Archives</a>
+                
+                <a class="navbar-item"
+                href="/categories">Categories</a>
+                
+                <a class="navbar-item"
+                href="/tags">Tags</a>
+                
+                <a class="navbar-item"
+                href="/about">About</a>
+                
+            </div>
+            
+            <div class="navbar-end">
+                
+                    
+                    
+                    <a class="navbar-item" target="_blank" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus">
+                        
+                        <i class="fab fa-github"></i>
+                        
+                    </a>
+                    
+                
+                
+                
+                <a class="navbar-item search" title="搜索" href="javascript:;">
+                    <i class="fas fa-search"></i>
+                </a>
+                
+            </div>
+        </div>
+    </div>
+</nav>
+    
+    <section class="section">
+        <div class="container">
+            <div class="columns">
+                <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main"><div class="card">
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2019-07-10T09:41:11.000Z">2019-07-10</time>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/数据结构/">数据结构</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    13 分钟 读完 (大约 1932 个字)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                数据结构：八大排序
+            
+        </h1>
+        <div class="content">
+            <blockquote>
+<p>参考地址：<a href="https://blog.csdn.net/BigBrick/article/details/85312927" target="_blank" rel="noopener">Handsome-Lee</a></p>
+</blockquote>
+<a id="more"></a>
+<h2 id="排序分类一览"><a href="#排序分类一览" class="headerlink" title="排序分类一览"></a>排序分类一览</h2><p><img src="https://frank-database.oss-cn-hangzhou.aliyuncs.com/img/2019-8-16-16-55-38.png" alt="排序分类"></p>
+<h2 id="类型一：交换排序"><a href="#类型一：交换排序" class="headerlink" title="类型一：交换排序"></a>类型一：交换排序</h2><h3 id="冒泡排序"><a href="#冒泡排序" class="headerlink" title="冒泡排序"></a>冒泡排序</h3><blockquote>
+<p>特点：稳定，每一次都会有一个数字到最终的位置</p>
+</blockquote>
+<p><img src="https://frank-database.oss-cn-hangzhou.aliyuncs.com/img/2019-8-16-16-56-11.png" alt="冒泡排序"></p>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">void swap(int &amp;a,int &amp;b)</span><br><span class="line">&#123;</span><br><span class="line">    int c = a;</span><br><span class="line">    a = b;</span><br><span class="line">    b = c;</span><br><span class="line">&#125;</span><br><span class="line">void bubbleSort(int a[],int num)</span><br><span class="line">&#123;</span><br><span class="line">    for(int i=0;i&lt;num-1;i++)</span><br><span class="line">        for(int j=0;j&lt;num-i-1;j++)</span><br><span class="line">            if(a[j]&gt;a[j+1])swap(a[j],a[j+1]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="快速排序"><a href="#快速排序" class="headerlink" title="快速排序"></a>快速排序</h3><blockquote>
+<p>特点：不稳定，每次中间的数字会有序，如果数据量太大的话，可能会爆栈。</p>
+</blockquote>
+<p><img src="https://frank-database.oss-cn-hangzhou.aliyuncs.com/img/2019-8-16-16-56-49.png" alt="快速排序"></p>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">int qivotPosition(int a[],int low,int high)</span><br><span class="line">&#123;</span><br><span class="line">    int temp = a[low];</span><br><span class="line">    while(low&lt;high)</span><br><span class="line">    &#123;</span><br><span class="line">        while(low&lt;high&amp;&amp;a[high]&gt;=temp)high--;</span><br><span class="line">        a[low] = a[high];</span><br><span class="line">        while(low&lt;high&amp;&amp;a[low]&lt;=temp)low++;</span><br><span class="line">        a[high] = a[low];</span><br><span class="line">    &#125;</span><br><span class="line">    a[low] = temp;</span><br><span class="line">    return low;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">void quickSort(int a[],int low,int high)</span><br><span class="line">&#123;</span><br><span class="line">    if(low&lt;high)</span><br><span class="line">    &#123;</span><br><span class="line">        int qivot = qivotPosition(a,low,high);</span><br><span class="line">        quickSort(a,low,qivot-1);</span><br><span class="line">        quickSort(a,qivot+1,high);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="比较"><a href="#比较" class="headerlink" title="比较"></a>比较</h3><table>
+<thead>
+<tr>
+<th>排序方法</th>
+<th>平均时间复杂度</th>
+<th>空间复杂度</th>
+<th>稳定性</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>冒泡排序</td>
+<td>O(n2)</td>
+<td>O(1)</td>
+<td>是</td>
+</tr>
+<tr>
+<td>快速排序</td>
+<td>O(nlogn)</td>
+<td>O(logn)</td>
+<td>否</td>
+</tr>
+</tbody>
+</table>
+<h2 id="类型二：插入排序"><a href="#类型二：插入排序" class="headerlink" title="类型二：插入排序"></a>类型二：插入排序</h2><h3 id="直接插入排序"><a href="#直接插入排序" class="headerlink" title="直接插入排序"></a>直接插入排序</h3><blockquote>
+<p>特点：稳定，前面的一部分总是有序的，数据量比较小的时候适用。</p>
+</blockquote>
+<p><img src="https://frank-database.oss-cn-hangzhou.aliyuncs.com/img/2019-8-16-17-11-57.png" alt="直接插入排序"></p>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">void directInsert(int a[],int num)</span><br><span class="line">&#123;</span><br><span class="line">    int temp;</span><br><span class="line">    for(int i=0; i&lt;num-1; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        if(a[i]&gt;a[i+1])</span><br><span class="line">        &#123;</span><br><span class="line">            int j;</span><br><span class="line">            temp = a[i+1];</span><br><span class="line">            for(j=i; temp&lt;a[j]&amp;&amp;j&gt;=0; j-- )</span><br><span class="line">                a[j+1] = a[j];</span><br><span class="line">            a[j+1] = temp;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="希尔排序"><a href="#希尔排序" class="headerlink" title="希尔排序"></a>希尔排序</h3><blockquote>
+<p>特点：不稳定，跨步长有序</p>
+</blockquote>
+<p><img src="https://frank-database.oss-cn-hangzhou.aliyuncs.com/img/2019-8-16-17-11-42.png" alt="希尔排序"></p>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">void shellSort(int a[],int num)</span><br><span class="line">&#123;</span><br><span class="line">    int temp;</span><br><span class="line">    for(int dk=num/2; dk&gt;=1; dk/=2)</span><br><span class="line">        for(int i=dk; i&lt;=num; i++)</span><br><span class="line">         &#123;</span><br><span class="line">            if(a[i]&lt;a[i-dk])</span><br><span class="line">            &#123;</span><br><span class="line">                temp = a[i];</span><br><span class="line">                int j;</span><br><span class="line">                for(j=i-dk;temp&lt;a[j]&amp;&amp;j&gt;=0;j-=dk)</span><br><span class="line">                    a[j+dk] = a[j];</span><br><span class="line">                a[j+dk] = temp;</span><br><span class="line">            &#125;</span><br><span class="line">         &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="比较-1"><a href="#比较-1" class="headerlink" title="比较"></a>比较</h3><table>
+<thead>
+<tr>
+<th>排序方法</th>
+<th>平均时间复杂度</th>
+<th>空间复杂度</th>
+<th>稳定性</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>直接插入排序</td>
+<td>O(n2)</td>
+<td>O(1)</td>
+<td>是</td>
+</tr>
+<tr>
+<td>希尔排序</td>
+<td>O(n1.3)</td>
+<td>O(1)</td>
+<td>否</td>
+</tr>
+</tbody>
+</table>
+<h2 id="类型三：选择排序"><a href="#类型三：选择排序" class="headerlink" title="类型三：选择排序"></a>类型三：选择排序</h2><h3 id="简单选择排序"><a href="#简单选择排序" class="headerlink" title="简单选择排序"></a>简单选择排序</h3><blockquote>
+<p>特点：不稳定，每次都能有一个有序</p>
+</blockquote>
+<p><img src="https://frank-database.oss-cn-hangzhou.aliyuncs.com/img/2019-8-16-17-9-27.png" alt="简单选择排序"></p>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">void selectSort(int a[],int num)</span><br><span class="line">&#123;</span><br><span class="line">    for(int i=0;i&lt;num-1;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        int min = i;</span><br><span class="line">        for(int j=i+1;j&lt;num;j++)</span><br><span class="line">            if(a[j]&lt;a[min])min = j;  //记录最小值</span><br><span class="line">        if(min!=i)</span><br><span class="line">            swap(a[i],a[min]);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="堆排"><a href="#堆排" class="headerlink" title="堆排"></a>堆排</h3><blockquote>
+<p>特点：堆排分为大顶堆和小顶堆，本例是以大顶堆为例，每次调整以后都可以找到最大值。最为重要的是堆排在最坏的情况下也可以保证O(nlogn)的时间复杂度，且空间复杂度为O(1)。数据量较大的时候比较适合选择。</p>
+</blockquote>
+<p><strong>注意：</strong>本例中的数据有特殊性 a[1]-a[num] 其中a[0]为临时存储容器</p>
+<p>步骤如下：</p>
+<ol>
+<li><p>首先将序列构造成大根堆（位于根节点的一定是当前序列的最大值）</p>
+<p><img src="https://frank-database.oss-cn-hangzhou.aliyuncs.com/img/2019-8-16-17-11-9.png" alt></p>
+</li>
+<li><p>取出当前大顶堆的根节点，将其与序列末尾元素进行交换</p>
+</li>
+<li><p>对交换后的n-1个序列元素进行调整，使其满足大顶堆的性质</p>
+<p><img src="https://frank-database.oss-cn-hangzhou.aliyuncs.com/img/2019-8-16-17-11-20.png" alt></p>
+</li>
+<li><p>重复2.3步骤，直至堆中只有1个元素为止</p>
+</li>
+</ol>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">void adjustDown(int a[],int k,int num);</span><br><span class="line">void buildMaxHeap(int a[],int num)</span><br><span class="line">&#123;</span><br><span class="line">    for(int i=num/2;i&gt;0;i--)</span><br><span class="line">        adjustDown(a,i,num);</span><br><span class="line">&#125;</span><br><span class="line">void adjustDown(int a[],int k,int num)</span><br><span class="line">&#123;</span><br><span class="line">    a[0] = a[k];</span><br><span class="line">    for(int i=2*k;i&lt;=num;i*=2)</span><br><span class="line">    &#123;</span><br><span class="line">        if(i&lt;num&amp;&amp;a[i]&lt;a[i+1])</span><br><span class="line">            i++;</span><br><span class="line">        if(a[0]&gt;=a[i])break;</span><br><span class="line">        else</span><br><span class="line">        &#123;</span><br><span class="line">            a[k] = a[i];</span><br><span class="line">            k = i;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    a[k] = a[0];</span><br><span class="line">&#125;</span><br><span class="line">void heapSort(int a[],int num)</span><br><span class="line">&#123;</span><br><span class="line">    buildMaxHeap(a,num);</span><br><span class="line">    for(int i=num;i&gt;1;i--)</span><br><span class="line">    &#123;</span><br><span class="line">        swap(a[i],a[1]);</span><br><span class="line">        adjustDown(a,1,i-1);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="比较-2"><a href="#比较-2" class="headerlink" title="比较"></a>比较</h3><table>
+<thead>
+<tr>
+<th>排序方法</th>
+<th>平均时间复杂度</th>
+<th>空间复杂度</th>
+<th>稳定性</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>简答选择排序</td>
+<td>O(n2)</td>
+<td>O(1)</td>
+<td>否</td>
+</tr>
+<tr>
+<td>堆排序</td>
+<td>O(nlogn)</td>
+<td>O(1)</td>
+<td>否</td>
+</tr>
+</tbody>
+</table>
+<h2 id="类型四：归并排序"><a href="#类型四：归并排序" class="headerlink" title="类型四：归并排序"></a>类型四：归并排序</h2><h3 id="归并排序"><a href="#归并排序" class="headerlink" title="归并排序"></a>归并排序</h3><blockquote>
+<p>特点：稳定，唯一速度快的排序中稳定的排序算法，但付出了空间的代价。局部有序，进而全局有序。</p>
+</blockquote>
+<p><img src="https://frank-database.oss-cn-hangzhou.aliyuncs.com/img/2019-8-16-17-12-34.png" alt="归并排序"></p>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">int b[100];</span><br><span class="line">void merge(int a[],int low,int mid,int high)</span><br><span class="line">&#123;</span><br><span class="line">    int i,j,k;</span><br><span class="line">    for(k=low;k&lt;=high;k++)</span><br><span class="line">    &#123;</span><br><span class="line">        b[k] = a[k];</span><br><span class="line">    &#125;</span><br><span class="line">    for(i=low,j=mid+1,k=i;i&lt;=mid&amp;&amp;j&lt;=high;k++)</span><br><span class="line">    &#123;</span><br><span class="line">        if(b[i]&lt;=b[j])</span><br><span class="line">            a[k] = b[i++];</span><br><span class="line">        else</span><br><span class="line">            a[k] = b[j++];</span><br><span class="line">    &#125;</span><br><span class="line">    while(i&lt;=mid) a[k++] = b[i++];               //若第一个表未检测完，复制</span><br><span class="line">    while(j&lt;=high) a[k++] = b[j++];              //若第二个表未检测完，复制</span><br><span class="line">&#125;</span><br><span class="line">void mergeSort(int a[],int low,int high)</span><br><span class="line">&#123;</span><br><span class="line">    if(low&lt;high)</span><br><span class="line">    &#123;</span><br><span class="line">        int mid = (low+high)/2;</span><br><span class="line">        mergeSort(a,low,mid);</span><br><span class="line">        mergeSort(a,mid+1,high);</span><br><span class="line">        merge(a,low,mid,high);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="比较-3"><a href="#比较-3" class="headerlink" title="比较"></a>比较</h3><table>
+<thead>
+<tr>
+<th>排序方法</th>
+<th>平均时间复杂度</th>
+<th>空间复杂度</th>
+<th>稳定性</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>归并排序</td>
+<td>O(nlogn)</td>
+<td>O(n)</td>
+<td>是</td>
+</tr>
+</tbody>
+</table>
+<h2 id="类型五：基数排序"><a href="#类型五：基数排序" class="headerlink" title="类型五：基数排序"></a>类型五：基数排序</h2><h3 id="基数排序"><a href="#基数排序" class="headerlink" title="基数排序"></a>基数排序</h3><p><strong>步骤如下：</strong></p>
+<ol>
+<li>分配：将L[i]中的元素取出，首先确定个位上的数字，根据该数字分配到与之序号相同的桶中</li>
+<li>收集：当序列中所有的元素都分配到对应的桶中，再按照顺序依次将桶中的元素收集成新的一个待排序的序列L[]</li>
+<li>对新形成的序列L[]重复执行分配和收集工作，对元素中的十位、百位…直到分配完该序列中的最高位，则排序结束。总体应用了一种“桶排”的思想</li>
+</ol>
+<h3 id="比较-4"><a href="#比较-4" class="headerlink" title="比较"></a>比较</h3><table>
+<thead>
+<tr>
+<th>排序方法</th>
+<th>平均时间复杂度</th>
+<th>空间复杂度</th>
+<th>稳定性</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>基数排序</td>
+<td>O(d(n+r))</td>
+<td>O®</td>
+<td>是</td>
+</tr>
+</tbody>
+</table>
+<h2 id="八大排序的代码实现"><a href="#八大排序的代码实现" class="headerlink" title="八大排序的代码实现"></a>八大排序的代码实现</h2><figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;iostream&gt;</span><br><span class="line"></span><br><span class="line">using namespace std;</span><br><span class="line">//交换排序</span><br><span class="line">//冒泡 稳定 每一次都会有一个数字到最终的位置</span><br><span class="line">void swap(int &amp;a,int &amp;b)</span><br><span class="line">&#123;</span><br><span class="line">    int c = a;</span><br><span class="line">    a = b;</span><br><span class="line">    b = c;</span><br><span class="line">&#125;</span><br><span class="line">void bubbleSort(int a[],int num)</span><br><span class="line">&#123;</span><br><span class="line">    for(int i=0;i&lt;num-1;i++)</span><br><span class="line">        for(int j=0;j&lt;num-i-1;j++)</span><br><span class="line">            if(a[j]&gt;a[j+1])swap(a[j],a[j+1]);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//快排 不稳定 每次中间的数字会有序</span><br><span class="line">//数据量中等时选用 数量太大可能会爆栈</span><br><span class="line"></span><br><span class="line">int qivotPosition(int a[],int low,int high)</span><br><span class="line">&#123;</span><br><span class="line">    int temp = a[low];</span><br><span class="line">    while(low&lt;high)</span><br><span class="line">    &#123;</span><br><span class="line">        while(low&lt;high&amp;&amp;a[high]&gt;=temp)high--;</span><br><span class="line">        a[low] = a[high];</span><br><span class="line">        while(low&lt;high&amp;&amp;a[low]&lt;=temp)low++;</span><br><span class="line">        a[high] = a[low];</span><br><span class="line">    &#125;</span><br><span class="line">    a[low] = temp;</span><br><span class="line">    return low;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">void quickSort(int a[],int low,int high)</span><br><span class="line">&#123;</span><br><span class="line">    if(low&lt;high)</span><br><span class="line">    &#123;</span><br><span class="line">        int qivot = qivotPosition(a,low,high);</span><br><span class="line">        quickSort(a,low,qivot-1);</span><br><span class="line">        quickSort(a,qivot+1,high);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//插入排序</span><br><span class="line">//直接插入 稳定 前面的一部分总是有序的</span><br><span class="line">//数据量比较小的时候适用</span><br><span class="line"></span><br><span class="line">void directInsert(int a[],int num)</span><br><span class="line">&#123;</span><br><span class="line">    int temp;</span><br><span class="line">    for(int i=0; i&lt;num-1; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        if(a[i]&gt;a[i+1])</span><br><span class="line">        &#123;</span><br><span class="line">            int j;</span><br><span class="line">            temp = a[i+1];</span><br><span class="line">            for(j=i; temp&lt;a[j]&amp;&amp;j&gt;=0; j-- )</span><br><span class="line">                a[j+1] = a[j];</span><br><span class="line">            a[j+1] = temp;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">//希尔排序 不稳定 跨步长有序</span><br><span class="line">//步长的起始值为num/2</span><br><span class="line"></span><br><span class="line">void shellSort(int a[],int num)</span><br><span class="line">&#123;</span><br><span class="line">    int temp;</span><br><span class="line">    for(int dk=num/2; dk&gt;=1; dk/=2)</span><br><span class="line">        for(int i=dk; i&lt;=num; i++)</span><br><span class="line">         &#123;</span><br><span class="line">            if(a[i]&lt;a[i-dk])</span><br><span class="line">            &#123;</span><br><span class="line">                temp = a[i];</span><br><span class="line">                int j;</span><br><span class="line">                for(j=i-dk;temp&lt;a[j]&amp;&amp;j&gt;=0;j-=dk)</span><br><span class="line">                    a[j+dk] = a[j];</span><br><span class="line">                a[j+dk] = temp;</span><br><span class="line">            &#125;</span><br><span class="line">         &#125;</span><br><span class="line">&#125;</span><br><span class="line">//选择排序 不稳定</span><br><span class="line">//简单选择排序 每次都能有一个有序</span><br><span class="line">void selectSort(int a[],int num)</span><br><span class="line">&#123;</span><br><span class="line">    for(int i=0;i&lt;num-1;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        int min = i;</span><br><span class="line">        for(int j=i+1;j&lt;num;j++)</span><br><span class="line">            if(a[j]&lt;a[min])min = j;  //记录最小值</span><br><span class="line">        if(min!=i)</span><br><span class="line">            swap(a[i],a[min]);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//堆排  因为最后的交换 所以也是不稳定排序</span><br><span class="line">//分为大顶堆和小顶堆 本例以大顶堆为例 每次调整之后都可以找到最大值</span><br><span class="line">//本例中的数据有特殊性 a[1]-a[num] 其中a[0]为临时存储容器 所以数组声明需要a[num+1]</span><br><span class="line">void adjustDown(int a[],int k,int num);</span><br><span class="line">void buildMaxHeap(int a[],int num)</span><br><span class="line">&#123;</span><br><span class="line">    for(int i=num/2;i&gt;0;i--)</span><br><span class="line">        adjustDown(a,i,num);</span><br><span class="line">&#125;</span><br><span class="line">void adjustDown(int a[],int k,int num)</span><br><span class="line">&#123;</span><br><span class="line">    a[0] = a[k];</span><br><span class="line">    for(int i=2*k;i&lt;=num;i*=2)</span><br><span class="line">    &#123;</span><br><span class="line">        if(i&lt;num&amp;&amp;a[i]&lt;a[i+1])</span><br><span class="line">            i++;</span><br><span class="line">        if(a[0]&gt;=a[i])break;</span><br><span class="line">        else</span><br><span class="line">        &#123;</span><br><span class="line">            a[k] = a[i];</span><br><span class="line">            k = i;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    a[k] = a[0];</span><br><span class="line">&#125;</span><br><span class="line">void heapSort(int a[],int num)</span><br><span class="line">&#123;</span><br><span class="line">    buildMaxHeap(a,num);</span><br><span class="line">    for(int i=num;i&gt;1;i--)</span><br><span class="line">    &#123;</span><br><span class="line">        swap(a[i],a[1]);</span><br><span class="line">        adjustDown(a,1,i-1);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">//归并排序 稳定排序 局部有序，进而全局有序</span><br><span class="line">int b[100];</span><br><span class="line">void merge(int a[],int low,int mid,int high)</span><br><span class="line">&#123;</span><br><span class="line">    int i,j,k;</span><br><span class="line">    for(k=low;k&lt;=high;k++)</span><br><span class="line">    &#123;</span><br><span class="line">        b[k] = a[k];</span><br><span class="line">    &#125;</span><br><span class="line">    for(i=low,j=mid+1,k=i;i&lt;=mid&amp;&amp;j&lt;=high;k++)</span><br><span class="line">    &#123;</span><br><span class="line">        if(b[i]&lt;=b[j])</span><br><span class="line">            a[k] = b[i++];</span><br><span class="line">        else</span><br><span class="line">            a[k] = b[j++];</span><br><span class="line">    &#125;</span><br><span class="line">    while(i&lt;=mid) a[k++] = b[i++];               //若第一个表未检测完，复制</span><br><span class="line">    while(j&lt;=high) a[k++] = b[j++];              //若第二个表未检测完，复制</span><br><span class="line">&#125;</span><br><span class="line">void mergeSort(int a[],int low,int high)</span><br><span class="line">&#123;</span><br><span class="line">    if(low&lt;high)</span><br><span class="line">    &#123;</span><br><span class="line">        int mid = (low+high)/2;</span><br><span class="line">        mergeSort(a,low,mid);</span><br><span class="line">        mergeSort(a,mid+1,high);</span><br><span class="line">        merge(a,low,mid,high);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    int num;</span><br><span class="line">    int a[100];</span><br><span class="line">    /*</span><br><span class="line">    //堆排的输入输出</span><br><span class="line">    while(cin&gt;&gt;num)</span><br><span class="line">    &#123;</span><br><span class="line">        for(int i=1;i&lt;=num;i++)</span><br><span class="line">            cin&gt;&gt;a[i];</span><br><span class="line">        heapSort(a,num);</span><br><span class="line">        for(int i=1;i&lt;=num;i++)</span><br><span class="line">            cout&lt;&lt;a[i]&lt;&lt;&quot; &quot;;</span><br><span class="line">        cout&lt;&lt;endl;</span><br><span class="line"></span><br><span class="line">    &#125;*/</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    while(cin&gt;&gt;num)</span><br><span class="line">    &#123;</span><br><span class="line">    //cin&gt;&gt;num;  //一个数组的长度</span><br><span class="line">    for(int i=0;i&lt;num;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        cin&gt;&gt;a[i];</span><br><span class="line">    &#125;</span><br><span class="line">    //bubbleSort(a,num);</span><br><span class="line">    //quickSort(a,0,num-1);</span><br><span class="line">    //directInsert(a,num);</span><br><span class="line">    //shellSort(a,num);</span><br><span class="line">    //selectSort(a,num);</span><br><span class="line">    mergeSort(a,0,num-1);</span><br><span class="line">    for(int i=0;i&lt;num;i++)</span><br><span class="line">        cout&lt;&lt;a[i]&lt;&lt;&quot; &quot;;</span><br><span class="line">    cout&lt;&lt;endl;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="性能比较"><a href="#性能比较" class="headerlink" title="性能比较"></a>性能比较</h2><p><img src="https://frank-database.oss-cn-hangzhou.aliyuncs.com/img/2019-8-16-17-6-19.png" alt></p>
+<p>注：</p>
+<ol>
+<li><strong>归并排序</strong>是唯一一个效率较高，却稳定的算法，因为它付出了空间的代价。</li>
+<li>堆排序与归并的最好、最差时间复杂度都可以是O(nlogn)，且堆排的空间复杂度仅为O(1)。</li>
+<li><strong>归并排序</strong>每次递归都要用到一个辅助表，长度与待排序的表长度相同，虽然递归次数是<code>O(log2n)</code>，但每次递归都会释放掉所占的辅助空间。</li>
+<li><strong>快速排序</strong>空间复杂度只是在通常情况下才为<code>O(log2n)</code>，如果是最坏情况的话，很显然就要<code>O(n)</code>的空间了。当然，可以通过随机化选择pivot来将空间复杂度降低到<code>O(log2n)</code>。</li>
+</ol>
+<p>相关概念：</p>
+<ol>
+<li><p><strong>时间复杂度</strong></p>
+<p>时间复杂度可以认为是对排序数据的总的操作次数。反映当n变化时，操作次数呈现什么规律。</p>
+<p>常见的时间复杂度有：</p>
+<p>常数阶<code>O(1)</code>，对数阶<code>O(log2n)</code>，线性阶<code>O(n)</code>，线性对数阶<code>O(nlog2n)</code>，平方阶<code>O(n2)</code>。</p>
+<p>时间复杂度O(1)：算法中语句执行次数为一个常数，则时间复杂度为<code>O(1)</code>。</p>
+</li>
+<li><p><strong>空间复杂度</strong></p>
+<p>空间复杂度是指算法在计算机内执行时所需存储空间的度量，它也是问题规模n的函数。</p>
+<p>空间复杂度O(1)：当一个算法的空间复杂度为一个常量，即不随被处理数据量n的大小而改变时，可表示为O(1)。</p>
+<p>空间复杂度O(log2N)：当一个算法的空间复杂度与以2为底的n的对数成正比时，可表示为O(log2n)。</p>
+<p>ax=N，则x=logaN。</p>
+<p>空间复杂度O(n)：当一个算法的空间复杂度与n成线性比例关系时，可表示为<code>0(n)</code>。</p>
+</li>
+</ol>
+
+        </div>
+        
+        <div class="level is-size-7 is-uppercase">
+            <div class="level-start">
+                <div class="level-item">
+                    <span class="is-size-6 has-text-grey has-mr-7">#</span>
+                    <a class="has-link-grey -link" href="/tags/排序/">排序</a>, <a class="has-link-grey -link" href="/tags/数据结构/">数据结构</a>
+                </div>
+            </div>
+        </div>
+        
+        
+        
+    </div>
+</div>
+
+
+
+<div class="card">
+    <div class="card-content">
+        <h3 class="menu-label has-text-centered">喜欢这篇文章？打赏一下作者吧</h3>
+        <div class="buttons is-centered">
+            
+        </div>
+    </div>
+</div>
+
+
+
+<div class="card card-transparent">
+    <div class="level post-navigation is-flex-wrap is-mobile">
+        
+        <div class="level-start">
+            <a class="level level-item has-link-grey  article-nav-prev" href="/2019/07/11/普通人的网页配色方案/">
+                <i class="level-item fas fa-chevron-left"></i>
+                <span class="level-item">普通人的网页配色方案</span>
+            </a>
+        </div>
+        
+        
+        <div class="level-end">
+            <a class="level level-item has-link-grey  article-nav-next" href="/2019/07/09/AJax和XMLHttpRequest/">
+                <span class="level-item">AJax和XMLHttpRequest</span>
+                <i class="level-item fas fa-chevron-right"></i>
+            </a>
+        </div>
+        
+    </div>
+</div>
+
+
+</div>
+                
+
+
+
+
+<div class="column is-4-tablet is-4-desktop is-3-widescreen  has-order-1 column-left ">
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <nav class="level">
+            <div class="level-item has-text-centered" style="flex-shrink: 1">
+                <div>
+                    
+                        <img class="image is-128x128 has-mb-6" src="/images/avatar.png" alt="Your name">
+                    
+                    
+                    <p class="is-size-4 is-block">
+                        Your name
+                    </p>
+                    
+                    
+                    <p class="is-size-6 is-block">
+                        Your title
+                    </p>
+                    
+                    
+                    <p class="is-size-6 is-flex is-flex-center has-text-grey">
+                        <i class="fas fa-map-marker-alt has-mr-7"></i>
+                        <span>Your location</span>
+                    </p>
+                    
+                </div>
+            </div>
+        </nav>
+        <nav class="level is-mobile">
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        文章
+                    </p>
+                    <p class="title has-text-weight-normal">
+                        61
+                    </p>
+                </div>
+            </div>
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        分类
+                    </p>
+                    <p class="title has-text-weight-normal">
+                        9
+                    </p>
+                </div>
+            </div>
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        标签
+                    </p>
+                    <p class="title has-text-weight-normal">
+                        57
+                    </p>
+                </div>
+            </div>
+        </nav>
+        <div class="level">
+            <a class="level-item button is-link is-rounded" href="https://github.com/ppoffice" target="_blank">
+                关注我</a>
+        </div>
+        
+        
+        <div class="level is-mobile">
+            
+            <a class="level-item button is-white is-marginless" target="_blank"
+                title="Github" href="https://github.com/ppoffice">
+                
+                <i class="fab fa-github"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank"
+                title="Facebook" href="https://facebook.com">
+                
+                <i class="fab fa-facebook"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank"
+                title="Twitter" href="https://twitter.com">
+                
+                <i class="fab fa-twitter"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank"
+                title="Dribbble" href="https://dribbble.com">
+                
+                <i class="fab fa-dribbble"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank"
+                title="RSS" href="/">
+                
+                <i class="fas fa-rss"></i>
+                
+            </a>
+            
+        </div>
+        
+    </div>
+</div>
+    
+        
+    
+        
+
+<div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+        <h3 class="menu-label">
+            链接
+        </h3>
+        <ul class="menu-list">
+        
+            <li>
+                <a class="level is-mobile" href="https://hexo.io" target="_blank">
+                    <span class="level-left">
+                        <span class="level-item">Hexo</span>
+                    </span>
+                    <span class="level-right">
+                        <span class="level-item tag">hexo.io</span>
+                    </span>
+                </a>
+            </li>
+        
+            <li>
+                <a class="level is-mobile" href="https://github.com/ppoffice" target="_blank">
+                    <span class="level-left">
+                        <span class="level-item">PPOffice</span>
+                    </span>
+                    <span class="level-right">
+                        <span class="level-item tag">github.com</span>
+                    </span>
+                </a>
+            </li>
+        
+        </ul>
+        </div>
+    </div>
+</div>
+
+
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                分类
+            </h3>
+            <ul class="menu-list">
+            <li>
+        <a class="level is-marginless" href="/categories/CSS/">
+            <span class="level-start">
+                <span class="level-item">CSS</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">6</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/HTTP/">
+            <span class="level-start">
+                <span class="level-item">HTTP</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">6</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/JS-ES6/">
+            <span class="level-start">
+                <span class="level-item">JS/ES6</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">13</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/React/">
+            <span class="level-start">
+                <span class="level-item">React</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">3</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/ReactNative/">
+            <span class="level-start">
+                <span class="level-item">ReactNative</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">12</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/Vue/">
+            <span class="level-start">
+                <span class="level-item">Vue</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">2</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/其他前端/">
+            <span class="level-start">
+                <span class="level-item">其他前端</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">14</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/数据结构/">
+            <span class="level-start">
+                <span class="level-item">数据结构</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/服务器/">
+            <span class="level-start">
+                <span class="level-item">服务器</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">4</span>
+            </span>
+        </a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <h3 class="menu-label">
+            标签云
+        </h3>
+        <a href="/tags/AJax/" style="font-size: 11.67px;">AJax</a> <a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/Array/" style="font-size: 13.33px;">Array</a> <a href="/tags/Axios/" style="font-size: 10px;">Axios</a> <a href="/tags/CORS/" style="font-size: 10px;">CORS</a> <a href="/tags/CSRF/" style="font-size: 10px;">CSRF</a> <a href="/tags/CSS/" style="font-size: 10px;">CSS</a> <a href="/tags/Debug/" style="font-size: 10px;">Debug</a> <a href="/tags/ECharts/" style="font-size: 10px;">ECharts</a> <a href="/tags/Grid/" style="font-size: 10px;">Grid</a> <a href="/tags/HTTP/" style="font-size: 16.67px;">HTTP</a> <a href="/tags/Hexo/" style="font-size: 13.33px;">Hexo</a> <a href="/tags/Hook/" style="font-size: 10px;">Hook</a> <a href="/tags/JSONP/" style="font-size: 11.67px;">JSONP</a> <a href="/tags/Linux/" style="font-size: 11.67px;">Linux</a> <a href="/tags/MongoDB/" style="font-size: 11.67px;">MongoDB</a> <a href="/tags/Object/" style="font-size: 10px;">Object</a> <a href="/tags/PicGo/" style="font-size: 10px;">PicGo</a> <a href="/tags/Promise/" style="font-size: 10px;">Promise</a> <a href="/tags/React/" style="font-size: 11.67px;">React</a> <a href="/tags/ReactNative/" style="font-size: 18.33px;">ReactNative</a> <a href="/tags/SSH/" style="font-size: 10px;">SSH</a> <a href="/tags/SameSite/" style="font-size: 10px;">SameSite</a> <a href="/tags/TravisCI/" style="font-size: 10px;">TravisCI</a> <a href="/tags/TypeScript/" style="font-size: 10px;">TypeScript</a> <a href="/tags/URI/" style="font-size: 10px;">URI</a> <a href="/tags/VSCode/" style="font-size: 10px;">VSCode</a> <a href="/tags/Vue/" style="font-size: 10px;">Vue</a> <a href="/tags/VueRouter/" style="font-size: 10px;">VueRouter</a> <a href="/tags/XMLHttpRequest/" style="font-size: 10px;">XMLHttpRequest</a> <a href="/tags/proto/" style="font-size: 10px;">__proto__</a> <a href="/tags/absolute/" style="font-size: 10px;">absolute</a> <a href="/tags/async-await/" style="font-size: 11.67px;">async/await</a> <a href="/tags/call-apply-bind/" style="font-size: 10px;">call apply bind</a> <a href="/tags/cookie/" style="font-size: 10px;">cookie</a> <a href="/tags/flex/" style="font-size: 10px;">flex</a> <a href="/tags/git/" style="font-size: 15px;">git</a> <a href="/tags/ngnix/" style="font-size: 10px;">ngnix</a> <a href="/tags/node/" style="font-size: 10px;">node</a> <a href="/tags/pm2/" style="font-size: 10px;">pm2</a> <a href="/tags/prototype/" style="font-size: 10px;">prototype</a> <a href="/tags/rem/" style="font-size: 10px;">rem</a> <a href="/tags/table/" style="font-size: 10px;">table</a> <a href="/tags/上拉加载/" style="font-size: 10px;">上拉加载</a> <a href="/tags/事件委托/" style="font-size: 10px;">事件委托</a> <a href="/tags/原型链/" style="font-size: 10px;">原型链</a> <a href="/tags/响应式/" style="font-size: 10px;">响应式</a> <a href="/tags/多端开发/" style="font-size: 10px;">多端开发</a> <a href="/tags/布局/" style="font-size: 11.67px;">布局</a> <a href="/tags/排序/" style="font-size: 10px;">排序</a> <a href="/tags/数据结构/" style="font-size: 10px;">数据结构</a> <a href="/tags/环境变量/" style="font-size: 10px;">环境变量</a> <a href="/tags/环境配置/" style="font-size: 20px;">环境配置</a> <a href="/tags/节流/" style="font-size: 10px;">节流</a> <a href="/tags/跨域/" style="font-size: 11.67px;">跨域</a> <a href="/tags/迭代/" style="font-size: 10px;">迭代</a> <a href="/tags/防抖/" style="font-size: 10px;">防抖</a>
+    </div>
+</div>
+
+    
+    
+        <div class="column-right-shadow is-hidden-widescreen ">
+        
+            
+<div class="card widget">
+    <div class="card-content">
+        <h3 class="menu-label">
+            最新文章
+        </h3>
+        
+        <article class="media">
+            
+            <a href="/2020/05/26/动图解释十大Git命令/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="动图解释十大Git命令">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-05-26T08:22:50.000Z">2020-05-26</time></div>
+                    <a href="/2020/05/26/动图解释十大Git命令/" class="title has-link-black-ter is-size-6 has-text-weight-normal">动图解释十大Git命令</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/其他前端/">其他前端</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2020/04/21/Hexo博客使用TravisCI实现自动部署/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Hexo博客使用TravisCI实现自动部署">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-04-21T01:55:28.000Z">2020-04-21</time></div>
+                    <a href="/2020/04/21/Hexo博客使用TravisCI实现自动部署/" class="title has-link-black-ter is-size-6 has-text-weight-normal">Hexo博客使用TravisCI实现自动部署</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/其他前端/">其他前端</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2020/04/13/写给自己看的ReactNative在AMD锐龙平台下的初始化步骤/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="写给自己看的ReactNative在AMD锐龙平台下的初始化步骤">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-04-13T08:24:10.000Z">2020-04-13</time></div>
+                    <a href="/2020/04/13/写给自己看的ReactNative在AMD锐龙平台下的初始化步骤/" class="title has-link-black-ter is-size-6 has-text-weight-normal">写给自己看的ReactNative在AMD锐龙平台下的初始化步骤</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/ReactNative/">ReactNative</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2020/04/13/ECharts的Tooltip显示遮挡/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="ECharts的Tooltip显示遮挡">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-04-13T07:34:54.000Z">2020-04-13</time></div>
+                    <a href="/2020/04/13/ECharts的Tooltip显示遮挡/" class="title has-link-black-ter is-size-6 has-text-weight-normal">ECharts的Tooltip显示遮挡</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/JS-ES6/">JS/ES6</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2020/04/13/写给自己看的github博客初始化步骤/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="写给自己看的github博客初始化步骤">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-04-13T07:31:50.000Z">2020-04-13</time></div>
+                    <a href="/2020/04/13/写给自己看的github博客初始化步骤/" class="title has-link-black-ter is-size-6 has-text-weight-normal">写给自己看的github博客初始化步骤</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/其他前端/">其他前端</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+    </div>
+</div>
+
+        
+            <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+        <h3 class="menu-label">
+            归档
+        </h3>
+        <ul class="menu-list">
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2020/05/">
+                <span class="level-start">
+                    <span class="level-item">五月 2020</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2020/04/">
+                <span class="level-start">
+                    <span class="level-item">四月 2020</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">5</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2020/03/">
+                <span class="level-start">
+                    <span class="level-item">三月 2020</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2020/02/">
+                <span class="level-start">
+                    <span class="level-item">二月 2020</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">2</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/11/">
+                <span class="level-start">
+                    <span class="level-item">十一月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/09/">
+                <span class="level-start">
+                    <span class="level-item">九月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/08/">
+                <span class="level-start">
+                    <span class="level-item">八月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">21</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/07/">
+                <span class="level-start">
+                    <span class="level-item">七月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">23</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/06/">
+                <span class="level-start">
+                    <span class="level-item">六月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">6</span>
+                </span>
+            </a>
+        </li>
+        
+        </ul>
+        </div>
+    </div>
+</div>
+        
+            <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                标签
+            </h3>
+            <div class="field is-grouped is-grouped-multiline">
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/AJax/">
+                        <span class="tag">AJax</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Android/">
+                        <span class="tag">Android</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Array/">
+                        <span class="tag">Array</span>
+                        <span class="tag is-grey">3</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Axios/">
+                        <span class="tag">Axios</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/CORS/">
+                        <span class="tag">CORS</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/CSRF/">
+                        <span class="tag">CSRF</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/CSS/">
+                        <span class="tag">CSS</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Debug/">
+                        <span class="tag">Debug</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/ECharts/">
+                        <span class="tag">ECharts</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Grid/">
+                        <span class="tag">Grid</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/HTTP/">
+                        <span class="tag">HTTP</span>
+                        <span class="tag is-grey">5</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Hexo/">
+                        <span class="tag">Hexo</span>
+                        <span class="tag is-grey">3</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Hook/">
+                        <span class="tag">Hook</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/JSONP/">
+                        <span class="tag">JSONP</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Linux/">
+                        <span class="tag">Linux</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/MongoDB/">
+                        <span class="tag">MongoDB</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Object/">
+                        <span class="tag">Object</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/PicGo/">
+                        <span class="tag">PicGo</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Promise/">
+                        <span class="tag">Promise</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/React/">
+                        <span class="tag">React</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/ReactNative/">
+                        <span class="tag">ReactNative</span>
+                        <span class="tag is-grey">8</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/SSH/">
+                        <span class="tag">SSH</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/SameSite/">
+                        <span class="tag">SameSite</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/TravisCI/">
+                        <span class="tag">TravisCI</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/TypeScript/">
+                        <span class="tag">TypeScript</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/URI/">
+                        <span class="tag">URI</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/VSCode/">
+                        <span class="tag">VSCode</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Vue/">
+                        <span class="tag">Vue</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/VueRouter/">
+                        <span class="tag">VueRouter</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/XMLHttpRequest/">
+                        <span class="tag">XMLHttpRequest</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/proto/">
+                        <span class="tag">__proto__</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/absolute/">
+                        <span class="tag">absolute</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/async-await/">
+                        <span class="tag">async/await</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/call-apply-bind/">
+                        <span class="tag">call apply bind</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/cookie/">
+                        <span class="tag">cookie</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/flex/">
+                        <span class="tag">flex</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/git/">
+                        <span class="tag">git</span>
+                        <span class="tag is-grey">4</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/ngnix/">
+                        <span class="tag">ngnix</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/node/">
+                        <span class="tag">node</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/pm2/">
+                        <span class="tag">pm2</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/prototype/">
+                        <span class="tag">prototype</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/rem/">
+                        <span class="tag">rem</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/table/">
+                        <span class="tag">table</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/上拉加载/">
+                        <span class="tag">上拉加载</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/事件委托/">
+                        <span class="tag">事件委托</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/原型链/">
+                        <span class="tag">原型链</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/响应式/">
+                        <span class="tag">响应式</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/多端开发/">
+                        <span class="tag">多端开发</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/布局/">
+                        <span class="tag">布局</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/排序/">
+                        <span class="tag">排序</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/数据结构/">
+                        <span class="tag">数据结构</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/环境变量/">
+                        <span class="tag">环境变量</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/环境配置/">
+                        <span class="tag">环境配置</span>
+                        <span class="tag is-grey">14</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/节流/">
+                        <span class="tag">节流</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/跨域/">
+                        <span class="tag">跨域</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/迭代/">
+                        <span class="tag">迭代</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/防抖/">
+                        <span class="tag">防抖</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</div>
+        
+        </div>
+    
+</div>
+
+                
+
+
+
+
+<div class="column is-4-tablet is-4-desktop is-3-widescreen is-hidden-touch is-hidden-desktop-only has-order-3 column-right ">
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <h3 class="menu-label">
+            最新文章
+        </h3>
+        
+        <article class="media">
+            
+            <a href="/2020/05/26/动图解释十大Git命令/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="动图解释十大Git命令">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-05-26T08:22:50.000Z">2020-05-26</time></div>
+                    <a href="/2020/05/26/动图解释十大Git命令/" class="title has-link-black-ter is-size-6 has-text-weight-normal">动图解释十大Git命令</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/其他前端/">其他前端</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2020/04/21/Hexo博客使用TravisCI实现自动部署/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Hexo博客使用TravisCI实现自动部署">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-04-21T01:55:28.000Z">2020-04-21</time></div>
+                    <a href="/2020/04/21/Hexo博客使用TravisCI实现自动部署/" class="title has-link-black-ter is-size-6 has-text-weight-normal">Hexo博客使用TravisCI实现自动部署</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/其他前端/">其他前端</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2020/04/13/写给自己看的ReactNative在AMD锐龙平台下的初始化步骤/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="写给自己看的ReactNative在AMD锐龙平台下的初始化步骤">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-04-13T08:24:10.000Z">2020-04-13</time></div>
+                    <a href="/2020/04/13/写给自己看的ReactNative在AMD锐龙平台下的初始化步骤/" class="title has-link-black-ter is-size-6 has-text-weight-normal">写给自己看的ReactNative在AMD锐龙平台下的初始化步骤</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/ReactNative/">ReactNative</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2020/04/13/ECharts的Tooltip显示遮挡/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="ECharts的Tooltip显示遮挡">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-04-13T07:34:54.000Z">2020-04-13</time></div>
+                    <a href="/2020/04/13/ECharts的Tooltip显示遮挡/" class="title has-link-black-ter is-size-6 has-text-weight-normal">ECharts的Tooltip显示遮挡</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/JS-ES6/">JS/ES6</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2020/04/13/写给自己看的github博客初始化步骤/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="写给自己看的github博客初始化步骤">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-04-13T07:31:50.000Z">2020-04-13</time></div>
+                    <a href="/2020/04/13/写给自己看的github博客初始化步骤/" class="title has-link-black-ter is-size-6 has-text-weight-normal">写给自己看的github博客初始化步骤</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/其他前端/">其他前端</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+    </div>
+</div>
+
+    
+        <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+        <h3 class="menu-label">
+            归档
+        </h3>
+        <ul class="menu-list">
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2020/05/">
+                <span class="level-start">
+                    <span class="level-item">五月 2020</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2020/04/">
+                <span class="level-start">
+                    <span class="level-item">四月 2020</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">5</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2020/03/">
+                <span class="level-start">
+                    <span class="level-item">三月 2020</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2020/02/">
+                <span class="level-start">
+                    <span class="level-item">二月 2020</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">2</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/11/">
+                <span class="level-start">
+                    <span class="level-item">十一月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/09/">
+                <span class="level-start">
+                    <span class="level-item">九月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/08/">
+                <span class="level-start">
+                    <span class="level-item">八月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">21</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/07/">
+                <span class="level-start">
+                    <span class="level-item">七月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">23</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/06/">
+                <span class="level-start">
+                    <span class="level-item">六月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">6</span>
+                </span>
+            </a>
+        </li>
+        
+        </ul>
+        </div>
+    </div>
+</div>
+    
+        <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                标签
+            </h3>
+            <div class="field is-grouped is-grouped-multiline">
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/AJax/">
+                        <span class="tag">AJax</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Android/">
+                        <span class="tag">Android</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Array/">
+                        <span class="tag">Array</span>
+                        <span class="tag is-grey">3</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Axios/">
+                        <span class="tag">Axios</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/CORS/">
+                        <span class="tag">CORS</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/CSRF/">
+                        <span class="tag">CSRF</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/CSS/">
+                        <span class="tag">CSS</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Debug/">
+                        <span class="tag">Debug</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/ECharts/">
+                        <span class="tag">ECharts</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Grid/">
+                        <span class="tag">Grid</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/HTTP/">
+                        <span class="tag">HTTP</span>
+                        <span class="tag is-grey">5</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Hexo/">
+                        <span class="tag">Hexo</span>
+                        <span class="tag is-grey">3</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Hook/">
+                        <span class="tag">Hook</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/JSONP/">
+                        <span class="tag">JSONP</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Linux/">
+                        <span class="tag">Linux</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/MongoDB/">
+                        <span class="tag">MongoDB</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Object/">
+                        <span class="tag">Object</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/PicGo/">
+                        <span class="tag">PicGo</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Promise/">
+                        <span class="tag">Promise</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/React/">
+                        <span class="tag">React</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/ReactNative/">
+                        <span class="tag">ReactNative</span>
+                        <span class="tag is-grey">8</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/SSH/">
+                        <span class="tag">SSH</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/SameSite/">
+                        <span class="tag">SameSite</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/TravisCI/">
+                        <span class="tag">TravisCI</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/TypeScript/">
+                        <span class="tag">TypeScript</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/URI/">
+                        <span class="tag">URI</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/VSCode/">
+                        <span class="tag">VSCode</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Vue/">
+                        <span class="tag">Vue</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/VueRouter/">
+                        <span class="tag">VueRouter</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/XMLHttpRequest/">
+                        <span class="tag">XMLHttpRequest</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/proto/">
+                        <span class="tag">__proto__</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/absolute/">
+                        <span class="tag">absolute</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/async-await/">
+                        <span class="tag">async/await</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/call-apply-bind/">
+                        <span class="tag">call apply bind</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/cookie/">
+                        <span class="tag">cookie</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/flex/">
+                        <span class="tag">flex</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/git/">
+                        <span class="tag">git</span>
+                        <span class="tag is-grey">4</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/ngnix/">
+                        <span class="tag">ngnix</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/node/">
+                        <span class="tag">node</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/pm2/">
+                        <span class="tag">pm2</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/prototype/">
+                        <span class="tag">prototype</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/rem/">
+                        <span class="tag">rem</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/table/">
+                        <span class="tag">table</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/上拉加载/">
+                        <span class="tag">上拉加载</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/事件委托/">
+                        <span class="tag">事件委托</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/原型链/">
+                        <span class="tag">原型链</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/响应式/">
+                        <span class="tag">响应式</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/多端开发/">
+                        <span class="tag">多端开发</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/布局/">
+                        <span class="tag">布局</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/排序/">
+                        <span class="tag">排序</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/数据结构/">
+                        <span class="tag">数据结构</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/环境变量/">
+                        <span class="tag">环境变量</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/环境配置/">
+                        <span class="tag">环境配置</span>
+                        <span class="tag is-grey">14</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/节流/">
+                        <span class="tag">节流</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/跨域/">
+                        <span class="tag">跨域</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/迭代/">
+                        <span class="tag">迭代</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/防抖/">
+                        <span class="tag">防抖</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</div>
+    
+    
+</div>
+
+            </div>
+        </div>
+    </section>
+    <footer class="footer">
+    <div class="container">
+        <div class="level">
+            <div class="level-start has-text-centered-mobile">
+                <a class="footer-logo is-block has-mb-6" href="/">
+                
+                    <img src="/images/logo.svg" alt="数据结构：八大排序" height="28">
+                
+                </a>
+                <p class="is-size-7">
+                &copy; 2020 Frank&nbsp;
+                Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> & <a
+                        href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank">Icarus</a>
+                
+                </p>
+            </div>
+            <div class="level-end">
+            
+                <div class="field has-addons is-flex-center-mobile has-mt-5-mobile is-flex-wrap is-flex-middle">
+                
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="Creative Commons" href="https://creativecommons.org/">
+                        
+                        <i class="fab fa-creative-commons"></i>
+                        
+                    </a>
+                </p>
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/">
+                        
+                        <i class="fab fa-creative-commons-by"></i>
+                        
+                    </a>
+                </p>
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus">
+                        
+                        <i class="fab fa-github"></i>
+                        
+                    </a>
+                </p>
+                
+                </div>
+            
+            </div>
+        </div>
+    </div>
+</footer>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script>
+<script>moment.locale("zh-CN");</script>
+
+<script>
+var IcarusThemeSettings = {
+    article: {
+        highlight: {
+            clipboard: true,
+            fold: 'unfolded'
+        }
+    }
+};
+</script>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script>
+
+
+
+    
+    
+    
+    <script src="/js/animation.js"></script>
+    
+
+    
+    
+    
+    <script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js" defer></script>
+    <script src="/js/gallery.js" defer></script>
+    
+
+    
+    
+
+<div id="outdated">
+    <h6>Your browser is out-of-date!</h6>
+    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" href="http://outdatedbrowser.com/">Update
+            my browser now </a></p>
+    <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.js" defer></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        outdatedBrowser({
+            bgColor: '#f25648',
+            color: '#ffffff',
+            lowerThan: 'flex'
+        });
+    });
+</script>
+
+
+    
+    
+<script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/unpacked/MathJax.js?config=TeX-MML-AM_CHTML" defer></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    MathJax.Hub.Config({
+        'HTML-CSS': {
+            matchFontHeight: false
+        },
+        SVG: {
+            matchFontHeight: false
+        },
+        CommonHTML: {
+            matchFontHeight: false
+        },
+        tex2jax: {
+            inlineMath: [
+                ['$','$'],
+                ['\\(','\\)']
+            ]
+        }
+    });
+});
+</script>
+
+    
+    
+
+<a id="back-to-top" title="回到顶端" href="javascript:;">
+    <i class="fas fa-chevron-up"></i>
+</a>
+<script src="/js/back-to-top.js" defer></script>
+
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+
+
+<script src="/js/main.js" defer></script>
+
+    
+    <div class="searchbox ins-search">
+    <div class="searchbox-container ins-search-container">
+        <div class="searchbox-input-wrapper">
+            <input type="text" class="searchbox-input ins-search-input" placeholder="想要查找什么..." />
+            <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="searchbox-result-wrapper ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: '文章',
+                PAGES: '页面',
+                CATEGORIES: '分类',
+                TAGS: '标签',
+                UNTITLED: '(无标题)',
+            },
+            CONTENT_URL: '/content.json',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
+<script src="/js/insight.js" defer></script>
+<link rel="stylesheet" href="/css/search.css">
+<link rel="stylesheet" href="/css/insight.css">
+    
+</body>
+</html>
